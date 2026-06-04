@@ -1,0 +1,40 @@
+﻿# Phones Farm Box (phonesfarmbox.com)
+
+> Real-device phone farm box and hardware knowledge platform based in Guangzhou, China.
+
+## About
+Phones Farm Box is a real-device phone farm box and hardware knowledge platform based in Guangzhou, China. We provide information and solutions for phone farm boxes, motherboard boxes, USB hubs, power supply systems, cooling systems, network equipment, remote control setup, group control configuration, custom cabinets, and real-device phone farm deployment.
+
+## Solutions
+Social media marketing, e-commerce operations, app development & QA, cross-border marketing, and affiliate marketing — all on real physical device hardware, not cloud phones.
+
+## Platform Scenarios
+TikTok, YouTube, Facebook, Instagram, Telegram, and WhatsApp multi-device management on phone farm box hardware.
+
+## Features
+Device operation workflow, network setup & IP planning, team device management, remote control integration, synchronized device control, ADB batch automation, multi-device dashboard, bulk APK deployment.
+
+## Products
+Phone farm boxes, motherboard boxes, Android & iPhone phone farms, USB hubs, power supply, cooling, network equipment, custom cabinets, remote control setup.
+
+## Knowledge Resources
+Help Center, Phone Farm Box Glossary, Free Tools, Guides & Blog, FAQ.
+
+## Contact
+- Phone: +86 13059502618
+- WhatsApp: +852 6215 5642
+- Telegram: @huicheng1998
+- Email: qiuxui646@gmail.com
+- Location: Guangzhou, China
+
+## Website
+- Home: https://phonesfarmbox.com/
+- Products: https://phonesfarmbox.com/products
+- Solutions: https://phonesfarmbox.com/solutions
+- Scenarios: https://phonesfarmbox.com/scenarios
+- Features: https://phonesfarmbox.com/features
+- Help Center: https://phonesfarmbox.com/help
+- Glossary: https://phonesfarmbox.com/glossary
+- Free Tools: https://phonesfarmbox.com/tools
+- FAQ: https://phonesfarmbox.com/faq
+- Contact: https://phonesfarmbox.com/contact

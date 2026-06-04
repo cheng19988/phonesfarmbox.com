@@ -1,0 +1,74 @@
+﻿export const SITE = {
+  name: "Phones Farm Box",
+  domain: "phonesfarmbox.com",
+  url: "https://phonesfarmbox.com",
+  tagline: "Phone Farm Box Hardware, Accessories and Real-Device Deployment Guides",
+  intro:
+    "Phones Farm Box is a Guangzhou-based phone farm box and hardware knowledge platform focused on real-device phone farm boxes, motherboard boxes, USB hubs, power supply, cooling, network setup, remote control configuration, and phone farm deployment guides.",
+  location: "Guangzhou, China",
+  since: 2017,
+  description:
+    "Phones Farm Box — real-device phone farm box hardware and knowledge platform from Guangzhou. Phone farm boxes, motherboard boxes, USB hubs, power, cooling, network equipment, remote control setup, group control configuration, and deployment guides since 2017.",
+} as const;
+
+export const CONTACT = {
+  phone: "13059502618",
+  telegram: "@huicheng1998",
+  telegramUrl: "https://t.me/huicheng1998",
+  whatsapp: "+852 6215 5642",
+  whatsappUrl: "https://wa.me/85262155642",
+  email: "qiuxui646@gmail.com",
+} as const;
+
+export const PAYMENT = {
+  network: "Tron TRC20",
+  currency: "USDT",
+  address: "TH42KshQyz15iWk5svAwS475RM8oYQjwjW",
+  contract: "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+  minAmount: 10,
+  expiryMinutes: 30,
+} as const;
+
+export const NAV = [
+  { href: "/products", label: "Products" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/scenarios", label: "Scenarios" },
+  { href: "/features", label: "Features" },
+  { href: "/help", label: "Help Center" },
+  { href: "/blog", label: "Guides" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+export const FOOTER_LINKS = {
+  solutions: [
+    { href: "/solutions/social-media-marketing", label: "Social Media Marketing" },
+    { href: "/solutions/ecommerce-operations", label: "E-commerce Operations" },
+    { href: "/solutions/app-development-qa", label: "App Development & QA" },
+    { href: "/solutions/cross-border-marketing", label: "Cross-Border Marketing" },
+    { href: "/solutions/game-account-maintenance", label: "Game Account Maintenance" },
+    { href: "/solutions/live-streaming-device-farm", label: "Live Streaming Farm" },
+  ],
+  scenarios: [
+    { href: "/scenarios/tiktok", label: "TikTok Device Farm" },
+    { href: "/scenarios/youtube", label: "YouTube Device Farm" },
+    { href: "/scenarios/facebook", label: "Facebook Device Farm" },
+    { href: "/scenarios/instagram", label: "Instagram Device Farm" },
+    { href: "/scenarios/telegram", label: "Telegram Device Farm" },
+    { href: "/scenarios/whatsapp", label: "WhatsApp Device Farm" },
+    { href: "/scenarios/twitter-x", label: "Twitter (X) Device Farm" },
+    { href: "/scenarios/amazon-shopee", label: "Amazon & Shopee Farm" },
+  ],
+  features: [
+    { href: "/features/device-operation-workflow", label: "Device Operation Workflow" },
+    { href: "/features/network-setup", label: "Network Setup & IP Planning" },
+    { href: "/features/team-device-management", label: "Team Device Management" },
+    { href: "/features/remote-control-integration", label: "Remote Control Integration" },
+  ],
+  resources: [
+    { href: "/help", label: "Help Center" },
+    { href: "/glossary", label: "Glossary" },
+    { href: "/tools", label: "Free Tools" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/blog", label: "Guides & Blog" },
+  ],
+} as const;
