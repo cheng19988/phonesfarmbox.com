@@ -93,6 +93,7 @@ export function Footer() {
             <li><Link href="/services" className="hover:text-white">Deployment Services</Link></li>
             <li><Link href="/about" className="hover:text-white">About Us</Link></li>
             <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+            <li><Link href="/cookies" className="hover:text-white">Cookie Policy</Link></li>
             <li><Link href="/refund" className="hover:text-white">Refund Policy</Link></li>
             <li><Link href="/terms" className="hover:text-white">Terms of Use</Link></li>
           </ul>

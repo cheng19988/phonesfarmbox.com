@@ -11,8 +11,8 @@ import { FREE_TOOLS } from "@/data/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
-    "", "/products", "/services", "/solutions", "/scenarios", "/features",
-    "/help", "/glossary", "/tools", "/about", "/faq", "/contact", "/blog", "/privacy", "/refund", "/terms",
+    "", "/products", "/pricing", "/services", "/solutions", "/scenarios", "/features",
+    "/help", "/glossary", "/tools", "/about", "/faq", "/contact", "/blog", "/privacy", "/cookies", "/refund", "/terms",
   ].map((path) => ({
     url: `${SITE.url}${path}`,
     lastModified: new Date(),

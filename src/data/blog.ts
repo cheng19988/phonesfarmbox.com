@@ -144,6 +144,58 @@ Need help? WhatsApp +852 6215 5642 or Telegram @huicheng1998 for remote setup su
 
 Contact our sales team with your device count, models, and workflow for a DIY parts recommendation.`,
   },
+  {
+    slug: "phone-farm-network-proxy-setup",
+    title: "Phone Farm Network & Proxy Setup Guide",
+    category: "Setup & Tutorials",
+    date: "2026-05-20",
+    excerpt:
+      "How to plan IP allocation, bind proxies per device group, and configure routers for multi-account phone farm operations.",
+    content: `Network setup is the foundation of stable multi-account phone farm operations. This guide covers hardware-level network planning — the real-device equivalent of cloud proxy management.
+
+**One device, one IP (recommended for social media)**
+Assign dedicated proxy or mobile data routes per device or device group. Bulk import proxy lists and bind via batch control software and router configuration.
+
+**Supported proxy types**
+HTTP, HTTPS, and SOCKS5 proxies can be assigned per device group. Use industrial routers designed for phone farm density.
+
+**Network architecture**
+- Control PC connects to phone farm box via single USB
+- Router handles per-group IP routing
+- OTG Ethernet reduces USB bandwidth bottlenecks on large farms
+
+**Monitoring**
+Check connection status per device group in batch control dashboard. Plan backup IPs for failover during long-running campaigns.
+
+Phones Farm Box sells network equipment and provides deployment guides with every hardware order.`,
+  },
+  {
+    slug: "cloud-phone-vs-box-farm-2026",
+    title: "Cloud Phone vs Box Phone Farm in 2026: Which Wins?",
+    category: "Applications & Use Cases",
+    date: "2026-06-01",
+    excerpt:
+      "Updated 2026 comparison: subscription cloud phones vs one-time hardware phone farm boxes for TikTok, YouTube, and e-commerce teams.",
+    content: `In 2026, teams choosing between cloud phone SaaS and real device phone farm boxes face a clear trade-off: convenience vs ownership and trust scores.
+
+**Cloud phone SaaS (e.g. virtual device platforms)**
+- Monthly per-device subscription
+- Quick setup, no hardware logistics
+- Shared infrastructure fingerprints
+- Best for: light testing, temporary campaigns
+
+**Box phone farm hardware**
+- One-time hardware purchase, you own the equipment
+- Real IMEI, sensors, GPS, carrier profiles
+- Stackable scaling from 20 to 100+ devices
+- Best for: multi-account social media, ad verification, long-term operations
+
+**Pricing model difference**
+Cloud services charge recurring fees. Phones Farm Box hardware starts from sample orders at 1 unit — see our pricing page for current product prices.
+
+**Our recommendation**
+If account trust and platform compliance matter for your workflow, invest in real device hardware. If you need a quick sandbox, cloud may suffice for short tests.`,
+  },
 ];
 
 export function getBlogPost(slug: string) {

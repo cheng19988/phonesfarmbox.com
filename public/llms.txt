@@ -30,6 +30,7 @@ Help Center, Phone Farm Box Glossary, Free Tools, Guides & Blog, FAQ.
 ## Website
 - Home: https://phonesfarmbox.com/
 - Products: https://phonesfarmbox.com/products
+- Pricing: https://phonesfarmbox.com/pricing
 - Solutions: https://phonesfarmbox.com/solutions
 - Scenarios: https://phonesfarmbox.com/scenarios
 - Features: https://phonesfarmbox.com/features

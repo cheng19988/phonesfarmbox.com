@@ -31,6 +31,7 @@ export const PAYMENT = {
 
 export const NAV = [
   { href: "/products", label: "Products" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/solutions", label: "Solutions" },
   { href: "/scenarios", label: "Scenarios" },
   { href: "/features", label: "Features" },
@@ -63,8 +64,10 @@ export const FOOTER_LINKS = {
     { href: "/features/network-setup", label: "Network Setup & IP Planning" },
     { href: "/features/team-device-management", label: "Team Device Management" },
     { href: "/features/remote-control-integration", label: "Remote Control Integration" },
+    { href: "/features/unmanned-live-streaming", label: "Unmanned Live Streaming" },
   ],
   resources: [
+    { href: "/pricing", label: "Pricing" },
     { href: "/help", label: "Help Center" },
     { href: "/glossary", label: "Glossary" },
     { href: "/tools", label: "Free Tools" },

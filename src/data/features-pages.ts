@@ -36,17 +36,23 @@ export const FEATURE_PAGES: ContentPage[] = [
     intro:
       "Proper network setup is critical for multi-device phone farm operations. Phones Farm Box provides network equipment, router solutions, and IP planning guides — the hardware equivalent of cloud proxy management.",
     sections: [
-      { heading: "Per-Device Network Segmentation", body: "Assign dedicated IP routes, mobile data, or proxy connections to each device group. Network routers and switches integrate with phone farm box chassis for stable multi-device connectivity." },
+      { heading: "One Device, One IP — Independent Network Environments", body: "Each device slot in your phone farm box can bind a dedicated proxy or mobile data connection. Bulk import and assign network routes to device groups — the hardware equivalent of DuoPlus-style proxy management, but on real physical devices you own." },
+      { heading: "Bulk Network Configuration", body: "Supports HTTP/HTTPS/SOCKS5 proxy assignment per device group. Import proxy lists in batch and bind to device clusters for TikTok, Facebook, YouTube multi-account scenarios without manual per-phone configuration." },
       { heading: "Router & OTG Ethernet Solutions", body: "OTG Ethernet and LAN-based connection modes provide stable data paths for motherboard boxes and phone farm boxes. Reduces USB bandwidth bottlenecks in large deployments." },
-      { heading: "IP Planning for Global Operations", body: "Plan IP allocation per region, platform, and account group. Our deployment guides cover network architecture for cross-border social media and e-commerce device farms." },
+      { heading: "Network Monitoring & Failover", body: "Monitor connection status per device group via batch control dashboard. Plan failover routes and backup IPs for stable 24/7 cross-border operations on real hardware." },
     ],
     benefits: [
-      { title: "Hardware Network Equipment", desc: "Routers, switches, and hub modules designed for phone farm density." },
-      { title: "Bulk Proxy Configuration", desc: "Import and assign network routes to device groups in batch." },
-      { title: "Stable 24/7 Connectivity", desc: "Industrial networking reduces disconnections during long-running operations." },
+      { title: "Device-Level IP Isolation", desc: "One device-one IP binding reduces account association risk on real hardware." },
+      { title: "Bulk Import & Binding", desc: "Assign hundreds of network routes to device groups at scale." },
+      { title: "Hardware Router Integration", desc: "Industrial routers and switches designed for phone farm density." },
+      { title: "No Cloud Subscription", desc: "Own your network hardware — no per-device monthly fees." },
     ],
     faq: [
-      { q: "Do I need a proxy for every device?", a: "For multi-account operations, dedicated IP per device or device group is recommended. We provide network planning guides and router hardware." },
+      { q: "What is phone farm network setup vs cloud proxy management?", a: "Cloud proxy management runs on virtual phones. Phone farm network setup configures real devices with dedicated routers, proxy bindings, and IP planning — hardware you control permanently." },
+      { q: "Do I need a proxy for every device?", a: "For sensitive multi-account operations, one IP per device or device group is recommended. Lower-risk QA testing may share IP per group." },
+      { q: "Will network issues on one device affect others?", a: "No. Each device has independent network configuration. An anomaly on one device does not interrupt the entire cluster." },
+      { q: "What proxy protocols are supported?", a: "HTTP, HTTPS, and SOCKS5 proxies can be assigned per device group via router configuration and batch control software." },
+      { q: "Does network setup require extra fees?", a: "Network equipment is sold as hardware products. No recurring cloud subscription — routers and switches are one-time purchases." },
     ],
     relatedSlugs: ["team-device-management", "remote-control-integration"],
   },
@@ -92,7 +98,9 @@ export const FEATURE_PAGES: ContentPage[] = [
       { title: "Remote Setup Support", desc: "Our team configures integrations during deployment." },
     ],
     faq: [
-      { q: "Is there an API for phone farm boxes?", a: "Remote control software provides device management interfaces. ADB enables direct script-level integration with each physical device." },
+      { q: "Is there an API for phone farm boxes?", a: "Remote control software provides device management interfaces for listing devices, executing commands, and pushing APKs. ADB enables direct script-level integration with each physical device — the hardware equivalent of cloud phone API access." },
+      { q: "Can I integrate phone farm boxes with my existing automation scripts?", a: "Yes. Standard ADB access on every Android node supports Python, Node.js, and custom automation frameworks. Our deployment team can assist with initial integration setup." },
+      { q: "Does API access require a monthly subscription?", a: "No. Device management interfaces and ADB access are included with phone farm box hardware — no per-device API fees like cloud phone SaaS platforms." },
     ],
     relatedSlugs: ["adb-batch-automation", "device-operation-workflow"],
   },
@@ -221,6 +229,29 @@ export const FEATURE_PAGES: ContentPage[] = [
     ],
     faq: [],
     relatedSlugs: ["bulk-apk-deployment"],
+  },
+  {
+    slug: "unmanned-live-streaming",
+    title: "Unmanned Live Streaming on Phone Farm Box",
+    subtitle: "Multi-account automated streaming on real devices with camera support",
+    category: "Streaming",
+    heroImage: IMAGES.iphoneFarm.hero,
+    intro:
+      "Unmanned live streaming on phone farm box hardware — the real-device alternative to cloud phone streaming. Run multiple live streaming accounts on physical devices with camera support, dedicated network routes, and 24/7 powered infrastructure.",
+    sections: [
+      { heading: "Real Device Camera Streaming", body: "Phone box configurations retain camera hardware for TikTok Live, YouTube Live, and other mobile streaming apps. Each device runs an independent streaming session on authentic mobile hardware." },
+      { heading: "Multi-Account Streaming Matrix", body: "Manage multiple streaming accounts across device groups from centralized batch control dashboard. Plan network and IP per channel for regional streaming strategies." },
+      { heading: "24/7 Powered Infrastructure", body: "Industrial PSU and active cooling support continuous streaming sessions without the thermal throttling common in scattered phone setups." },
+    ],
+    benefits: [
+      { title: "Physical Camera Hardware", desc: "Real device cameras — not virtualized streaming environments." },
+      { title: "Multi-Channel Scale", desc: "20+ streaming devices per box, stackable for growth." },
+      { title: "Stable Power & Cooling", desc: "Designed for continuous 24/7 operation." },
+    ],
+    faq: [
+      { q: "Can phone farm boxes run live streams unattended?", a: "Yes. With batch control software and stable power/cooling, devices can run scheduled streaming workflows on real hardware." },
+    ],
+    relatedSlugs: ["network-setup", "device-operation-workflow"],
   },
 ];
 
