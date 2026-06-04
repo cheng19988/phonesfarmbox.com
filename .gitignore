@@ -24,6 +24,8 @@
 .DS_Store
 *.pem
 dev.db
+prisma/dev.db
+!prisma/data.db
 
 # debug
 npm-debug.log*
@@ -33,6 +35,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel

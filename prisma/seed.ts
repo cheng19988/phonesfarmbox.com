@@ -5,7 +5,7 @@ import { PRODUCT_SEEDS } from "../src/data/products.js";
 import bcrypt from "bcryptjs";
 
 const adapter = new PrismaBetterSqlite3({
-  url: process.env.DATABASE_URL || "file:./prisma/dev.db",
+  url: process.env.DATABASE_URL || "file:./prisma/data.db",
 });
 const prisma = new PrismaClient({ adapter });
 
