@@ -30,7 +30,6 @@ export async function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/products" className="text-sm text-slate-300 hover:text-white">Shop</Link>
         </nav>
         <div className="flex items-center gap-3">
           <Link href="/contact" className="hidden sm:inline-flex btn-primary text-sm py-2 px-4">
@@ -48,7 +47,7 @@ export async function Header() {
         </div>
       </div>
       <nav className="xl:hidden container-wide pb-3 flex gap-4 overflow-x-auto text-sm">
-        {[...NAV, { href: "/products", label: "Shop" }].map((item) => (
+        {NAV.map((item) => (
           <Link key={item.href} href={item.href} className="text-slate-400 hover:text-white whitespace-nowrap">
             {item.label}
           </Link>
@@ -61,7 +60,7 @@ export async function Header() {
 export function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800 mt-auto">
-      <div className="container-wide py-12 grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="container-wide py-12 grid md:grid-cols-2 lg:grid-cols-6 gap-8">
         <div className="lg:col-span-2">
           <div className="font-bold text-white text-lg mb-2">{SITE.name}</div>
           <p className="text-slate-400 text-sm mb-4 max-w-md">{SITE.description}</p>
@@ -79,6 +78,14 @@ export function Footer() {
           <h3 className="font-semibold text-white mb-3">Scenarios</h3>
           <ul className="space-y-2 text-sm text-slate-400">
             {FOOTER_LINKS.scenarios.map((l) => (
+              <li key={l.href}><Link href={l.href} className="hover:text-white">{l.label}</Link></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="font-semibold text-white mb-3">Features</h3>
+          <ul className="space-y-2 text-sm text-slate-400">
+            {FOOTER_LINKS.features.map((l) => (
               <li key={l.href}><Link href={l.href} className="hover:text-white">{l.label}</Link></li>
             ))}
           </ul>

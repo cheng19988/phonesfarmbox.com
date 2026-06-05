@@ -15,7 +15,7 @@ export default function SolutionsIndexPage() {
       <div className="container-wide">
         <h1 className="section-title">Phone Farm Box Solutions</h1>
         <p className="section-subtitle">
-          Industry solutions converted from cloud phone multi-account management to real-device phone farm box hardware deployments from Guangzhou.
+          How marketing teams, QA labs, e-commerce operators, and enterprise clients deploy phone farm box hardware from our Guangzhou factory.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {SOLUTION_PAGES.map((s) => (

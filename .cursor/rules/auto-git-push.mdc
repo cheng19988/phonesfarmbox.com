@@ -1,0 +1,15 @@
+---
+description: Auto commit and push to GitHub after completing tasks
+alwaysApply: true
+---
+
+# Auto Git Push
+
+After completing any code changes for this project:
+
+1. **Always commit and push** without waiting for the user to ask.
+2. Use author env vars if git identity is unset: `cheng19988` / `qiuxui646@gmail.com`.
+3. Push to `https://github.com/cheng19988/phonesfarmbox.com.git` on `main` only.
+4. Bypass local proxy on push: `git -c http.proxy= -c https.proxy= push origin main`
+5. **On network timeout or failure**, retry push up to 3 times with a short delay before reporting failure.
+6. Do not force-push. Do not commit `.env` or secrets.

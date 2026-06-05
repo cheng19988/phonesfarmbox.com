@@ -1,6 +1,6 @@
 ﻿import { FAQAccordion } from "@/components/commerce";
 import { ContactCTA, JsonLd } from "@/components/shared";
-import { FAQ_ITEMS } from "@/data/faq";
+import { FAQ_ITEMS, FAQ_CATEGORIES } from "@/data/faq";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -18,11 +18,21 @@ export default function FAQPage() {
         <div className="container-wide max-w-3xl">
           <h1 className="section-title">Frequently Asked Questions</h1>
           <p className="section-subtitle">
-            Everything you need to know about Phones Farm Box hardware, ordering, shipping, and support.
+            Hardware specs, deployment, ordering, shipping, and support — organized for buyers evaluating a phone farm box purchase.
           </p>
-          <FAQAccordion items={FAQ_ITEMS} />
-          <div className="mt-16">
-            <ContactCTA title="Still Have Questions?" />
+
+          {FAQ_CATEGORIES.map((cat) => {
+            const items = FAQ_ITEMS.filter((f) => f.category === cat);
+            return (
+              <div key={cat} className="mb-12">
+                <h2 className="text-xl font-bold text-white mb-4">{cat}</h2>
+                <FAQAccordion items={items} />
+              </div>
+            );
+          })}
+
+          <div className="mt-8">
+            <ContactCTA title="Still have a project-specific question?" />
           </div>
         </div>
       </div>

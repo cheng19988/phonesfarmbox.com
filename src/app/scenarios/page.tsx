@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { SCENARIOS } from "@/data/scenarios";
 import { buildMetadata } from "@/lib/seo";
-import { SITE } from "@/lib/config";
 import Image from "next/image";
-import { IMAGES } from "@/lib/images";
 
 export const metadata = buildMetadata({
   title: "Platform Scenarios — TikTok, YouTube, Facebook & More",
@@ -17,7 +15,7 @@ export default function ScenariosIndexPage() {
       <div className="container-wide">
         <h1 className="section-title">Platform Scenarios</h1>
         <p className="section-subtitle">
-          Real-device phone farm box solutions for major social, video, and messaging platforms — converted from multi-account cloud phone scenarios to physical hardware deployment.
+          Deployment notes for teams running multiple accounts on TikTok, YouTube, Facebook, Instagram, Telegram, WhatsApp, and e-commerce platforms.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {SCENARIOS.map((s) => (

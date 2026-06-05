@@ -14,7 +14,7 @@ export default function HelpIndexPage() {
       <div className="container-wide">
         <h1 className="section-title">Help Center</h1>
         <p className="section-subtitle">
-          Phone farm box hardware documentation — setup guides, network configuration, remote control software, device workflows, and troubleshooting. Converted from cloud phone help center to real-device hardware focus.
+          Documentation for setup, networking, remote control software, device workflows, and troubleshooting.
         </p>
         {HELP_CATEGORIES.map((cat) => {
           const articles = HELP_ARTICLES.filter((a) => a.category === cat);

@@ -15,7 +15,7 @@ export default function FeaturesIndexPage() {
       <div className="container-wide">
         <h1 className="section-title">Phone Farm Box Features</h1>
         <p className="section-subtitle">
-          Real-device equivalents of cloud phone features — device workflows, network planning, team management, remote control integration, and batch automation on physical hardware.
+          Device workflows, network planning, team access, remote control integration, and batch automation — documented for physical phone farm hardware.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURE_PAGES.map((f) => (

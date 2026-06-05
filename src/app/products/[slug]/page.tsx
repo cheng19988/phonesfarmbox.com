@@ -67,8 +67,16 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
               <BuyButtons slug={product.slug} stock={product.stock} />
               <div className="mt-6 p-4 rounded-lg bg-slate-900/80 border border-slate-800 text-sm text-slate-400">
-                <p className="font-medium text-white mb-2">Contact Sales</p>
-                <p>📞 {CONTACT.phone} · 💬 WhatsApp · ✈️ Telegram · ✉️ {CONTACT.email}</p>
+                <p className="font-medium text-white mb-2">Sales contact</p>
+                <p>
+                  <a href={`tel:${CONTACT.phone}`} className="hover:text-white">{CONTACT.phone}</a>
+                  {" · "}
+                  <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp</a>
+                  {" · "}
+                  <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">Telegram</a>
+                  {" · "}
+                  <a href={`mailto:${CONTACT.email}`} className="hover:text-white">{CONTACT.email}</a>
+                </p>
               </div>
             </div>
           </div>

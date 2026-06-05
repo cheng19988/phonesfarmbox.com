@@ -4,7 +4,7 @@
   url: "https://phonesfarmbox.com",
   tagline: "Phone Farm Box Hardware, Accessories and Real-Device Deployment Guides",
   intro:
-    "Phones Farm Box is a Guangzhou-based phone farm box and hardware knowledge platform focused on real-device phone farm boxes, motherboard boxes, USB hubs, power supply, cooling, network setup, remote control configuration, and phone farm deployment guides.",
+    "Guangzhou manufacturer of phone farm boxes, motherboard chassis, USB hubs, power and cooling systems, and deployment guides for real-device multi-phone operations.",
   location: "Guangzhou, China",
   since: 2017,
   description:
@@ -47,6 +47,7 @@ export const FOOTER_LINKS = {
     { href: "/solutions/app-development-qa", label: "App Development & QA" },
     { href: "/solutions/cross-border-marketing", label: "Cross-Border Marketing" },
     { href: "/solutions/game-account-maintenance", label: "Game Account Maintenance" },
+    { href: "/solutions/affiliate-marketing", label: "Affiliate Marketing" },
     { href: "/solutions/live-streaming-device-farm", label: "Live Streaming Farm" },
   ],
   scenarios: [

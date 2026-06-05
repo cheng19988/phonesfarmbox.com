@@ -31,7 +31,7 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
           <StockBadge stock={stock} />
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <Link href={`/products/${slug}`} className="btn-primary text-center text-sm py-2">Buy Now</Link>
+          <Link href={`/products/${slug}`} className="btn-primary text-center text-sm py-2">View Details</Link>
           <Link href={`/contact?product=${slug}`} className="btn-secondary text-center text-sm py-2">Get Quote</Link>
         </div>
       </div>
@@ -42,8 +42,8 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
 export function FAQAccordion({ items }: { items: { question: string; answer: string }[] }) {
   return (
     <div className="space-y-3">
-      {items.map((item, i) => (
-        <details key={i} className="card p-4 group">
+      {items.map((item) => (
+        <details key={item.question} className="card p-4 group">
           <summary className="font-medium text-white cursor-pointer list-none flex justify-between items-center">
             {item.question}
             <span className="text-amber-400 group-open:rotate-45 transition-transform text-xl">+</span>

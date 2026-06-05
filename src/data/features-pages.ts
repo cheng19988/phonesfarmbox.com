@@ -36,7 +36,7 @@ export const FEATURE_PAGES: ContentPage[] = [
     intro:
       "Proper network setup is critical for multi-device phone farm operations. Phones Farm Box provides network equipment, router solutions, and IP planning guides — the hardware equivalent of cloud proxy management.",
     sections: [
-      { heading: "One Device, One IP — Independent Network Environments", body: "Each device slot in your phone farm box can bind a dedicated proxy or mobile data connection. Bulk import and assign network routes to device groups — the hardware equivalent of DuoPlus-style proxy management, but on real physical devices you own." },
+      { heading: "One Device, One IP — Independent Network Environments", body: "Each device slot in your phone farm box can bind a dedicated proxy or mobile data connection. Bulk import and assign network routes to device groups for multi-account operations on real physical hardware you own." },
       { heading: "Bulk Network Configuration", body: "Supports HTTP/HTTPS/SOCKS5 proxy assignment per device group. Import proxy lists in batch and bind to device clusters for TikTok, Facebook, YouTube multi-account scenarios without manual per-phone configuration." },
       { heading: "Router & OTG Ethernet Solutions", body: "OTG Ethernet and LAN-based connection modes provide stable data paths for motherboard boxes and phone farm boxes. Reduces USB bandwidth bottlenecks in large deployments." },
       { heading: "Network Monitoring & Failover", body: "Monitor connection status per device group via batch control dashboard. Plan failover routes and backup IPs for stable 24/7 cross-border operations on real hardware." },
@@ -77,7 +77,7 @@ export const FEATURE_PAGES: ContentPage[] = [
     faq: [
       { q: "Can multiple people control the same phone farm?", a: "Yes. Batch control software supports multi-user access with device group permissions for team collaboration." },
     ],
-    relatedSlugs: ["multi-device-dashboard", "enterprise-deployment"],
+    relatedSlugs: ["multi-device-dashboard", "remote-control-integration"],
   },
   {
     slug: "remote-control-integration",

@@ -36,10 +36,18 @@ export default async function ProductsPage({
   return (
     <div className="section">
       <div className="container-wide">
-        <h1 className="section-title">Phone Farm Products</h1>
+        <h1 className="section-title">Phone Farm Hardware Catalog</h1>
         <p className="section-subtitle">
-          Factory-direct real device phone farm hardware — prices shown in USD. In-stock units ship within 3–5 business days.
+          Factory-direct pricing in USD. In-stock units typically ship within 3–5 business days after payment confirmation.
         </p>
+
+        <div className="card p-5 mb-8 flex flex-wrap items-center justify-between gap-4 border-amber-800/30 bg-amber-950/10">
+          <div>
+            <p className="font-medium text-white">Need a bulk or custom quote?</p>
+            <p className="text-sm text-slate-400">Send device count, platform, and delivery country — we reply with MOQ, lead time, and shipping options.</p>
+          </div>
+          <Link href="/contact" className="btn-primary shrink-0">Request Quote</Link>
+        </div>
 
         <div className="flex flex-wrap gap-3 mb-8">
           <Link href="/products" className={`px-3 py-1 rounded-full text-sm border ${!params.category ? "border-amber-600 text-amber-400" : "border-slate-700 text-slate-400"}`}>
@@ -54,15 +62,19 @@ export default async function ProductsPage({
 
         <div className="flex gap-3 mb-8 text-sm">
           <span className="text-slate-500">Sort:</span>
-          <Link href="/products?sort=price-asc" className="text-slate-400 hover:text-white">Price Low</Link>
-          <Link href="/products?sort=price-desc" className="text-slate-400 hover:text-white">Price High</Link>
+          <Link href={`/products?${params.category ? `category=${encodeURIComponent(params.category)}&` : ""}sort=price-asc`} className="text-slate-400 hover:text-white">Price: low to high</Link>
+          <Link href={`/products?${params.category ? `category=${encodeURIComponent(params.category)}&` : ""}sort=price-desc`} className="text-slate-400 hover:text-white">Price: high to low</Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products.map((p) => (
-            <ProductCard key={p.id} slug={p.slug} name={p.name} shortDesc={p.shortDesc} priceUsd={p.priceUsd} stock={p.stock} imageCard={p.imageCard} category={p.category} />
-          ))}
-        </div>
+        {products.length === 0 ? (
+          <p className="text-slate-400">No products in this category. <Link href="/contact" className="text-amber-400 hover:underline">Contact us</Link> for availability.</p>
+        ) : (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {products.map((p) => (
+              <ProductCard key={p.id} slug={p.slug} name={p.name} shortDesc={p.shortDesc} priceUsd={p.priceUsd} stock={p.stock} imageCard={p.imageCard} category={p.category} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -8,10 +8,9 @@ import { JsonLd } from "@/components/shared";
 import { FAQ_ITEMS } from "@/data/faq";
 import { BLOG_POSTS } from "@/data/blog";
 import { SCENARIOS } from "@/data/scenarios";
-import { FEATURE_PAGES } from "@/data/features-pages";
 import { SOLUTION_PAGES } from "@/data/solutions-pages";
 import { IMAGES } from "@/lib/images";
-import { SITE } from "@/lib/config";
+import { SITE, CONTACT } from "@/lib/config";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Box Hardware, Accessories and Real-Device Deployment Guides",
@@ -34,34 +33,43 @@ export default async function HomePage() {
 
       {/* Hero */}
       <section className="relative min-h-[75vh] flex items-center overflow-hidden">
-        <Image src={IMAGES.homeHero} alt="Phone farm box hardware" fill className="object-cover opacity-25" priority />
+        <Image src={IMAGES.homeHero} alt="Phone farm box hardware chassis" fill className="object-cover opacity-25" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/92 to-transparent" />
         <div className="container-wide relative py-20">
-          <p className="text-amber-400 font-medium mb-3">📍 {SITE.location} · Real-Device Hardware Since {SITE.since}</p>
+          <p className="text-amber-400 font-medium mb-3">{SITE.location} · Manufacturing since {SITE.since}</p>
           <h1 className="text-4xl md:text-6xl font-bold text-white max-w-4xl leading-tight mb-6">
             Phone Farm Box Hardware, Accessories and Real-Device Deployment Guides
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mb-8">{SITE.intro}</p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/products" className="btn-primary text-lg px-8 py-3">Shop Phone Farm Boxes</Link>
-            <Link href="/help/what-is-phone-farm-box" className="btn-secondary text-lg px-8 py-3">What Is a Phone Farm Box?</Link>
+          <p className="text-xl text-slate-300 max-w-2xl mb-8">
+            Factory-direct phone farm boxes, motherboard chassis, power and cooling systems, and deployment support for teams running real Android and iPhone devices at scale.
+          </p>
+          <div className="flex flex-wrap gap-4 mb-10">
+            <Link href="/products" className="btn-primary text-lg px-8 py-3">Browse Products</Link>
+            <Link href="/contact" className="btn-secondary text-lg px-8 py-3">Request a Quote</Link>
+          </div>
+          <div className="flex flex-wrap gap-6 text-sm text-slate-400">
+            <span>MOQ from 1 unit</span>
+            <span>·</span>
+            <span>Sample orders welcome</span>
+            <span>·</span>
+            <span>Ships worldwide from Guangzhou</span>
           </div>
         </div>
       </section>
 
-      {/* Core Features — duoplus homepage feature grid, converted to hardware */}
+      {/* Core capabilities */}
       <section className="section bg-slate-900/50">
         <div className="container-wide">
-          <h2 className="section-title text-center">Real-Device Phone Farm Capabilities</h2>
-          <p className="section-subtitle text-center mx-auto">Physical phone farm box infrastructure — the real-device alternative to cloud phone multi-account management.</p>
+          <h2 className="section-title text-center">What You Can Run on Phone Farm Box Hardware</h2>
+          <p className="section-subtitle text-center mx-auto">Industrial chassis, unified power, active cooling, and batch PC control — built for 24/7 multi-device operations.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Unlimited Device Scaling", desc: "Stack phone farm boxes modularly — no virtual device limits, scale with real hardware as your operation grows.", href: "/features/multi-device-dashboard" },
-              { title: "Multi-Device Control", desc: "Control all physical devices from one PC via batch control software — no cloud client required.", href: "/features/synchronized-device-control" },
-              { title: "Bulk App Management", desc: "Install, uninstall, and launch apps across 20+ real devices in one operation.", href: "/features/bulk-apk-deployment" },
-              { title: "Device Profile Reset", desc: "Refresh device identity and system state on real hardware — prepare fresh account environments quickly.", href: "/features/device-profile-reset" },
-              { title: "Team Device Sharing", desc: "Assign device groups to team members for collaborative multi-account operations.", href: "/features/team-device-management" },
-              { title: "Network & IP Planning", desc: "Router solutions and per-device network segmentation — hardware equivalent of cloud proxy management.", href: "/features/network-setup" },
+              { title: "Modular Box Scaling", desc: "Standard 20-node boxes stack vertically. Add capacity by adding chassis, not by renting more virtual seats.", href: "/features/multi-device-dashboard" },
+              { title: "Synchronized Device Control", desc: "Operate one master device and mirror actions across a full device group from a single PC.", href: "/features/synchronized-device-control" },
+              { title: "Bulk App Deployment", desc: "Install, update, or remove apps across every connected device in one batch operation.", href: "/features/bulk-apk-deployment" },
+              { title: "Device Profile Reset", desc: "Refresh system state and prepare clean account environments without rebuilding your rack.", href: "/features/device-profile-reset" },
+              { title: "Team Device Assignment", desc: "Split device groups by client, region, or project with shared dashboard access.", href: "/features/team-device-management" },
+              { title: "Network & IP Planning", desc: "Router integration, proxy assignment, and per-group connectivity for multi-account workflows.", href: "/features/network-setup" },
             ].map((item) => (
               <Link key={item.title} href={item.href} className="card p-6 hover:border-amber-800 transition-colors group">
                 <h3 className="font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">{item.title}</h3>
@@ -72,21 +80,21 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Real Device vs Cloud */}
+      {/* Real device positioning */}
       <section className="section">
         <div className="container-wide grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="section-title">Real Device Deployment — Not Cloud Phone</h2>
+            <h2 className="section-title">Physical Devices, Not Virtual Instances</h2>
             <p className="text-slate-300 mb-4 leading-relaxed">
-              Deploy real physical Android and iPhone devices in industrial phone farm boxes. Each device has genuine IMEI, sensors, and mobile hardware profiles — operating like authentic user devices to support stable multi-account workflows on TikTok, YouTube, Facebook, Instagram, and more.
+              Each node in a Phones Farm Box is a real Android phone, iPhone, or motherboard with genuine IMEI, sensors, and mobile hardware behavior. That matters when your workflow depends on platform trust, camera access, SIM routing, or long-running sessions.
             </p>
             <p className="text-slate-400 mb-6 leading-relaxed">
-              Unlike cloud phones running on shared virtual infrastructure, phone farm boxes provide hardware-level environment isolation with centralized power, cooling, and USB connectivity from our Guangzhou factory.
+              We engineer the enclosure around the devices: centralized PSU, active cooling, cable management, and a single USB path to your control PC. Units leave our Guangzhou workshop after burn-in testing.
             </p>
-            <Link href="/help/phone-farm-box-vs-cloud-phone" className="btn-primary">Box vs Cloud Comparison →</Link>
+            <Link href="/help/phone-farm-box-vs-cloud-phone" className="btn-primary">Read the hardware comparison</Link>
           </div>
           <div className="relative aspect-video rounded-xl overflow-hidden">
-            <Image src={IMAGES.realDevice.hero} alt="Real device phone farm deployment" fill className="object-cover" />
+            <Image src={IMAGES.realDevice.hero} alt="Real device phone farm box deployment" fill className="object-cover" />
           </div>
         </div>
       </section>
@@ -94,18 +102,18 @@ export default async function HomePage() {
       {/* Platform Scenarios */}
       <section className="section bg-slate-900/50">
         <div className="container-wide">
-          <h2 className="section-title">Platform Scenarios</h2>
-          <p className="section-subtitle">Multi-device management for major platforms — converted from cloud phone scenarios to real hardware deployment.</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {SCENARIOS.map((s) => (
+          <h2 className="section-title">Platform Deployment Guides</h2>
+          <p className="section-subtitle">Hardware and workflow notes for teams operating multiple accounts on major social, video, and messaging platforms.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {SCENARIOS.slice(0, 8).map((s) => (
               <Link key={s.slug} href={`/scenarios/${s.slug}`} className="card p-5 hover:border-amber-800 transition-colors group">
                 <span className="text-xs text-amber-400">{s.category}</span>
-                <h3 className="font-bold text-white mt-1 group-hover:text-amber-400 transition-colors">{s.title.split(" with")[0]}</h3>
+                <h3 className="font-bold text-white mt-1 group-hover:text-amber-400 transition-colors text-sm">{s.title.split(" with")[0]}</h3>
               </Link>
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/scenarios" className="btn-outline">All Platform Scenarios →</Link>
+            <Link href="/scenarios" className="btn-outline">All platform guides</Link>
           </div>
         </div>
       </section>
@@ -113,9 +121,9 @@ export default async function HomePage() {
       {/* Solutions */}
       <section className="section">
         <div className="container-wide">
-          <h2 className="section-title">Industry Solutions</h2>
+          <h2 className="section-title">Solutions by Use Case</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SOLUTION_PAGES.map((s) => (
+            {SOLUTION_PAGES.slice(0, 6).map((s) => (
               <Link key={s.slug} href={`/solutions/${s.slug}`} className="card p-6 hover:border-amber-800 transition-colors group">
                 <span className="text-xs text-amber-400">{s.category}</span>
                 <h3 className="font-bold text-white mt-2 group-hover:text-amber-400 transition-colors">{s.title}</h3>
@@ -123,49 +131,36 @@ export default async function HomePage() {
               </Link>
             ))}
           </div>
+          <div className="text-center mt-8">
+            <Link href="/solutions" className="btn-outline">All solutions</Link>
+          </div>
         </div>
       </section>
 
       {/* Products */}
       <section className="section bg-slate-900/50">
         <div className="container-wide">
-          <h2 className="section-title">Phone Farm Box Products</h2>
-          <p className="section-subtitle">Hardware, accessories, and deployment services — with prices and stock status.</p>
+          <h2 className="section-title">Hardware Catalog</h2>
+          <p className="section-subtitle">Boxes, chassis, hubs, power, cooling, and network parts — priced in USD with current stock status.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((p) => (
               <ProductCard key={p.id} slug={p.slug} name={p.name} shortDesc={p.shortDesc} priceUsd={p.priceUsd} stock={p.stock} imageCard={p.imageCard} category={p.category} />
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link href="/products" className="btn-outline">View All Products →</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Features explore */}
-      <section className="section">
-        <div className="container-wide">
-          <h2 className="section-title">Explore Features</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {FEATURE_PAGES.slice(0, 8).map((f) => (
-              <Link key={f.slug} href={`/features/${f.slug}`} className="card p-4 hover:border-amber-800 transition-colors text-sm">
-                <h3 className="font-semibold text-white hover:text-amber-400">{f.title}</h3>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-6">
-            <Link href="/features" className="btn-outline">All Features →</Link>
+          <div className="text-center mt-10 flex flex-wrap justify-center gap-4">
+            <Link href="/products" className="btn-outline">Full product list</Link>
+            <Link href="/pricing" className="btn-secondary">View pricing overview</Link>
           </div>
         </div>
       </section>
 
       {/* Knowledge hub */}
-      <section className="section bg-slate-900/50">
+      <section className="section">
         <div className="container-wide grid md:grid-cols-3 gap-6">
           {[
-            { title: "Help Center", desc: "Setup guides, network config, troubleshooting, and payment docs.", href: "/help" },
-            { title: "Glossary", desc: "20+ phone farm hardware terms — box, motherboard, ADB, batch control, and more.", href: "/glossary" },
-            { title: "Free Tools", desc: "Sizing calculator, IP planner, buying checklist, and comparison guides.", href: "/tools" },
+            { title: "Help Center", desc: "Setup, network configuration, remote control, troubleshooting, and payment documentation.", href: "/help" },
+            { title: "Glossary", desc: "Definitions for box hardware, ADB, batch control, cooling, and deployment terminology.", href: "/glossary" },
+            { title: "Planning Tools", desc: "Sizing calculator, IP planner, buying checklist, and hardware comparison worksheets.", href: "/tools" },
           ].map((item) => (
             <Link key={item.title} href={item.href} className="card p-6 hover:border-amber-800 transition-colors group">
               <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">{item.title}</h3>
@@ -176,16 +171,16 @@ export default async function HomePage() {
       </section>
 
       {/* Factory */}
-      <section className="section">
+      <section className="section bg-slate-900/50">
         <div className="container-wide">
-          <h2 className="section-title">Guangzhou Factory &amp; Facilities</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <h2 className="section-title">Guangzhou Workshop &amp; Fulfillment</h2>
+          <p className="section-subtitle mb-8">Assembly, QC burn-in, and export packaging handled in-house before shipment.</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { src: IMAGES.office, label: "Office" },
-              { src: IMAGES.meeting, label: "Meeting Room" },
-              { src: IMAGES.workshop, label: "Workshop" },
-              { src: IMAGES.factory, label: "Assembly" },
-              { src: IMAGES.warehouse, label: "Warehouse" },
+              { src: IMAGES.office, label: "Sales & Engineering Office" },
+              { src: IMAGES.factory, label: "Assembly & Burn-in" },
+              { src: IMAGES.phoneFarmBox.hero, label: "Finished Phone Farm Boxes" },
+              { src: IMAGES.customCabinet.hero, label: "Rack & Cabinet Builds" },
             ].map((img) => (
               <div key={img.label} className="relative aspect-[4/3] rounded-xl overflow-hidden group">
                 <Image src={img.src} alt={img.label} fill className="object-cover group-hover:scale-105 transition-transform" />
@@ -199,20 +194,20 @@ export default async function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-slate-900/50">
+      <section className="section">
         <div className="container-wide max-w-3xl">
-          <h2 className="section-title text-center">Frequently Asked Questions</h2>
+          <h2 className="section-title text-center">Common Questions from Buyers</h2>
           <FAQAccordion items={previewFaq} />
           <div className="text-center mt-8">
-            <Link href="/faq" className="btn-outline">View All FAQ →</Link>
+            <Link href="/faq" className="btn-outline">Full FAQ</Link>
           </div>
         </div>
       </section>
 
       {/* Blog */}
-      <section className="section">
+      <section className="section bg-slate-900/50">
         <div className="container-wide">
-          <h2 className="section-title">Guides &amp; Blog</h2>
+          <h2 className="section-title">Deployment Guides</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {BLOG_POSTS.slice(0, 3).map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="card p-6 hover:border-amber-800 transition-colors group">
@@ -223,14 +218,17 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/blog" className="btn-outline">All Guides →</Link>
+            <Link href="/blog" className="btn-outline">All guides</Link>
           </div>
         </div>
       </section>
 
-      <section className="section bg-slate-900/50">
+      <section className="section">
         <div className="container-wide">
-          <ContactCTA title="Ready to Build Your Real-Device Phone Farm?" />
+          <ContactCTA title="Tell Us Your Device Count and Workflow" />
+          <p className="text-center text-sm text-slate-500 mt-4">
+            Typical reply within one business day · {CONTACT.whatsapp} · {CONTACT.telegram}
+          </p>
         </div>
       </section>
     </>

@@ -67,7 +67,7 @@ export const SOLUTION_PAGES: ContentPage[] = [
     faq: [
       { q: "Can phone farm box replace emulators for QA?", a: "For compatibility and sensor testing, real devices are superior. Phone farm boxes provide emulator-scale parallelism on real hardware." },
     ],
-    relatedSlugs: ["adb-batch-automation", "app-development-qa"],
+    relatedSlugs: ["adb-batch-automation", "bulk-apk-deployment"],
   },
   {
     slug: "cross-border-marketing",
