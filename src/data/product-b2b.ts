@@ -27,7 +27,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     bestFor: "Agencies and studios running 10–20 Android accounts per box with SIM or camera requirements.",
     recommendedConfiguration:
       "1× chassis (20 slots) + matched hub tier + PSU for quoted phone models + 1 control PC with batch software. Add network router bundle when each box needs isolated IP groups.",
-    capacity: "Typically 20 phone slots per 2U chassis — slot layout confirmed for your phone height.",
+    capacity: "Confirmed before quote — slot layout depends on phone height and chassis variant.",
     cooling: "Active top-exhaust fan tray; fan count and CFM target confirmed per order.",
     powerAndPorts: "Single chassis AC input; internal USB hub tree to control PC — port map on wiring diagram.",
     compatibleModels: "Android phone models confirmed before quote (board size, USB mode, ROM path).",
@@ -59,7 +59,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     bestFor: "Automation teams and QA labs that do not need displays or cameras on every node.",
     recommendedConfiguration:
       "1× motherboard box (up to 20 nodes) + industrial USB hub + PSU sized to node count + temporary screen kit for initial USB auth if needed.",
-    capacity: "Up to 20 motherboard nodes per box — board footprint dependent.",
+    capacity: "Confirmed before quote — depends on board footprint and node mix.",
     cooling: "Integrated fan tray; airflow direction marked on chassis.",
     powerAndPorts: "Central PSU rail; per-node power leads; USB hub uplink to host PC.",
     compatibleModels: "Mainboard models confirmed before production — USB debugging must be supported.",
@@ -90,7 +90,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     bestFor: "Buyers wanting a single invoice for box + accessories without picking each component separately.",
     recommendedConfiguration:
       "Device count ÷ 20 = box qty (round up) + hub/PSU tier from planning tools + optional network kit for multi-account segmentation.",
-    capacity: "Usually 20 devices per box; multi-box for 40+.",
+    capacity: "Confirmed before quote — box count sized from your device list.",
     cooling: "PSU and fan package matched to quoted Android models.",
     powerAndPorts: "Pre-mapped USB tree; one primary PC uplink (secondary PC optional).",
     compatibleModels: "Android models locked at quote — mount and power verified per model.",
@@ -121,7 +121,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     bestFor: "Script developers and agencies running batch iPhone operations at 6–20 device scale.",
     recommendedConfiguration:
       "Quoted iPhone count + powered USB hub topology + Mac or PC host (confirmed at quote) + remote control setup service for first deployment.",
-    capacity: "Often 10–20 iPhones per cluster — density depends on model and cable plan.",
+    capacity: "Confirmed before quote — density depends on model and cable plan.",
     cooling: "Fan assist where required; thermal profile varies by iOS workload.",
     powerAndPorts: "Powered USB-C/Lightning hub; host count confirmed at quote.",
     compatibleModels: "iPhone models & iOS range confirmed before quote.",
@@ -152,7 +152,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     bestFor: "Operators planning 40–100+ device rooms with mixed SKUs and facilities coordination.",
     recommendedConfiguration:
       "Workshop call → device matrix → box count + hub/PSU/network lines → optional custom cabinet → burn-in schedule → split or single shipment.",
-    capacity: "Project-based — commonly 40–100+ devices across multiple chassis.",
+    capacity: "Project-based — total device count confirmed before quote.",
     cooling: "Per-box cooling plus room airflow guidance document.",
     powerAndPorts: "Electrical load sheet for facilities team.",
     compatibleModels: "Mixed Android/iPhone possible — segmented by box type.",
@@ -214,7 +214,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     bestFor: "Existing farms adding nodes or replacing failed consumer-grade hubs.",
     recommendedConfiguration:
       "Nodes ÷ ports per hub = hub qty; one powered hub per tier; active USB3 extension for runs over 3m.",
-    capacity: "Industrial tiers — commonly 16–32 port plans; cascaded for 40+.",
+    capacity: "Port tiers confirmed before quote — cascaded layouts available for larger farms.",
     cooling: "Metal enclosures; powered hubs required — amperage on label.",
     powerAndPorts: "Dedicated adapter per hub tier; USB3 uplink to host.",
     compatibleModels: "Android ADB paths standard; iPhone hub chipset quoted separately.",
@@ -232,7 +232,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     imageCaption: "Accessory product photo",
     relatedSlugs: ["power-supply-solution", "phone-farm-box", "motherboard-box", "network-equipment"],
     faq: [
-      { q: "How many devices per hub?", a: "Depends on tier — typically 16–32 ports; amperage limit confirmed on datasheet." },
+      { q: "How many devices per hub?", a: "Depends on tier and amperage — port count confirmed on quote datasheet." },
       { q: "Will this fix ADB disconnects?", a: "Industrial powered hubs reduce dropouts vs consumer gear — host PC and cable quality also matter." },
       { q: "iPhone compatible?", a: "Separate hub chipset quoted for iPhone paths." },
       { q: "Rack mountable?", a: "19″ ears available as add-on for select tiers." },
@@ -326,7 +326,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     relatedSlugs: ["phone-farm-box", "android-phone-farm", "usb-hub", "remote-control-setup"],
     faq: [
       { q: "Do you configure proxies?", a: "We supply hardware and IP worksheet — proxy/VPN binding is customer-side." },
-      { q: "One router per box?", a: "Often one router serves 20–40 devices — topology confirmed at quote." },
+      { q: "One router per box?", a: "Topology depends on router model and account segmentation — confirmed at quote." },
       { q: "OTG Ethernet for all Android?", a: "Only supported models — confirm list before order." },
       { q: "Enterprise switch options?", a: "Quoted separately for rack projects." },
       { q: "Ship internationally?", a: "Yes — region-appropriate power plugs on network gear where applicable." },
@@ -338,7 +338,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     bestFor: "Enterprise buyers needing room-scale density with structured cable management.",
     recommendedConfiguration:
       "Site dimensions → tray design per device family → PDU plan → cooling/airflow note → factory acceptance test before ship.",
-    capacity: "100+ positions — CAD confirmed before build.",
+    capacity: "Position count confirmed on CAD before build.",
     cooling: "Ducted or aisle airflow plan; AC load note for facilities.",
     powerAndPorts: "PDU design, per-tray USB, network patch panel options.",
     compatibleModels: "Tray design per device family specified on drawing.",
