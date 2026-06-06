@@ -1,8 +1,9 @@
 ﻿import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { createSession, verifyPassword } from "@/lib/auth";
+import { createSession, ensureAdminUser, verifyPassword } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
+  await ensureAdminUser();
   const { email, password } = await req.json();
   const user = await prisma.user.findUnique({ where: { email } });
   if (!user || !(await verifyPassword(password, user.passwordHash))) {

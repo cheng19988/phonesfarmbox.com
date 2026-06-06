@@ -77,14 +77,11 @@ export async function requireUser() {
 
 export async function ensureAdminUser() {
   const email = process.env.ADMIN_EMAIL || "admin@phonesfarmbox.com";
-  const existing = await prisma.user.findUnique({ where: { email } });
-  if (existing) return existing;
-  return prisma.user.create({
-    data: {
-      email,
-      name: "Admin",
-      role: "admin",
-      passwordHash: await hashPassword(process.env.ADMIN_PASSWORD || "admin123456"),
-    },
+  const password = process.env.ADMIN_PASSWORD || "admin123456";
+  const passwordHash = await hashPassword(password);
+  return prisma.user.upsert({
+    where: { email },
+    update: process.env.ADMIN_PASSWORD ? { role: "admin", passwordHash } : { role: "admin" },
+    create: { email, name: "Admin", role: "admin", passwordHash },
   });
 }
