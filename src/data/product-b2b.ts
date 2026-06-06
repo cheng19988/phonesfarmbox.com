@@ -399,3 +399,9 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
 export function getProductB2B(slug: string) {
   return PRODUCT_B2B[slug];
 }
+
+/** Hero + SEO description when B2B content exists — avoids stale DB shortDesc. */
+export function getProductSummary(slug: string, dbShortDesc: string) {
+  const b2b = getProductB2B(slug);
+  return b2b?.overview ?? dbShortDesc;
+}

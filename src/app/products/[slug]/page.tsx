@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { getProductB2B } from "@/data/product-b2b";
+import { getProductB2B, getProductSummary } from "@/data/product-b2b";
 import { BuyButtons, FAQAccordion } from "@/components/commerce";
 import { ContactCTA, JsonLd, StockBadge } from "@/components/shared";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
@@ -23,9 +23,10 @@ export async function generateMetadata({ params }: Props) {
     "empty-box-chassis": "Empty Phone Farm Box Chassis",
     "remote-control-setup": "Remote Batch Control Setup Service",
   };
+  const summary = getProductSummary(slug, product.shortDesc);
   return buildMetadata({
     title: seoTitles[slug] ?? product.name,
-    description: product.shortDesc,
+    description: summary,
     path: `/products/${slug}`,
     image: product.imageHero,
   });
@@ -45,6 +46,7 @@ export default async function ProductDetailPage({ params }: Props) {
   if (!product) notFound();
 
   const b2b = getProductB2B(slug);
+  const summary = getProductSummary(slug, product.shortDesc);
   const features = parseJson<string[]>(product.features, []);
   const specs = parseJson<Record<string, string>>(product.specs, {});
   const dbFaq = parseJson<{ q: string; a: string }[]>(product.faq, []);
@@ -63,7 +65,7 @@ export default async function ProductDetailPage({ params }: Props) {
         data={[
           productJsonLd({
             name: product.name,
-            description: product.shortDesc,
+            description: summary,
             slug: product.slug,
             priceUsd: product.priceUsd,
             stock: product.stock,
@@ -89,7 +91,7 @@ export default async function ProductDetailPage({ params }: Props) {
             <div>
               <p className="text-amber-400/80 text-sm mb-2">{product.category}</p>
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{product.name}</h1>
-              <p className="text-slate-300 mb-4">{product.shortDesc}</p>
+              <p className="text-slate-300 mb-4">{summary}</p>
               {b2b && (
                 <p className="text-sm text-slate-400 mb-4 p-3 rounded-lg bg-slate-900/60 border border-slate-800">
                   <span className="text-slate-500">Best for:</span> {b2b.bestFor}

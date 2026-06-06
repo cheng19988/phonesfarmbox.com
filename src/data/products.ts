@@ -104,8 +104,8 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
       "Control": "PC batch software via USB hub tree",
     },
   }),
-  p("motherboard-box", "Motherboard Box", "Motherboard Box", "Screenless Android motherboard chassis — removes battery and screen to save cost, with 3-fan cooling and stackable design.", IMAGES.motherboardBox, 598, 14, {
-    description: "Motherboard Box removes the battery and screen from each phone to reduce per-node cost. Each unit has a 3-fan cooling system for stable performance. Boxes stack vertically — control hundreds of phone windows through PC batch software.",
+  p("motherboard-box", "Motherboard Box", "Motherboard Box", "Screenless Android motherboard chassis for headless node density — fan tray and slot layout confirmed before quote.", IMAGES.motherboardBox, 598, 14, {
+    description: "Motherboard Box mounts screenless Android boards to reduce per-node cost. Fan tray, PSU, and USB hub tier matched to your board list — configuration confirmed on written quote before assembly.",
     features: [
       "No phone frame — bare motherboard nodes",
       "Official original Android system with USB debugging enabled",
