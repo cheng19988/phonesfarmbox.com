@@ -1,4 +1,4 @@
-﻿import { CONTACT, SITE } from "@/lib/config";
+﻿import { CONTACT } from "@/lib/config";
 import Link from "next/link";
 
 export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {

@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ContactCTA } from "./shared";
 import { FAQAccordion } from "./commerce";
 import type { ContentPage } from "@/data/scenarios";
 import { CONTACT } from "@/lib/config";
-import { buildMetadata, buildContentMetadata, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { buildContentMetadata, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { JsonLd } from "./shared";
 
 type Props = {
