@@ -22,37 +22,39 @@ export const HELP_ARTICLES: HelpArticle[] = [
     title: "What is a Phone Farm Box?",
     category: "Beginner's Guide",
     summary: "Introduction to phone farm box hardware — real devices, centralized power, and batch control.",
-    content: `A phone farm box is an industrial hardware chassis that houses multiple real smartphones (typically 20 nodes) with centralized power supply, active cooling, and USB hub connectivity.
+    content: `A phone farm box is an industrial hardware chassis that houses multiple real smartphones or motherboard nodes with centralized power supply, active cooling, and USB hub wiring to a control PC.
 
-Unlike cloud phones (virtual devices on remote servers) or emulators (software simulation on PC), phone farm boxes use **physical mobile hardware** that platforms recognize as authentic user devices.
+This site sells **physical hardware** — chassis, PSU modules, fan kits, hub tiers, and cabling — not cloud phone SaaS subscriptions.
 
 **Key components:**
-- Industrial metal enclosure with 3–8 cooling fans
-- Unified power supply unit (450–550W)
-- USB hub for PC connection and batch control
-- Real Android or iPhone devices (screenless configuration)
-- Batch control management software
+- Industrial metal enclosure with fan tray mounts
+- Unified power supply module (wattage confirmed on quote)
+- Industrial USB hub for PC connection and batch control
+- Real Android or iPhone devices (screenless mount options on quote)
+- Batch control management software (per order terms)
 
-Phones Farm Box manufactures phone farm boxes from Guangzhou, China since 2017.`,
+Slot count, shipping size, and packing list are confirmed during quotation. Request a datasheet before purchase.`,
   },
   {
     slug: "phone-farm-box-vs-cloud-phone",
-    title: "Phone Farm Box vs Cloud Phone",
+    title: "Hardware Chassis vs Virtual Device Services",
     category: "Beginner's Guide",
-    summary: "Compare real device phone farm boxes with cloud phone services.",
-    content: `**Cloud Phone:** Virtual mobile instance on shared cloud servers. Convenient for light testing but detectable by platforms. Shared infrastructure patterns may trigger account restrictions.
+    summary: "Procurement notes when choosing rackable phone farm hardware versus rented virtual device seats.",
+    content: `**Virtual device services** rent mobile instances on shared remote infrastructure. Useful for short pilots without shipping hardware.
 
-**Phone Farm Box:** Physical smartphones in industrial chassis. Authentic IMEI, sensors, GPS, and carrier profiles. Higher platform trust for account-sensitive operations.
+**Phone farm box hardware** is tangible equipment — chassis, wiring, PSU, cooling, and hub — you rack, power, and maintain locally. Suitable when you need BOM, packing photos, warranty terms, and long-running batch control on owned gear.
 
 **When to choose phone farm box:**
-- Multi-account social media on real mobile hardware
-- App QA requiring genuine device behavior
-- Long-term operations where platform trust matters
-- Teams needing full hardware control and customization
+- Multi-account workflows on physical devices you control
+- App QA requiring real sensors and radios on hardware you own
+- Long-term operations with export packing and datasheet requirements
+- Teams needing custom rack layout, hub tier, and cooling plan
 
-**When cloud phone may suffice:**
-- Quick prototyping with low account value
-- Temporary campaigns without hardware investment`,
+**When virtual services may suffice:**
+- Quick prototyping with low hardware logistics tolerance
+- Temporary campaigns under ~30 days
+
+Phones Farm Box supplies hardware and remote setup services from Guangzhou — not virtual device subscriptions.`,
   },
   {
     slug: "account-setup-first-box",
@@ -60,13 +62,13 @@ Phones Farm Box manufactures phone farm boxes from Guangzhou, China since 2017.`
     category: "Beginner's Guide",
     summary: "Step-by-step guide from unboxing to first batch control session.",
     content: `**Step 1: Unbox and inspect**
-Verify all device slots, power cable, USB cables, cooling fans, and spare power cords.
+Verify all device slots, power cable, USB cables, cooling fans, and spare power cords against the packing list.
 
 **Step 2: Connect power**
-Plug 110V/220V power cable into unified PSU. Verify all cooling fans spin.
+Plug mains cable into unified PSU. Verify all cooling fans spin per install manual.
 
 **Step 3: Connect to PC**
-Single USB cable from box hub to control PC. Install included batch control software.
+USB uplink from box hub tier to control PC. Install included batch control software.
 
 **Step 4: Verify devices**
 All devices should appear in management dashboard. Enable USB debugging if needed.
@@ -75,7 +77,7 @@ All devices should appear in management dashboard. Enable USB debugging if neede
 Connect router and configure IP per device group if required.
 
 **Step 6: First batch test**
-Control one device, then sync all devices. Monitor temperature for 24 hours.
+Control one device, then sync device groups. Monitor temperature for 24 hours.
 
 Contact support: WhatsApp +852 6215 5642 | Telegram @huicheng1998`,
   },
@@ -142,7 +144,7 @@ For advanced setup, see our Remote Control Setup service.`,
 - Use templates before building custom workflows
 - Monitor first 24 hours of scheduled tasks
 
-Equivalent to cloud RPA but runs on real hardware.`,
+Workflows execute on physical hardware connected via your USB hub tree — confirm device count and hub tier at quote.`,
   },
   {
     slug: "adb-command-reference",
@@ -175,7 +177,7 @@ All Android phone farm boxes ship with USB debugging enabled. Connect via indust
 - Hot spots on chassis exterior
 
 **Replacement:**
-Cooling modules and fan units available as spare parts. Contact sales for replacement components.`,
+Cooling modules and fan units available as spare parts. Contact sales for replacement components and fan kit datasheet.`,
   },
   {
     slug: "payment-usdt-guide",

@@ -10,7 +10,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     category: "Hardware",
     question: "What is a phone farm box?",
     answer:
-      "A phone farm box is an industrial chassis that houses multiple mobile nodes — typically around 20 slots — with centralized PSU, USB hub wiring, and cooling. It replaces scattered chargers and cable clutter with one rackable unit for batch control from a host PC.",
+      "A phone farm box is an industrial chassis that houses multiple mobile nodes with centralized PSU, USB hub wiring, and cooling. Slot count varies by phone model and chassis variant — confirmed before quote. It replaces scattered chargers and cable clutter with one rackable unit for batch control from a host PC.",
   },
   {
     category: "Hardware",

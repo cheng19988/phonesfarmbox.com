@@ -10,7 +10,7 @@ export const PLANNING_TOOLS: PlanningTool[] = [
   {
     slug: "phone-farm-capacity-estimator",
     title: "Phone Farm Capacity Estimator",
-    description: "Estimate how many 20-node boxes you need for a target device count.",
+    description: "Estimate how many chassis units you need for a target device count — slots per box confirmed at quote.",
     interactive: "capacity",
   },
   {

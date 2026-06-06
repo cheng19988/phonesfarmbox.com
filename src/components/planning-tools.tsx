@@ -5,13 +5,14 @@ import { useMemo, useState } from "react";
 export function CapacityEstimator() {
   const [devices, setDevices] = useState(40);
   const [headroom, setHeadroom] = useState(15);
+  const [slotsPerBox, setSlotsPerBox] = useState(20);
 
   const result = useMemo(() => {
-    const perBox = 20;
+    const perBox = Math.max(1, slotsPerBox);
     const adjusted = Math.ceil(devices * (1 + headroom / 100));
     const boxes = Math.ceil(adjusted / perBox);
     return { boxes, slots: boxes * perBox, adjusted };
-  }, [devices, headroom]);
+  }, [devices, headroom, slotsPerBox]);
 
   return (
     <div className="space-y-4">
@@ -24,9 +25,13 @@ export function CapacityEstimator() {
         <input type="range" min={0} max={40} value={headroom} onChange={(e) => setHeadroom(Number(e.target.value))} className="w-full mt-2" />
         <span className="text-white">{headroom}%</span>
       </label>
+      <label className="block text-sm text-slate-400">
+        Assumed slots per chassis (planning — confirm at quote)
+        <input type="number" min={1} max={100} value={slotsPerBox} onChange={(e) => setSlotsPerBox(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+      </label>
       <div className="card p-4 border-amber-800/40">
-        <p className="text-white font-medium">Estimated boxes needed: <span className="text-amber-400">{result.boxes}</span> × 20-node chassis</p>
-        <p className="text-sm text-slate-400 mt-2">Total slots: {result.slots} (planning for {result.adjusted} devices with headroom)</p>
+        <p className="text-white font-medium">Estimated chassis units: <span className="text-amber-400">{result.boxes}</span></p>
+        <p className="text-sm text-slate-400 mt-2">Total slots (planning): {result.slots} — targeting {result.adjusted} devices with headroom</p>
         <p className="text-xs text-slate-500 mt-2">Confirm final layout with sales — mixed iPhone/Android may need separate chassis.</p>
       </div>
     </div>
@@ -74,7 +79,7 @@ export function UsbPortCalculator() {
         <input type="number" min={1} max={10} value={pcPorts} onChange={(e) => setPcPorts(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
       </label>
       <div className="card p-4">
-        <p className="text-white">Plan for ~<span className="text-amber-400">{hubs}</span> industrial 16-port hub tier(s)</p>
+        <p className="text-white">Plan for ~<span className="text-amber-400">{hubs}</span> industrial hub tier(s) (port count confirmed on datasheet)</p>
         <p className="text-sm text-slate-400 mt-2">{pcPorts} PC USB uplink(s) — use powered hubs; confirm cable length and EMI with sales.</p>
       </div>
     </div>
