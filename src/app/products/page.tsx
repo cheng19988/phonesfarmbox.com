@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Phone Farm Products & Hardware Shop",
   description:
-    "Shop phone farm boxes, motherboard boxes, Android & iPhone farms, USB hubs, power, cooling, network equipment, and custom cabinets. Factory-direct from Guangzhou.",
+    "Shop phone farm boxes, motherboard racks, USB hubs, power, cooling, and custom cabinets. Request a quote — configuration confirmed before invoice.",
   path: "/products",
 });
 

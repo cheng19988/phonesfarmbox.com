@@ -7,6 +7,7 @@ import { IMAGES } from "@/lib/images";
 import {
   DEPLOYMENT_STORIES,
   FACTORY_STEPS,
+  HARDWARE_TRUST_POINTS,
   PACKING_LIST_STANDARD,
   PRODUCT_CATEGORIES,
   QC_CHECKLIST,
@@ -18,7 +19,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Phone Farm Box Hardware Supplier — Guangzhou",
   description:
-    "Phones Farm Box supplies real Android and iPhone farm hardware — boxes, motherboard racks, USB hubs, cooling, and batch control — from Guangzhou since 2017. MOQ from 1 unit. Global shipping.",
+    "Phones Farm Box — Guangzhou phone farm box hardware: chassis, motherboard racks, USB hubs, power, cooling, and batch control. MOQ from 1 unit. Request a quote.",
   path: "/",
 });
 
@@ -40,10 +41,10 @@ export default async function HomePage() {
             {SITE.location} hardware supplier · Est. {SITE.since}
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-tight mb-6">
-            Phone farm box hardware for teams running real Android &amp; iPhone devices at scale
+            Phone farm box hardware — assembled, tested, and shipped from Guangzhou
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-8">
-            We supply chassis, motherboard racks, USB hubs, power, cooling, and batch-control-ready setups — physical hardware you own. Not cloud phones. Not emulators.
+            Chassis, motherboard racks, USB hubs, power, and cooling for buyers who need rackable multi-device deployments. Configuration and lead time confirmed on written quote before payment.
           </p>
           <div className="flex flex-wrap gap-4 mb-10">
             <Link href="/contact" className="btn-primary text-lg px-8 py-3">Get a Hardware Quote</Link>
@@ -55,6 +56,21 @@ export default async function HomePage() {
             <li>Air &amp; sea export</li>
             <li>Custom rack projects</li>
           </ul>
+        </div>
+      </section>
+
+      {/* Trust points */}
+      <section className="section bg-slate-900/30 border-y border-slate-800/80">
+        <div className="container-wide">
+          <h2 className="section-title text-center">Why procurement teams quote with us</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-8">
+            {HARDWARE_TRUST_POINTS.map((t) => (
+              <div key={t.title} className="p-4 rounded-xl border border-slate-800 bg-slate-950/40">
+                <h3 className="font-semibold text-white text-sm mb-2">{t.title}</h3>
+                <p className="text-xs text-slate-400">{t.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -86,8 +102,9 @@ export default async function HomePage() {
               <ProductCard key={p.id} slug={p.slug} name={p.name} shortDesc={p.shortDesc} priceUsd={p.priceUsd} stock={p.stock} imageCard={p.imageCard} category={p.category} />
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link href="/pricing" className="btn-outline">View pricing &amp; bulk inquiry</Link>
+          <div className="text-center mt-10 flex flex-wrap justify-center gap-4">
+            <Link href="/pricing" className="btn-outline">Pricing &amp; bulk inquiry</Link>
+            <Link href="/contact" className="btn-primary">Request Quote</Link>
           </div>
         </div>
       </section>
@@ -97,7 +114,7 @@ export default async function HomePage() {
         <div className="container-wide">
           <h2 className="section-title">Assembly, Test &amp; Shipment</h2>
           <p className="section-subtitle mb-8">Workflow we follow for standard box orders. Illustrations on this site are product references — ask for photos of your exact build if needed.</p>
-          <div className="grid md:grid-cols-5 gap-4">
+          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
             {FACTORY_STEPS.map((s, i) => (
               <div key={s.title} className="relative pl-4 border-l-2 border-amber-800/50">
                 <span className="text-xs text-amber-500 font-mono">0{i + 1}</span>
@@ -137,13 +154,13 @@ export default async function HomePage() {
         <div className="container-wide">
           <h2 className="section-title">Deployment Examples</h2>
           <p className="section-subtitle">Anonymous buyer scenarios — company names omitted. Configurations vary; confirm yours at quote.</p>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {DEPLOYMENT_STORIES.map((s) => (
-              <article key={s.title} className="p-6 rounded-xl bg-slate-900/50 border border-slate-800">
-                <p className="text-xs text-amber-400 mb-2">{s.region}</p>
-                <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-sm text-slate-400 mb-2"><span className="text-slate-500">Setup:</span> {s.setup}</p>
-                <p className="text-sm text-slate-300">{s.outcome}</p>
+              <article key={s.region + s.size} className="p-6 rounded-xl bg-slate-900/50 border border-slate-800">
+                <p className="text-xs text-amber-400 mb-2">{s.region} · {s.size}</p>
+                <p className="text-sm text-slate-400 mb-2"><span className="text-slate-500">Hardware:</span> {s.hardware}</p>
+                <p className="text-sm text-slate-400 mb-2"><span className="text-slate-500">Challenge:</span> {s.problem}</p>
+                <p className="text-sm text-slate-300"><span className="text-slate-500">Outcome:</span> {s.result}</p>
               </article>
             ))}
           </div>
@@ -200,11 +217,12 @@ export default async function HomePage() {
       {/* Final CTA */}
       <section className="section">
         <div className="container-wide max-w-3xl mx-auto text-center rounded-2xl border border-amber-800/40 bg-gradient-to-b from-slate-900 to-slate-950 p-10 md:p-14">
-          <h2 className="text-3xl font-bold text-white mb-4">Get a hardware quote today</h2>
-          <p className="text-slate-300 mb-8">Send device count, models (if known), country, and timeline. We respond on business days within 72 hours.</p>
+          <h2 className="text-3xl font-bold text-white mb-4">Ready for a hardware quote?</h2>
+          <p className="text-slate-300 mb-8">Send quantity, Android/iPhone mix, shipping country, and timeline. We reply on business days within 24–72 hours with configuration and lead time.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-primary px-8 py-3">Contact Sales</Link>
-            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary px-8 py-3">WhatsApp</a>
+            <Link href="/contact" className="btn-primary px-8 py-3">Request Quote</Link>
+            <Link href="/pricing" className="btn-secondary px-8 py-3">See pricing tiers</Link>
+            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-outline px-8 py-3">WhatsApp</a>
           </div>
         </div>
       </section>

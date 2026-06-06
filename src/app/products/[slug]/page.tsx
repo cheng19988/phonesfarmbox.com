@@ -24,7 +24,11 @@ export async function generateMetadata({ params }: Props) {
 }
 
 function parseJson<T>(s: string, fallback: T): T {
-  try { return JSON.parse(s); } catch { return fallback; }
+  try {
+    return JSON.parse(s);
+  } catch {
+    return fallback;
+  }
 }
 
 export default async function ProductDetailPage({ params }: Props) {
@@ -35,19 +39,35 @@ export default async function ProductDetailPage({ params }: Props) {
   const b2b = getProductB2B(slug);
   const features = parseJson<string[]>(product.features, []);
   const specs = parseJson<Record<string, string>>(product.specs, {});
-  const scenarios = parseJson<string[]>(product.scenarios, []);
-  const faq = parseJson<{ q: string; a: string }[]>(product.faq, []);
+  const dbFaq = parseJson<{ q: string; a: string }[]>(product.faq, []);
+  const faq = b2b?.faq?.length ? b2b.faq : dbFaq;
+
+  const related = b2b?.relatedSlugs?.length
+    ? await prisma.product.findMany({
+        where: { slug: { in: b2b.relatedSlugs }, published: true },
+        select: { slug: true, name: true, priceUsd: true },
+      })
+    : [];
 
   return (
     <>
-      <JsonLd data={[
-        productJsonLd({ name: product.name, description: product.shortDesc, slug: product.slug, priceUsd: product.priceUsd, stock: product.stock, image: product.imageHero }),
-        breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Products", path: "/products" },
-          { name: product.name, path: `/products/${slug}` },
-        ]),
-      ]} />
+      <JsonLd
+        data={[
+          productJsonLd({
+            name: product.name,
+            description: product.shortDesc,
+            slug: product.slug,
+            priceUsd: product.priceUsd,
+            stock: product.stock,
+            image: product.imageHero,
+          }),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Products", path: "/products" },
+            { name: product.name, path: `/products/${slug}` },
+          ]),
+        ]}
+      />
 
       <div className="section">
         <div className="container-wide">
@@ -73,6 +93,11 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
               <p className="text-xs text-slate-500 mb-6">List price — confirm configuration and freight before payment.</p>
               <BuyButtons slug={product.slug} name={product.name} stock={product.stock} />
+              <p className="text-xs text-slate-500 mt-4">
+                Bulk pricing: <Link href="/pricing" className="text-amber-400 hover:underline">pricing overview</Link>
+                {" · "}
+                <Link href={`/contact?product=${slug}`} className="text-amber-400 hover:underline">request written quote</Link>
+              </p>
             </div>
           </div>
 
@@ -97,40 +122,62 @@ export default async function ProductDetailPage({ params }: Props) {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-12">
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
-                <p className="text-slate-300 leading-relaxed">{product.description}</p>
+                <h2 className="text-2xl font-bold text-white mb-4">Product overview</h2>
+                <p className="text-slate-300 leading-relaxed">{b2b?.overview ?? product.description}</p>
               </section>
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Highlights</h2>
-                <ul className="space-y-2">
-                  {features.map((f) => (
-                    <li key={f} className="flex gap-2 text-slate-300"><span className="text-emerald-500">✓</span>{f}</li>
-                  ))}
-                </ul>
-              </section>
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Specifications</h2>
-                <table className="w-full text-sm">
-                  <tbody>
-                    {Object.entries(specs).map(([k, v]) => (
-                      <tr key={k} className="border-b border-slate-800">
-                        <td className="py-3 text-slate-400 pr-4 w-1/3">{k}</td>
-                        <td className="py-3 text-white">{v}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </section>
-              {scenarios.length > 0 && (
+
+              {b2b?.recommendedConfiguration && (
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">Typical use cases</h2>
-                  <ul className="grid sm:grid-cols-2 gap-2">
-                    {scenarios.map((s) => (
-                      <li key={s} className="text-sm text-slate-400 py-2 px-3 rounded border border-slate-800">{s}</li>
+                  <h2 className="text-2xl font-bold text-white mb-4">Recommended configuration</h2>
+                  <p className="text-slate-300 leading-relaxed">{b2b.recommendedConfiguration}</p>
+                </section>
+              )}
+
+              {features.length > 0 && (
+                <section>
+                  <h2 className="text-2xl font-bold text-white mb-4">Highlights</h2>
+                  <ul className="space-y-2">
+                    {features.map((f) => (
+                      <li key={f} className="flex gap-2 text-slate-300">
+                        <span className="text-emerald-500">✓</span>
+                        {f}
+                      </li>
                     ))}
                   </ul>
                 </section>
               )}
+
+              {Object.keys(specs).length > 0 && (
+                <section>
+                  <h2 className="text-2xl font-bold text-white mb-4">Technical details</h2>
+                  <p className="text-xs text-slate-500 mb-3">Dimensions and exact counts confirmed on written quote when not listed.</p>
+                  <table className="w-full text-sm">
+                    <tbody>
+                      {Object.entries(specs).map(([k, v]) => (
+                        <tr key={k} className="border-b border-slate-800">
+                          <td className="py-3 text-slate-400 pr-4 w-1/3">{k}</td>
+                          <td className="py-3 text-white">{v}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </section>
+              )}
+
+              {b2b?.deploymentNotes && b2b.deploymentNotes.length > 0 && (
+                <section>
+                  <h2 className="text-2xl font-bold text-white mb-4">Deployment notes</h2>
+                  <ul className="space-y-2">
+                    {b2b.deploymentNotes.map((note) => (
+                      <li key={note} className="flex gap-2 text-sm text-slate-300">
+                        <span className="text-amber-500 shrink-0">•</span>
+                        {note}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
               {faq.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-white mb-4">FAQ</h2>
@@ -138,35 +185,73 @@ export default async function ProductDetailPage({ params }: Props) {
                 </section>
               )}
             </div>
+
             <div className="space-y-6">
               {b2b && (
                 <>
                   <section className="p-5 rounded-xl border border-slate-800">
                     <h3 className="font-bold text-white mb-3">What&apos;s included</h3>
                     <ul className="space-y-1 text-sm text-slate-400">
-                      {b2b.included.map((a) => <li key={a}>• {a}</li>)}
+                      {b2b.included.map((a) => (
+                        <li key={a}>• {a}</li>
+                      ))}
                     </ul>
                   </section>
                   <section className="p-5 rounded-xl border border-slate-800">
                     <h3 className="font-bold text-white mb-3">Optional add-ons</h3>
                     <ul className="space-y-1 text-sm text-slate-400">
-                      {b2b.optionalAddons.map((a) => <li key={a}>• {a}</li>)}
+                      {b2b.optionalAddons.map((a) => (
+                        <li key={a}>• {a}</li>
+                      ))}
                     </ul>
                   </section>
                   <section className="p-5 rounded-xl border border-slate-800">
-                    <h3 className="font-bold text-white mb-3">Shipping package</h3>
+                    <h3 className="font-bold text-white mb-3">Export packing</h3>
                     <ul className="space-y-1 text-sm text-slate-400">
-                      {b2b.shippingPackage.map((d) => <li key={d}>• {d}</li>)}
+                      {b2b.shippingPackage.map((d) => (
+                        <li key={d}>• {d}</li>
+                      ))}
                     </ul>
                   </section>
                   <section className="p-5 rounded-xl border border-slate-800">
-                    <h3 className="font-bold text-white mb-3">Warranty &amp; support</h3>
-                    <p className="text-sm text-slate-400">{b2b.warranty}</p>
+                    <h3 className="font-bold text-white mb-3">MOQ · Lead time · Warranty</h3>
+                    <dl className="text-sm text-slate-400 space-y-2">
+                      <div>
+                        <dt className="text-slate-500 text-xs uppercase">MOQ</dt>
+                        <dd>{b2b.moq}</dd>
+                      </div>
+                      <div>
+                        <dt className="text-slate-500 text-xs uppercase">Lead time</dt>
+                        <dd>{b2b.leadTime}</dd>
+                      </div>
+                      <div>
+                        <dt className="text-slate-500 text-xs uppercase">Warranty</dt>
+                        <dd>{b2b.warranty}</dd>
+                      </div>
+                    </dl>
                   </section>
                 </>
               )}
             </div>
           </div>
+
+          {related.length > 0 && (
+            <section className="mt-16">
+              <h2 className="text-xl font-bold text-white mb-4">Related hardware</h2>
+              <div className="flex flex-wrap gap-3">
+                {related.map((r) => (
+                  <Link
+                    key={r.slug}
+                    href={`/products/${r.slug}`}
+                    className="px-4 py-2 rounded-lg border border-slate-800 text-sm text-slate-300 hover:border-amber-800/60 hover:text-white"
+                  >
+                    {r.name}
+                    <span className="text-slate-500 ml-2">from ${r.priceUsd}</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           <div className="mt-16">
             <ContactCTA title={`Request a quote for ${product.name}`} />

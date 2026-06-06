@@ -3,7 +3,7 @@
 export const metadata = buildMetadata({
   title: "Contact Phones Farm Box — Get a Quote",
   description:
-    "Contact our Guangzhou sales team via phone, WhatsApp, Telegram, or email. Custom quotes for phone farm boxes and enterprise deployments.",
+    "Request a hardware quote — include quantity, Android/iPhone mix, shipping country, and use case. Reply within 24–72 hours on business days.",
   path: "/contact",
 });
 
