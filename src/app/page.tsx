@@ -204,7 +204,7 @@ export default async function HomePage() {
       <section className="section bg-slate-900/30">
         <div className="container-wide text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Deployment by platform or industry</h2>
-          <p className="text-slate-400 mb-6 max-w-2xl mx-auto">Guides for TikTok, YouTube, QA labs, and cross-border teams — hardware-first, not SaaS signup.</p>
+          <p className="text-slate-400 mb-6 max-w-2xl mx-auto">Platform and industry deployment guides — chassis, wiring, and batch-control setup.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link href="/scenarios/tiktok" className="btn-outline text-sm">TikTok farms</Link>
             <Link href="/solutions/app-development-qa" className="btn-outline text-sm">QA labs</Link>

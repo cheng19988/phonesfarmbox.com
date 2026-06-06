@@ -15,8 +15,16 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const product = await prisma.product.findUnique({ where: { slug } });
   if (!product) return {};
+  const seoTitles: Record<string, string> = {
+    "phone-farm-box": "Android Phone Farm Box — 20-Node Chassis",
+    "motherboard-box": "Android Motherboard Rack Box",
+    "android-phone-farm": "Turnkey Android Phone Farm Cluster",
+    "iphone-phone-farm": "iPhone Phone Farm Cluster",
+    "empty-box-chassis": "Empty Phone Farm Box Chassis",
+    "remote-control-setup": "Remote Batch Control Setup Service",
+  };
   return buildMetadata({
-    title: product.name,
+    title: seoTitles[slug] ?? product.name,
     description: product.shortDesc,
     path: `/products/${slug}`,
     image: product.imageHero,
@@ -133,7 +141,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 </section>
               )}
 
-              {features.length > 0 && (
+              {features.length > 0 && !b2b && (
                 <section>
                   <h2 className="text-2xl font-bold text-white mb-4">Highlights</h2>
                   <ul className="space-y-2">
@@ -147,7 +155,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 </section>
               )}
 
-              {Object.keys(specs).length > 0 && (
+              {Object.keys(specs).length > 0 && !b2b && (
                 <section>
                   <h2 className="text-2xl font-bold text-white mb-4">Technical details</h2>
                   <p className="text-xs text-slate-500 mb-3">Dimensions and exact counts confirmed on written quote when not listed.</p>

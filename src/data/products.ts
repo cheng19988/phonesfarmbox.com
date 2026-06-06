@@ -115,12 +115,12 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
     ],
     specs: {
       "Node Type": "Android motherboard (screenless)",
-      "Capacity": "20 nodes per box",
-      "Cooling": "3-fan active system",
-      "System": "Official original Android (custom ROM available)",
+      "Capacity": "Up to 20 nodes — layout confirmed before quote",
+      "Cooling": "Fan tray — spec confirmed on proforma",
+      "System": "Official or custom Android — confirm at quote",
       "SIM Support": "Model dependent",
       "Stackable": "Yes",
-      "Re-auth Note": "Temporary screen needed if USB auth is lost",
+      "Re-auth Note": "Temporary screen if USB auth is lost",
     },
   }),
   p("android-phone-farm", "Android Phone Farm", "Android Phone Farm", "Turnkey Android clusters: chassis, hub tier, and cooling matched to your quoted device list.", IMAGES.androidFarm, 849, 16, {
@@ -145,11 +145,11 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
   p("iphone-phone-farm", "iPhone Phone Farm", "iPhone Phone Farm", "No jailbreak, no signing required — stable kernel with rich APIs for batch iPhone control and script development.", IMAGES.iphoneFarm, 1380, 6, {
     description: "iPhone Farm solution controls real iPhones without jailbreaking or installing special apps on each device. Software kernel runs stably with rich APIs for script developers. Batch control multiple iPhones from a single management interface.",
     features: [
-      "No jailbreak or device signing required",
+      "Batch iPhone control — model mix confirmed at quote",
       "Stable kernel with developer-friendly APIs",
       "Batch control interface for script automation",
-      "Real iPhone hardware — not cloud or simulator",
-      "Dedicated remote setup support",
+      "Lightning/USB-C hub topology per quoted layout",
+      "Dedicated remote setup support available",
     ],
     specs: {
       "Device Type": "Real iPhone hardware",
