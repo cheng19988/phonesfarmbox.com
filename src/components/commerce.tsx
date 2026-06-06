@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { CONTACT } from "@/lib/config";
 import { StockBadge } from "./shared";
 
 type ProductCardProps = {
@@ -15,6 +16,7 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard, category }: ProductCardProps) {
+  const waText = encodeURIComponent(`Hi, I'd like a quote for ${name} (${slug}). Device count: `);
   return (
     <article className="card group flex flex-col">
       <Link href={`/products/${slug}`} className="block relative aspect-square overflow-hidden rounded-t-xl bg-slate-900">
@@ -31,8 +33,8 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
           <StockBadge stock={stock} />
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <Link href={`/products/${slug}`} className="btn-primary text-center text-sm py-2">View Details</Link>
-          <Link href={`/contact?product=${slug}`} className="btn-secondary text-center text-sm py-2">Get Quote</Link>
+          <Link href={`/contact?product=${slug}`} className="btn-primary text-center text-sm py-2">Get Quote</Link>
+          <a href={`${CONTACT.whatsappUrl}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-center text-sm py-2">WhatsApp</a>
         </div>
       </div>
     </article>
@@ -55,23 +57,39 @@ export function FAQAccordion({ items }: { items: { question: string; answer: str
   );
 }
 
-export function BuyButtons({ slug, stock }: { slug: string; stock: number }) {
+export function BuyButtons({ slug, name, stock }: { slug: string; name: string; stock: number }) {
   const disabled = stock <= 0;
+  const waText = encodeURIComponent(`Hi, I'd like a hardware quote for ${name}. Qty / device count: `);
   return (
-    <div className="flex flex-wrap gap-3">
-      <form action="/api/orders" method="POST">
-        <input type="hidden" name="productSlug" value={slug} />
-        <input type="hidden" name="action" value="buy" />
-        <button type="submit" disabled={disabled} className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed">
-          Buy Now
-        </button>
-      </form>
-      <form action="/api/orders" method="POST">
-        <input type="hidden" name="productSlug" value={slug} />
-        <input type="hidden" name="action" value="quote" />
-        <button type="submit" className="btn-secondary">Add to Order</button>
-      </form>
-      <Link href={`/contact?product=${slug}`} className="btn-outline">Get Quote</Link>
+    <div className="space-y-3">
+      <div className="flex flex-wrap gap-3">
+        <Link href={`/contact?product=${slug}`} className="btn-primary">
+          Get Quote
+        </Link>
+        <a href={`${CONTACT.whatsappUrl}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+          WhatsApp Inquiry
+        </a>
+        <Link href={`/contact?product=${slug}&type=bulk`} className="btn-secondary">
+          Request Bulk Price
+        </Link>
+      </div>
+      <div className="flex flex-wrap gap-3 pt-2 border-t border-slate-800">
+        <form action="/api/orders" method="POST">
+          <input type="hidden" name="productSlug" value={slug} />
+          <input type="hidden" name="action" value="quote" />
+          <button type="submit" className="text-sm text-slate-400 hover:text-white underline-offset-2 hover:underline">
+            Add to order list
+          </button>
+        </form>
+        <form action="/api/orders" method="POST">
+          <input type="hidden" name="productSlug" value={slug} />
+          <input type="hidden" name="action" value="buy" />
+          <button type="submit" disabled={disabled} className="text-sm text-slate-500 hover:text-slate-300 disabled:opacity-40">
+            Buy now (USDT)
+          </button>
+        </form>
+      </div>
+      <p className="text-xs text-slate-500">List price in USD. Final invoice depends on configuration, accessories, and shipping.</p>
     </div>
   );
 }

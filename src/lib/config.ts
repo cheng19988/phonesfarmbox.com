@@ -36,7 +36,7 @@ export const NAV = [
   { href: "/scenarios", label: "Scenarios" },
   { href: "/features", label: "Features" },
   { href: "/help", label: "Help Center" },
-  { href: "/blog", label: "Guides" },
+  { href: "/tools", label: "Planning Tools" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -71,7 +71,7 @@ export const FOOTER_LINKS = {
     { href: "/pricing", label: "Pricing" },
     { href: "/help", label: "Help Center" },
     { href: "/glossary", label: "Glossary" },
-    { href: "/tools", label: "Free Tools" },
+    { href: "/tools", label: "Planning Tools" },
     { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Guides & Blog" },
   ],

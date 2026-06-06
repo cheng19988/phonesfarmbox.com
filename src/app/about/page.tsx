@@ -53,7 +53,7 @@ export default function AboutPage() {
         </div>
 
         <h2 className="text-2xl font-bold text-white mb-4">Workshop &amp; Fulfillment</h2>
-        <p className="text-slate-400 mb-6">Assembly, QC, and export packaging are handled at our Guangzhou facility before DHL, FedEx, or sea freight dispatch.</p>
+        <p className="text-slate-400 mb-6">Assembly reference images — not on-site photography unless labeled otherwise.</p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
           {[
             { src: IMAGES.office, label: "Sales & Engineering" },

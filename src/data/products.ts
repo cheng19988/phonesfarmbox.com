@@ -37,22 +37,16 @@ function p(
     shortDesc,
     description:
       extra?.description ||
-      `${name} from Phones Farm Box — factory-direct real-device box hardware built in Guangzhou since 2017. Centralized power, multi-fan cooling, and batch control software support for stable 24/7 phone farm operations.`,
+      `${name} — supplied by Phones Farm Box, Guangzhou. Configuration, device models, and lead time confirmed on written quote.`,
     features: extra?.features || [
-      "Factory-direct from Guangzhou box hardware manufacturer",
-      "Real physical devices — not cloud or virtual phones",
-      "3–8 fan active cooling with unified power supply",
-      "Stackable modular design for capacity expansion",
-      "Batch control software compatible out of the box",
+      "Industrial chassis or module per SKU spec sheet",
+      "Quoted with your target device list",
+      "Export packaging from Guangzhou",
     ],
     specs: extra?.specs || {
-      "Form Factor": "2U industrial box chassis",
-      "Device Capacity": "Up to 20 nodes per box",
-      "Cooling": "3–8 fan active airflow system",
-      "Power Supply": "Unified industrial PSU",
-      "Connectivity": "USB hub + OTG / Ethernet LAN",
-      "Stackable": "Yes — vertical expansion supported",
-      "Warranty": "12 months hardware support",
+      "Configuration": "Confirm before quote",
+      "Lead time": "Stated on proforma invoice",
+      "MOQ": "Typically 1 unit for samples — see product page",
     },
     scenarios: extra?.scenarios || [
       "Multi-account social media and content operations",
@@ -135,7 +129,25 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
       "Re-auth Note": "Temporary screen needed if USB auth is lost",
     },
   }),
-  p("android-phone-farm", "Android Phone Farm", "Android Phone Farm", "Complete Android box phone farm with real devices, unified cooling, and batch PC control software.", IMAGES.androidFarm, 849, 16),
+  p("android-phone-farm", "Android Phone Farm", "Android Phone Farm", "Turnkey Android clusters: chassis, hub tier, and cooling matched to your quoted device list.", IMAGES.androidFarm, 849, 16, {
+    description: "Android Phone Farm bundles box hardware with the hub and cooling tier sized for your target models. We confirm board dimensions, USB mode, and ROM path before build. Suitable for agencies replacing desk clutter with rackable density.",
+    features: [
+      "Android-only cluster BOM on one invoice",
+      "Device models locked at quote stage",
+      "Batch control software setup sheet included",
+      "Stack additional boxes for 40+ devices",
+    ],
+    specs: {
+      "Platform": "Android phones or motherboard nodes",
+      "Typical capacity": "20 devices per box (confirm layout)",
+      "Control": "PC host via USB hub tree",
+      "ROM path": "Customer choice — confirm compatibility",
+    },
+    faq: [
+      { q: "Can I supply my own phones?", a: "Yes — share model list for mount and power verification before quote." },
+      { q: "Lead time?", a: "5–10 business days if devices are in stock; longer if sourcing specific models." },
+    ],
+  }),
   p("iphone-phone-farm", "iPhone Phone Farm", "iPhone Phone Farm", "No jailbreak, no signing required — stable kernel with rich APIs for batch iPhone control and script development.", IMAGES.iphoneFarm, 1380, 6, {
     description: "iPhone Farm solution controls real iPhones without jailbreaking or installing special apps on each device. Software kernel runs stably with rich APIs for script developers. Batch control multiple iPhones from a single management interface.",
     features: [
@@ -154,7 +166,20 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
       "Control": "Batch management software",
     },
   }),
-  p("real-device-phone-farm", "Real Device Phone Farm", "Real Device Phone Farm", "Full-scale real device phone farm — the foundation for professional multi-device automation teams.", IMAGES.realDevice, 1050, 10),
+  p("real-device-phone-farm", "Real Device Phone Farm", "Real Device Phone Farm", "Multi-box deployment package for teams standardizing a full device room — BOM and layout diagram on quote.", IMAGES.realDevice, 1050, 10, {
+    description: "Real Device Phone Farm is a project SKU for buyers needing multiple chassis, network, and accessory lines on one scope. Includes layout diagram, QC checklist copy, and phased ship plan if required.",
+    features: [
+      "Multi-box BOM with single project contact",
+      "Mixed Android/iPhone possible — segmented by rack",
+      "Electrical load note for facilities team",
+      "Optional custom cabinet line item",
+    ],
+    specs: {
+      "Scope": "Project-based — not a single SKU shelf unit",
+      "Typical size": "40–100+ devices (confirm target)",
+      "Documentation": "BOM + wiring overview on quote",
+    },
+  }),
   p("empty-box-chassis", "Empty Box / Chassis", "Empty Box / Chassis", "DIY Android farm box chassis — empty industrial enclosure for custom builds and farm expansion.", IMAGES.emptyBox, 265, 28, {
     description: "Empty Box / Chassis for DIY Android farm builds. Industrial metal enclosure with cooling fan mounts, cable routing channels, and USB hub mounting points. Expand existing deployments or build custom configurations.",
   }),

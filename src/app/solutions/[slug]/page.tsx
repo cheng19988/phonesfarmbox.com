@@ -36,6 +36,7 @@ export default async function SolutionPage({ params }: Props) {
       page={page}
       basePath="/solutions"
       baseLabel="Solutions"
+      variant="solution"
       getRelatedHref={relatedHref}
       getRelatedTitle={relatedTitle}
     />

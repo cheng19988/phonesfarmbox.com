@@ -42,6 +42,13 @@ export function buildMetadata({
   };
 }
 
+export function buildContentMetadata(
+  page: { title: string; subtitle: string },
+  path: string
+) {
+  return buildMetadata({ title: page.title, description: page.subtitle, path });
+}
+
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",

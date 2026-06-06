@@ -10,18 +10,18 @@ export async function Header() {
     <header className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-slate-800">
       <div className="hidden md:block bg-slate-900/80 border-b border-slate-800">
         <div className="container-wide py-2 flex justify-between items-center text-xs text-slate-400">
-          <span>📍 {SITE.location} · Phone Farm Box Hardware Since {SITE.since}</span>
+          <span>{SITE.location} · Phone farm hardware · Est. {SITE.since}</span>
           <ContactBar compact />
         </div>
       </div>
       <div className="container-wide py-4 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold text-xs">
+          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-600 to-orange-700 flex items-center justify-center text-white font-bold text-xs">
             PFB
           </div>
           <div>
             <div className="font-bold text-white leading-tight">{SITE.name}</div>
-            <div className="text-[10px] text-amber-400 leading-tight hidden sm:block max-w-[180px] truncate">{SITE.tagline}</div>
+            <div className="text-[10px] text-slate-400 leading-tight hidden sm:block">Hardware supplier</div>
           </div>
         </Link>
         <nav className="hidden xl:flex items-center gap-5">
@@ -31,17 +31,16 @@ export async function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <Link href="/contact" className="hidden sm:inline-flex btn-primary text-sm py-2 px-4">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex btn-secondary text-sm py-2 px-3">
+            WhatsApp
+          </a>
+          <Link href="/contact" className="btn-primary text-sm py-2 px-4">
             Get Quote
           </Link>
-          {session ? (
-            <Link href={session.role === "admin" ? "/admin" : "/account/orders"} className="text-sm text-slate-300 hover:text-white">
+          {session && (
+            <Link href={session.role === "admin" ? "/admin" : "/account/orders"} className="text-xs text-slate-500 hover:text-slate-300 hidden md:inline">
               Account
-            </Link>
-          ) : (
-            <Link href="/login" className="text-sm text-slate-300 hover:text-white">
-              Login
             </Link>
           )}
         </div>
@@ -77,15 +76,7 @@ export function Footer() {
         <div>
           <h3 className="font-semibold text-white mb-3">Scenarios</h3>
           <ul className="space-y-2 text-sm text-slate-400">
-            {FOOTER_LINKS.scenarios.map((l) => (
-              <li key={l.href}><Link href={l.href} className="hover:text-white">{l.label}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3 className="font-semibold text-white mb-3">Features</h3>
-          <ul className="space-y-2 text-sm text-slate-400">
-            {FOOTER_LINKS.features.map((l) => (
+            {FOOTER_LINKS.scenarios.slice(0, 6).map((l) => (
               <li key={l.href}><Link href={l.href} className="hover:text-white">{l.label}</Link></li>
             ))}
           </ul>
@@ -96,13 +87,19 @@ export function Footer() {
             {FOOTER_LINKS.resources.map((l) => (
               <li key={l.href}><Link href={l.href} className="hover:text-white">{l.label}</Link></li>
             ))}
-            <li><Link href="/products" className="hover:text-white">Products / Shop</Link></li>
-            <li><Link href="/services" className="hover:text-white">Deployment Services</Link></li>
-            <li><Link href="/about" className="hover:text-white">About Us</Link></li>
-            <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
-            <li><Link href="/cookies" className="hover:text-white">Cookie Policy</Link></li>
-            <li><Link href="/refund" className="hover:text-white">Refund Policy</Link></li>
-            <li><Link href="/terms" className="hover:text-white">Terms of Use</Link></li>
+            <li><Link href="/products" className="hover:text-white">Products</Link></li>
+            <li><Link href="/services" className="hover:text-white">Services</Link></li>
+            <li><Link href="/about" className="hover:text-white">About</Link></li>
+            <li><Link href="/login" className="hover:text-white text-slate-500">Order login</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="font-semibold text-white mb-3">Legal</h3>
+          <ul className="space-y-2 text-sm text-slate-400">
+            <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
+            <li><Link href="/cookies" className="hover:text-white">Cookies</Link></li>
+            <li><Link href="/refund" className="hover:text-white">Refund</Link></li>
+            <li><Link href="/terms" className="hover:text-white">Terms</Link></li>
           </ul>
         </div>
       </div>

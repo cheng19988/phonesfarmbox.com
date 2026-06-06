@@ -1,4 +1,5 @@
 ﻿import { CONTACT, SITE } from "@/lib/config";
+import Link from "next/link";
 
 export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
   return (
@@ -28,20 +29,18 @@ export function ContactBar({ compact = false }: { compact?: boolean }) {
   );
 }
 
-export function ContactCTA({ title = "Talk to Our Sales Team" }: { title?: string }) {
+export function ContactCTA({ title = "Request a Hardware Quote" }: { title?: string }) {
   return (
-    <section className="rounded-2xl bg-gradient-to-br from-amber-900/40 to-slate-900 border border-amber-800/50 p-8 md:p-12 text-center">
+    <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 md:p-12 text-center">
       <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{title}</h2>
-      <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-        Factory-direct support from {SITE.location}. Get pricing, custom quotes, and deployment guidance within 24 hours.
+      <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
+        Send device count, models, and shipping country. Business-day reply within 72 hours.
       </p>
       <ContactBar />
       <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-          WhatsApp Sales
-        </a>
-        <a href="/contact" className="btn-secondary">
-          Send Inquiry
+        <Link href="/contact" className="btn-primary">Contact Sales</Link>
+        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+          WhatsApp Inquiry
         </a>
       </div>
     </section>
@@ -61,8 +60,8 @@ export function MobileContactBar() {
         <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center py-3 text-xs text-slate-300 hover:text-blue-400">
           <span className="text-base mb-0.5">✈️</span> Telegram
         </a>
-        <a href={`mailto:${CONTACT.email}`} className="flex flex-col items-center py-3 text-xs text-slate-300 hover:text-amber-400">
-          <span className="text-base mb-0.5">✉️</span> Email
+        <a href="/contact" className="flex flex-col items-center py-3 text-xs text-amber-400 hover:text-amber-300">
+          <span className="text-base mb-0.5">📋</span> Quote
         </a>
       </div>
     </div>

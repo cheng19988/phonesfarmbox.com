@@ -1,127 +1,74 @@
-export type FreeTool = {
+export type PlanningTool = {
   slug: string;
   title: string;
   description: string;
-  content: string;
+  content?: string;
+  interactive?: "capacity" | "power" | "usb" | "checklist";
 };
 
-export const FREE_TOOLS: FreeTool[] = [
+export const PLANNING_TOOLS: PlanningTool[] = [
   {
-    slug: "phone-farm-sizing-calculator",
-    title: "Phone Farm Sizing Calculator Guide",
-    description: "Estimate how many phone farm boxes you need based on device count and workload.",
-    content: `Use this guide to size your phone farm deployment:
-
-**Standard capacity:** 20 devices per 2U phone farm box
-
-**Calculation:**
-- Accounts needed ÷ 20 = boxes required (round up)
-- Example: 85 accounts → 5 boxes (100 device capacity)
-
-**Workload factors:**
-- Heavy apps (TikTok, games): allow 15–20% headroom for thermal margin
-- Light apps (messaging, surveys): full 20 nodes per box
-- Mixed iPhone + Android: separate boxes recommended
-
-**Expansion path:**
-Start with 1–2 boxes for evaluation, then add stackable units. Enterprise: custom 42U cabinet for 100+ devices.
-
-Contact us for a custom sizing consultation: qiuxui646@gmail.com`,
+    slug: "phone-farm-capacity-estimator",
+    title: "Phone Farm Capacity Estimator",
+    description: "Estimate how many 20-node boxes you need for a target device count.",
+    interactive: "capacity",
   },
   {
-    slug: "network-ip-planner",
-    title: "Network IP Planning Guide",
-    description: "Plan IP allocation and router configuration for multi-device phone farms.",
-    content: `**IP planning template:**
-
-| Device Group | Platform | Region | IP Type | Device Count |
-|-------------|----------|--------|---------|-------------|
-| Group A | TikTok | US | Residential proxy | 20 |
-| Group B | Instagram | EU | Mobile data | 20 |
-
-**Rules of thumb:**
-- 1 IP per account for sensitive platforms
-- 1 IP per 3–5 accounts for lower-risk operations
-- Never share IP across unrelated account groups
-
-**Hardware needed:**
-- 1 router per 20–50 devices
-- Network switch for large deployments
-- See our Network Equipment products`,
+    slug: "power-consumption-estimator",
+    title: "Power Consumption Estimator",
+    description: "Rough PSU sizing from node count and watts per device.",
+    interactive: "power",
+  },
+  {
+    slug: "usb-port-requirement-calculator",
+    title: "USB Port Requirement Calculator",
+    description: "Plan industrial hub tiers for your device count and control PCs.",
+    interactive: "usb",
+  },
+  {
+    slug: "bulk-quote-checklist",
+    title: "Bulk Quote Checklist",
+    description: "Checklist to copy into the sales inquiry form.",
+    interactive: "checklist",
   },
   {
     slug: "box-vs-cloud-comparison",
-    title: "Box vs Cloud vs Emulator Comparison Tool",
-    description: "Side-by-side comparison to choose the right phone farm approach.",
-    content: `| Factor | Phone Farm Box | Cloud Phone | Emulator |
-|--------|---------------|-------------|----------|
-| Hardware | Real physical devices | Virtual on cloud servers | Software on PC |
-| Platform trust | High | Medium | Low |
-| Initial cost | Hardware purchase | Subscription | Free/low |
-| Scalability | Stack boxes | Unlimited virtual | PC-limited |
-| Sensor accuracy | Genuine | Simulated | Simulated |
-| 24/7 operation | Yes (with cooling) | Yes | Limited |
-| Customization | Full hardware control | Platform-dependent | Limited |
-| Best for | Multi-account ops, QA | Light testing | Dev debugging |
+    title: "Hardware vs Cloud — Planning Notes",
+    description: "When to buy boxes vs rent virtual devices (procurement notes).",
+    content: `**Choose hardware when:**
+- You run the same devices daily for months
+- Platform trust and physical sensors matter
+- You already pay for host PCs and space
 
-**Recommendation:** Phone farm box for any operation where account trust and long-term stability matter.`,
-  },
-  {
-    slug: "power-requirements-estimator",
-    title: "Power Requirements Estimator",
-    description: "Calculate power needs for phone farm box deployments.",
-    content: `**Per box power consumption:**
-- 20-node phone farm box: ~100–150W continuous
-- 20-node motherboard box: ~80–120W continuous
-- Cooling fans: ~20–40W additional
+**Consider cloud for:**
+- Short experiments under 30 days
+- Sandbox apps with no account value
 
-**Room power planning:**
-- 5 boxes: dedicated 15A circuit recommended
-- 10+ boxes: consult electrician for 220V dedicated circuit
-- Enterprise rack (42U): 5–10kW capacity planning
-
-**PSU specifications:**
-Our boxes include 450–550W industrial PSU per unit — sufficient for 20 nodes with cooling.`,
-  },
-  {
-    slug: "glossary-quick-reference",
-    title: "Phone Farm Glossary Quick Reference",
-    description: "Quick lookup for common phone farm hardware and software terms.",
-    content: `Browse our full glossary at /glossary for detailed definitions.
-
-**Quick terms:**
-- **Phone Farm Box** — Industrial chassis with 20 real devices
-- **Motherboard Box** — Screenless nodes, lower cost
-- **Batch Control** — Software managing all devices from one PC
-- **ADB** — Android Debug Bridge for device automation
-- **OTG Ethernet** — LAN connection for device data
-- **Stackable** — Boxes that connect vertically for expansion
-
-Visit /glossary for 20+ detailed term definitions.`,
+**Cost note:** Hardware is cap-ex + power; cloud is opex per seat. Request a TCO line on our pricing page for your device count.`,
   },
   {
     slug: "buying-guide-checklist",
-    title: "Phone Farm Buying Guide Checklist",
-    description: "Checklist before purchasing phone farm box hardware.",
-    content: `**Before you buy:**
+    title: "First Purchase Checklist",
+    description: "Questions we ask before sending a proforma invoice.",
+    content: `1. Android, iPhone, or mixed?
+2. Target device count in 6 months
+3. Need SIM, camera, or headless?
+4. Destination country and port
+5. Air vs sea preference
+6. Existing control software?
+7. Sample first or bulk only?
 
-☐ Define device count and platform (Android/iPhone/mixed)
-☐ Choose phone box vs motherboard box
-☐ Plan network/IP requirements
-☐ Confirm power availability at deployment site
-☐ Identify control PC specs (Windows/macOS)
-☐ Decide sample vs bulk order
-☐ Review cooling requirements for your climate
-☐ Confirm shipping destination and customs needs
-
-**Recommended first order:**
-1 sample phone farm box → evaluate 2 weeks → bulk order
-
-**Contact for quote:**
-WhatsApp +852 6215 5642 | Telegram @huicheng1998 | Phone 13059502618`,
+Send answers via the contact form for a written quote.`,
   },
 ];
 
+/** @deprecated use PLANNING_TOOLS */
+export const FREE_TOOLS = PLANNING_TOOLS;
+
+export function getPlanningTool(slug: string) {
+  return PLANNING_TOOLS.find((t) => t.slug === slug);
+}
+
 export function getFreeTool(slug: string) {
-  return FREE_TOOLS.find((t) => t.slug === slug);
+  return getPlanningTool(slug);
 }

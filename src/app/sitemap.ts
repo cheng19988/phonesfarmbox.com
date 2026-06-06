@@ -7,7 +7,7 @@ import { FEATURE_PAGES } from "@/data/features-pages";
 import { SOLUTION_PAGES } from "@/data/solutions-pages";
 import { HELP_ARTICLES } from "@/data/help";
 import { GLOSSARY_TERMS } from "@/data/glossary";
-import { FREE_TOOLS } from "@/data/tools";
+import { PLANNING_TOOLS } from "@/data/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...FEATURE_PAGES.map((p) => ({ url: `${SITE.url}/features/${p.slug}`, priority: 0.85 })),
     ...HELP_ARTICLES.map((p) => ({ url: `${SITE.url}/help/${p.slug}`, priority: 0.75 })),
     ...GLOSSARY_TERMS.map((p) => ({ url: `${SITE.url}/glossary/${p.slug}`, priority: 0.7 })),
-    ...FREE_TOOLS.map((p) => ({ url: `${SITE.url}/tools/${p.slug}`, priority: 0.7 })),
+    ...PLANNING_TOOLS.map((p) => ({ url: `${SITE.url}/tools/${p.slug}`, priority: 0.7 })),
     ...BLOG_POSTS.map((p) => ({ url: `${SITE.url}/blog/${p.slug}`, priority: 0.7 })),
   ].map((p) => ({
     ...p,

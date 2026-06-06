@@ -1,96 +1,105 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
 import { buildMetadata } from "@/lib/seo";
-import { ContactCTA } from "@/components/shared";
 import { CONTACT } from "@/lib/config";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Box Pricing — Hardware & Accessories",
+  title: "Hardware Pricing & Bulk Quote",
   description:
-    "Factory-direct phone farm box pricing from Guangzhou. Phone farm boxes, motherboard boxes, USB hubs, power, cooling, and deployment services. Sample orders from 1 unit.",
+    "B2B phone farm hardware pricing from Guangzhou. Starter, standard, and bulk deployment tiers. Request a quote — final price depends on configuration.",
   path: "/pricing",
 });
 
-export default async function PricingPage() {
-  const products = await prisma.product.findMany({
-    where: { published: true },
-    orderBy: { priceUsd: "asc" },
-  });
+const TIERS = [
+  {
+    name: "Starter / Sample",
+    desc: "Evaluate one box before a rack purchase.",
+    detail: "MOQ 1 unit · Single chassis · Standard burn-in · Air shipping quoted separately",
+    from: "From $265 (chassis-only SKUs)",
+  },
+  {
+    name: "Standard Deployment",
+    desc: "Single team rolling out 20–60 devices.",
+    detail: "1–3 boxes · Hub/PSU matched to device list · Remote setup optional",
+    from: "Quote per BOM",
+  },
+  {
+    name: "Bulk / Rack Project",
+    desc: "Agency or enterprise room build-out.",
+    detail: "5+ boxes or custom cabinet · Volume pricing · Sea freight available · Dedicated PM on request",
+    from: "Custom quote",
+  },
+];
 
-  const categories = [...new Set(products.map((p) => p.category))];
+const TCO_ROWS = [
+  { factor: "Upfront cost", hardware: "One-time invoice (USD)", cloud: "Low setup, recurring monthly" },
+  { factor: "Scale model", hardware: "Add physical boxes", cloud: "Add virtual seats" },
+  { factor: "Device identity", hardware: "Physical phones/boards you specify", cloud: "Shared virtual environment" },
+  { factor: "3-year ops (illustrative)", hardware: "Cap-ex + power/host PC", cloud: "Subscription × months × devices" },
+  { factor: "Best fit", hardware: "Long-run multi-account ops", cloud: "Short tests or sandboxes" },
+];
 
+export default function PricingPage() {
   return (
     <div className="section">
       <div className="container-wide max-w-5xl">
-        <h1 className="section-title">Phone Farm Box Pricing</h1>
+        <h1 className="section-title">Hardware Pricing &amp; Bulk Inquiry</h1>
         <p className="section-subtitle">
-          Factory-direct hardware pricing from Guangzhou — one-time purchase, no cloud subscription. Unlike cloud phone SaaS billing, phone farm boxes are physical hardware you own outright.
+          List prices are starting points in USD. <strong className="text-slate-300">Final price depends on phone model, quantity, accessories, and shipping destination</strong> — request a written quote before payment.
         </p>
 
-        {/* vs Cloud comparison banner */}
-        <div className="card p-6 mb-12 border-amber-800/40 bg-amber-950/20">
-          <h2 className="text-lg font-bold text-white mb-2">Real Device Hardware vs Cloud Phone Subscription</h2>
-          <p className="text-slate-400 text-sm leading-relaxed">
-            Cloud phone services charge monthly per virtual device. Phones Farm Box sells physical phone farm hardware — you pay once, own the equipment, and scale by adding boxes. Bulk pricing available from 5+ units. Sample orders from 1 unit.
-          </p>
-        </div>
-
-        {categories.map((cat) => {
-          const items = products.filter((p) => p.category === cat);
-          return (
-            <div key={cat} className="mb-10">
-              <h2 className="text-xl font-bold text-white mb-4">{cat}</h2>
-              <div className="space-y-3">
-                {items.map((p) => (
-                  <Link
-                    key={p.slug}
-                    href={`/products/${p.slug}`}
-                    className="card p-4 flex flex-wrap items-center justify-between gap-4 hover:border-amber-800 transition-colors group"
-                  >
-                    <div>
-                      <h3 className="font-semibold text-white group-hover:text-amber-400 transition-colors">{p.name}</h3>
-                      <p className="text-sm text-slate-400 line-clamp-1">{p.shortDesc}</p>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <div className="text-2xl font-bold text-amber-400">${p.priceUsd.toFixed(0)}</div>
-                      <div className="text-xs text-slate-500">
-                        {p.stock > 0 ? `${p.stock} in stock` : "Out of stock"}
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          );
-        })}
-
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {[
-            { title: "Sample Order", desc: "MOQ 1 unit — evaluate hardware before bulk purchase", price: "From $265" },
-            { title: "Bulk Pricing", desc: "5+ units — contact sales for volume discount", price: "Custom quote" },
-            { title: "Enterprise Rack", desc: "42U custom cabinet, 100+ devices, dedicated PM", price: "From $2,650" },
-          ].map((tier) => (
-            <div key={tier.title} className="card p-6 text-center">
-              <h3 className="font-bold text-white mb-2">{tier.title}</h3>
-              <div className="text-2xl font-bold text-amber-400 mb-3">{tier.price}</div>
-              <p className="text-sm text-slate-400">{tier.desc}</p>
+        <div className="grid md:grid-cols-3 gap-6 mb-14">
+          {TIERS.map((t) => (
+            <div key={t.name} className="p-6 rounded-xl border border-slate-800 bg-slate-900/40">
+              <h2 className="text-lg font-bold text-white mb-2">{t.name}</h2>
+              <p className="text-sm text-slate-300 mb-2">{t.desc}</p>
+              <p className="text-xs text-slate-500 mb-4">{t.detail}</p>
+              <p className="text-amber-400 font-semibold">{t.from}</p>
             </div>
           ))}
         </div>
 
-        <div className="card p-6 mb-12">
-          <h2 className="text-lg font-bold text-white mb-3">Payment Methods</h2>
-          <ul className="space-y-2 text-slate-400 text-sm">
-            <li>✓ Online orders: USDT on Tron TRC20 (min 10 USDT, 30-min payment window)</li>
-            <li>✓ Bulk orders: Bank transfer (T/T), Wise, PayPal on request</li>
-            <li>✓ All prices in USD — shipping quoted separately</li>
-          </ul>
+        <div className="mb-14 overflow-x-auto">
+          <h2 className="text-xl font-bold text-white mb-4">Hardware vs cloud phone — TCO snapshot</h2>
+          <p className="text-sm text-slate-500 mb-4">Illustrative comparison for procurement discussions — not a financial guarantee.</p>
+          <table className="w-full text-sm border border-slate-800">
+            <thead>
+              <tr className="bg-slate-900/80 text-left">
+                <th className="p-3 text-slate-400">Factor</th>
+                <th className="p-3 text-white">Phone farm hardware</th>
+                <th className="p-3 text-slate-400">Cloud phone SaaS</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TCO_ROWS.map((r) => (
+                <tr key={r.factor} className="border-t border-slate-800">
+                  <td className="p-3 text-slate-400">{r.factor}</td>
+                  <td className="p-3 text-slate-200">{r.hardware}</td>
+                  <td className="p-3 text-slate-500">{r.cloud}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        <ContactCTA title="Get Custom Quote for Your Phone Farm Deployment" />
-        <p className="text-center text-sm text-slate-500 mt-6">
-          WhatsApp {CONTACT.whatsapp} · Telegram {CONTACT.telegram} · {CONTACT.email}
-        </p>
+        <div className="p-6 rounded-xl border border-amber-800/30 bg-amber-950/10 mb-14">
+          <h2 className="font-bold text-white mb-2">Bulk discount inquiry</h2>
+          <p className="text-sm text-slate-400 mb-4">5+ boxes, mixed SKUs, or cabinet projects — send a device matrix and we return tiered pricing and lead time.</p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/contact?type=bulk" className="btn-primary">Request Bulk Quote</Link>
+            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Sales</a>
+          </div>
+        </div>
+
+        <div className="text-sm text-slate-500 space-y-2 mb-10">
+          <p>Payment: USDT (Tron TRC20) for small online orders; T/T, Wise, or PayPal for bulk by invoice.</p>
+          <p>Catalog detail: <Link href="/products" className="text-amber-400 hover:underline">all products</Link></p>
+        </div>
+
+        <div className="text-center p-10 rounded-2xl border border-slate-800">
+          <h2 className="text-2xl font-bold text-white mb-3">Request Quote</h2>
+          <p className="text-slate-400 mb-6">Share quantity, models, and destination — we reply with configuration and lead time.</p>
+          <Link href="/contact" className="btn-primary px-8 py-3">Contact Sales</Link>
+        </div>
       </div>
     </div>
   );

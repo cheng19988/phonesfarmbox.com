@@ -25,6 +25,7 @@ export default async function FeaturePage({ params }: Props) {
       page={page}
       basePath="/features"
       baseLabel="Features"
+      variant="feature"
       getRelatedHref={(s) => `/features/${s}`}
       getRelatedTitle={(s) => getFeaturePage(s)?.title ?? s}
     />

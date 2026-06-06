@@ -38,6 +38,7 @@ export default async function ScenarioPage({ params }: Props) {
       page={page}
       basePath="/scenarios"
       baseLabel="Scenarios"
+      variant="scenario"
       getRelatedHref={relatedHref}
       getRelatedTitle={relatedTitle}
     />
