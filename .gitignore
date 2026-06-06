@@ -37,6 +37,9 @@ yarn-error.log*
 .env*
 !.env.example
 .env.database-url
+.tmp-cookies.txt
+.tmp-login-body.json
+.tmp-login-res.json
 
 # vercel
 .vercel
