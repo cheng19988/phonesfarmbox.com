@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Box Glossary",
-  description: "Phone farm hardware glossary — phone farm box, motherboard box, ADB, batch control, cooling, network setup, and 20+ technical terms explained.",
+  description: "Phone farm hardware glossary — phone farm box, motherboard box, ADB, batch control, cooling, network setup, and related terms explained.",
   path: "/glossary",
 });
 

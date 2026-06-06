@@ -86,8 +86,8 @@ function p(
 }
 
 export const PRODUCT_SEEDS: ProductSeed[] = [
-  p("phone-farm-box", "Phone Farm Box", "Phone Farm Box", "Real smartphones in a unified box — centralized heat dissipation, unified power, and PC batch control for hundreds of device windows.", IMAGES.phoneFarmBox, 728, 18, {
-    description: "Phone Farm Box houses real mobile phones (non-bare motherboard, non-virtual) with screen and battery removed. Each box includes multi-fan cooling, unified power supply, and USB hub integration. Control hundreds of phone windows in batches through PC group software.",
+  p("phone-farm-box", "Phone Farm Box", "Phone Farm Box", "Real smartphones in a unified box — centralized heat dissipation, unified power, and PC batch control. Slot count confirmed before quote.", IMAGES.phoneFarmBox, 728, 18, {
+    description: "Phone Farm Box houses real mobile phones (non-bare motherboard, non-virtual) with screen and battery removed. Each box includes fan tray cooling, unified power supply, and USB hub integration — hub tier and slot layout confirmed on written quote before assembly.",
     features: [
       "Real phone hardware with frame — SIM and camera on supported models",
       "Customized ROM options: auto-reconnect, factory reset paths confirmed at quote",
@@ -115,7 +115,7 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
     ],
     specs: {
       "Node Type": "Android motherboard (screenless)",
-      "Capacity": "Up to 20 nodes — layout confirmed before quote",
+      "Capacity": "Confirmed before quote — depends on board footprint and layout",
       "Cooling": "Fan tray — spec confirmed on proforma",
       "System": "Official or custom Android — confirm at quote",
       "SIM Support": "Model dependent",

@@ -2,13 +2,13 @@
   name: "Phones Farm Box",
   domain: "phonesfarmbox.com",
   url: "https://www.phonesfarmbox.com",
-  tagline: "Phone Farm Box Hardware, Accessories and Real-Device Deployment Guides",
+  tagline: "Quote-based phone farm hardware, rack assembly, and B2B export from Guangzhou",
   intro:
-    "Guangzhou manufacturer of phone farm boxes, motherboard chassis, USB hubs, power and cooling systems, and deployment guides for real-device multi-phone operations.",
+    "Guangzhou supplier of phone farm boxes, motherboard chassis, USB hubs, power and cooling modules, and rack-scale cabinet systems for overseas B2B buyers.",
   location: "Guangzhou, China",
   since: 2017,
   description:
-    "Phones Farm Box — real-device phone farm box hardware and knowledge platform from Guangzhou. Phone farm boxes, motherboard boxes, USB hubs, power, cooling, network equipment, remote control setup, group control configuration, and deployment guides since 2017.",
+    "Phones Farm Box supplies quote-based phone farm hardware, rack assembly, USB hub, power and cooling configurations for overseas B2B buyers. Guangzhou supplier since 2017.",
 } as const;
 
 export const CONTACT = {

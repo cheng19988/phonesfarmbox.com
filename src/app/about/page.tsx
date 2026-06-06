@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
 });
 
 const WHAT_WE_BUILD = [
-  { title: "Phone farm box", desc: "Android phone chassis with power, USB, and cooling — typically 20 slots per unit.", href: "/products/phone-farm-box" },
+  { title: "Phone farm box", desc: "Android phone chassis with power, USB hub wiring, and cooling — slot count confirmed before quote.", href: "/products/phone-farm-box" },
   { title: "Motherboard rack box", desc: "Headless Android node chassis for lower per-slot cost.", href: "/products/motherboard-box" },
   { title: "iPhone farm cluster", desc: "Batch iPhone layouts — model and cable plan confirmed at quote.", href: "/products/iphone-phone-farm" },
   { title: "USB hub & power", desc: "Industrial hubs, PSU modules, and cooling accessories.", href: "/products/usb-hub" },
@@ -37,7 +37,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {[
             { stat: String(SITE.since), label: "Operating from Guangzhou" },
-            { stat: "20+", label: "Nodes per standard box" },
+            { stat: "BOM", label: "Confirmed before quote" },
             { stat: "MOQ 1", label: "Sample orders" },
             { stat: "72h", label: "Typical burn-in (standard boxes)" },
           ].map((item) => (

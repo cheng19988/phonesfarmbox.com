@@ -24,9 +24,9 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
   "phone-farm-box": {
     overview:
       "Standard Android phone farm chassis for buyers who need SIM-capable nodes, camera paths on supported models, and rackable density without desk clutter. Each unit consolidates power, USB data, and cooling into one export-ready box.",
-    bestFor: "Agencies and studios running 10–20 Android accounts per box with SIM or camera requirements.",
+    bestFor: "Agencies and studios running multi-account Android workflows per chassis with SIM or camera requirements.",
     recommendedConfiguration:
-      "1× chassis (20 slots) + matched hub tier + PSU for quoted phone models + 1 control PC with batch software. Add network router bundle when each box needs isolated IP groups.",
+      "Chassis (slot count on quote) + matched hub tier + PSU for quoted phone models + control PC with batch software. Add network router bundle when each box needs isolated IP groups.",
     capacity: "Confirmed before quote — slot layout depends on phone height and chassis variant.",
     cooling: "Active top-exhaust fan tray; fan count and CFM target confirmed per order.",
     powerAndPorts: "Single chassis AC input; internal USB hub tree to control PC — port map on wiring diagram.",
@@ -58,7 +58,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Headless Android node chassis for teams optimizing cost per slot. Screenless motherboard nodes reduce unit cost while keeping USB debugging and batch control from a single host PC.",
     bestFor: "Automation teams and QA labs that do not need displays or cameras on every node.",
     recommendedConfiguration:
-      "1× motherboard box (up to 20 nodes) + industrial USB hub + PSU sized to node count + temporary screen kit for initial USB auth if needed.",
+      "Motherboard box (node count on quote) + industrial USB hub + PSU sized to node list + temporary screen kit for initial USB auth if needed.",
     capacity: "Confirmed before quote — depends on board footprint and node mix.",
     cooling: "Integrated fan tray; airflow direction marked on chassis.",
     powerAndPorts: "Central PSU rail; per-node power leads; USB hub uplink to host PC.",
@@ -89,7 +89,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Turnkey Android cluster SKU — chassis, hub tier, cooling, and cabling matched to your quoted device list on one BOM. Reduces integration time for buyers replacing ad-hoc desk setups.",
     bestFor: "Buyers wanting a single invoice for box + accessories without picking each component separately.",
     recommendedConfiguration:
-      "Device count ÷ 20 = box qty (round up) + hub/PSU tier from planning tools + optional network kit for multi-account segmentation.",
+      "Target device count → chassis qty from capacity estimator (slots per box confirmed at quote) + hub/PSU tier from planning tools + optional network kit for multi-account segmentation.",
     capacity: "Confirmed before quote — box count sized from your device list.",
     cooling: "PSU and fan package matched to quoted Android models.",
     powerAndPorts: "Pre-mapped USB tree; one primary PC uplink (secondary PC optional).",
@@ -97,7 +97,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     deploymentNotes: [
       "Lock device list before production — changes after assembly may delay ship date.",
       "First boot checklist covers ADB visibility on all nodes before handoff.",
-      "For 40+ devices, plan phased hub uplinks rather than one overloaded PC port.",
+      "For large farms, plan phased hub uplinks rather than one overloaded PC port.",
     ],
     included: ["Box + cooling + hub tier as quoted", "Cabling kit", "Control software setup sheet"],
     optionalAddons: ["Pre-loaded APK bundle (customer list)", "Remote onboarding session", "Additional boxes"],
@@ -118,7 +118,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
   "iphone-phone-farm": {
     overview:
       "iPhone cluster hardware and integration for script teams needing batch control without per-device manual trust workflows. Model mix, cable plan, and host requirements are confirmed before build.",
-    bestFor: "Script developers and agencies running batch iPhone operations at 6–20 device scale.",
+    bestFor: "Script developers and agencies running batch iPhone operations — cluster size confirmed at quote.",
     recommendedConfiguration:
       "Quoted iPhone count + powered USB hub topology + Mac or PC host (confirmed at quote) + remote control setup service for first deployment.",
     capacity: "Confirmed before quote — density depends on model and cable plan.",
@@ -133,7 +133,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     included: ["Rack/box layout as quoted", "Hub/charging plan", "Control stack setup notes"],
     optionalAddons: ["Remote control setup service", "Mac mini sourcing (TBD)", "Spare cables"],
     shippingPackage: ["Shock packaging if devices shipped installed", "Separate hub carton if large"],
-    moq: "1 cluster (often 6+ devices practical)",
+    moq: "1 cluster (practical minimum discussed at quote)",
     leadTime: "7–14 business days — model mix dependent",
     warranty: "Integration support 90 days; Apple device warranty unchanged",
     imageCaption: "Product illustration — cable plan per quote",
@@ -143,13 +143,13 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "Can I mix iPhone generations?", a: "Possible with separate cable zones — increases integration time; confirm on BOM." },
       { q: "Do you supply iPhones?", a: "Optional — quote with or without devices; model availability affects lead time." },
       { q: "Mac or PC host?", a: "Depends on control stack — stated on quote before payment." },
-      { q: "Minimum practical cluster size?", a: "Often 6+ devices to justify hub and setup cost — smaller samples discussed case by case." },
+      { q: "Minimum practical cluster size?", a: "Depends on hub tier and setup scope — smaller samples discussed case by case at quote." },
     ],
   },
   "real-device-phone-farm": {
     overview:
       "Project SKU for buyers standardizing a full room — multiple chassis, network, accessories, and documentation on one scope. Includes BOM, layout diagram, and phased ship options for large rollouts.",
-    bestFor: "Operators planning 40–100+ device rooms with mixed SKUs and facilities coordination.",
+    bestFor: "Operators planning multi-chassis device rooms with mixed SKUs and facilities coordination.",
     recommendedConfiguration:
       "Workshop call → device matrix → box count + hub/PSU/network lines → optional custom cabinet → burn-in schedule → split or single shipment.",
     capacity: "Project-based — total device count confirmed before quote.",
@@ -159,7 +159,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     deploymentNotes: [
       "Facilities team should review electrical load sheet before install date.",
       "Phased delivery (chassis first, devices follow) available for import timing.",
-      "Dedicated project contact for 50+ device scopes.",
+      "Dedicated project contact for large-scope deployments.",
     ],
     included: ["Bill of materials", "Layout diagram", "QC checklist copy", "Shipping plan"],
     optionalAddons: ["Custom cabinet", "Enterprise PM", "On-call burn-in monitoring"],
@@ -221,7 +221,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     deploymentNotes: [
       "Never cascade unpowered consumer hubs — use industrial powered tiers only.",
       "Label uplink ports on host PC to match box ID in batch software.",
-      "Spare hub recommended for 40+ node rooms to minimize downtime.",
+      "Spare hub recommended for large node rooms to minimize downtime.",
     ],
     included: ["Hub module", "Power adapter (region plug)", "Mounting screws"],
     optionalAddons: ["Extended USB3 active cables", "Secondary uplink card", "19″ rack ears"],
@@ -306,7 +306,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Router, switch, and OTG Ethernet accessories for multi-account farms needing network segmentation or wired offload. IP planning worksheet included — proxy binding remains customer workflow.",
     bestFor: "Multi-account setups needing router segmentation or Android OTG Ethernet paths.",
     recommendedConfiguration:
-      "1 router per 20–40 devices (model quoted) + patch cables + IP worksheet; add switch if PoE cameras or APs required.",
+      "Router/switch tier matched to quoted node count + patch cables + IP worksheet; add switch if PoE cameras or APs required.",
     capacity: "Depends on router model quoted.",
     cooling: "Fanless shelf mount typical; separate switch if PoE needed.",
     powerAndPorts: "WAN + LAN map diagram; OTG path for supported Android models.",
@@ -334,7 +334,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
   },
   "custom-cabinet": {
     overview:
-      "Floor-standing or rack cabinets for enterprise rooms needing 100+ device positions, cable management, and visitor-safe enclosures. CAD and tray design confirmed before fabrication.",
+      "Floor-standing or rack cabinets for enterprise rooms — position count and cable management confirmed on CAD before fabrication.",
     bestFor: "Enterprise buyers needing room-scale density with structured cable management.",
     recommendedConfiguration:
       "Site dimensions → tray design per device family → PDU plan → cooling/airflow note → factory acceptance test before ship.",
@@ -356,7 +356,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     imageCaption: "Cabinet layout illustration",
     relatedSlugs: ["real-device-phone-farm", "phone-farm-box", "network-equipment", "power-supply-solution"],
     faq: [
-      { q: "Minimum device count for custom cabinet?", a: "Usually 100+ positions — smaller custom racks discussed case by case." },
+      { q: "Minimum device count for custom cabinet?", a: "Scope confirmed on project quote — smaller custom racks discussed case by case." },
       { q: "CAD approval process?", a: "Drawing sign-off required before fabrication — revision rounds included in schedule." },
       { q: "On-site installation?", a: "Quoted separately — travel and duration on proforma." },
       { q: "Lead time?", a: "4–8 weeks manufacturing after CAD approval." },

@@ -9,29 +9,29 @@ export const HARDWARE_TRUST_POINTS = [
 export const DEPLOYMENT_STORIES = [
   {
     region: "Southeast Asia",
-    size: "60 Android nodes",
-    hardware: "3× Phone Farm Box + industrial USB hubs + router bundle",
-    problem: "Scattered phones on desks — unstable USB, no rack plan, rising proxy detection from shared Wi‑Fi.",
-    result: "Three stacked boxes in office rack; one PC batch-control group per box; DHL ship + remote wiring call on day two.",
+    size: "Example — multi-box Android rollout",
+    hardware: "Phone farm boxes + industrial USB hubs + router bundle (quantities on quote)",
+    problem: "Scattered phones on desks — unstable USB, no rack plan, shared office Wi‑Fi complicating per-group routing.",
+    result: "Stacked chassis in office rack; batch-control groups per box; DHL ship + remote wiring call on day two.",
   },
   {
     region: "EU",
-    size: "36 test devices",
-    hardware: "2× Motherboard Box + USB hub expansion module",
-    problem: "QA team needed parallel APK installs on physical boards without emulator drift or cloud seat limits.",
-    result: "Motherboard nodes cut per-seat cost; hub module added at expansion; burn-in report included for audit trail.",
+    size: "Example — QA lab expansion",
+    hardware: "Motherboard boxes + USB hub expansion module (tier confirmed on datasheet)",
+    problem: "QA team needed parallel APK installs on physical boards with stable USB paths and audit-friendly burn-in records.",
+    result: "Motherboard nodes sized on quote; hub module added at expansion; burn-in report included for audit trail.",
   },
   {
     region: "North America",
-    size: "12 iPhone cluster",
+    size: "Example — iPhone cluster handoff",
     hardware: "iPhone farm layout + remote control setup service",
     problem: "Agency needed Lightning/USB-C mix with batch dashboard before client handoff — tight air freight window.",
-    result: "Model mix locked at quote; pre-burn devices; control stack configured remotely; 7–10 day lead time met.",
+    result: "Model mix locked at quote; pre-burn devices; control stack configured remotely; lead time stated on proforma.",
   },
   {
     region: "Middle East",
-    size: "80-node room project",
-    hardware: "4× Android clusters + network kit + phased sea shipment",
+    size: "Example — room-scale project",
+    hardware: "Android clusters + network kit + phased sea shipment",
     problem: "Facilities team required electrical load sheet and split shipment (chassis first, phones follow).",
     result: "Project BOM with load note; sea freight crated; named engineering contact through install week.",
   },
@@ -102,8 +102,8 @@ export const FACTORY_STEPS = [
 ] as const;
 
 export const PRODUCT_CATEGORIES = [
-  { name: "Android Phone Farm Box", href: "/products/phone-farm-box", desc: "20-node phone chassis — SIM/camera paths on supported models." },
-  { name: "Motherboard Rack Box", href: "/products/motherboard-box", desc: "Screenless Android boards for headless density." },
+  { name: "Android Phone Farm Box", href: "/products/phone-farm-box", desc: "Phone farm chassis — slot count and SIM/camera paths confirmed before quote." },
+  { name: "Motherboard Rack Box", href: "/products/motherboard-box", desc: "Screenless Android boards for headless density — layout on datasheet." },
   { name: "iPhone Farm Cluster", href: "/products/iphone-phone-farm", desc: "Batch iPhone control — model mix confirmed at quote." },
   { name: "USB Hub & Power", href: "/products/usb-hub", desc: "Hub servers, PSU modules, cooling add-ons." },
   { name: "Accessories & Network", href: "/products/network-equipment", desc: "Routers, OTG Ethernet, rack parts." },
