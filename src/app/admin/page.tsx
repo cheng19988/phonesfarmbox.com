@@ -1,7 +1,9 @@
 ﻿import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminProductRow } from "@/components/admin-product-row";
+import { AdminProductDataTable } from "@/components/admin-product-data-table";
 import { prisma } from "@/lib/prisma";
+import { parseProductData } from "@/lib/product-profile";
 import { requireAdmin } from "@/lib/auth";
 import { buildMetadata } from "@/lib/seo";
 
@@ -35,6 +37,11 @@ export default async function AdminPage() {
   });
 
   const allProducts = await prisma.product.findMany({ orderBy: { name: "asc" } });
+  const dataCompleteness = allProducts.map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    data: parseProductData(p.productData),
+  }));
 
   return (
     <div className="section">
@@ -106,6 +113,15 @@ export default async function AdminPage() {
             </table>
           </div>
           <p className="text-xs text-slate-500 mt-4">Use Prisma Studio or API to update prices and stock: npx prisma studio</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-xl font-bold text-white mb-4">Product data completeness</h2>
+          <p className="text-sm text-slate-400 mb-4">
+            Track datasheet, dimensions, weight, power, and packing status per SKU. &ldquo;pending&rdquo; means still
+            awaiting verified supplier data — not shown as fixed specs on the storefront.
+          </p>
+          <AdminProductDataTable rows={dataCompleteness} />
         </section>
       </div>
     </div>

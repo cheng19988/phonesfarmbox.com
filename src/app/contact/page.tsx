@@ -16,6 +16,14 @@ const INQUIRY_CHECKLIST = [
   "WhatsApp or Telegram for fast follow-up",
 ];
 
+const DATASHEET_INQUIRY = [
+  "Ask for datasheet (PDF or spec sheet for your quoted configuration)",
+  "Ask for packing photo (carton exterior + foam layout if available)",
+  "Ask for compatible phone / board list (model numbers you plan to mount)",
+  "Ask for power and cooling confirmation (PSU tier, fan kit, ambient limits)",
+  "Ask for shipping size and weight (carton L×W×H and gross weight for freight)",
+];
+
 const SAMPLE_INQUIRY = `Example inquiry:
 
 "We need 40 Android nodes for TikTok ops, shipping to Germany.
@@ -112,9 +120,21 @@ export default function ContactPage() {
             </ul>
           </div>
           <div className="card p-6">
-            <h2 className="font-bold text-white mb-3">Recommended inquiry format</h2>
-            <pre className="text-xs text-slate-400 whitespace-pre-wrap font-sans leading-relaxed">{SAMPLE_INQUIRY}</pre>
+            <h2 className="font-bold text-white mb-3">Ask for verified hardware data</h2>
+            <ul className="space-y-2 text-sm text-slate-400">
+              {DATASHEET_INQUIRY.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-emerald-500">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
+
+        <div className="card p-6 mb-10">
+          <h2 className="font-bold text-white mb-3">Recommended inquiry format</h2>
+          <pre className="text-xs text-slate-400 whitespace-pre-wrap font-sans leading-relaxed">{SAMPLE_INQUIRY}</pre>
         </div>
 
         <div className="card p-4 mb-8 border-amber-900/30 bg-amber-950/10 text-sm text-slate-400">

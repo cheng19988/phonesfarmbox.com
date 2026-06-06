@@ -3,6 +3,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 import { PrismaClient } from "../src/generated/prisma/client.js";
 import { PRODUCT_SEEDS } from "../src/data/products.js";
+import { getProductProfileSeed } from "../src/data/product-profiles.js";
 import bcrypt from "bcryptjs";
 
 const databaseUrl = process.env.DATABASE_URL;
@@ -16,6 +17,7 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   for (const seed of PRODUCT_SEEDS) {
+    const productData = JSON.stringify(getProductProfileSeed(seed.slug));
     await prisma.product.upsert({
       where: { slug: seed.slug },
       update: {
@@ -35,6 +37,7 @@ async function main() {
         imageCard: seed.imageCard,
         imageHero: seed.imageHero,
         imageDetail: seed.imageDetail,
+        productData,
       },
       create: {
         slug: seed.slug,
@@ -54,6 +57,7 @@ async function main() {
         imageCard: seed.imageCard,
         imageHero: seed.imageHero,
         imageDetail: seed.imageDetail,
+        productData,
       },
     });
   }

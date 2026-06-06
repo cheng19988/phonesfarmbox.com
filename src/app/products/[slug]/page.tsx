@@ -3,9 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getProductB2B, getProductSummary } from "@/data/product-b2b";
+import { getProductProfileSeed } from "@/data/product-profiles";
 import { BuyButtons, FAQAccordion } from "@/components/commerce";
+import { ProductTechnicalDataStatus } from "@/components/product-technical-data";
 import { ContactCTA, JsonLd, StockBadge } from "@/components/shared";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { parseProductData } from "@/lib/product-profile";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -47,6 +50,8 @@ export default async function ProductDetailPage({ params }: Props) {
 
   const b2b = getProductB2B(slug);
   const summary = getProductSummary(slug, product.shortDesc);
+  const productData =
+    parseProductData(product.productData) ?? getProductProfileSeed(slug);
   const features = parseJson<string[]>(product.features, []);
   const specs = parseJson<Record<string, string>>(product.specs, {});
   const dbFaq = parseJson<{ q: string; a: string }[]>(product.faq, []);
@@ -142,6 +147,8 @@ export default async function ProductDetailPage({ params }: Props) {
                   <p className="text-slate-300 leading-relaxed">{b2b.recommendedConfiguration}</p>
                 </section>
               )}
+
+              <ProductTechnicalDataStatus slug={slug} data={productData} />
 
               {features.length > 0 && !b2b && (
                 <section>

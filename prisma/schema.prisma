@@ -37,6 +37,7 @@ model Product {
   imageCard   String
   imageHero   String
   imageDetail String
+  productData String      @default("{}")
   published   Boolean     @default(true)
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt

@@ -97,7 +97,7 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
     ],
     specs: {
       "Node Type": "Real smartphone (screenless mount option on quote)",
-      "Capacity": "Typically 20 phones — layout confirmed before quote",
+      "Capacity": "Confirmed before quote (depends on layout and device size)",
       "Cooling": "Active fan tray — spec confirmed on proforma",
       "SIM Support": "Model dependent — marked on quote",
       "Camera Support": "Model dependent",
@@ -129,11 +129,11 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
       "Android-only cluster BOM on one invoice",
       "Device models locked at quote stage",
       "Batch control software setup sheet included",
-      "Stack additional boxes for 40+ devices",
+      "Stack additional boxes as capacity grows — layout confirmed at quote",
     ],
     specs: {
       "Platform": "Android phones or motherboard nodes",
-      "Typical capacity": "20 devices per box (confirm layout)",
+      "Typical capacity": "Confirmed before quote (depends on layout and device size)",
       "Control": "PC host via USB hub tree",
       "ROM path": "Customer choice — confirm compatibility",
     },
@@ -153,7 +153,7 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
     ],
     specs: {
       "Device Type": "Real iPhone hardware",
-      "Capacity": "10–20 devices per cluster",
+      "Capacity": "Typical capacity confirmed before quote",
       "Jailbreak Required": "No",
       "API Support": "Rich script developer APIs",
       "Connectivity": "Lightning / USB-C hub",
@@ -170,7 +170,7 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
     ],
     specs: {
       "Scope": "Project-based — not a single SKU shelf unit",
-      "Typical size": "40–100+ devices (confirm target)",
+      "Typical size": "Confirmed before quote (project scope)",
       "Documentation": "BOM + wiring overview on quote",
     },
   }),
@@ -181,7 +181,7 @@ export const PRODUCT_SEEDS: ProductSeed[] = [
     description: "USB HUB Server modules provide stable data and power distribution for box phone farm clusters. Industrial-grade hubs with concealed cable routing and rear cable management.",
   }),
   p("power-supply-solution", "Power Supply Solution", "Power Supply", "Unified industrial power supply for box phone farms — single wall outlet powers all devices in the chassis.", IMAGES.power, 115, 42),
-  p("cooling-solution", "Cooling Solution", "Cooling Solution", "Multi-fan cooling modules (4–8 fans) to prevent thermal throttling in dense box phone farm deployments.", IMAGES.cooling, 68, 48),
+  p("cooling-solution", "Cooling Solution", "Cooling Solution", "Fan kit modules for dense box phone farm deployments — fan count and airflow confirmed before quote.", IMAGES.cooling, 68, 48),
   p("network-equipment", "Network Equipment", "Network", "Routers, switches, and OTG Ethernet modules for stable multi-device box farm networking.", IMAGES.network, 145, 32),
   p("custom-cabinet", "Custom Cabinet", "Custom Cabinet", "Custom rackmount and floor-standing cabinets for enterprise-scale box phone farm deployments.", IMAGES.customCabinet, 2650, 4),
   p("remote-control-setup", "Remote Control Setup", "Remote Control", "Batch control software configuration, screen mirroring, and group control system setup for your box phone farm.", IMAGES.remoteControl, 320, 99, {
