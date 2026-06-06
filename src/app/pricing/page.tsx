@@ -91,7 +91,7 @@ export default function PricingPage() {
         </div>
 
         <div className="text-sm text-slate-500 space-y-2 mb-10">
-          <p>Payment: USDT (Tron TRC20) for small online orders; T/T, Wise, or PayPal for bulk by invoice.</p>
+          <p>Payment: USDT (Tron TRC20) for small orders — manually confirmed by sales after you send tx hash. T/T, Wise, or PayPal for bulk by invoice.</p>
           <p>Catalog detail: <Link href="/products" className="text-amber-400 hover:underline">all products</Link></p>
         </div>
 

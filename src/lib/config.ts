@@ -1,7 +1,7 @@
 ﻿export const SITE = {
   name: "Phones Farm Box",
   domain: "phonesfarmbox.com",
-  url: "https://phonesfarmbox.com",
+  url: "https://www.phonesfarmbox.com",
   tagline: "Phone Farm Box Hardware, Accessories and Real-Device Deployment Guides",
   intro:
     "Guangzhou manufacturer of phone farm boxes, motherboard chassis, USB hubs, power and cooling systems, and deployment guides for real-device multi-phone operations.",

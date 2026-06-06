@@ -85,11 +85,11 @@ export function BuyButtons({ slug, name, stock }: { slug: string; name: string; 
           <input type="hidden" name="productSlug" value={slug} />
           <input type="hidden" name="action" value="buy" />
           <button type="submit" disabled={disabled} className="text-sm text-slate-500 hover:text-slate-300 disabled:opacity-40">
-            Buy now (USDT)
+            Submit order (pay by USDT)
           </button>
         </form>
       </div>
-      <p className="text-xs text-slate-500">List price in USD. Final invoice depends on configuration, accessories, and shipping.</p>
+      <p className="text-xs text-slate-500">List price in USD. USDT payment is manually confirmed by sales — contact us after transfer with your tx hash.</p>
     </div>
   );
 }

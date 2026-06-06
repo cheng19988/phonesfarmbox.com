@@ -189,10 +189,11 @@ Cooling modules and fan units available as spare parts. Contact sales for replac
 - Order validity: 30 minutes
 
 **Steps:**
-1. Place order and receive payment address
-2. Send exact USDT amount to provided TRC20 address
-3. Payment verified automatically (when Tron API configured) or contact support with tx hash
-4. Order status updates to Paid → Confirmed
+1. Submit order and receive the TRC20 payment address
+2. Send the exact USDT amount within 30 minutes
+3. Payment is **manually confirmed** by our team (automatic on-chain verification is not active yet)
+4. After paying, email or WhatsApp your order number and transaction hash to sales
+5. Order status updates to Paid after confirmation → then production/shipping
 
 **Contract:** TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t
 

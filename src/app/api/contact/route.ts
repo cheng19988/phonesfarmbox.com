@@ -19,6 +19,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Name and email required" }, { status: 400 });
   }
   await prisma.contactSubmission.create({ data });
-  await notifyInquiry(data);
+  try {
+    await notifyInquiry(data);
+  } catch (e) {
+    console.error("[contact] notify failed:", e);
+  }
   return NextResponse.json({ ok: true });
 }

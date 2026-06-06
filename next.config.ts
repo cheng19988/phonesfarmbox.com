@@ -1,4 +1,5 @@
 ﻿import type { NextConfig } from "next";
+import { legacyRedirects } from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["better-sqlite3", "@prisma/adapter-better-sqlite3"],
@@ -9,6 +10,9 @@ const nextConfig: NextConfig = {
     "/admin/**": ["./prisma/data.db"],
     "/account/**": ["./prisma/data.db"],
     "/pricing/**": ["./prisma/data.db"],
+  },
+  async redirects() {
+    return legacyRedirects;
   },
 };
 
