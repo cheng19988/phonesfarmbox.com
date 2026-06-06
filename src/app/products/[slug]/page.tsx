@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
   const product = await prisma.product.findUnique({ where: { slug } });
   if (!product) return {};
   const seoTitles: Record<string, string> = {
-    "phone-farm-box": "Android Phone Farm Box — 20-Node Chassis",
+    "phone-farm-box": "Android Phone Farm Box — Modular Chassis",
     "motherboard-box": "Android Motherboard Rack Box",
     "android-phone-farm": "Turnkey Android Phone Farm Cluster",
     "iphone-phone-farm": "iPhone Phone Farm Cluster",
