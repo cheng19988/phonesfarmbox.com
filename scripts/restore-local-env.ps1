@@ -12,8 +12,17 @@ if (-not (Test-Path $src)) {
 }
 
 $content = Get-Content $src -Raw
-if ($content -notmatch 'DATABASE_URL\s*=\s*"postgres') {
-  Write-Error ".env.secrets must include DATABASE_URL starting with postgresql://"
+if ($content.Length -gt 0 -and [int][char]$content[0] -eq 0xFEFF) {
+  $content = $content.Substring(1)
+}
+
+$dbLine = ($content -split "`n" | Where-Object { $_ -match '^\s*DATABASE_URL\s*=' } | Select-Object -First 1)
+if (-not $dbLine) {
+  Write-Error ".env.secrets must include DATABASE_URL"
+}
+$dbVal = ($dbLine -replace '^\s*DATABASE_URL\s*=\s*', '').Trim().Trim('"').Trim("'")
+if ($dbVal -notmatch '^postgres(ql)?://') {
+  Write-Error ".env.secrets DATABASE_URL must start with postgresql:// or postgres://"
 }
 
 Copy-Item $src $dest -Force
