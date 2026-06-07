@@ -78,6 +78,11 @@ function ProductDataEditForm({
     <div className="p-4 border border-slate-700 rounded-lg bg-slate-900/50 space-y-4">
       <div>
         <h4 className="text-sm font-medium text-white mb-3">Image paths &amp; status</h4>
+        <p className="text-xs text-slate-500 mb-3">
+          Local paths only, e.g. <code className="text-slate-400">/images/products/phone-farm-box-primary-01.webp</code>.
+          Batch import: see <code className="text-slate-400">docs/product-image-import-template.csv</code> and{" "}
+          <code className="text-slate-400">npm run images:import</code>.
+        </p>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="md:col-span-2">
             <label className={labelClass}>Primary image URL (local path under /images/)</label>

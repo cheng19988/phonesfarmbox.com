@@ -1,0 +1,10 @@
+# Product image import template — add data rows when real files exist under public/images/
+# Do not use official_photo without image_source_note OR image_verification_note
+# image_role: primary | gallery | packing | assembly
+# image_type: official_photo | product_illustration | assembly_reference | packing_reference
+# image_file: filename only (resolved by role folder) OR full path starting with /images/
+# Example filename pattern (comment only — not real files):
+#   phone-farm-box-primary-01.webp  -> primary in public/images/products/
+#   phone-farm-box-gallery-01.webp    -> gallery in public/images/products/
+#   phone-farm-box-packing-01.webp    -> packing in public/images/packing/
+slug,image_file,image_role,image_type,image_alt,image_source_note,image_verification_note,verified_date,notes

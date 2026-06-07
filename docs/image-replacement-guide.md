@@ -34,12 +34,28 @@ You may reference any local path that starts with `/images/`.
 Use lowercase, hyphenated names tied to SKU:
 
 ```text
-public/images/products/phone-farm-box-main.webp
+public/images/products/phone-farm-box-primary-01.webp
+public/images/products/phone-farm-box-gallery-01.webp
 public/images/products/phone-farm-box-packing-01.webp
-public/images/assembly/motherboard-box-wiring-ref.webp
+public/images/products/motherboard-box-primary-01.webp
+public/images/products/usb-hub-primary-01.webp
+public/images/assembly/motherboard-box-assembly-01.webp
+public/images/packing/phone-farm-box-packing-01.webp
 ```
 
-Suggested pattern: `{sku}-{view}-{optional-seq}.{ext}`
+Suggested pattern: `{sku}-{role}-{seq}.{ext}` where role is `primary`, `gallery`, `packing`, etc.
+
+### Directory choice
+
+| Directory | Use for |
+|---|---|
+| `public/images/products/` | Primary product photos and product-tied gallery shots |
+| `public/images/assembly/` | Assembly / wiring / bench reference |
+| `public/images/packing/` | Carton, crate, export packing |
+| `public/images/factory/` | Verified factory or workshop environment |
+| `public/images/real/` | Other verified deployment photos (still require `imageSourceNote`) |
+
+Legacy assets remain in `card_800x800/`, `hero_1600x900/`, `detail_1200x900/` until migrated.
 
 ## Format & size
 
@@ -100,3 +116,31 @@ Suggested pattern: `{sku}-{view}-{optional-seq}.{ext}`
 - About page already states images are references unless labeled otherwise.
 
 When real photos arrive, update Admin first, then optionally replace legacy paths in `src/lib/images.ts` / seed data during a later cleanup pass.
+
+## Batch import workflow (P2-5)
+
+1. Copy real image files into the correct folder under `public/images/`.
+2. Fill in `docs/product-image-import-template.csv` (one row per file).
+3. Run read-only audit of current DB paths:
+   ```bash
+   npm run images:check
+   ```
+4. Preview CSV binding (dry-run, **no database writes**):
+   ```bash
+   npm run images:import
+   ```
+5. Apply bindings only after reviewing dry-run output:
+   ```bash
+   npm run images:import -- --apply
+   ```
+
+Rules:
+
+- Default is **dry-run** — scripts do not write `productData` unless you pass `--apply`.
+- `official_photo` rows must include `image_source_note` or `image_verification_note`.
+- Scripts reject external URLs and paths not under `/images/`.
+- Do not mark illustrations as `official_photo`.
+
+CSV columns: `slug`, `image_file`, `image_role` (primary / gallery / packing / assembly), `image_type`, `image_alt`, `image_source_note`, `image_verification_note`, `verified_date`, `notes`.
+
+For manual single-SKU updates, use `/admin` → Product data completeness → Edit.

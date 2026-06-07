@@ -10,6 +10,8 @@
     "db:migrate": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
+    "images:check": "tsx scripts/check-product-images.ts",
+    "images:import": "tsx scripts/prepare-product-image-import.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {
