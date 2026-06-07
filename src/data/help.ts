@@ -221,6 +221,88 @@ For bulk orders, bank transfer (T/T), Wise, and PayPal available on request.`,
 
 Contact support with device count and error screenshots for remote assistance.`,
   },
+  {
+    slug: "usb-vs-otg-connection-selection",
+    title: "USB vs OTG Connection Selection",
+    category: "Hardware Setup",
+    summary: "How to choose USB, OTG, or hybrid wiring for your phone farm chassis — confirmed during quotation.",
+    content: `Phones Farm Box confirms connection mode on your written quote — we do not assume every ROM supports every path.
+
+**USB mode**
+- Standard wired link from chassis hub to host PC
+- Suitable for official Android ROM paths with USB debugging and typical ADB batch control
+- Common for app testing, QA labs, and social media teams running host-side multi-device management
+
+**OTG mode**
+- Used when your quoted ROM or control path requires OTG-style wiring or Ethernet offload
+- May need router on the same LAN as the host — topology confirmed on wiring diagram
+
+**Hybrid mode**
+- Confirmed during quotation when you combine different phone models, ROM paths, or host workflows
+- We map which slots use USB vs OTG before assembly — not a default catalog setting
+
+**What to send on inquiry**
+- Target phone or board models (or ask us to recommend at quote)
+- ROM path if known (official vs custom)
+- Host PC OS and control software plans
+- Destination country for plug and PSU standard
+
+Request a quote via the contact form — connection mode is locked on proforma before payment.`,
+  },
+  {
+    slug: "packing-list-verification",
+    title: "Packing List Verification Before Shipment",
+    category: "Orders & Payment",
+    summary: "Review chassis, cabling, PSU, and accessory counts against your BOM before export packing closes.",
+    content: `Every Phones Farm Box shipment includes a packing list matched to your proforma invoice.
+
+**Typical line items (vary by quote)**
+- Chassis or rack frame
+- USB/OTG wiring kit per connection mode on BOM
+- PSU module and regional plug standard
+- Cooling kit (fan count confirmed at quote)
+- Data cables and mains lead
+- Batch control software access or setup notes (per order terms)
+
+**Before shipment**
+- Request packing list review when placing bulk orders
+- Ask for packing photos (carton exterior and foam layout) if your procurement team requires them
+- Confirm shipping weight and carton dimensions for freight booking
+
+**On receipt**
+- Compare accessory count to packing list within 48 hours
+- Report shipping damage with photos of packaging and product
+- Keep burn-in report copy if included on sample orders
+
+Datasheet, packing photo, and shipping size requests can be made on your quote inquiry — no account required.`,
+  },
+  {
+    slug: "power-voltage-export-orders",
+    title: "Power and Voltage Confirmation for Export Orders",
+    category: "Hardware Setup",
+    summary: "110V, 220V, and 220–240V options — PSU sizing and plug standards confirmed before quote.",
+    content: `Phones Farm Box sizes PSU and mains cabling from your node list — wattage is confirmed on BOM, not fixed on product pages.
+
+**Regional power**
+- 110V, 220V, or 220–240V option confirmed before quote
+- Final plug standard depends on destination country and chassis configuration
+- Share shipping country on every inquiry
+
+**Sizing process**
+- Send target device count and models (or ask for recommendation at quote)
+- We calculate PSU tier with headroom for your quoted layout
+- Facilities teams on large projects may request an electrical load note — available on project SKUs
+
+**iPhone clusters**
+- Battery-powered phones vs chassis power-feed cable is a procurement choice on BOM
+- Power-feed routing is safer for fixed rack installs; battery paths need monitoring on long runs
+
+**Accessories**
+- PSU modules, fan kits, and hub tiers are separate catalog SKUs or line items on turnkey quotes
+- Replacement PSU harness must match chassis family — confirm generation before ordering spares
+
+Use Planning Tools or contact sales with your node list for a written quote before payment.`,
+  },
 ];
 
 export function getHelpArticle(slug: string) {

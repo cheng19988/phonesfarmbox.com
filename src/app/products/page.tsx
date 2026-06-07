@@ -2,13 +2,46 @@
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/commerce";
 import { buildMetadata } from "@/lib/seo";
+import { PRODUCT_CATALOG_GROUPS } from "@/data/product-catalog-groups";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Products & Hardware Shop",
   description:
-    "Shop phone farm boxes, motherboard racks, USB hubs, power, cooling, and custom cabinets. Request a quote — configuration confirmed before invoice.",
+    "Shop phone farm boxes, motherboard racks, USB hubs, power, cooling, and custom cabinets. Phones Farm Box — quote-based B2B hardware; configuration confirmed before invoice.",
   path: "/products",
 });
+
+type ProductRow = Awaited<ReturnType<typeof prisma.product.findMany>>[number];
+
+function sortProducts(products: ProductRow[], sort?: string) {
+  const list = [...products];
+  if (sort === "price-desc") {
+    return list.sort((a, b) => b.priceUsd - a.priceUsd);
+  }
+  if (sort === "price-asc") {
+    return list.sort((a, b) => a.priceUsd - b.priceUsd);
+  }
+  return list.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function ProductGrid({ products }: { products: ProductRow[] }) {
+  return (
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {products.map((p) => (
+        <ProductCard
+          key={p.id}
+          slug={p.slug}
+          name={p.name}
+          shortDesc={p.shortDesc}
+          priceUsd={p.priceUsd}
+          stock={p.stock}
+          imageCard={p.imageCard}
+          category={p.category}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default async function ProductsPage({
   searchParams,
@@ -32,29 +65,52 @@ export default async function ProductsPage({
   });
 
   const categories = [...new Set(products.map((p) => p.category))];
+  const showGrouped = !params.category;
+  const productBySlug = new Map(products.map((p) => [p.slug, p]));
+
+  const buildProductsHref = (overrides: { category?: string | null; sort?: string | null } = {}) => {
+    const parts: string[] = [];
+    const cat = "category" in overrides ? overrides.category : params.category;
+    const sort = "sort" in overrides ? overrides.sort : params.sort;
+    if (cat) parts.push(`category=${encodeURIComponent(cat)}`);
+    if (sort) parts.push(`sort=${sort}`);
+    return parts.length ? `/products?${parts.join("&")}` : "/products";
+  };
 
   return (
     <div className="section">
       <div className="container-wide">
         <h1 className="section-title">Phone Farm Hardware Catalog</h1>
         <p className="section-subtitle">
-          Factory-direct pricing in USD. In-stock units typically ship within 3–5 business days after payment confirmation.
+          Phones Farm Box — quote-based B2B hardware supplier from Guangzhou. List prices are USD starting points;
+          slot layout, connection mode, PSU tier, and packing list are confirmed on written quote before assembly.
         </p>
 
         <div className="card p-5 mb-8 flex flex-wrap items-center justify-between gap-4 border-amber-800/30 bg-amber-950/10">
           <div>
             <p className="font-medium text-white">Need a bulk or custom quote?</p>
-            <p className="text-sm text-slate-400">Send device count, platform, and delivery country — we reply with MOQ, lead time, and shipping options.</p>
+            <p className="text-sm text-slate-400">
+              Send device count, platform, connection mode, voltage region, and delivery country — we reply with MOQ, lead time, and shipping options.
+            </p>
           </div>
-          <Link href="/contact" className="btn-primary shrink-0">Request Quote</Link>
+          <Link href="/contact" className="btn-primary shrink-0">
+            Request Quote
+          </Link>
         </div>
 
         <div className="flex flex-wrap gap-3 mb-8">
-          <Link href="/products" className={`px-3 py-1 rounded-full text-sm border ${!params.category ? "border-amber-600 text-amber-400" : "border-slate-700 text-slate-400"}`}>
+          <Link
+            href={buildProductsHref({ category: null })}
+            className={`px-3 py-1 rounded-full text-sm border ${!params.category ? "border-amber-600 text-amber-400" : "border-slate-700 text-slate-400"}`}
+          >
             All
           </Link>
           {categories.map((cat) => (
-            <Link key={cat} href={`/products?category=${encodeURIComponent(cat)}`} className={`px-3 py-1 rounded-full text-sm border ${params.category === cat ? "border-amber-600 text-amber-400" : "border-slate-700 text-slate-400"}`}>
+            <Link
+              key={cat}
+              href={buildProductsHref({ category: cat })}
+              className={`px-3 py-1 rounded-full text-sm border ${params.category === cat ? "border-amber-600 text-amber-400" : "border-slate-700 text-slate-400"}`}
+            >
               {cat}
             </Link>
           ))}
@@ -62,18 +118,41 @@ export default async function ProductsPage({
 
         <div className="flex gap-3 mb-8 text-sm">
           <span className="text-slate-500">Sort:</span>
-          <Link href={`/products?${params.category ? `category=${encodeURIComponent(params.category)}&` : ""}sort=price-asc`} className="text-slate-400 hover:text-white">Price: low to high</Link>
-          <Link href={`/products?${params.category ? `category=${encodeURIComponent(params.category)}&` : ""}sort=price-desc`} className="text-slate-400 hover:text-white">Price: high to low</Link>
+          <Link href={buildProductsHref({ sort: "price-asc" })} className="text-slate-400 hover:text-white">
+            Price: low to high
+          </Link>
+          <Link href={buildProductsHref({ sort: "price-desc" })} className="text-slate-400 hover:text-white">
+            Price: high to low
+          </Link>
         </div>
 
         {products.length === 0 ? (
-          <p className="text-slate-400">No products in this category. <Link href="/contact" className="text-amber-400 hover:underline">Contact us</Link> for availability.</p>
-        ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((p) => (
-              <ProductCard key={p.id} slug={p.slug} name={p.name} shortDesc={p.shortDesc} priceUsd={p.priceUsd} stock={p.stock} imageCard={p.imageCard} category={p.category} />
-            ))}
+          <p className="text-slate-400">
+            No products in this category.{" "}
+            <Link href="/contact" className="text-amber-400 hover:underline">
+              Contact us
+            </Link>{" "}
+            for availability.
+          </p>
+        ) : showGrouped ? (
+          <div className="space-y-14">
+            {PRODUCT_CATALOG_GROUPS.map((group) => {
+              const groupProducts = sortProducts(
+                group.slugs.map((slug) => productBySlug.get(slug)).filter((p): p is ProductRow => Boolean(p)),
+                params.sort
+              );
+              if (groupProducts.length === 0) return null;
+              return (
+                <section key={group.id} id={group.id}>
+                  <h2 className="text-xl font-bold text-white mb-2">{group.title}</h2>
+                  <p className="text-sm text-slate-400 mb-6 max-w-3xl">{group.description}</p>
+                  <ProductGrid products={groupProducts} />
+                </section>
+              );
+            })}
           </div>
+        ) : (
+          <ProductGrid products={products} />
         )}
       </div>
     </div>

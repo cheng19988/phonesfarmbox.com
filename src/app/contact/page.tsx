@@ -7,12 +7,16 @@ import { ContactBar } from "@/components/shared";
 import { CONTACT, SITE } from "@/lib/config";
 
 const INQUIRY_CHECKLIST = [
-  "Target device quantity (e.g. 20, 40, 100+)",
-  "Android, iPhone, or mixed — and empty box vs phones included",
-  "Phone/board models if known (or “recommend at quote”)",
-  "Shipping country and preferred freight (air / sea)",
-  "Use case (QA, social ops, scripts, etc.)",
-  "Budget range in USD (optional but speeds matching)",
+  "Target product / SKU (e.g. phone-farm-box, empty-box-chassis, iphone-phone-farm)",
+  "Destination country and preferred freight (air / sea)",
+  "Expected device quantity",
+  "Preferred connection mode: USB / OTG / hybrid / not sure",
+  "Voltage region: 110V / 220V / 220–240V / not sure",
+  "Empty chassis vs phones included on quote",
+  "Target phone or board models (or “recommend at quote”)",
+  "Need packing photo, datasheet, or shipping dimensions?",
+  "Payment preference: USDT / bank transfer / Wise / PayPal / not sure",
+  "Use case (app testing, QA, social media ops, remote operation, etc.)",
   "WhatsApp or Telegram for fast follow-up",
 ];
 
@@ -26,9 +30,10 @@ const DATASHEET_INQUIRY = [
 
 const SAMPLE_INQUIRY = `Example inquiry:
 
-"We need 40 Android nodes for TikTok ops, shipping to Germany.
-Prefer phone farm boxes with SIM path. Budget $8k–12k hardware.
-WhatsApp: +xx xxx. Timeline: 3 weeks."`;
+"We need an Android phone farm for app testing and social media team workflows, shipping to Germany.
+~40 nodes, prefer phone farm boxes, USB mode (not sure on voltage — 220V region).
+Empty chassis first, phones sourced on second PO. Need datasheet and packing dimensions before payment.
+Payment: USDT or Wise. WhatsApp: +xx xxx. Timeline: 3 weeks."`;
 
 function ContactForm() {
   const searchParams = useSearchParams();
@@ -50,8 +55,8 @@ function ContactForm() {
           <input name="name" required className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
         </div>
         <div>
-          <label className="block text-sm text-slate-400 mb-1">Country</label>
-          <input name="country" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+          <label className="block text-sm text-slate-400 mb-1">Country *</label>
+          <input name="country" required placeholder="Shipping destination" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
         </div>
         <div>
           <label className="block text-sm text-slate-400 mb-1">WhatsApp / Telegram *</label>
@@ -70,17 +75,90 @@ function ContactForm() {
           <input name="deviceQuantity" required placeholder="e.g. 20, 40, 100+" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
         </div>
         <div>
-          <label className="block text-sm text-slate-400 mb-1">Product or service interest</label>
-          <input name="productInterest" defaultValue={searchParams.get("product") || searchParams.get("service") || ""} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+          <label className="block text-sm text-slate-400 mb-1">Target product / SKU</label>
+          <input
+            name="productInterest"
+            defaultValue={searchParams.get("product") || searchParams.get("service") || ""}
+            placeholder="e.g. phone-farm-box, empty-box-chassis"
+            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+          />
         </div>
         <div>
           <label className="block text-sm text-slate-400 mb-1">Budget range (USD)</label>
           <input name="budget" placeholder="Optional" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
         </div>
+        <div>
+          <label className="block text-sm text-slate-400 mb-1">Connection mode</label>
+          <select name="connectionMode" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white">
+            <option value="">Not sure / ask at quote</option>
+            <option value="USB">USB — standard wired host control</option>
+            <option value="OTG">OTG — quoted ROM / Ethernet path</option>
+            <option value="Hybrid">Hybrid — mixed models or workflows</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm text-slate-400 mb-1">Voltage region</label>
+          <select name="voltageRegion" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white">
+            <option value="">Not sure</option>
+            <option value="110V">110V</option>
+            <option value="220V">220V</option>
+            <option value="220-240V">220–240V</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm text-slate-400 mb-1">Chassis configuration</label>
+          <select name="chassisConfig" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white">
+            <option value="">Not sure</option>
+            <option value="Empty chassis only">Empty chassis only</option>
+            <option value="With phones / devices included">With phones / devices included</option>
+            <option value="BYO devices to mount">BYO devices to mount</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm text-slate-400 mb-1">Payment preference</label>
+          <select name="paymentPreference" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white">
+            <option value="">Not sure</option>
+            <option value="USDT">USDT (Tron TRC20)</option>
+            <option value="Bank transfer">Bank transfer (T/T)</option>
+            <option value="Wise">Wise</option>
+            <option value="PayPal">PayPal</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label className="block text-sm text-slate-400 mb-1">Target phone / board models</label>
+        <input
+          name="targetModels"
+          placeholder="e.g. Samsung A-series, iPhone 12 mix — or “recommend at quote”"
+          className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-slate-400 mb-2">Documentation needed (optional)</label>
+        <div className="flex flex-wrap gap-4 text-sm text-slate-300">
+          <label className="flex items-center gap-2">
+            <input type="checkbox" name="needDatasheet" value="yes" className="rounded border-slate-600" />
+            Datasheet / spec sheet
+          </label>
+          <label className="flex items-center gap-2">
+            <input type="checkbox" name="needPackingPhoto" value="yes" className="rounded border-slate-600" />
+            Packing photo
+          </label>
+          <label className="flex items-center gap-2">
+            <input type="checkbox" name="needShippingSize" value="yes" className="rounded border-slate-600" />
+            Shipping size &amp; weight
+          </label>
+        </div>
       </div>
       <div>
         <label className="block text-sm text-slate-400 mb-1">Project details *</label>
-        <textarea name="message" required rows={5} placeholder="Android/iPhone mix, empty box or with phones, use case, timeline..." className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+        <textarea
+          name="message"
+          required
+          rows={5}
+          placeholder="Use case (app testing, QA, social media team, etc.), timeline, Android/iPhone mix, anything else for your written quote..."
+          className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+        />
       </div>
       <button type="submit" disabled={status === "loading"} className="btn-primary w-full">
         {status === "loading" ? "Sending..." : "Send Inquiry"}
@@ -91,7 +169,10 @@ function ContactForm() {
       {status === "error" && (
         <p className="text-red-400 text-sm">
           Could not send the form. Please message us on{" "}
-          <a href={CONTACT.whatsappUrl} className="underline">WhatsApp</a>.
+          <a href={CONTACT.whatsappUrl} className="underline">
+            WhatsApp
+          </a>
+          .
         </p>
       )}
     </form>
@@ -104,7 +185,7 @@ export default function ContactPage() {
       <div className="container-wide max-w-4xl">
         <h1 className="section-title">Request a Hardware Quote</h1>
         <p className="section-subtitle">
-          B2B inquiry form — share enough detail for a written BOM and lead time. No account registration required.
+          {SITE.name} — quote-based B2B phone farm hardware supplier. Share enough detail for a written BOM, connection mode, and lead time. Written quote before assembly — no account required.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-10">
@@ -138,7 +219,7 @@ export default function ContactPage() {
         </div>
 
         <div className="card p-4 mb-8 border-amber-900/30 bg-amber-950/10 text-sm text-slate-400">
-          <strong className="text-slate-300">Response expectation:</strong> We reply on business days within 24–72 hours when the form includes quantity, platform mix, and shipping country.
+          <strong className="text-slate-300">Response expectation:</strong> We reply on business days within 24–72 hours when the form includes quantity, platform mix, connection mode, voltage region, and shipping country.
           {" "}
           <strong className="text-slate-300">USDT orders:</strong> Payment is manually confirmed by sales after you send transaction hash — not automatic on-chain verification.
         </div>
@@ -150,15 +231,21 @@ export default function ContactPage() {
             <li>Phone: {CONTACT.phone}</li>
             <li>
               WhatsApp:{" "}
-              <a href={CONTACT.whatsappUrl} className="text-amber-400 hover:underline">{CONTACT.whatsapp}</a>
+              <a href={CONTACT.whatsappUrl} className="text-amber-400 hover:underline">
+                {CONTACT.whatsapp}
+              </a>
             </li>
             <li>
               Telegram:{" "}
-              <a href={CONTACT.telegramUrl} className="text-amber-400 hover:underline">{CONTACT.telegram}</a>
+              <a href={CONTACT.telegramUrl} className="text-amber-400 hover:underline">
+                {CONTACT.telegram}
+              </a>
             </li>
             <li>
               Email:{" "}
-              <a href={`mailto:${CONTACT.email}`} className="text-amber-400 hover:underline">{CONTACT.email}</a>
+              <a href={`mailto:${CONTACT.email}`} className="text-amber-400 hover:underline">
+                {CONTACT.email}
+              </a>
             </li>
             <li>Location: {SITE.location}</li>
           </ul>
@@ -171,11 +258,17 @@ export default function ContactPage() {
 
         <p className="text-center text-sm text-slate-500 mt-6">
           Browse first:{" "}
-          <Link href="/products" className="text-amber-400 hover:underline">product catalog</Link>
+          <Link href="/products" className="text-amber-400 hover:underline">
+            product catalog
+          </Link>
           {" · "}
-          <Link href="/pricing" className="text-amber-400 hover:underline">pricing tiers</Link>
+          <Link href="/pricing" className="text-amber-400 hover:underline">
+            pricing tiers
+          </Link>
           {" · "}
-          <Link href="/faq" className="text-amber-400 hover:underline">FAQ</Link>
+          <Link href="/faq" className="text-amber-400 hover:underline">
+            FAQ
+          </Link>
         </p>
       </div>
     </div>

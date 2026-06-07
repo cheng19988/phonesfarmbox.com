@@ -2,18 +2,47 @@
 import { prisma } from "@/lib/prisma";
 import { notifyInquiry } from "@/lib/notify";
 
+function str(form: FormData, key: string) {
+  return String(form.get(key) || "").trim();
+}
+
+function buildRfqAppendix(form: FormData) {
+  const lines: string[] = [];
+  const connectionMode = str(form, "connectionMode");
+  const voltageRegion = str(form, "voltageRegion");
+  const chassisConfig = str(form, "chassisConfig");
+  const targetModels = str(form, "targetModels");
+  const paymentPreference = str(form, "paymentPreference");
+  const docs: string[] = [];
+  if (form.get("needDatasheet")) docs.push("datasheet");
+  if (form.get("needPackingPhoto")) docs.push("packing photo");
+  if (form.get("needShippingSize")) docs.push("shipping size/weight");
+
+  if (connectionMode) lines.push(`Connection mode: ${connectionMode}`);
+  if (voltageRegion) lines.push(`Voltage region: ${voltageRegion}`);
+  if (chassisConfig) lines.push(`Chassis config: ${chassisConfig}`);
+  if (targetModels) lines.push(`Target models: ${targetModels}`);
+  if (paymentPreference) lines.push(`Payment preference: ${paymentPreference}`);
+  if (docs.length) lines.push(`Documentation requested: ${docs.join(", ")}`);
+
+  if (!lines.length) return "";
+  return `\n\n--- RFQ details ---\n${lines.join("\n")}`;
+}
+
 export async function POST(req: NextRequest) {
   const form = await req.formData();
+  const baseMessage = str(form, "message");
+  const rfqAppendix = buildRfqAppendix(form);
   const data = {
-    name: String(form.get("name") || ""),
-    country: String(form.get("country") || ""),
-    whatsapp: String(form.get("whatsapp") || ""),
-    phone: String(form.get("phone") || ""),
-    email: String(form.get("email") || ""),
-    deviceQuantity: String(form.get("deviceQuantity") || ""),
-    productInterest: String(form.get("productInterest") || ""),
-    budget: String(form.get("budget") || ""),
-    message: String(form.get("message") || ""),
+    name: str(form, "name"),
+    country: str(form, "country"),
+    whatsapp: str(form, "whatsapp"),
+    phone: str(form, "phone"),
+    email: str(form, "email"),
+    deviceQuantity: str(form, "deviceQuantity"),
+    productInterest: str(form, "productInterest"),
+    budget: str(form, "budget"),
+    message: baseMessage + rfqAppendix,
   };
   if (!data.name || !data.email) {
     return NextResponse.json({ error: "Name and email required" }, { status: 400 });
