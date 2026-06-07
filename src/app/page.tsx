@@ -18,8 +18,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Box Hardware Supplier — Guangzhou",
-  description:
-    "Phones Farm Box — Guangzhou phone farm box hardware: chassis, motherboard racks, USB hubs, power, cooling, and batch control. MOQ from 1 unit. Request a quote.",
+  description: SITE.description,
   path: "/",
 });
 
