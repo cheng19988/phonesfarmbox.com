@@ -5,9 +5,11 @@ import { prisma } from "@/lib/prisma";
 import { getProductB2B, getProductSummary } from "@/data/product-b2b";
 import { getProductProfileSeed } from "@/data/product-profiles";
 import { BuyButtons, FAQAccordion } from "@/components/commerce";
+import { ProductImageStatus } from "@/components/product-image-status";
 import { ProductTechnicalDataStatus } from "@/components/product-technical-data";
 import { ContactCTA, JsonLd, StockBadge } from "@/components/shared";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } from "@/lib/product-images";
 import { parseProductData } from "@/lib/product-profile";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -52,6 +54,9 @@ export default async function ProductDetailPage({ params }: Props) {
   const summary = getProductSummary(slug, product.shortDesc);
   const productData =
     parseProductData(product.productData) ?? getProductProfileSeed(slug);
+  const primaryImage = resolvePrimaryImageUrl(productData, product.imageDetail);
+  const imageAlt = resolveProductImageAlt(productData, product.name);
+  const galleryImages = resolveGalleryImages(productData);
   const features = parseJson<string[]>(product.features, []);
   const specs = parseJson<Record<string, string>>(product.specs, {});
   const dbFaq = parseJson<{ q: string; a: string }[]>(product.faq, []);
@@ -89,9 +94,18 @@ export default async function ProductDetailPage({ params }: Props) {
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             <div>
               <div className="relative aspect-square rounded-xl overflow-hidden bg-slate-900">
-                <Image src={product.imageDetail} alt={product.name} fill className="object-cover" priority />
+                <Image src={primaryImage} alt={imageAlt} fill className="object-cover" priority />
               </div>
-              {b2b && <p className="text-xs text-slate-500 mt-2">{b2b.imageCaption}</p>}
+              <ProductImageStatus data={productData} fallbackCaption={b2b?.imageCaption} />
+              {galleryImages.length > 0 && (
+                <div className="grid grid-cols-3 gap-2 mt-3">
+                  {galleryImages.map((src) => (
+                    <div key={src} className="relative aspect-square rounded-lg overflow-hidden bg-slate-900">
+                      <Image src={src} alt="" fill className="object-cover" sizes="120px" />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div>
               <p className="text-amber-400/80 text-sm mb-2">{product.category}</p>

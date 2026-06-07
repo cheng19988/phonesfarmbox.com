@@ -76,7 +76,83 @@ function ProductDataEditForm({
 
   return (
     <div className="p-4 border border-slate-700 rounded-lg bg-slate-900/50 space-y-4">
-      <div className="grid md:grid-cols-2 gap-4">
+      <div>
+        <h4 className="text-sm font-medium text-white mb-3">Image paths &amp; status</h4>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="md:col-span-2">
+            <label className={labelClass}>Primary image URL (local path under /images/)</label>
+            <input
+              className={inputClass}
+              placeholder="/images/products/phone-farm-box-main.webp"
+              value={form.primaryImageUrl ?? ""}
+              onChange={(e) => setField("primaryImageUrl", e.target.value)}
+            />
+          </div>
+          <div className="md:col-span-2">
+            <label className={labelClass}>Gallery images (one local path per line)</label>
+            <textarea
+              className={`${inputClass} min-h-[80px]`}
+              placeholder="/images/assembly/example.webp"
+              value={form.galleryImages ?? ""}
+              onChange={(e) => setField("galleryImages", e.target.value)}
+            />
+          </div>
+          {(
+            [
+              ["imageAlt", "Image alt text"],
+              ["imageSourceNote", "Image source note"],
+              ["imageLastVerifiedAt", "Image last verified (YYYY-MM-DD)"],
+              ["imageVerificationNote", "Image verification note"],
+            ] as const
+          ).map(([key, label]) => (
+            <div key={key}>
+              <label className={labelClass}>{label}</label>
+              <input
+                className={inputClass}
+                value={form[key] ?? ""}
+                onChange={(e) => setField(key, e.target.value)}
+              />
+            </div>
+          ))}
+          <div>
+            <label className={labelClass}>Image type</label>
+            <select
+              className={inputClass}
+              value={form.imageType ?? "product_illustration"}
+              onChange={(e) => setField("imageType", e.target.value)}
+            >
+              {IMAGE_TYPES.map((type) => (
+                <option key={type} value={type}>
+                  {imageTypeLabel(type)}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className={labelClass}>Datasheet status</label>
+            <select
+              className={inputClass}
+              value={form.datasheetStatus ?? "partial"}
+              onChange={(e) => setField("datasheetStatus", e.target.value)}
+            >
+              {DATASHEET_STATUSES.map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        {form.imageType === "official_photo" && (
+          <p className="text-xs text-amber-400/90 mt-2">
+            official_photo requires imageSourceNote or imageVerificationNote — only use for verified real product photos.
+          </p>
+        )}
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium text-white mb-3">Hardware datasheet fields</h4>
+        <div className="grid md:grid-cols-2 gap-4">
         {(
           [
             ["dimensions", "Dimensions"],
@@ -87,7 +163,6 @@ function ProductDataEditForm({
             ["warrantyTerms", "Warranty terms"],
             ["leadTimeNote", "Lead time note"],
             ["moqNote", "MOQ note"],
-            ["imageVerificationNote", "Image verification note"],
             ["internalAdminNote", "Internal admin note"],
           ] as const
         ).map(([key, label]) => (
@@ -117,35 +192,6 @@ function ProductDataEditForm({
             />
           </div>
         ))}
-
-        <div>
-          <label className={labelClass}>Image type</label>
-          <select
-            className={inputClass}
-            value={form.imageType ?? "product_illustration"}
-            onChange={(e) => setField("imageType", e.target.value)}
-          >
-            {IMAGE_TYPES.map((type) => (
-              <option key={type} value={type}>
-                {imageTypeLabel(type)}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div>
-          <label className={labelClass}>Datasheet status</label>
-          <select
-            className={inputClass}
-            value={form.datasheetStatus ?? "partial"}
-            onChange={(e) => setField("datasheetStatus", e.target.value)}
-          >
-            {DATASHEET_STATUSES.map((status) => (
-              <option key={status} value={status}>
-                {status}
-              </option>
-            ))}
-          </select>
         </div>
       </div>
 
@@ -250,7 +296,7 @@ export function AdminProductDataSection({ rows }: { rows: Row[] }) {
         </tbody>
       </table>
       <p className="text-xs text-slate-500 mt-3">
-        Edit verified hardware fields per SKU. Empty fields stay &ldquo;Confirmed before quote&rdquo; on the storefront.
+        Edit verified hardware and image fields per SKU. Empty fields stay &ldquo;Confirmed before quote&rdquo; on the storefront. Use local paths under <code className="text-slate-400">/images/</code> only — no external URLs.
       </p>
     </div>
   );

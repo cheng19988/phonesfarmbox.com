@@ -34,8 +34,12 @@ export function ProductTechnicalDataStatus({ slug, data }: Props) {
         <div className="p-3 rounded-lg border border-slate-800">
           <div className="text-xs text-slate-500 uppercase mb-1">Image type</div>
           <div className="text-slate-200">{imageTypeLabel(data.imageType)}</div>
+          {data.imageSourceNote && <p className="text-xs text-slate-500 mt-2">{data.imageSourceNote}</p>}
           {data.imageVerificationNote && (
             <p className="text-xs text-slate-500 mt-2">{data.imageVerificationNote}</p>
+          )}
+          {data.imageLastVerifiedAt && (
+            <p className="text-xs text-slate-600 mt-2">Last verified: {data.imageLastVerifiedAt}</p>
           )}
         </div>
         <div className="p-3 rounded-lg border border-slate-800">

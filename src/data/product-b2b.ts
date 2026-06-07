@@ -229,7 +229,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     moq: "1 unit",
     leadTime: "2–5 business days",
     warranty: "6–12 months on hub electronics (see invoice)",
-    imageCaption: "Accessory product photo",
+    imageCaption: "Accessory product illustration",
     relatedSlugs: ["power-supply-solution", "phone-farm-box", "motherboard-box", "network-equipment"],
     faq: [
       { q: "How many devices per hub?", a: "Depends on tier and amperage — port count confirmed on quote datasheet." },
