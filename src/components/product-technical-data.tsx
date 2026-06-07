@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  type ListFieldValue,
   type ProductDataProfile,
   TECHNICAL_DATA_ROWS,
   datasheetStatusLabel,
@@ -15,8 +16,10 @@ type Props = {
 
 export function ProductTechnicalDataStatus({ slug, data }: Props) {
   const rows = TECHNICAL_DATA_ROWS.filter((row) => {
-    const val = data[row.key];
-    return val !== undefined && val !== "N/A — service SKU";
+    const val = data[row.key] as string | ListFieldValue | undefined;
+    if (val === undefined) return false;
+    if (typeof val === "string" && val === "N/A — service SKU") return false;
+    return true;
   });
 
   return (
@@ -44,7 +47,7 @@ export function ProductTechnicalDataStatus({ slug, data }: Props) {
       <table className="w-full text-sm mb-6">
         <tbody>
           {rows.map((row) => {
-            const raw = data[row.key] as string | undefined;
+            const raw = data[row.key] as string | ListFieldValue | undefined;
             const display = displayProfileValue(raw);
             const isPending = display === PENDING_QUOTE;
             return (

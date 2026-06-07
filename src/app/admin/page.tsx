@@ -1,7 +1,7 @@
 ﻿import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminProductRow } from "@/components/admin-product-row";
-import { AdminProductDataTable } from "@/components/admin-product-data-table";
+import { AdminProductDataSection } from "@/components/admin-product-data-section";
 import { prisma } from "@/lib/prisma";
 import { parseProductData } from "@/lib/product-profile";
 import { requireAdmin } from "@/lib/auth";
@@ -121,7 +121,7 @@ export default async function AdminPage() {
             Track datasheet, dimensions, weight, power, and packing status per SKU. &ldquo;pending&rdquo; means still
             awaiting verified supplier data — not shown as fixed specs on the storefront.
           </p>
-          <AdminProductDataTable rows={dataCompleteness} />
+          <AdminProductDataSection rows={dataCompleteness} />
         </section>
       </div>
     </div>
