@@ -4,9 +4,11 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import Link from "next/link";
 import { QuoteProcessSection } from "@/components/quote-process-section";
+import { DeliveryProcessSection } from "@/components/delivery-process-section";
 import { ContactBar } from "@/components/shared";
 import { CONTACT, SITE } from "@/lib/config";
 import { POST_RFQ_EXPECTATIONS } from "@/data/quote-process";
+import { PACKING_DOCUMENTATION_POINTS, POST_PAYMENT_EXPECTATIONS } from "@/data/delivery-process";
 
 const INQUIRY_CHECKLIST = [
   "Target product / SKU (e.g. phone-farm-box, empty-box-chassis, iphone-phone-farm)",
@@ -250,12 +252,38 @@ export default function ContactPage() {
 
         <QuoteProcessSection variant="compact" title="How the quote process works" showCta />
 
+        <DeliveryProcessSection variant="compact" title="After payment — delivery at a glance" showCta />
+
         <div className="card p-6 mb-8 mt-8">
+          <h2 className="font-bold text-white mb-3">Packing photo, list, and shipping size</h2>
+          <ul className="space-y-2 text-sm text-slate-400">
+            {PACKING_DOCUMENTATION_POINTS.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="text-emerald-500">•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="card p-6 mb-8">
           <h2 className="font-bold text-white mb-3">After you submit</h2>
           <ul className="space-y-2 text-sm text-slate-400">
             {POST_RFQ_EXPECTATIONS.map((item) => (
               <li key={item} className="flex gap-2">
                 <span className="text-amber-500">•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="card p-6 mb-8 border border-slate-800">
+          <h2 className="font-bold text-white mb-3">After payment is confirmed</h2>
+          <ul className="space-y-2 text-sm text-slate-400">
+            {POST_PAYMENT_EXPECTATIONS.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="text-emerald-500">•</span>
                 {item}
               </li>
             ))}

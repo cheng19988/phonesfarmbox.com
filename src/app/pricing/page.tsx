@@ -1,7 +1,14 @@
 import Link from "next/link";
+import { DeliveryProcessSection } from "@/components/delivery-process-section";
 import { QuoteProcessSection } from "@/components/quote-process-section";
 import { buildMetadata } from "@/lib/seo";
 import { CONTACT } from "@/lib/config";
+import {
+  PACKING_DOCUMENTATION_POINTS,
+  REMOTE_SETUP_EXCLUDES,
+  REMOTE_SETUP_INCLUDES,
+  WARRANTY_AFTER_SALES_POINTS,
+} from "@/data/delivery-process";
 import {
   PAYMENT_OPTIONS,
   QUOTE_FACTORS,
@@ -76,6 +83,65 @@ export default function PricingPage() {
         </div>
 
         <QuoteProcessSection />
+
+        <DeliveryProcessSection />
+
+        <div className="mb-14">
+          <h2 className="text-xl font-bold text-white mb-4">Packing list, photos, and shipping size</h2>
+          <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-400">
+            {PACKING_DOCUMENTATION_POINTS.map((item) => (
+              <li key={item} className="flex gap-2 p-3 rounded-lg border border-slate-800">
+                <span className="text-emerald-500 shrink-0">•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mb-14 grid lg:grid-cols-2 gap-6">
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4">Warranty and after-sales</h2>
+            <ul className="space-y-2 text-sm text-slate-400">
+              {WARRANTY_AFTER_SALES_POINTS.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-amber-500 shrink-0">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-slate-500 mt-3">
+              Details:{" "}
+              <Link href="/terms" className="text-amber-400 hover:underline">
+                Terms
+              </Link>
+              {" · "}
+              <Link href="/refund" className="text-amber-400 hover:underline">
+                Refund policy
+              </Link>
+            </p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4">Remote setup scope</h2>
+            <p className="text-xs text-slate-500 mb-2">Includes:</p>
+            <ul className="space-y-1.5 text-sm text-slate-400 mb-4">
+              {REMOTE_SETUP_INCLUDES.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-emerald-500 shrink-0">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-slate-500 mb-2">Does not include:</p>
+            <ul className="space-y-1.5 text-sm text-slate-500">
+              {REMOTE_SETUP_EXCLUDES.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-red-400/80 shrink-0">✗</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <div className="mb-14">
           <h2 className="text-xl font-bold text-white mb-4">What is included in a written quote</h2>
@@ -172,6 +238,10 @@ export default function PricingPage() {
             {" · "}
             <Link href="/help/how-to-request-phone-farm-hardware-quote" className="text-amber-400 hover:underline">
               how to request a quote
+            </Link>
+            {" · "}
+            <Link href="/help/delivery-process-phone-farm-hardware" className="text-amber-400 hover:underline">
+              delivery process
             </Link>
           </p>
         </div>

@@ -264,14 +264,18 @@ Request a quote via the contact form — connection mode is locked on proforma b
 - Data cables and mains lead
 - Batch control software access or setup notes (per order terms)
 
+**Empty chassis vs phone-included**
+- Empty chassis orders list frame, mounts, fans/grills, and accessories only — no phones or boards unless on BOM
+- Phone-included orders list device line items separately; IMEI or serial notes only when available and agreed on quote
+
 **Before shipment**
 - Request packing list review when placing bulk orders
-- Ask for packing photos (carton exterior and foam layout) if your procurement team requires them
-- Confirm shipping weight and carton dimensions for freight booking
+- Ask for packing photos (carton exterior and foam layout) before shipment if procurement requires them
+- Shipping weight and carton dimensions provided after packing plan is confirmed — useful for freight booking
 
 **On receipt**
 - Compare accessory count to packing list within 48 hours
-- Report shipping damage with photos of packaging and product
+- Report shipping damage with photos of packaging and product within 48 hours
 - Keep burn-in report copy if included on sample orders
 
 Datasheet, packing photo, and shipping size requests can be made on your quote inquiry — no account required.`,
@@ -383,6 +387,102 @@ See the pricing page for tier overview and quote factors.`,
 Production slot is scheduled per lead time on your quote. Packing list is confirmed before shipment; packing photos available on request.
 
 For RFQ and non-USDT payment options, use the contact form — registration is only required for placing USDT sample orders online.`,
+  },
+  {
+    slug: "delivery-process-phone-farm-hardware",
+    title: "Delivery Process for Phone Farm Hardware Orders",
+    category: "Orders & Payment",
+    summary: "From quote approval through assembly, QC, packing, shipment, and optional remote setup.",
+    content: `After you approve a written quote and payment is confirmed, Phones Farm Box follows a standard fulfillment path — timing varies by configuration and lead time on your proforma.
+
+**1. Quote and BOM lock**
+Configuration, connection mode, voltage region, and line items fixed on proforma.
+
+**2. Invoice and payment**
+USDT (manually confirmed by sales), bank transfer, Wise, or PayPal per invoice. Wallet details in quote or sales message only.
+
+**3. Assembly and wiring**
+Chassis prep, hub/PSU install, USB or OTG harness per slot map.
+
+**4. Power and connection check**
+Per-slot power-on and PC → hub → node path verification.
+
+**5. Burn-in and operation test**
+Duration per product class and order terms; checklist when included on invoice.
+
+**6. Packing list confirmation**
+Accessory count matched to proforma. Empty chassis clearly excludes phones unless on BOM.
+
+**7. Packing photo and shipping size**
+On request before shipment — dimensions and weight after packing plan is confirmed.
+
+**8. Shipment**
+Courier or sea freight with tracking. Import duties are buyer responsibility.
+
+**9. Remote setup and after-sales**
+Optional session for host PC and batch-control handoff. Warranty and spare parts per proforma.
+
+No guarantees on platform account results or marketing performance — we deliver hardware and documented support scope.`,
+  },
+  {
+    slug: "warranty-after-sales-phone-farm-hardware",
+    title: "Warranty and After-Sales Support for Phone Farm Hardware",
+    category: "Orders & Payment",
+    summary: "12-month chassis warranty, DOA handling, spare parts, and support boundaries.",
+    content: `Phones Farm Box provides after-sales support for B2B hardware buyers — exact terms are on your proforma invoice.
+
+**Standard warranty**
+- Chassis and PSU: typically 12 months against manufacturing defects
+- Phones and OEM network gear: supplier pass-through where applicable
+- Misuse, unauthorized modification, and normal wear excluded
+
+**DOA and shipping damage**
+- Report within 48 hours of delivery with photos of carton and product
+- We coordinate inspection and replacement parts or shipment when validated
+
+**Manufacturing defects**
+- Contact within 7 days with order details and photos
+- Repair, replacement parts, or case-by-case resolution after inspection — not automatic full refund for all cases
+
+**Return shipping**
+- Responsibility depends on issue type and invoice terms
+- Custom or deployed hardware may require buyer-paid return freight
+
+**Spare parts**
+- Fan kits, PSU modules, cables, and harnesses quoted by chassis family
+- Confirm generation before ordering replacements
+
+**Remote setup re-sessions**
+- One follow-up within stated window on service SKUs when scope unchanged — see invoice
+
+We do not guarantee TikTok, social media, or app platform outcomes — hardware warranty is separate from buyer workflow results.`,
+  },
+  {
+    slug: "remote-setup-support-scope",
+    title: "Remote Setup Support Scope",
+    category: "Remote Control & Software",
+    summary: "What remote setup covers for Android and iPhone farms — and what it does not.",
+    content: `Remote setup is an optional add-on or service SKU for buyers who want handoff help after hardware delivery.
+
+**Buyer should prepare**
+- Hardware powered and cabled
+- Host PC with admin access and stable internet for screen share
+- Target phone or board model list
+- Access credentials for your own control tools and batch software
+
+**Remote setup includes**
+- Verify USB or OTG wiring and hub uplink to host PC
+- Check device authorization or USB debugging visibility where applicable
+- Walk through batch-control or multi-device management setup for quoted stack
+- Typical use cases: app testing labs, QA environments, social media team hardware rooms, Android or iPhone farm first boot
+
+**Remote setup does not include**
+- Account farming, platform manipulation, or traffic guarantees
+- Marketing outcome, TikTok performance, or social media account result guarantees
+- Operating buyer-owned accounts, proxies, or third-party bots on your behalf
+- 24/7 ongoing NOC unless extended support is on invoice
+
+Scope is tied to device count and session length on your quote. Request remote setup on your RFQ if needed before shipment scheduling.`,
   },
 ];
 

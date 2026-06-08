@@ -1,6 +1,7 @@
 ﻿import { CONTACT } from "@/lib/config";
 import Link from "next/link";
 import { QuoteProcessSection } from "@/components/quote-process-section";
+import { DeliveryProcessSection } from "@/components/delivery-process-section";
 
 export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
   return (
@@ -39,6 +40,9 @@ export function ContactCTA({ title = "Request a Hardware Quote" }: { title?: str
       </p>
       <div className="max-w-2xl mx-auto mb-6">
         <QuoteProcessSection variant="compact" title="Quote process at a glance" />
+      </div>
+      <div className="max-w-2xl mx-auto mb-6">
+        <DeliveryProcessSection variant="compact" title="Delivery after payment" />
       </div>
       <div className="text-center">
         <ContactBar />

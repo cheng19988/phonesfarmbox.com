@@ -5,6 +5,7 @@ import { ProductCard } from "@/components/commerce";
 import { CONTACT, SITE } from "@/lib/config";
 import { IMAGES } from "@/lib/images";
 import { QuoteProcessSection } from "@/components/quote-process-section";
+import { DeliveryProcessSection } from "@/components/delivery-process-section";
 import {
   DEPLOYMENT_STORIES,
   FACTORY_STEPS,
@@ -125,6 +126,9 @@ export default async function HomePage() {
                 <p className="text-xs text-slate-400">{s.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="max-w-3xl mx-auto mt-10">
+            <DeliveryProcessSection variant="compact" title="From payment to delivery" showCta />
           </div>
         </div>
       </section>

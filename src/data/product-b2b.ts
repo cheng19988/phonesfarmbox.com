@@ -70,6 +70,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "Is SIM supported on every model?", a: "No — SIM path depends on phone model and ROM. We mark SIM-capable models on the proforma." },
       { q: "How many PCs do I need?", a: "Most buyers run 1 PC per 1–3 boxes depending on hub tier and script load — confirm at quote." },
       { q: "Can boxes stack in a rack?", a: "Yes — stackable chassis with airflow spacing noted in packing guide." },
+      { q: "Can I get packing photos before shipment?", a: "Yes — request on RFQ or quote reply. Photos and shipping size provided after packing plan is confirmed when available for your build." },
       { q: "What is not included?", a: "Phones (unless quoted), host PC, proxies/VPN, and destination import duties." },
     ],
   },
@@ -237,6 +238,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "DIY assembly manual covers fan direction and PSU torque specs.",
       "Flat-pack ship saves freight; assembled ship available.",
       "Host PC required for first wiring test; USB debugging may be needed depending on workflow.",
+      "Packing list confirms no phones/devices included unless added on BOM; request packing photo before shipment on RFQ if needed.",
     ],
     included: ["Empty metal chassis", "Fan grill / mount hardware", "Basic assembly manual"],
     optionalAddons: ["Fan kit", "PSU module", "USB hub shelf", "Custom paint/logo (bulk)"],
@@ -428,6 +430,8 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     deploymentNotes: [
       "Host PC with admin access required during session.",
       "Stable internet on farm side for screen share.",
+      "Buyer provides target model list and credentials for their own control tools.",
+      "Covers wiring and batch-control verification — not account farming, platform manipulation, or marketing outcome guarantees.",
       "Scope changes after session may need additional block.",
     ],
     included: ["Remote session(s)", "Screen layout template", "Written config export"],
@@ -444,6 +448,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "On-site available?", a: "Yes — travel quoted separately." },
       { q: "iPhone and Android same session?", a: "Usually separate sessions unless small mixed scope agreed upfront." },
       { q: "What if config breaks after session?", a: "One re-session within 14 days for same scope — see warranty line on invoice." },
+      { q: "What is not included?", a: "Account farming, traffic guarantees, TikTok or social media performance promises, or operating buyer proxies/tools on your behalf." },
     ],
   },
 };

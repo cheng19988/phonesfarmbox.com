@@ -158,6 +158,34 @@ export const FAQ_ITEMS: FAQItem[] = [
     productLink: "/pricing",
   },
   {
+    category: "Operations",
+    question: "Can I request packing photos before shipment?",
+    answer:
+      "Yes — note the request on your RFQ or quote reply. Packing photos (carton exterior and foam layout when available) and shipping size/weight are provided after packing plan is confirmed, often before shipment for bulk buyers. Packing list is signed off against proforma before export packing closes.",
+    productLink: "/help/packing-list-verification",
+  },
+  {
+    category: "Operations",
+    question: "What happens if hardware arrives damaged?",
+    answer:
+      "Report DOA or shipping damage within 48 hours with photos of packaging and product. We inspect the claim and coordinate replacement parts or shipment per invoice terms. Manufacturing defect reports within 7 days may qualify for repair or replacement — not unconditional refund in every case.",
+    productLink: "/refund",
+  },
+  {
+    category: "Operations",
+    question: "What does remote setup support include?",
+    answer:
+      "Remote setup helps verify host PC access, USB or OTG wiring, device authorization, and batch-control workflow for your quoted stack — useful for app testing, QA, or social media team hardware handoff. It does not include account farming, platform manipulation, traffic guarantees, or TikTok or social media performance guarantees.",
+    productLink: "/help/remote-setup-support-scope",
+  },
+  {
+    category: "Operations",
+    question: "Who pays return shipping for warranty cases?",
+    answer:
+      "Return shipping depends on issue type and terms on your proforma. Validated manufacturing defects or DOA may include replacement ship or return label at our discretion after inspection. Buyer-initiated returns of custom or deployed hardware often require buyer-paid return freight — stated on invoice when applicable.",
+    productLink: "/terms",
+  },
+  {
     category: "Ordering",
     question: "Do I need to register before asking for a quote?",
     answer:

@@ -1,4 +1,5 @@
 import { analyzeContactSubmission } from "@/lib/rfq-summary";
+import { AdminSalesFollowUpChecklist } from "@/components/admin-sales-follow-up";
 
 type ContactRow = {
   id: string;
@@ -52,6 +53,8 @@ export function AdminContactRow({ contact }: { contact: ContactRow }) {
           </ul>
         </div>
       )}
+
+      <AdminSalesFollowUpChecklist parsed={parsed} contact={contact} />
 
       <div className="flex flex-wrap gap-1.5 mt-2">
         {badges.map((b) => (
