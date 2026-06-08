@@ -7,6 +7,13 @@ import { getProductProfileSeed } from "@/data/product-profiles";
 import { BuyButtons, FAQAccordion } from "@/components/commerce";
 import { ProductImageStatus } from "@/components/product-image-status";
 import { ProductTechnicalDataStatus } from "@/components/product-technical-data";
+import {
+  CommonCombinationsSection,
+  EnhancedAddonsSection,
+  ProductCompareSection,
+  ProductFitSection,
+  QuotePrepareSection,
+} from "@/components/product-conversion-sections";
 import { ContactCTA, JsonLd, StockBadge } from "@/components/shared";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } from "@/lib/product-images";
@@ -111,11 +118,6 @@ export default async function ProductDetailPage({ params }: Props) {
               <p className="text-amber-400/80 text-sm mb-2">{product.category}</p>
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{product.name}</h1>
               <p className="text-slate-300 mb-4">{summary}</p>
-              {b2b && (
-                <p className="text-sm text-slate-400 mb-4 p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-                  <span className="text-slate-500">Best for:</span> {b2b.bestFor}
-                </p>
-              )}
               <div className="flex items-center gap-4 mb-2">
                 <span className="text-3xl font-bold text-white">${product.priceUsd.toLocaleString()}</span>
                 <StockBadge stock={product.stock} />
@@ -129,6 +131,12 @@ export default async function ProductDetailPage({ params }: Props) {
               </p>
             </div>
           </div>
+
+          {b2b && (
+            <div className="mb-8">
+              <ProductFitSection b2b={b2b} />
+            </div>
+          )}
 
           {b2b && (
             <section className="mb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -209,6 +217,8 @@ export default async function ProductDetailPage({ params }: Props) {
                 </section>
               )}
 
+              {b2b && <ProductCompareSection slug={slug} />}
+
               {faq.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-white mb-4">FAQ</h2>
@@ -228,14 +238,7 @@ export default async function ProductDetailPage({ params }: Props) {
                       ))}
                     </ul>
                   </section>
-                  <section className="p-5 rounded-xl border border-slate-800">
-                    <h3 className="font-bold text-white mb-3">Optional add-ons</h3>
-                    <ul className="space-y-1 text-sm text-slate-400">
-                      {b2b.optionalAddons.map((a) => (
-                        <li key={a}>• {a}</li>
-                      ))}
-                    </ul>
-                  </section>
+                  <EnhancedAddonsSection addons={b2b.optionalAddons} relatedSlugs={b2b.relatedSlugs} />
                   <section className="p-5 rounded-xl border border-slate-800">
                     <h3 className="font-bold text-white mb-3">Export packing</h3>
                     <ul className="space-y-1 text-sm text-slate-400">
@@ -283,6 +286,13 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
             </section>
           )}
+
+          <div className="mt-16 grid lg:grid-cols-2 gap-6">
+            {b2b && b2b.commonCombinations.length > 0 && (
+              <CommonCombinationsSection items={b2b.commonCombinations} />
+            )}
+            <QuotePrepareSection productSlug={slug} />
+          </div>
 
           <div className="mt-16">
             <ContactCTA title={`Request a quote for ${product.name}`} />

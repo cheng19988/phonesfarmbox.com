@@ -3,6 +3,9 @@ export type ProductFAQ = { q: string; a: string };
 export type ProductB2B = {
   overview: string;
   bestFor: string;
+  notIdealFor: string;
+  confirmBeforeQuote: string[];
+  commonCombinations: string[];
   recommendedConfiguration: string;
   capacity: string;
   cooling: string;
@@ -25,6 +28,22 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     overview:
       "Standard Android phone farm chassis for buyers who need SIM-capable nodes, camera paths on supported models, and rackable density without desk clutter. Each unit consolidates power, USB data, and cooling into one export-ready box.",
     bestFor: "Agencies and studios running multi-account Android workflows per chassis with SIM or camera requirements.",
+    notIdealFor:
+      "Buyers who only need bare metal without hub/PSU wiring, want turnkey iPhone clusters, or expect phones included without confirming models on quote.",
+    confirmBeforeQuote: [
+      "Destination country and expected chassis quantity",
+      "Android phone model list or ask us to recommend compatible mounts",
+      "Empty chassis vs phone-included vs BYO devices to mount",
+      "USB / OTG / hybrid connection mode for your ROM and host workflow",
+      "110V / 220V / 220–240V power region",
+      "Whether you need packing photo, datasheet, or shipping size before shipment",
+    ],
+    commonCombinations: [
+      "Phone Farm Box + USB hub tier + power supply module + cooling fan kit",
+      "Phone Farm Box + network equipment for multi-account IP segmentation",
+      "Phone Farm Box + remote setup session for host PC and batch-control handoff",
+      "Multiple Phone Farm Boxes + custom cabinet for room-scale Android farm",
+    ],
     recommendedConfiguration:
       "Chassis (slot count on quote) + matched hub tier + PSU for quoted phone models + control PC with batch software. Add network router bundle when each box needs isolated IP groups.",
     capacity: "Confirmed before quote — slot layout depends on phone height and chassis variant.",
@@ -48,7 +67,14 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Batch control software (per order terms)",
       "Burn-in test report (sample orders)",
     ],
-    optionalAddons: ["Extra fan kit", "Network router bundle", "Remote setup session", "Spare USB cables"],
+    optionalAddons: [
+      "Extra fan kit",
+      "Network router bundle",
+      "Remote setup session (wiring & control verification only)",
+      "Spare USB cables",
+      "Packing photo / shipping size request on RFQ",
+      "Datasheet with confirmed dimensions and power draw",
+    ],
     shippingPackage: [
       "Chassis or rack frame as quoted",
       "USB/OTG wiring kit per connection mode on BOM",
@@ -72,12 +98,30 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "Can boxes stack in a rack?", a: "Yes — stackable chassis with airflow spacing noted in packing guide." },
       { q: "Can I get packing photos before shipment?", a: "Yes — request on RFQ or quote reply. Photos and shipping size provided after packing plan is confirmed when available for your build." },
       { q: "What is not included?", a: "Phones (unless quoted), host PC, proxies/VPN, and destination import duties." },
+      { q: "Does this include phones?", a: "Not by default — phones are line items on quote when you choose phone-included or turnkey device sourcing. Empty chassis ships without devices unless on BOM." },
+      { q: "What should I prepare before quote?", a: "Destination country, quantity, model list, connection mode, voltage region, and whether you need packing photos or datasheet — same fields as our contact RFQ form." },
+      { q: "Does remote setup include account operation?", a: "No — remote setup covers host PC connectivity, USB wiring, and batch-control verification. It does not include operating your social media accounts, proxies, or platform outcome guarantees." },
     ],
   },
   "motherboard-box": {
     overview:
       "Headless Android node chassis for teams optimizing cost per slot. Screenless motherboard nodes reduce unit cost while keeping USB debugging and batch control from a single host PC.",
     bestFor: "Automation teams and QA labs that do not need displays or cameras on every node.",
+    notIdealFor:
+      "Teams needing SIM/camera on every slot, iPhone workflows, or buyers who want turnkey phones included without sourcing boards.",
+    confirmBeforeQuote: [
+      "Board model list and footprint — one family per chassis is typical",
+      "Node count target and USB vs OTG wiring path",
+      "Whether you supply boards (BYO) or want vendor-sourced nodes on quote",
+      "110V / 220V / 220–240V destination power",
+      "Temporary screen kit need for USB auth on headless boards",
+    ],
+    commonCombinations: [
+      "Motherboard Box + USB hub tier + power supply sized to node list",
+      "Motherboard Box + cooling fan kit for sustained CPU load",
+      "Multiple Motherboard Boxes + custom cabinet for dense QA lab",
+      "Motherboard Box + remote setup for ADB visibility and wiring map",
+    ],
     recommendedConfiguration:
       "Motherboard box (node count on quote) + industrial USB hub + PSU sized to node list + temporary screen kit for initial USB auth if needed.",
     capacity: "Confirmed before quote — depends on board footprint and node mix.",
@@ -94,7 +138,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Buyer should confirm target board model list before production; remote setup can verify wiring and ADB visibility.",
     ],
     included: ["Chassis + fan tray", "Node mounting hardware", "Power harness (region plug per quote)", "USB hub module (tier per quote)"],
-    optionalAddons: ["Temporary screen kit", "OTG Ethernet module", "Stacking brackets"],
+    optionalAddons: ["Temporary screen kit", "OTG Ethernet module", "Stacking brackets", "Packing photo on RFQ", "Remote setup session"],
     shippingPackage: [
       "Chassis + fan tray",
       "USB/OTG wiring per quoted connection mode",
@@ -115,12 +159,30 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "Can I mix board models in one box?", a: "Only if footprints match — usually one model family per chassis for wiring consistency." },
       { q: "Do you supply the boards?", a: "Optional — quote as BYO boards or vendor-sourced nodes." },
       { q: "Is ROM customizable?", a: "Official Android or custom ROM paths confirmed before mount." },
+      { q: "Does this include phones?", a: "No — this SKU uses screenless motherboard nodes. Full phones belong on Phone Farm Box unless boards are quoted separately." },
+      { q: "Can I choose USB or OTG?", a: "Yes — confirmed during quotation. USB suits standard ADB; OTG when quoted ROM path requires it." },
+      { q: "Can you support 110V / 220V?", a: "Yes — regional PSU and plug standard confirmed before quote based on destination country." },
+      { q: "What should I prepare before quote?", a: "Board model list, node count, connection mode, voltage region, and whether boards are BYO or vendor-sourced." },
     ],
   },
   "android-phone-farm": {
     overview:
       "Turnkey Android cluster SKU — chassis, hub tier, cooling, and cabling matched to your quoted device list on one BOM. Reduces integration time for buyers replacing ad-hoc desk setups.",
     bestFor: "Buyers wanting a single invoice for box + accessories without picking each component separately.",
+    notIdealFor:
+      "Buyers who only need one empty chassis, iPhone-only workflows, or accessory-only orders without a chassis SKU.",
+    confirmBeforeQuote: [
+      "Total Android device count and model list",
+      "Connection mode and host PC plan",
+      "Empty vs phone-included delivery",
+      "Destination country and voltage region",
+      "Network segmentation needs for multi-account workflows",
+    ],
+    commonCombinations: [
+      "Turnkey Android cluster + network equipment for IP groups",
+      "Turnkey Android cluster + remote setup for batch-control handoff",
+      "Multiple clusters + real-device phone farm project BOM for full room",
+    ],
     recommendedConfiguration:
       "Target device count → chassis qty from capacity estimator (slots per box confirmed at quote) + hub/PSU tier from planning tools + optional network kit for multi-account segmentation.",
     capacity: "Confirmed before quote — box count sized from your device list.",
@@ -133,7 +195,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "For large farms, plan phased hub uplinks rather than one overloaded PC port.",
     ],
     included: ["Box + cooling + hub tier as quoted", "Cabling kit", "Control software setup sheet"],
-    optionalAddons: ["Pre-loaded APK bundle (customer list)", "Remote onboarding session", "Additional boxes"],
+    optionalAddons: ["Pre-loaded APK bundle (customer list)", "Remote onboarding session", "Additional boxes", "Packing photo / datasheet on RFQ"],
     shippingPackage: ["Carton or pallet per quantity", "Serial manifest when devices included"],
     moq: "1 cluster",
     leadTime: "5–10 business days depending on device sourcing",
@@ -152,6 +214,22 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     overview:
       "iPhone cluster hardware and integration for script teams needing batch control without per-device manual trust workflows. Model mix, cable plan, and host requirements are confirmed before build.",
     bestFor: "Script developers and agencies running batch iPhone operations — cluster size confirmed at quote.",
+    notIdealFor:
+      "Android-only workflows, buyers who want empty chassis without iOS integration scope, or customers expecting platform performance guarantees.",
+    confirmBeforeQuote: [
+      "iPhone model mix and iOS range for cable plan",
+      "Lightning vs USB-C slot map — mixed generations need explicit BOM",
+      "Battery-powered vs chassis power-feed per node",
+      "Mac vs PC host requirement for your control stack",
+      "Empty chassis vs phone-included — lead time differs",
+      "110V / 220V / 220–240V export power",
+    ],
+    commonCombinations: [
+      "iPhone Phone Farm + remote control setup for first deployment handoff",
+      "iPhone Phone Farm + USB hub tier matched to cable plan",
+      "iPhone Phone Farm + network equipment for segmented IP groups",
+      "iPhone cluster + custom cabinet for enterprise iOS QA lab",
+    ],
     recommendedConfiguration:
       "Quoted iPhone count + powered USB hub topology + Mac or PC host (confirmed at quote) + remote control setup service for first deployment.",
     capacity: "Confirmed before quote — density depends on model and cable plan.",
@@ -167,7 +245,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Allow extra lead time for model-specific burn-in and device authorization workflows.",
     ],
     included: ["Rack/box layout as quoted", "Hub/charging plan", "Control stack setup notes"],
-    optionalAddons: ["Remote control setup service", "Mac mini sourcing (TBD)", "Spare cables"],
+    optionalAddons: ["Remote control setup service", "Mac mini sourcing (TBD)", "Spare cables", "Packing photo before shipment", "Datasheet with slot map"],
     shippingPackage: [
       "Chassis or rack frame as quoted",
       "Hub/cable kit per slot map",
@@ -187,12 +265,30 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "Battery power vs chassis power-feed cable?", a: "Battery-powered nodes use the phone battery — flexible but needs monitoring on long runs. Chassis power-feed uses the box harness — better for fixed rack installs. Choice confirmed during quotation." },
       { q: "Can I mix iPhone generations?", a: "Possible with separate cable zones — increases integration time; confirm on BOM." },
       { q: "Mac or PC host?", a: "Depends on control stack — stated on quote before payment." },
+      { q: "Does this include phones?", a: "Optional on quote — empty chassis, BYO devices, or vendor-sourced iPhones per agreed model list on proforma." },
+      { q: "Can you support 110V / 220V?", a: "Yes — PSU and plug standard confirmed for export destination on BOM." },
+      { q: "What should I prepare before quote?", a: "Model list, quantity, host type, cable plan preference, and whether devices are included — use our contact RFQ fields." },
+      { q: "Can you provide packing photos?", a: "Yes — request on RFQ. Photos and shipping size provided after packing plan is confirmed when available." },
+      { q: "Does remote setup include account operation?", a: "No — remote setup verifies wiring and batch-control workflow only. It does not operate TikTok/social accounts or guarantee platform results." },
     ],
   },
   "real-device-phone-farm": {
     overview:
       "Project SKU for buyers standardizing a full room — multiple chassis, network, accessories, and documentation on one scope. Includes BOM, layout diagram, and phased ship options for large rollouts.",
     bestFor: "Operators planning multi-chassis device rooms with mixed SKUs and facilities coordination.",
+    notIdealFor:
+      "Single-box sample orders or buyers who only need one accessory SKU without a project BOM.",
+    confirmBeforeQuote: [
+      "Total device count across Android/iPhone mix",
+      "Room layout constraints and facilities electrical capacity",
+      "Phased vs single shipment preference",
+      "Network and remote setup scope for handoff",
+    ],
+    commonCombinations: [
+      "Multiple Phone Farm Boxes + motherboard boxes + network equipment on one project BOM",
+      "Room-scale deployment + custom cabinet + PDU plan",
+      "Project BOM + remote setup blocks per platform (Android / iPhone)",
+    ],
     recommendedConfiguration:
       "Workshop call → device matrix → box count + hub/PSU/network lines → optional custom cabinet → burn-in schedule → split or single shipment.",
     capacity: "Project-based — total device count confirmed before quote.",
@@ -224,6 +320,20 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     overview:
       "Bare metal chassis for DIY builders expanding an existing farm or mounting customer-owned boards. Includes fan mounts and cable channels — PSU, hub, and fans ordered separately or as kits.",
     bestFor: "Teams with existing nodes who need additional slots or custom internal layout.",
+    notIdealFor:
+      "Buyers wanting turnkey phone-included delivery, iPhone cluster integration, or a complete farm without sourcing PSU/hub/fans separately.",
+    confirmBeforeQuote: [
+      "Board or phone dimensions for mount spacing",
+      "Whether PSU, hub, and fan kit are separate line items or bundled on quote",
+      "USB / OTG / hybrid wiring plan for your ROM path",
+      "110V / 220V / 220–240V regional power",
+      "Flat-pack vs assembled ship preference",
+    ],
+    commonCombinations: [
+      "Empty Box Chassis + buyer-provided phones or boards",
+      "Empty Chassis + fan kit + PSU module + USB hub shelf",
+      "Empty Chassis expansion alongside existing Phone Farm Box units",
+    ],
     recommendedConfiguration:
       "Chassis + fan kit + PSU module + hub shelf — share board dimensions for mount hole confirmation.",
     capacity: "Slot count per chassis variant — confirm drawing before order.",
@@ -241,7 +351,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Packing list confirms no phones/devices included unless added on BOM; request packing photo before shipment on RFQ if needed.",
     ],
     included: ["Empty metal chassis", "Fan grill / mount hardware", "Basic assembly manual"],
-    optionalAddons: ["Fan kit", "PSU module", "USB hub shelf", "Custom paint/logo (bulk)"],
+    optionalAddons: ["Fan kit", "PSU module", "USB hub shelf", "Custom paint/logo (bulk)", "Packing photo on RFQ", "Datasheet with mount dimensions"],
     shippingPackage: [
       "Chassis frame (flat-pack or assembled per quote)",
       "USB/OTG wiring not included unless added on BOM",
@@ -260,12 +370,30 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "Flat-pack vs assembled ship?", a: "Selectable — flat-pack lowers air freight cost." },
       { q: "Compatible with your full boxes?", a: "Same chassis family — accessories often interchangeable; confirm generation." },
       { q: "MOQ for custom color/logo?", a: "Bulk only — MOQ stated on custom quote." },
+      { q: "Does this include phones?", a: "No — empty chassis only. Phones and boards are buyer-supplied or added as separate line items on quote." },
+      { q: "Can I choose USB or OTG?", a: "Yes — wiring mode confirmed during quotation based on your ROM and host workflow." },
+      { q: "Can you support 110V / 220V?", a: "Yes — PSU and plug ordered separately or as line items; region confirmed before quote." },
+      { q: "What should I prepare before quote?", a: "Board dimensions or photos, slot count target, connection mode, voltage region, and accessory needs (fan/PSU/hub)." },
+      { q: "Can you provide packing photos?", a: "Yes — note on RFQ. Packing list confirms no devices unless on BOM." },
     ],
   },
   "usb-hub": {
     overview:
       "Industrial USB hub modules for farms outgrowing PC port count or replacing consumer hubs that drop ADB links under load. Tier selection based on node count and host PC count.",
     bestFor: "Existing farms adding nodes or replacing failed consumer-grade hubs.",
+    notIdealFor:
+      "Buyers expecting a complete phone farm from a hub alone, or first-time buyers without a chassis or host PC plan.",
+    confirmBeforeQuote: [
+      "Node count and host PC USB port availability",
+      "Android ADB vs iPhone hub chipset requirement",
+      "Cable run lengths (active extension needed over 3m)",
+      "Chassis family the hub must integrate with",
+    ],
+    commonCombinations: [
+      "USB hub as replacement or expansion for Phone Farm Box / Motherboard Box",
+      "USB hub + power supply upgrade when adding nodes",
+      "USB hub + network equipment when combining data and IP segmentation upgrades",
+    ],
     recommendedConfiguration:
       "Nodes ÷ ports per hub = hub qty; one powered hub per tier; active USB3 extension for runs over 3m.",
     capacity: "Port tiers confirmed before quote — cascaded layouts available for larger farms.",
@@ -278,7 +406,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Spare hub recommended for large node rooms to minimize downtime.",
     ],
     included: ["Hub module", "Power adapter (region plug)", "Mounting screws"],
-    optionalAddons: ["Extended USB3 active cables", "Secondary uplink card", "19″ rack ears"],
+    optionalAddons: ["Extended USB3 active cables", "Secondary uplink card", "19″ rack ears", "Spare hub for failover"],
     shippingPackage: ["Small parcel; anti-static bag"],
     moq: "1 unit",
     leadTime: "2–5 business days",
@@ -291,12 +419,27 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "iPhone compatible?", a: "Separate hub chipset quoted for iPhone paths." },
       { q: "Rack mountable?", a: "19″ ears available as add-on for select tiers." },
       { q: "Can I mix hub brands?", a: "Possible but we recommend one tier per box for consistent power budgeting." },
+      { q: "Does this include phones?", a: "No — USB hub is an accessory only, not a complete phone farm." },
+      { q: "What should I prepare before quote?", a: "Node count, platform (Android/iPhone), host PC ports, and chassis family — hub tier confirmed on datasheet." },
     ],
   },
   "power-supply-solution": {
     overview:
       "Industrial PSU modules sized from your node list — replaces overloaded power strips when adding slots or upgrading chassis. Output harness matched to box family on quote.",
     bestFor: "Buyers upgrading power after node expansion or replacing failed PSU modules.",
+    notIdealFor:
+      "Buyers who need a full chassis — PSU is a module matched to an existing or quoted box family.",
+    confirmBeforeQuote: [
+      "Chassis family and generation for harness compatibility",
+      "Node list for wattage calculation with headroom",
+      "Destination voltage and plug standard",
+      "Facility circuit capacity if stacking multiple boxes",
+    ],
+    commonCombinations: [
+      "Power supply + cooling fan kit after node expansion",
+      "Power supply + empty chassis or Phone Farm Box on new build",
+      "PSU module + USB hub tier upgrade on same quote",
+    ],
     recommendedConfiguration:
       "Run power estimator (Planning Tools) → add 15–20% headroom → match harness to chassis generation.",
     capacity: "Wattage sized from node list — confirmed before invoice.",
@@ -328,6 +471,18 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     overview:
       "Fan upgrade kits for hot climates, sustained load, or retrofitting older chassis. Matched to airflow path of your box family — send chassis photo if unsure.",
     bestFor: "Operators seeing thermal throttling or upgrading first-generation boxes.",
+    notIdealFor:
+      "Buyers whose bottleneck is PSU wattage — cooling kits do not replace power sizing.",
+    confirmBeforeQuote: [
+      "Chassis family photo or generation for fan kit match",
+      "Ambient room temperature and rack density",
+      "Whether 12V tap from existing box PSU is available",
+    ],
+    commonCombinations: [
+      "Cooling solution + power supply when upgrading dense racks",
+      "Fan kit + Phone Farm Box or Motherboard Box retrofit",
+      "Cooling kit + remote setup guidance for airflow verification",
+    ],
     recommendedConfiguration:
       "Identify chassis family → select fan kit → confirm 12V tap from box PSU → replace filters quarterly.",
     capacity: "Fan kits sized to chassis airflow path.",
@@ -359,6 +514,19 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     overview:
       "Router, switch, and OTG Ethernet accessories for multi-account farms needing network segmentation or wired offload. IP planning worksheet included — proxy binding remains customer workflow.",
     bestFor: "Multi-account setups needing router segmentation or Android OTG Ethernet paths.",
+    notIdealFor:
+      "Single-box hobby setups without IP segmentation needs, or buyers wanting proxy/VPN configuration as a service.",
+    confirmBeforeQuote: [
+      "Node count and account segmentation plan",
+      "Android models for OTG Ethernet compatibility",
+      "WAN uplink and management VLAN preference",
+      "Whether router config service is needed vs hardware only",
+    ],
+    commonCombinations: [
+      "Network equipment + Phone Farm Box or Android cluster for multi-account farms",
+      "Network equipment + remote-control-setup for IP worksheet and handoff",
+      "Router/switch kit + USB hub when upgrading data and network paths together",
+    ],
     recommendedConfiguration:
       "Router/switch tier matched to quoted node count + patch cables + IP worksheet; add switch if PoE cameras or APs required.",
     capacity: "Depends on router model quoted.",
@@ -371,7 +539,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Spare router recommended for production rooms.",
     ],
     included: ["Router or switch as quoted", "Patch cables (qty on invoice)", "IP planning worksheet"],
-    optionalAddons: ["Router config service", "Spare switch", "Cat6 bulk"],
+    optionalAddons: ["Router config service", "Spare switch", "Cat6 bulk", "IP planning workshop add-on"],
     shippingPackage: ["Retail router box inside export carton"],
     moq: "1 kit",
     leadTime: "3–7 business days",
@@ -390,6 +558,19 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     overview:
       "Floor-standing or rack cabinets for enterprise rooms — position count and cable management confirmed on CAD before fabrication.",
     bestFor: "Enterprise buyers needing room-scale density with structured cable management.",
+    notIdealFor:
+      "Sample single-chassis orders or buyers without facilities sign-off on floor load and AC capacity.",
+    confirmBeforeQuote: [
+      "Site dimensions and position count target",
+      "Tray design per device family (Android phone vs motherboard vs iPhone)",
+      "PDU and cooling/airflow plan for facilities team",
+      "CAD approval timeline before manufacturing",
+    ],
+    commonCombinations: [
+      "Custom cabinet + Phone Farm Boxes + network equipment + PDU plan",
+      "Custom cabinet + real-device phone farm project BOM",
+      "Cabinet fabrication + remote setup for tray wiring verification",
+    ],
     recommendedConfiguration:
       "Site dimensions → tray design per device family → PDU plan → cooling/airflow note → factory acceptance test before ship.",
     capacity: "Position count confirmed on CAD before build.",
@@ -421,6 +602,19 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
     overview:
       "Remote integration service for buyers who have hardware but need batch control, screen mirroring, and group operations configured before go-live. Scope tied to device count on your invoice.",
     bestFor: "Teams receiving hardware without in-house time to wire USB maps and control software.",
+    notIdealFor:
+      "Buyers without hardware yet expecting platform account results, traffic guarantees, or 24/7 NOC as default scope.",
+    confirmBeforeQuote: [
+      "Device count covered by session blocks on quote",
+      "Android vs iPhone scope (usually separate sessions)",
+      "Host PC admin access and stable screen-share internet",
+      "Whether hardware is already delivered or scheduled",
+    ],
+    commonCombinations: [
+      "Remote setup + Phone Farm Box or iPhone Phone Farm after delivery",
+      "Remote setup + network equipment for IP map documentation",
+      "Remote setup follow-up block within 14 days if scope unchanged",
+    ],
     recommendedConfiguration:
       "Hardware delivered → share USB/network map → remote session(s) → written config export → optional follow-up within 14 days.",
     capacity: "Covers device count on invoice (session blocks).",
@@ -435,7 +629,7 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       "Scope changes after session may need additional block.",
     ],
     included: ["Remote session(s)", "Screen layout template", "Written config export"],
-    optionalAddons: ["Extra sessions", "On-site visit (travel quoted)", "Custom script handoff"],
+    optionalAddons: ["Extra sessions", "On-site visit (travel quoted)", "Custom script handoff", "Post-delivery packing photo review (hardware scope only)"],
     shippingPackage: ["Digital delivery — no physical ship"],
     moq: "1 service block",
     leadTime: "Schedule within 5 business days of hardware delivery notice",
@@ -449,6 +643,9 @@ export const PRODUCT_B2B: Record<string, ProductB2B> = {
       { q: "iPhone and Android same session?", a: "Usually separate sessions unless small mixed scope agreed upfront." },
       { q: "What if config breaks after session?", a: "One re-session within 14 days for same scope — see warranty line on invoice." },
       { q: "What is not included?", a: "Account farming, traffic guarantees, TikTok or social media performance promises, or operating buyer proxies/tools on your behalf." },
+      { q: "Does remote setup include account operation?", a: "No — scope is host PC connectivity, USB/hub wiring, and batch-control workflow verification only." },
+      { q: "What should I prepare before quote?", a: "Hardware delivery status, device count, platform mix, and host access plan — request alongside chassis RFQ if ordering together." },
+      { q: "Can you provide packing photos?", a: "Hardware packing photos are a separate RFQ item on chassis orders — remote setup is a digital service SKU." },
     ],
   },
 };
