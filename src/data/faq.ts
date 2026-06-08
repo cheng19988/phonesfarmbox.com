@@ -131,6 +131,34 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     category: "Ordering",
+    question: "What information should I include in an RFQ?",
+    answer:
+      "Include target product or SKU, device quantity, shipping destination, connection mode (USB / OTG / hybrid), voltage region, empty chassis vs phone-included, target phone or board models, use case (app testing, QA, social media ops, remote operation), and payment preference. Request datasheet, packing photo, or shipping size on the same form if needed.",
+    productLink: "/contact",
+  },
+  {
+    category: "Ordering",
+    question: "Can I pay with USDT?",
+    answer:
+      "Yes for sample and small orders on Tron TRC20. Send order number and transaction hash to sales — payment is manually confirmed, not automatic on-chain verification. Bulk orders may use bank transfer, Wise, or PayPal per written quote.",
+    productLink: "/help/usdt-payment-confirmation-hardware-orders",
+  },
+  {
+    category: "Ordering",
+    question: "When can I receive packing photos or shipping size?",
+    answer:
+      "Request these on your RFQ or quote reply. Datasheet, packing photo, and shipping dimensions are prepared after configuration is confirmed on quote — often before payment for bulk buyers. Packing list is confirmed before shipment.",
+    productLink: "/help/packing-list-verification",
+  },
+  {
+    category: "Ordering",
+    question: "Why do phone-included orders require quotation confirmation?",
+    answer:
+      "Phone-included Android farms, iPhone clusters, and custom cabinets need model list, cable and power plan, and burn-in scope locked before assembly. Sourcing and testing add time beyond empty-chassis orders — lead time is stated on your written proforma, not fixed on product pages.",
+    productLink: "/pricing",
+  },
+  {
+    category: "Ordering",
     question: "Do I need to register before asking for a quote?",
     answer:
       "No. Use the contact form or WhatsApp/Telegram with quantity and shipping country. Registration is only for placing USDT sample orders online — quotes do not require an account.",

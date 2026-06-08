@@ -3,8 +3,10 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import Link from "next/link";
+import { QuoteProcessSection } from "@/components/quote-process-section";
 import { ContactBar } from "@/components/shared";
 import { CONTACT, SITE } from "@/lib/config";
+import { POST_RFQ_EXPECTATIONS } from "@/data/quote-process";
 
 const INQUIRY_CHECKLIST = [
   "Target product / SKU (e.g. phone-farm-box, empty-box-chassis, iphone-phone-farm)",
@@ -164,7 +166,29 @@ function ContactForm() {
         {status === "loading" ? "Sending..." : "Send Inquiry"}
       </button>
       {status === "success" && (
-        <p className="text-green-400 text-sm">Received. We typically reply within 24–72 hours on business days.</p>
+        <div className="rounded-lg border border-emerald-800/40 bg-emerald-950/20 p-4 text-sm space-y-3">
+          <p className="text-emerald-400 font-medium">Inquiry received — thank you.</p>
+          <p className="text-slate-300">What happens next:</p>
+          <ul className="space-y-2 text-slate-400">
+            {POST_RFQ_EXPECTATIONS.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="text-emerald-500 shrink-0">→</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="text-xs text-slate-500 pt-1">
+            USDT payments remain manually confirmed by sales after you send transaction hash — not automatic on-chain verification.
+            Browse{" "}
+            <Link href="/help/usdt-payment-confirmation-hardware-orders" className="text-amber-400 hover:underline">
+              USDT payment guide
+            </Link>
+            {" · "}
+            <Link href="/pricing#quote-process" className="text-amber-400 hover:underline">
+              full quote process
+            </Link>
+          </p>
+        </div>
       )}
       {status === "error" && (
         <p className="text-red-400 text-sm">
@@ -219,12 +243,45 @@ export default function ContactPage() {
         </div>
 
         <div className="card p-4 mb-8 border-amber-900/30 bg-amber-950/10 text-sm text-slate-400">
-          <strong className="text-slate-300">Response expectation:</strong> We reply on business days within 24–72 hours when the form includes quantity, platform mix, connection mode, voltage region, and shipping country.
+          <strong className="text-slate-300">Response expectation:</strong> We review RFQ details before quoting. Typical reply within one business day when information is complete.
           {" "}
           <strong className="text-slate-300">USDT orders:</strong> Payment is manually confirmed by sales after you send transaction hash — not automatic on-chain verification.
         </div>
 
-        <div className="card p-6 mb-8">
+        <QuoteProcessSection variant="compact" title="How the quote process works" showCta />
+
+        <div className="card p-6 mb-8 mt-8">
+          <h2 className="font-bold text-white mb-3">After you submit</h2>
+          <ul className="space-y-2 text-sm text-slate-400">
+            {POST_RFQ_EXPECTATIONS.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="text-amber-500">•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <Suspense fallback={<div className="card p-6 text-slate-400">Loading form...</div>}>
+          <ContactForm />
+        </Suspense>
+
+        <p className="text-center text-sm text-slate-500 mt-6">
+          Browse first:{" "}
+          <Link href="/products" className="text-amber-400 hover:underline">
+            product catalog
+          </Link>
+          {" · "}
+          <Link href="/pricing" className="text-amber-400 hover:underline">
+            pricing tiers
+          </Link>
+          {" · "}
+          <Link href="/faq" className="text-amber-400 hover:underline">
+            FAQ
+          </Link>
+        </p>
+
+        <div className="card p-6 mt-10">
           <h2 className="font-bold text-white mb-4">Direct lines</h2>
           <ContactBar />
           <ul className="mt-4 space-y-2 text-sm text-slate-300">
@@ -251,25 +308,6 @@ export default function ContactPage() {
           </ul>
           <p className="text-xs text-slate-500 mt-4">Business hours: Mon–Sat, 9:00–18:00 (GMT+8). Urgent inquiries via WhatsApp when online.</p>
         </div>
-
-        <Suspense fallback={<div className="card p-6 text-slate-400">Loading form...</div>}>
-          <ContactForm />
-        </Suspense>
-
-        <p className="text-center text-sm text-slate-500 mt-6">
-          Browse first:{" "}
-          <Link href="/products" className="text-amber-400 hover:underline">
-            product catalog
-          </Link>
-          {" · "}
-          <Link href="/pricing" className="text-amber-400 hover:underline">
-            pricing tiers
-          </Link>
-          {" · "}
-          <Link href="/faq" className="text-amber-400 hover:underline">
-            FAQ
-          </Link>
-        </p>
       </div>
     </div>
   );

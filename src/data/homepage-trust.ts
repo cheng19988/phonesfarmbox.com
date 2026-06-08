@@ -56,33 +56,7 @@ export const PACKING_LIST_STANDARD = [
   "Quick-start wiring diagram (digital)",
 ] as const;
 
-export const QUOTE_PROCESS = [
-  {
-    step: "1",
-    title: "Send requirements",
-    detail: "Target quantity, Android/iPhone mix, empty box or with phones, shipping country, use case, and WhatsApp/Telegram for quick follow-up.",
-  },
-  {
-    step: "2",
-    title: "Confirm configuration",
-    detail: "We return box type, hub/PSU/cooling tier, and any items marked “confirm before quote” — no payment until you approve the BOM.",
-  },
-  {
-    step: "3",
-    title: "Written quote & lead time",
-    detail: "USD proforma with MOQ, production slot, and air/sea freight estimate. Bulk tiers from 3+ boxes.",
-  },
-  {
-    step: "4",
-    title: "Payment",
-    detail: "USDT (small orders, manually confirmed by sales) or T/T / Wise / PayPal for bulk — per invoice only.",
-  },
-  {
-    step: "5",
-    title: "Assembly, QC & shipment",
-    detail: "Burn-in, packing list sign-off, tracking via DHL/FedEx/sea forwarder. Remote setup scheduled after delivery notice.",
-  },
-] as const;
+export { QUOTE_PROCESS, QUOTE_PROCESS_STEPS } from "./quote-process";
 
 export const WHY_BUYERS = [
   { title: "MOQ from 1 unit", desc: "Sample a box before a bulk rack order." },

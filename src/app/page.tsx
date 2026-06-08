@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/commerce";
 import { CONTACT, SITE } from "@/lib/config";
 import { IMAGES } from "@/lib/images";
+import { QuoteProcessSection } from "@/components/quote-process-section";
 import {
   DEPLOYMENT_STORIES,
   FACTORY_STEPS,
@@ -11,7 +12,7 @@ import {
   PACKING_LIST_STANDARD,
   PRODUCT_CATEGORIES,
   QC_CHECKLIST,
-  QUOTE_PROCESS,
+  QUOTE_PROCESS_STEPS,
   WHY_BUYERS,
 } from "@/data/homepage-trust";
 import { buildMetadata } from "@/lib/seo";
@@ -49,12 +50,15 @@ export default async function HomePage() {
             <Link href="/contact" className="btn-primary text-lg px-8 py-3">Get a Hardware Quote</Link>
             <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary text-lg px-8 py-3">WhatsApp Inquiry</a>
           </div>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400 mb-8">
             <li>MOQ from 1 unit</li>
             <li>Lead time quoted per configuration</li>
             <li>Air &amp; sea export</li>
             <li>Custom rack projects</li>
           </ul>
+          <div className="max-w-3xl">
+            <QuoteProcessSection variant="compact" title="From RFQ to shipment" showCta />
+          </div>
         </div>
       </section>
 
@@ -184,9 +188,9 @@ export default async function HomePage() {
       {/* Quote process */}
       <section className="section">
         <div className="container-wide max-w-4xl">
-          <h2 className="section-title text-center">Quote Process</h2>
+          <h2 className="section-title text-center">How the Quote Process Works</h2>
           <ol className="space-y-4 mt-8">
-            {QUOTE_PROCESS.map((q) => (
+            {QUOTE_PROCESS_STEPS.map((q) => (
               <li key={q.step} className="flex gap-4 items-start">
                 <span className="shrink-0 w-8 h-8 rounded-full bg-amber-900/50 text-amber-400 flex items-center justify-center font-bold text-sm">{q.step}</span>
                 <div>

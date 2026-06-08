@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import { redirect } from "next/navigation";
+import { AdminContactRow } from "@/components/admin-contact-row";
 import { AdminProductRow } from "@/components/admin-product-row";
 import { AdminProductDataSection } from "@/components/admin-product-data-section";
 import { prisma } from "@/lib/prisma";
@@ -83,11 +84,7 @@ export default async function AdminPage() {
             <h2 className="text-xl font-bold text-white mb-4">Contact Submissions</h2>
             <div className="space-y-3">
               {recentContacts.map((c) => (
-                <div key={c.id} className="card p-4 text-sm">
-                  <p className="text-white font-medium">{c.name} · {c.email}</p>
-                  <p className="text-slate-400">{c.country} · {c.productInterest} · Qty: {c.deviceQuantity}</p>
-                  <p className="text-slate-500 mt-1 line-clamp-2">{c.message}</p>
-                </div>
+                <AdminContactRow key={c.id} contact={c} />
               ))}
             </div>
           </section>

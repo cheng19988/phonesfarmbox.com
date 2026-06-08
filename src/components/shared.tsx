@@ -1,5 +1,6 @@
 ﻿import { CONTACT } from "@/lib/config";
 import Link from "next/link";
+import { QuoteProcessSection } from "@/components/quote-process-section";
 
 export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
   return (
@@ -31,17 +32,22 @@ export function ContactBar({ compact = false }: { compact?: boolean }) {
 
 export function ContactCTA({ title = "Request a Hardware Quote" }: { title?: string }) {
   return (
-    <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 md:p-12 text-center">
-      <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{title}</h2>
-      <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
-        Send device count, models, and shipping country. Business-day reply within 72 hours.
+    <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 md:p-12">
+      <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 text-center">{title}</h2>
+      <p className="text-slate-400 mb-6 max-w-2xl mx-auto text-center">
+        Send device count, models, connection mode, voltage region, and shipping country. Written quote before assembly — lead time confirmed on quote.
       </p>
-      <ContactBar />
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <Link href="/contact" className="btn-primary">Contact Sales</Link>
-        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
-          WhatsApp Inquiry
-        </a>
+      <div className="max-w-2xl mx-auto mb-6">
+        <QuoteProcessSection variant="compact" title="Quote process at a glance" />
+      </div>
+      <div className="text-center">
+        <ContactBar />
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link href="/contact" className="btn-primary">Contact Sales</Link>
+          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+            WhatsApp Inquiry
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -303,6 +303,87 @@ Datasheet, packing photo, and shipping size requests can be made on your quote i
 
 Use Planning Tools or contact sales with your node list for a written quote before payment.`,
   },
+  {
+    slug: "how-to-request-phone-farm-hardware-quote",
+    title: "How to Request a Phone Farm Hardware Quote",
+    category: "Orders & Payment",
+    summary: "RFQ checklist for B2B buyers — what to send before we return a written BOM and lead time.",
+    content: `Phones Farm Box is a quote-based B2B hardware supplier. Assembly starts only after you approve a written proforma.
+
+**Step 1 — Choose your starting SKU**
+Browse the catalog: phone farm box, motherboard rack, empty chassis, iPhone farm cluster, or accessories. You do not need a final BOM to open an inquiry.
+
+**Step 2 — Submit an RFQ**
+Use the contact form or WhatsApp with:
+- Target quantity and shipping destination
+- Connection mode: USB, OTG, hybrid, or not sure
+- Voltage region: 110V, 220V, 220–240V, or not sure
+- Empty chassis vs phone-included vs BYO devices
+- Target phone or board models (or ask for recommendation at quote)
+- Use case: app testing, QA lab, social media team ops, multi-device management, etc.
+- Payment preference and documentation needs (datasheet, packing photo, shipping size)
+
+**Step 3 — Configuration review**
+Sales confirms chassis layout, hub/PSU tier, and wiring path. Missing details may trigger a follow-up before quoting.
+
+**Step 4 — Written quote**
+You receive a BOM, lead time confirmed on quote, packing list outline, freight estimate, and accepted payment methods. Phone-included and iPhone farm orders typically need longer lead time after model review.
+
+**Step 5 — Payment & production**
+USDT (TRC20) is manually confirmed by sales after tx hash. Bank transfer, Wise, or PayPal may be offered on invoice. Wallet details are sent in the written quote only.
+
+No platform outcome guarantees — we supply hardware and optional remote setup support.`,
+  },
+  {
+    slug: "what-is-included-in-written-quote",
+    title: "What Is Included in a Written Quote",
+    category: "Orders & Payment",
+    summary: "Line items, lead time, packing, freight, and payment terms on a Phones Farm Box proforma.",
+    content: `A written quote (proforma invoice) is the contract baseline before assembly and payment.
+
+**Typically included**
+- SKU line items: chassis, hub tier, PSU, cooling, cabling, optional devices
+- Connection mode and voltage region confirmed for your destination
+- Empty vs phone-included configuration with device list locked before assembly
+- Lead time confirmed on quote — longer for phone-included, iPhone farm, or custom cabinet
+- Packing list outline; packing photo or shipping size available on request
+- Air or sea freight estimate (import duties excluded)
+- Payment options: USDT TRC20, bank transfer, Wise, PayPal where offered
+- Remote setup scope if requested
+- Warranty and after-sales terms
+
+**Not fixed on product pages**
+- Slot count, wattage, fan count, and hub ports are sized from your BOM
+- Prices are USD starting points until configuration is confirmed
+
+**After you approve**
+Assembly, wiring, burn-in, packing list sign-off, and shipment follow the process on your invoice. Request changes before payment — post-approval changes may affect lead time.
+
+See the pricing page for tier overview and quote factors.`,
+  },
+  {
+    slug: "usdt-payment-confirmation-hardware-orders",
+    title: "USDT Payment Confirmation for Hardware Orders",
+    category: "Orders & Payment",
+    summary: "How USDT TRC20 payments work — manual sales confirmation, not automatic on-chain verification.",
+    content: `Phones Farm Box accepts USDT on Tron TRC20 for sample and small hardware orders when offered on your written quote.
+
+**How it works**
+1. Receive written quote or order confirmation with USD amount and payment instructions
+2. Send USDT to the wallet address provided in the quote or sales message only — not from public product pages
+3. Reply with your order number and transaction hash via email, WhatsApp, or Telegram
+4. Sales manually confirms receipt — automatic on-chain verification is not active
+
+**Important**
+- Minimum order rules and expiry windows are stated on your invoice
+- Do not send USDT before approving the BOM on quote
+- Bulk and project orders often use bank transfer, Wise, or PayPal instead
+
+**After confirmation**
+Production slot is scheduled per lead time on your quote. Packing list is confirmed before shipment; packing photos available on request.
+
+For RFQ and non-USDT payment options, use the contact form — registration is only required for placing USDT sample orders online.`,
+  },
 ];
 
 export function getHelpArticle(slug: string) {
