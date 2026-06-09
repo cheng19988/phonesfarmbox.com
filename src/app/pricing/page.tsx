@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero } from "@/components/ui/page-hero";
+import { Section } from "@/components/ui/section";
 import { DeliveryProcessSection } from "@/components/delivery-process-section";
 import { QuoteProcessSection } from "@/components/quote-process-section";
 import { buildMetadata } from "@/lib/seo";
@@ -9,6 +11,7 @@ import {
   REMOTE_SETUP_INCLUDES,
   WARRANTY_AFTER_SALES_POINTS,
 } from "@/data/delivery-process";
+import { IMAGES } from "@/lib/images";
 import {
   PAYMENT_OPTIONS,
   QUOTE_FACTORS,
@@ -55,21 +58,20 @@ const TCO_ROWS = [
 
 export default function PricingPage() {
   return (
-    <div className="section">
-      <div className="container-wide max-w-5xl">
-        <h1 className="section-title">Hardware Pricing &amp; Bulk Inquiry</h1>
-        <p className="section-subtitle">
-          List prices are USD starting points.{" "}
-          <strong className="text-slate-300">
-            Final price depends on product type, empty vs phone-included configuration, connection mode, voltage region,
-            destination, and documentation requests
-          </strong>{" "}
-          — request a written quote before payment.
-        </p>
+    <>
+      <PageHero
+        eyebrow="B2B pricing"
+        title="Hardware pricing & bulk inquiry"
+        description="List prices are USD starting points. Final price depends on configuration, connection mode, voltage region, destination, and documentation requests — request a written quote before payment."
+        image={IMAGES.serviceScene}
+        imageAlt="Phone farm hardware deployment"
+      />
 
+      <Section>
+        <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-3 gap-6 mb-14">
           {TIERS.map((t) => (
-            <div key={t.name} className="p-6 rounded-xl border border-slate-800 bg-slate-900/40 flex flex-col">
+            <div key={t.name} className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)] flex flex-col">
               <h2 className="text-lg font-bold text-white mb-2">{t.name}</h2>
               <p className="text-sm text-slate-300 mb-2">{t.desc}</p>
               <p className="text-xs text-slate-500 mb-3">{t.detail}</p>
@@ -246,9 +248,9 @@ export default function PricingPage() {
           </p>
         </div>
 
-        <div className="text-center p-10 rounded-2xl border border-slate-800">
+        <div className="text-center p-10 rounded-2xl border border-[var(--border-accent)] bg-[var(--surface-card)]">
           <h2 className="text-2xl font-bold text-white mb-3">Request Quote</h2>
-          <p className="text-slate-400 mb-6">
+          <p className="text-[var(--text-secondary)] mb-6">
             Share quantity, models, connection mode, voltage region, and destination — we reply with configuration and lead
             time confirmed on quote.
           </p>
@@ -256,7 +258,8 @@ export default function PricingPage() {
             Contact Sales
           </Link>
         </div>
-      </div>
-    </div>
+        </div>
+      </Section>
+    </>
   );
 }

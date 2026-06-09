@@ -1,8 +1,12 @@
 ﻿import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/commerce";
+import { PageHero } from "@/components/ui/page-hero";
+import { Section, SectionHeader } from "@/components/ui/section";
+import { Surface } from "@/components/ui/surface";
 import { buildMetadata } from "@/lib/seo";
 import { PRODUCT_CATALOG_GROUPS } from "@/data/product-catalog-groups";
+import { IMAGES } from "@/lib/images";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Products & Hardware Shop",
@@ -15,18 +19,14 @@ type ProductRow = Awaited<ReturnType<typeof prisma.product.findMany>>[number];
 
 function sortProducts(products: ProductRow[], sort?: string) {
   const list = [...products];
-  if (sort === "price-desc") {
-    return list.sort((a, b) => b.priceUsd - a.priceUsd);
-  }
-  if (sort === "price-asc") {
-    return list.sort((a, b) => a.priceUsd - b.priceUsd);
-  }
+  if (sort === "price-desc") return list.sort((a, b) => b.priceUsd - a.priceUsd);
+  if (sort === "price-asc") return list.sort((a, b) => a.priceUsd - b.priceUsd);
   return list.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function ProductGrid({ products }: { products: ProductRow[] }) {
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="product-grid">
       {products.map((p) => (
         <ProductCard
           key={p.id}
@@ -78,30 +78,36 @@ export default async function ProductsPage({
   };
 
   return (
-    <div className="section">
-      <div className="container-wide">
-        <h1 className="section-title">Phone Farm Hardware Catalog</h1>
-        <p className="section-subtitle">
-          Phones Farm Box — quote-based B2B hardware supplier from Guangzhou. List prices are USD starting points;
-          slot layout, connection mode, PSU tier, and packing list are confirmed on written quote before assembly.
-        </p>
+    <>
+      <PageHero
+        eyebrow="B2B hardware catalog"
+        title="Phone farm hardware shop"
+        description="Chassis, racks, hubs, power, cooling, and services — list prices are USD starting points. Slot layout, connection mode, and freight confirmed on written quote."
+        image={IMAGES.phoneFarmBox.hero}
+        imageAlt="Phone farm hardware catalog"
+      />
 
-        <div className="card p-5 mb-8 flex flex-wrap items-center justify-between gap-4 border-amber-800/30 bg-amber-950/10">
+      <Section>
+        <Surface padding="md" className="mb-10 flex flex-wrap items-center justify-between gap-4 border-[var(--border-accent)]">
           <div>
-            <p className="font-medium text-white">Need a bulk or custom quote?</p>
-            <p className="text-sm text-slate-400">
-              Send device count, platform, connection mode, voltage region, and delivery country — we reply with MOQ, lead time, and shipping options.
+            <p className="font-semibold text-white">Need a bulk or custom quote?</p>
+            <p className="text-sm text-[var(--text-secondary)] mt-1">
+              Send device count, platform, connection mode, voltage region, and delivery country.
             </p>
           </div>
           <Link href="/contact" className="btn-primary shrink-0">
             Request Quote
           </Link>
-        </div>
+        </Surface>
 
-        <div className="flex flex-wrap gap-3 mb-8">
+        <div className="flex flex-wrap gap-2 mb-8">
           <Link
             href={buildProductsHref({ category: null })}
-            className={`px-3 py-1 rounded-full text-sm border ${!params.category ? "border-amber-600 text-amber-400" : "border-slate-700 text-slate-400"}`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium border transition-colors ${
+              !params.category
+                ? "border-amber-600/60 bg-amber-950/30 text-amber-300"
+                : "border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-white"
+            }`}
           >
             All
           </Link>
@@ -109,33 +115,36 @@ export default async function ProductsPage({
             <Link
               key={cat}
               href={buildProductsHref({ category: cat })}
-              className={`px-3 py-1 rounded-full text-sm border ${params.category === cat ? "border-amber-600 text-amber-400" : "border-slate-700 text-slate-400"}`}
+              className={`px-4 py-2 rounded-xl text-sm font-medium border transition-colors ${
+                params.category === cat
+                  ? "border-amber-600/60 bg-amber-950/30 text-amber-300"
+                  : "border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-white"
+              }`}
             >
               {cat}
             </Link>
           ))}
         </div>
 
-        <div className="flex gap-3 mb-8 text-sm">
-          <span className="text-slate-500">Sort:</span>
-          <Link href={buildProductsHref({ sort: "price-asc" })} className="text-slate-400 hover:text-white">
-            Price: low to high
+        <div className="flex gap-4 mb-12 text-sm text-[var(--text-muted)]">
+          <span>Sort:</span>
+          <Link href={buildProductsHref({ sort: "price-asc" })} className="hover:text-amber-400">
+            Price ↑
           </Link>
-          <Link href={buildProductsHref({ sort: "price-desc" })} className="text-slate-400 hover:text-white">
-            Price: high to low
+          <Link href={buildProductsHref({ sort: "price-desc" })} className="hover:text-amber-400">
+            Price ↓
           </Link>
         </div>
 
         {products.length === 0 ? (
-          <p className="text-slate-400">
+          <p className="text-[var(--text-secondary)]">
             No products in this category.{" "}
             <Link href="/contact" className="text-amber-400 hover:underline">
               Contact us
-            </Link>{" "}
-            for availability.
+            </Link>
           </p>
         ) : showGrouped ? (
-          <div className="space-y-14">
+          <div className="space-y-20">
             {PRODUCT_CATALOG_GROUPS.map((group) => {
               const groupProducts = sortProducts(
                 group.slugs.map((slug) => productBySlug.get(slug)).filter((p): p is ProductRow => Boolean(p)),
@@ -144,8 +153,7 @@ export default async function ProductsPage({
               if (groupProducts.length === 0) return null;
               return (
                 <section key={group.id} id={group.id}>
-                  <h2 className="text-xl font-bold text-white mb-2">{group.title}</h2>
-                  <p className="text-sm text-slate-400 mb-6 max-w-3xl">{group.description}</p>
+                  <SectionHeader title={group.title} description={group.description} className="mb-8" />
                   <ProductGrid products={groupProducts} />
                 </section>
               );
@@ -154,7 +162,7 @@ export default async function ProductsPage({
         ) : (
           <ProductGrid products={products} />
         )}
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }

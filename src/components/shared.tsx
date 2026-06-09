@@ -1,7 +1,5 @@
 ﻿import { CONTACT } from "@/lib/config";
 import Link from "next/link";
-import { QuoteProcessSection } from "@/components/quote-process-section";
-import { DeliveryProcessSection } from "@/components/delivery-process-section";
 
 export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
   return (
@@ -33,25 +31,21 @@ export function ContactBar({ compact = false }: { compact?: boolean }) {
 
 export function ContactCTA({ title = "Request a Hardware Quote" }: { title?: string }) {
   return (
-    <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 md:p-12">
-      <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 text-center">{title}</h2>
-      <p className="text-slate-400 mb-6 max-w-2xl mx-auto text-center">
+    <section className="rounded-2xl border border-[var(--border-accent)] bg-gradient-to-b from-[var(--surface-elevated)] to-[var(--surface-card)] p-8 md:p-12">
+      <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 text-center tracking-tight">{title}</h2>
+      <p className="text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto text-center leading-relaxed">
         Send device count, models, connection mode, voltage region, and shipping country. Written quote before assembly — lead time confirmed on quote.
       </p>
-      <div className="max-w-2xl mx-auto mb-6">
-        <QuoteProcessSection variant="compact" title="Quote process at a glance" />
-      </div>
-      <div className="max-w-2xl mx-auto mb-6">
-        <DeliveryProcessSection variant="compact" title="Delivery after payment" />
-      </div>
-      <div className="text-center">
-        <ContactBar />
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link href="/contact" className="btn-primary">Contact Sales</Link>
-          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
-            WhatsApp Inquiry
-          </a>
-        </div>
+      <div className="flex flex-wrap justify-center gap-4">
+        <Link href="/contact" className="btn-primary px-8">
+          Contact Sales
+        </Link>
+        <Link href="/pricing" className="btn-secondary px-8">
+          Quote &amp; delivery process
+        </Link>
+        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-outline px-8">
+          WhatsApp
+        </a>
       </div>
     </section>
   );
@@ -59,19 +53,19 @@ export function ContactCTA({ title = "Request a Hardware Quote" }: { title?: str
 
 export function MobileContactBar() {
   return (
-    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-slate-950/95 border-t border-slate-800 backdrop-blur-sm">
-      <div className="grid grid-cols-4 divide-x divide-slate-800">
-        <a href={`tel:${CONTACT.phone}`} className="flex flex-col items-center py-3 text-xs text-slate-300 hover:text-white">
-          <span className="text-base mb-0.5">📞</span> Call
+    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-[#060a12]/95 border-t border-[var(--border-subtle)] backdrop-blur-xl">
+      <div className="grid grid-cols-4 divide-x divide-[var(--border-subtle)]">
+        <a href={`tel:${CONTACT.phone}`} className="flex flex-col items-center py-3.5 text-[11px] font-medium text-[var(--text-secondary)] hover:text-white">
+          Call
         </a>
-        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center py-3 text-xs text-slate-300 hover:text-green-400">
-          <span className="text-base mb-0.5">💬</span> WhatsApp
+        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center py-3.5 text-[11px] font-medium text-[var(--text-secondary)] hover:text-amber-400">
+          WhatsApp
         </a>
-        <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center py-3 text-xs text-slate-300 hover:text-blue-400">
-          <span className="text-base mb-0.5">✈️</span> Telegram
+        <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center py-3.5 text-[11px] font-medium text-[var(--text-secondary)] hover:text-amber-400">
+          Telegram
         </a>
-        <a href="/contact" className="flex flex-col items-center py-3 text-xs text-amber-400 hover:text-amber-300">
-          <span className="text-base mb-0.5">📋</span> Quote
+        <a href="/contact" className="flex flex-col items-center py-3.5 text-[11px] font-semibold text-amber-400">
+          Quote
         </a>
       </div>
     </div>

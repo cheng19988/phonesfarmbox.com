@@ -4,18 +4,10 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/commerce";
 import { CONTACT, SITE } from "@/lib/config";
 import { IMAGES } from "@/lib/images";
-import { QuoteProcessSection } from "@/components/quote-process-section";
-import { DeliveryProcessSection } from "@/components/delivery-process-section";
-import {
-  DEPLOYMENT_STORIES,
-  FACTORY_STEPS,
-  HARDWARE_TRUST_POINTS,
-  PACKING_LIST_STANDARD,
-  PRODUCT_CATEGORIES,
-  QC_CHECKLIST,
-  QUOTE_PROCESS_STEPS,
-  WHY_BUYERS,
-} from "@/data/homepage-trust";
+import { PageHero } from "@/components/ui/page-hero";
+import { Section, SectionHeader } from "@/components/ui/section";
+import { CTABand, Surface } from "@/components/ui/surface";
+import { FACTORY_STEPS, HARDWARE_TRUST_POINTS, PRODUCT_CATEGORIES } from "@/data/homepage-trust";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -23,6 +15,13 @@ export const metadata = buildMetadata({
   description: SITE.description,
   path: "/",
 });
+
+const TRUST_METRICS = [
+  { value: "2017", label: "Supplier since" },
+  { value: "Guangzhou", label: "Factory & export hub" },
+  { value: "MOQ 1", label: "Sample orders welcome" },
+  { value: "Global", label: "Air & sea B2B export" },
+];
 
 export default async function HomePage() {
   const products = await prisma.product.findMany({
@@ -33,206 +32,161 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden border-b border-slate-800">
-        <Image src={IMAGES.homeHero} alt="Phone farm box hardware" fill className="object-cover opacity-20" priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/70" />
-        <div className="container-wide relative py-20">
-          <p className="text-amber-400/90 text-sm font-medium tracking-wide mb-4">
-            {SITE.location} hardware supplier · Est. {SITE.since}
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl leading-tight mb-6">
-            Phone farm box hardware — assembled, tested, and shipped from Guangzhou
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-8">
-            Chassis, motherboard racks, USB hubs, power, and cooling for buyers who need rackable multi-device deployments. Configuration and lead time confirmed on written quote before payment.
-          </p>
-          <div className="flex flex-wrap gap-4 mb-10">
-            <Link href="/contact" className="btn-primary text-lg px-8 py-3">Get a Hardware Quote</Link>
-            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary text-lg px-8 py-3">WhatsApp Inquiry</a>
-          </div>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400 mb-8">
-            <li>MOQ from 1 unit</li>
-            <li>Lead time quoted per configuration</li>
-            <li>Air &amp; sea export</li>
-            <li>Custom rack projects</li>
-          </ul>
-          <div className="max-w-3xl">
-            <QuoteProcessSection variant="compact" title="From RFQ to shipment" showCta />
-          </div>
+      <PageHero
+        size="home"
+        eyebrow={`${SITE.location} · Est. ${SITE.since} · B2B phone farm hardware`}
+        title="Industrial phone farm hardware, built for scale"
+        description="Chassis, motherboard racks, USB hubs, power, and cooling — assembled, tested, and exported from Guangzhou. Configuration and lead time confirmed on written quote before payment."
+        image={IMAGES.homeHero}
+        imageAlt="Phone farm box hardware"
+      >
+        <div className="flex flex-wrap gap-4 mb-12">
+          <Link href="/contact" className="btn-primary text-base px-8">
+            Request Hardware Quote
+          </Link>
+          <Link href="/products" className="btn-secondary text-base px-8">
+            Browse Catalog
+          </Link>
+          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-outline text-base px-8">
+            WhatsApp
+          </a>
         </div>
-      </section>
-
-      {/* Trust points */}
-      <section className="section bg-slate-900/30 border-y border-slate-800/80">
-        <div className="container-wide">
-          <h2 className="section-title text-center">Why procurement teams quote with us</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-8">
-            {HARDWARE_TRUST_POINTS.map((t) => (
-              <div key={t.title} className="p-4 rounded-xl border border-slate-800 bg-slate-950/40">
-                <h3 className="font-semibold text-white text-sm mb-2">{t.title}</h3>
-                <p className="text-xs text-slate-400">{t.desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="trust-strip max-w-3xl">
+          {TRUST_METRICS.map((m) => (
+            <div key={m.label} className="trust-strip-item">
+              <div className="text-xl md:text-2xl font-bold text-white mb-1">{m.value}</div>
+              <div className="text-xs text-[var(--text-muted)] uppercase tracking-wide">{m.label}</div>
+            </div>
+          ))}
         </div>
-      </section>
+      </PageHero>
 
-      {/* Product categories */}
-      <section className="section">
-        <div className="container-wide">
-          <h2 className="section-title">Hardware Categories</h2>
-          <p className="section-subtitle">Browse by chassis type — final device list confirmed before invoice.</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {PRODUCT_CATEGORIES.map((c) => (
-              <Link key={c.href} href={c.href} className="block p-5 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-amber-800/60 transition-colors">
-                <h3 className="font-semibold text-white mb-2">{c.name}</h3>
-                <p className="text-sm text-slate-400">{c.desc}</p>
-              </Link>
-            ))}
-            <Link href="/products" className="block p-5 rounded-xl border border-dashed border-slate-700 hover:border-amber-700 flex items-center justify-center text-amber-400 font-medium">
-              Full catalog →
+      <Section variant="muted">
+        <SectionHeader
+          eyebrow="Why buyers quote with us"
+          title="Quote-first B2B hardware — not a template shop"
+          description="Written BOM, connection mode, voltage region, and lead time on proforma before assembly. USDT and bank transfer options; packing photos and datasheet on request."
+          align="center"
+          className="max-w-4xl"
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          {HARDWARE_TRUST_POINTS.map((t) => (
+            <Surface key={t.title} padding="md" hover className="h-full">
+              <h3 className="font-semibold text-white mb-2">{t.title}</h3>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{t.desc}</p>
+            </Surface>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader
+          eyebrow="Catalog"
+          title="Popular hardware SKUs"
+          description="List prices in USD — slot count, hub tier, and freight confirmed on your written quote."
+        />
+        <div className="product-grid">
+          {products.map((p) => (
+            <ProductCard
+              key={p.id}
+              slug={p.slug}
+              name={p.name}
+              shortDesc={p.shortDesc}
+              priceUsd={p.priceUsd}
+              stock={p.stock}
+              imageCard={p.imageCard}
+              category={p.category}
+            />
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-4 mt-12">
+          <Link href="/products" className="btn-primary">
+            Full catalog
+          </Link>
+          <Link href="/pricing" className="btn-secondary">
+            Pricing tiers
+          </Link>
+        </div>
+      </Section>
+
+      <Section variant="muted">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[var(--border-subtle)]">
+            <Image src={IMAGES.factory} alt="Assembly and test workflow" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060a12]/80 via-transparent to-transparent" />
+            <p className="absolute bottom-4 left-4 right-4 text-xs text-[var(--text-muted)]">
+              Product illustration — request packing photos of your build on RFQ when needed.
+            </p>
+          </div>
+          <div>
+            <SectionHeader
+              eyebrow="Factory workflow"
+              title="Assembly, test, and export-ready packing"
+              description="Standard box orders follow a documented workflow. Illustrations on this site are references — your BOM defines the exact build."
+              className="mb-8"
+            />
+            <ol className="space-y-4">
+              {FACTORY_STEPS.map((s, i) => (
+                <li key={s.title} className="flex gap-4">
+                  <span className="shrink-0 w-9 h-9 rounded-xl bg-amber-950/50 border border-amber-900/40 text-amber-400 flex items-center justify-center text-sm font-bold">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-white">{s.title}</h3>
+                    <p className="text-sm text-[var(--text-secondary)] mt-0.5">{s.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <Link href="/pricing" className="inline-flex mt-8 text-amber-400 hover:text-amber-300 font-medium text-sm">
+              Full quote &amp; delivery process →
             </Link>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Featured products */}
-      <section className="section bg-slate-900/30 border-y border-slate-800/80">
-        <div className="container-wide">
-          <h2 className="section-title">Popular SKUs</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((p) => (
-              <ProductCard key={p.id} slug={p.slug} name={p.name} shortDesc={p.shortDesc} priceUsd={p.priceUsd} stock={p.stock} imageCard={p.imageCard} category={p.category} />
-            ))}
-          </div>
-          <div className="text-center mt-10 flex flex-wrap justify-center gap-4">
-            <Link href="/pricing" className="btn-outline">Pricing &amp; bulk inquiry</Link>
-            <Link href="/contact" className="btn-primary">Request Quote</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Factory capability */}
-      <section className="section">
-        <div className="container-wide">
-          <h2 className="section-title">Assembly, Test &amp; Shipment</h2>
-          <p className="section-subtitle mb-8">Workflow we follow for standard box orders. Illustrations on this site are product references — ask for photos of your exact build if needed.</p>
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {FACTORY_STEPS.map((s, i) => (
-              <div key={s.title} className="relative pl-4 border-l-2 border-amber-800/50">
-                <span className="text-xs text-amber-500 font-mono">0{i + 1}</span>
-                <h3 className="font-semibold text-white mt-1 mb-1">{s.title}</h3>
-                <p className="text-xs text-slate-400">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="max-w-3xl mx-auto mt-10">
-            <DeliveryProcessSection variant="compact" title="From payment to delivery" showCta />
-          </div>
-        </div>
-      </section>
-
-      {/* QC + packing */}
-      <section className="section bg-slate-900/30">
-        <div className="container-wide grid lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-4">Quality control checklist</h2>
-            <ul className="space-y-2">
-              {QC_CHECKLIST.map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-slate-300"><span className="text-emerald-500">✓</span>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-4">Typical packing list</h2>
-            <ul className="space-y-2">
-              {PACKING_LIST_STANDARD.map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-slate-300"><span className="text-amber-500">•</span>{item}</li>
-              ))}
-            </ul>
-            <p className="text-xs text-slate-500 mt-4">Warranty and after-sales terms stated on proforma invoice. Remote setup available as add-on.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Deployment stories */}
-      <section className="section">
-        <div className="container-wide">
-          <h2 className="section-title">Deployment Examples</h2>
-          <p className="section-subtitle">Anonymous buyer scenarios — company names omitted. Configurations vary; confirm yours at quote.</p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {DEPLOYMENT_STORIES.map((s) => (
-              <article key={s.region + s.size} className="p-6 rounded-xl bg-slate-900/50 border border-slate-800">
-                <p className="text-xs text-amber-400 mb-2">{s.region} · {s.size}</p>
-                <p className="text-sm text-slate-400 mb-2"><span className="text-slate-500">Hardware:</span> {s.hardware}</p>
-                <p className="text-sm text-slate-400 mb-2"><span className="text-slate-500">Challenge:</span> {s.problem}</p>
-                <p className="text-sm text-slate-300"><span className="text-slate-500">Outcome:</span> {s.result}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why buyers */}
-      <section className="section bg-slate-900/30 border-y border-slate-800/80">
-        <div className="container-wide">
-          <h2 className="section-title text-center">Why Buyers Work With Us</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-8">
-            {WHY_BUYERS.map((w) => (
-              <div key={w.title} className="text-center p-4">
-                <h3 className="font-semibold text-white text-sm mb-2">{w.title}</h3>
-                <p className="text-xs text-slate-400">{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Quote process */}
-      <section className="section">
-        <div className="container-wide max-w-4xl">
-          <h2 className="section-title text-center">How the Quote Process Works</h2>
-          <ol className="space-y-4 mt-8">
-            {QUOTE_PROCESS_STEPS.map((q) => (
-              <li key={q.step} className="flex gap-4 items-start">
-                <span className="shrink-0 w-8 h-8 rounded-full bg-amber-900/50 text-amber-400 flex items-center justify-center font-bold text-sm">{q.step}</span>
-                <div>
-                  <h3 className="font-semibold text-white">{q.title}</h3>
-                  <p className="text-sm text-slate-400">{q.detail}</p>
+      <Section>
+        <SectionHeader eyebrow="Browse by type" title="Hardware categories" />
+        <div className="grid md:grid-cols-3 gap-6">
+          {PRODUCT_CATEGORIES.slice(0, 3).map((c, i) => {
+            const imgs = [IMAGES.phoneFarmBox.hero, IMAGES.motherboardBox.hero, IMAGES.iphoneFarm.hero];
+            return (
+              <Link key={c.href} href={c.href} className="group block rounded-2xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:border-[var(--border-accent)] transition-colors">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image src={imgs[i] ?? IMAGES.homeHero} alt="" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060a12] via-[#060a12]/20 to-transparent" />
                 </div>
-              </li>
-            ))}
-          </ol>
+                <div className="p-6">
+                  <h3 className="font-semibold text-white text-lg mb-2 group-hover:text-amber-400 transition-colors">{c.name}</h3>
+                  <p className="text-sm text-[var(--text-secondary)]">{c.desc}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
-      </section>
+        <div className="mt-8">
+          <Link href="/products" className="btn-outline">
+            View all categories
+          </Link>
+        </div>
+      </Section>
 
-      {/* Use cases link strip */}
-      <section className="section bg-slate-900/30">
-        <div className="container-wide text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Deployment by platform or industry</h2>
-          <p className="text-slate-400 mb-6 max-w-2xl mx-auto">Platform and industry deployment guides — chassis, wiring, and batch-control setup.</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/scenarios/tiktok" className="btn-outline text-sm">TikTok farms</Link>
-            <Link href="/solutions/app-development-qa" className="btn-outline text-sm">QA labs</Link>
-            <Link href="/solutions/cross-border-marketing" className="btn-outline text-sm">Cross-border ops</Link>
-            <Link href="/help" className="btn-outline text-sm">Setup docs</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="section">
-        <div className="container-wide max-w-3xl mx-auto text-center rounded-2xl border border-amber-800/40 bg-gradient-to-b from-slate-900 to-slate-950 p-10 md:p-14">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready for a hardware quote?</h2>
-          <p className="text-slate-300 mb-8">Send quantity, Android/iPhone mix, shipping country, and timeline. We reply on business days within 24–72 hours with configuration and lead time.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-primary px-8 py-3">Request Quote</Link>
-            <Link href="/pricing" className="btn-secondary px-8 py-3">See pricing tiers</Link>
-            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-outline px-8 py-3">WhatsApp</a>
-          </div>
-        </div>
-      </section>
+      <Section variant="dark">
+        <CTABand
+          title="Ready for a written hardware quote?"
+          description="Send quantity, platform mix, shipping country, and timeline. We reply on business days with configuration, lead time, and payment options."
+        >
+          <Link href="/contact" className="btn-primary px-8">
+            Request Quote
+          </Link>
+          <Link href="/pricing" className="btn-secondary px-8">
+            See pricing
+          </Link>
+          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-outline px-8">
+            WhatsApp
+          </a>
+        </CTABand>
+      </Section>
     </>
   );
 }

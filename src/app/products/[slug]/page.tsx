@@ -96,12 +96,18 @@ export default async function ProductDetailPage({ params }: Props) {
         ]}
       />
 
-      <div className="section">
+      <div className="section pt-8 md:pt-12">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <nav className="text-sm text-[var(--text-muted)] mb-8">
+            <Link href="/products" className="hover:text-amber-400">Products</Link>
+            <span className="mx-2">/</span>
+            <span className="text-[var(--text-secondary)]">{product.name}</span>
+          </nav>
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
             <div>
-              <div className="relative aspect-square rounded-xl overflow-hidden bg-slate-900">
-                <Image src={primaryImage} alt={imageAlt} fill className="object-cover" priority />
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--surface-elevated)]">
+                <Image src={primaryImage} alt={imageAlt} fill className="object-cover" priority sizes="(max-width:1024px) 100vw, 50vw" />
               </div>
               <ProductImageStatus data={productData} fallbackCaption={b2b?.imageCaption} />
               {galleryImages.length > 0 && (
@@ -114,15 +120,15 @@ export default async function ProductDetailPage({ params }: Props) {
                 </div>
               )}
             </div>
-            <div>
-              <p className="text-amber-400/80 text-sm mb-2">{product.category}</p>
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{product.name}</h1>
-              <p className="text-slate-300 mb-4">{summary}</p>
-              <div className="flex items-center gap-4 mb-2">
-                <span className="text-3xl font-bold text-white">${product.priceUsd.toLocaleString()}</span>
+            <div className="lg:py-4">
+              <p className="eyebrow mb-3">{product.category}</p>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight leading-tight">{product.name}</h1>
+              <p className="text-lg text-[var(--text-secondary)] mb-6 leading-relaxed">{summary}</p>
+              <div className="flex items-center gap-4 mb-3">
+                <span className="text-4xl font-bold text-white">${product.priceUsd.toLocaleString()}</span>
                 <StockBadge stock={product.stock} />
               </div>
-              <p className="text-xs text-slate-500 mb-6">List price — confirm configuration and freight before payment.</p>
+              <p className="text-sm text-[var(--text-muted)] mb-8">List price — confirm configuration and freight before payment.</p>
               <BuyButtons slug={product.slug} name={product.name} stock={product.stock} />
               <p className="text-xs text-slate-500 mt-4">
                 Bulk pricing: <Link href="/pricing" className="text-amber-400 hover:underline">pricing overview</Link>
