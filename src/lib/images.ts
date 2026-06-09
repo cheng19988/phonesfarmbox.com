@@ -3,16 +3,37 @@ const card = (name: string) => `/images/card_800x800/${P}-${name}-card_800x800.w
 const hero = (name: string) => `/images/hero_1600x900/${P}-${name}-hero_1600x900.webp`;
 const detail = (name: string) => `/images/detail_1200x900/${P}-${name}-detail_1200x900.webp`;
 
+/** Real product / factory photos imported from provided asset libraries (watermarks OK). */
+export const IMPORTED = {
+  homeHero: "/images/hero-import/hero-04.jpg",
+  factoryHero: "/images/factory/factory-04.jpg",
+  factoryGallery: [
+    { src: "/images/factory/factory-01.png", label: "Phone farm box — white background" },
+    { src: "/images/factory/factory-02.png", label: "Motherboard rack chassis" },
+    { src: "/images/factory/factory-03.png", label: "Multi-slot assembly reference" },
+    { src: "/images/factory/factory-04.jpg", label: "Stacked phone farm units" },
+    { src: "/images/factory/factory-07.jpg", label: "Production batch layout" },
+    { src: "/images/factory/factory-09.jpg", label: "Export-ready hardware" },
+    { src: "/images/factory/factory-11.jpg", label: "Chassis detail reference" },
+    { src: "/images/factory/factory-12.jpg", label: "Room-scale deployment example" },
+  ],
+  productShowcase: [
+    "/images/products/import/product-14.png",
+    "/images/products/import/product-15.png",
+    "/images/products/import/product-12.png",
+  ],
+} as const;
+
 export const IMAGES = {
-  homeHero: hero("product-box-0f5501e1584de9a625d220f62951bc6d-d04df"),
+  homeHero: IMPORTED.homeHero,
   phoneFarmBox: {
     card: card("product-box-2025-10-25-11-27-img-0551-a9b35"),
-    hero: hero("product-box-2025-10-25-11-27-img-0551-a9b35"),
+    hero: "/images/products/import/product-01.png",
     detail: detail("product-box-2025-10-25-11-27-img-0551-a9b35"),
   },
   motherboardBox: {
     card: card("components-electronicscomponentslayout-64e0d"),
-    hero: hero("components-electronicscomponentslayout-64e0d"),
+    hero: "/images/products/import/product-03.png",
     detail: detail("components-electronicscomponentslayout-64e0d"),
   },
   androidFarm: {
@@ -27,7 +48,7 @@ export const IMAGES = {
   },
   realDevice: {
     card: card("product-box-0f5501e1584de9a625d220f62951bc6d-d04df"),
-    hero: hero("product-box-0f5501e1584de9a625d220f62951bc6d-d04df"),
+    hero: "/images/products/import/product-02.jpg",
     detail: detail("product-box-0f5501e1584de9a625d220f62951bc6d-d04df"),
   },
   emptyBox: {
@@ -66,8 +87,8 @@ export const IMAGES = {
     detail: detail("service-scenes-moderndevicemanagementcontrol-ae6b9"),
   },
   serviceScene: hero("service-scenes-moderntechoffice-devicecontrol-2663b"),
-  factory: hero("components-electronicsassemblylab-19f44"),
-  workshop: hero("components-electronicsassemblylab-19f44"),
+  factory: IMPORTED.factoryHero,
+  workshop: IMPORTED.factoryHero,
   office: hero("service-scenes-moderntechofficeworkspace-23aa6"),
   meeting: hero("service-scenes-modernoffice-lab-28010"),
   warehouse: hero("accessories-electronics-accessories-1cc0b"),

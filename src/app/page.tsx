@@ -115,7 +115,7 @@ export default async function HomePage() {
             <Image src={IMAGES.factory} alt="Assembly and test workflow" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#060a12]/80 via-transparent to-transparent" />
             <p className="absolute bottom-4 left-4 right-4 text-xs text-[var(--text-muted)]">
-              Product illustration — request packing photos of your build on RFQ when needed.
+              Real product reference from our hardware library — slot count and BOM confirmed on your written quote.
             </p>
           </div>
           <div>

@@ -1,8 +1,11 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import { ContactCTA } from "@/components/shared";
+import { PageHero } from "@/components/ui/page-hero";
+import { Section, SectionHeader } from "@/components/ui/section";
+import { Surface } from "@/components/ui/surface";
 import { buildMetadata } from "@/lib/seo";
-import { IMAGES } from "@/lib/images";
+import { IMPORTED } from "@/lib/images";
 import { SITE, CONTACT } from "@/lib/config";
 import { FACTORY_STEPS, QC_CHECKLIST, PACKING_LIST_STANDARD } from "@/data/homepage-trust";
 
@@ -22,135 +25,149 @@ const WHAT_WE_BUILD = [
   { title: "Integration services", desc: "Remote batch-control setup after hardware delivery.", href: "/products/remote-control-setup" },
 ];
 
+const STATS = [
+  { stat: String(SITE.since), label: "Operating from Guangzhou" },
+  { stat: "BOM", label: "Confirmed before quote" },
+  { stat: "MOQ 1", label: "Sample orders" },
+  { stat: "72h", label: "Typical burn-in (standard boxes)" },
+];
+
 export default function AboutPage() {
   return (
-    <div className="section">
-      <div className="container-wide max-w-4xl">
-        <h1 className="section-title">About Phones Farm Box</h1>
-        <p className="text-xl text-slate-300 mb-4 leading-relaxed">
-          We are a Guangzhou-based phone farm hardware supplier — design, assembly, QC, and export of chassis, motherboard racks, USB hubs, power and cooling modules, and rack-scale cabinet systems for multi-device mobile operations.
-        </p>
-        <p className="text-slate-400 mb-8 leading-relaxed">
+    <>
+      <PageHero
+        eyebrow={`${SITE.location} · Est. ${SITE.since}`}
+        title="About Phones Farm Box"
+        description="Guangzhou-based phone farm hardware supplier — design, assembly, QC, and export of chassis, motherboard racks, USB hubs, power and cooling modules, and rack-scale cabinet systems."
+        image={IMPORTED.factoryHero}
+        imageAlt="Phone farm hardware assembly reference"
+      />
+
+      <Section>
+        <p className="text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed mb-12">
           Buyers include creator studios, marketing agencies, QA labs, and enterprise device rooms in North America, Europe, Southeast Asia, and the Middle East. Standard catalog items ship with burn-in QC and export packing; custom node counts and rack projects are quoted to drawing.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {[
-            { stat: String(SITE.since), label: "Operating from Guangzhou" },
-            { stat: "BOM", label: "Confirmed before quote" },
-            { stat: "MOQ 1", label: "Sample orders" },
-            { stat: "72h", label: "Typical burn-in (standard boxes)" },
-          ].map((item) => (
-            <div key={item.label} className="card p-4 text-center">
-              <div className="text-2xl font-bold text-amber-400">{item.stat}</div>
-              <div className="text-xs text-slate-400 mt-1">{item.label}</div>
+        <div className="trust-strip max-w-4xl mb-16">
+          {STATS.map((item) => (
+            <div key={item.label} className="trust-strip-item">
+              <div className="text-2xl font-bold text-white mb-1">{item.stat}</div>
+              <div className="text-xs text-[var(--text-muted)] uppercase tracking-wide">{item.label}</div>
             </div>
           ))}
         </div>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">What we build</h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {WHAT_WE_BUILD.map((item) => (
-              <Link key={item.href} href={item.href} className="card p-5 hover:border-amber-800/50 transition-colors">
+        <SectionHeader eyebrow="Product lines" title="What we build" className="mb-8" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-4">
+          {WHAT_WE_BUILD.map((item) => (
+            <Link key={item.href} href={item.href}>
+              <Surface padding="md" hover className="h-full">
                 <h3 className="font-semibold text-white mb-1">{item.title}</h3>
-                <p className="text-sm text-slate-400">{item.desc}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">Factory workflow</h2>
-          <p className="text-sm text-slate-500 mb-6">Standard box orders — custom projects add CAD and acceptance test steps.</p>
-          <ol className="space-y-3">
-            {FACTORY_STEPS.map((s, i) => (
-              <li key={s.title} className="flex gap-4 items-start">
-                <span className="shrink-0 w-8 h-8 rounded-full bg-amber-900/50 text-amber-400 flex items-center justify-center font-bold text-sm">{i + 1}</span>
-                <div>
-                  <h3 className="font-semibold text-white">{s.title}</h3>
-                  <p className="text-sm text-slate-400">{s.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <section>
-            <h2 className="text-xl font-bold text-white mb-4">Quality control checklist</h2>
-            <ul className="space-y-2">
-              {QC_CHECKLIST.map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-slate-300">
-                  <span className="text-emerald-500">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-          <section>
-            <h2 className="text-xl font-bold text-white mb-4">Export packing process</h2>
-            <ul className="space-y-2">
-              {PACKING_LIST_STANDARD.map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-slate-300">
-                  <span className="text-amber-500">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs text-slate-500 mt-4">Commercial invoice lists weights and dimensions for freight quotes. Sea and air both supported.</p>
-          </section>
+                <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
+              </Surface>
+            </Link>
+          ))}
         </div>
+      </Section>
 
-        <section className="grid md:grid-cols-2 gap-6 mb-12">
-          <div className="card p-6">
+      <Section variant="muted">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div>
+            <SectionHeader
+              eyebrow="Production"
+              title="Factory workflow"
+              description="Standard box orders — custom projects add CAD and acceptance test steps."
+              className="mb-8"
+            />
+            <ol className="space-y-4">
+              {FACTORY_STEPS.map((s, i) => (
+                <li key={s.title} className="flex gap-4">
+                  <span className="shrink-0 w-9 h-9 rounded-xl bg-amber-950/50 border border-amber-900/40 text-amber-400 flex items-center justify-center text-sm font-bold">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-white">{s.title}</h3>
+                    <p className="text-sm text-[var(--text-secondary)] mt-0.5">{s.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <Surface padding="md">
+              <h2 className="font-bold text-white mb-4">Quality control</h2>
+              <ul className="space-y-2">
+                {QC_CHECKLIST.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-[var(--text-secondary)]">
+                    <span className="text-emerald-500 shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Surface>
+            <Surface padding="md">
+              <h2 className="font-bold text-white mb-4">Export packing</h2>
+              <ul className="space-y-2">
+                {PACKING_LIST_STANDARD.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-[var(--text-secondary)]">
+                    <span className="text-[var(--accent)] shrink-0">•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-[var(--text-muted)] mt-4">Commercial invoice lists weights and dimensions for freight quotes. Sea and air both supported.</p>
+            </Surface>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          <Surface padding="md">
             <h2 className="font-bold text-white mb-2">After-sales support</h2>
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-[var(--text-secondary)]">
               Remote batch-control onboarding, wiring troubleshooting, and spare-part guidance via WhatsApp or Telegram. Hardware warranty terms on proforma invoice — typically 12 months on chassis and PSU for standard boxes.
             </p>
-          </div>
-          <div className="card p-6">
+          </Surface>
+          <Surface padding="md">
             <h2 className="font-bold text-white mb-2">Custom configuration</h2>
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-[var(--text-secondary)]">
               Node counts, chassis dimensions, cooling layouts, tray designs, and rack integrations quoted to your device matrix. Share target quantity and models — we return a BOM before payment.
             </p>
             <Link href="/contact" className="inline-block mt-3 text-sm text-amber-400 hover:underline">Request custom quote →</Link>
-          </div>
-        </section>
+          </Surface>
+        </div>
 
-        <h2 className="text-2xl font-bold text-white mb-4">Reference images</h2>
-        <p className="text-slate-500 text-sm mb-6">Assembly reference, packing reference, and deployment examples — not on-site factory photography unless labeled otherwise.</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-          {[
-            { src: IMAGES.office, label: "Sales & engineering" },
-            { src: IMAGES.factory, label: "Assembly reference" },
-            { src: IMAGES.phoneFarmBox.hero, label: "Product reference" },
-            { src: IMAGES.customCabinet.hero, label: "Cabinet layout reference" },
-            { src: IMAGES.remoteControl.hero, label: "Control workstation reference" },
-            { src: IMAGES.network.hero, label: "Network accessory reference" },
-          ].map((img) => (
-            <div key={img.label} className="relative aspect-[4/3] rounded-xl overflow-hidden">
-              <Image src={img.src} alt={img.label} fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent flex items-end p-3">
-                <span className="text-white text-sm">{img.label}</span>
+        <SectionHeader
+          eyebrow="Gallery"
+          title="Product & production reference"
+          description="Photos from our provided asset library — real hardware references. Slot counts and BOM confirmed on your written quote."
+          className="mb-8"
+        />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+          {IMPORTED.factoryGallery.map((img) => (
+            <div key={img.src} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[var(--border-subtle)]">
+              <Image src={img.src} alt={img.label} fill className="object-cover" sizes="(max-width:768px) 50vw, 25vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060a12]/80 via-transparent to-transparent flex items-end p-3">
+                <span className="text-white text-xs leading-snug">{img.label}</span>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="card p-6 mb-12">
+        <Surface padding="md" className="mb-12">
           <h2 className="font-bold text-white mb-3">Official contact channels</h2>
-          <ul className="text-sm text-slate-400 space-y-1">
+          <ul className="text-sm text-[var(--text-secondary)] space-y-1">
             <li>Phone: {CONTACT.phone}</li>
             <li>WhatsApp: {CONTACT.whatsapp}</li>
             <li>Telegram: {CONTACT.telegram}</li>
             <li>Email: {CONTACT.email}</li>
           </ul>
-          <p className="text-xs text-slate-500 mt-3">Use only contacts listed on this website. We never request payment through unofficial channels.</p>
-        </div>
+          <p className="text-xs text-[var(--text-muted)] mt-3">Use only contacts listed on this website. We never request payment through unofficial channels.</p>
+        </Surface>
 
         <ContactCTA title="Discuss your deployment requirements" />
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }

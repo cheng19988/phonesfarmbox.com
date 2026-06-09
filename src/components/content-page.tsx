@@ -28,19 +28,20 @@ export function ContentPageLayout({ page, basePath, baseLabel, variant = "defaul
       {page.faq.length > 0 && <JsonLd data={faqJsonLd(page.faq.map((f) => ({ question: f.q, answer: f.a })))} />}
 
       {variant === "scenario" ? (
-        <section className="border-b border-slate-800 bg-slate-900/40">
-          <div className="container-wide py-14">
-            <span className="text-xs text-amber-400 uppercase tracking-wider">{page.category}</span>
-            <h1 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4 max-w-3xl">{page.title}</h1>
-            <p className="text-lg text-slate-300 max-w-2xl">{page.subtitle}</p>
+        <section className="border-b border-[var(--border-subtle)] bg-[var(--surface-muted)]">
+          <div className="container-wide py-16 md:py-20">
+            <span className="text-xs text-[var(--accent)] uppercase tracking-[0.2em] font-semibold">{page.category}</span>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-4 max-w-3xl tracking-tight">{page.title}</h1>
+            <p className="text-lg text-[var(--text-secondary)] max-w-2xl">{page.subtitle}</p>
           </div>
         </section>
       ) : (
-        <section className="relative min-h-[36vh] flex items-end overflow-hidden">
+        <section className="relative min-h-[40vh] md:min-h-[44vh] flex items-end overflow-hidden border-b border-[var(--border-subtle)]">
           {page.heroImage && (
-            <Image src={page.heroImage} alt={page.title} fill className="object-cover opacity-20" priority />
+            <Image src={page.heroImage} alt={page.title} fill className="object-cover opacity-40 scale-105" priority sizes="100vw" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060a12] via-[#060a12]/88 to-[#060a12]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060a12] via-transparent to-[#060a12]/35" />
           <div className="container-wide relative py-14">
             <span className="text-xs text-amber-400 uppercase tracking-wider">{page.category}</span>
             <h1 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4 max-w-3xl">{page.title}</h1>

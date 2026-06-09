@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/config";
@@ -62,7 +63,7 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
   );
 }
 
-export function FAQAccordion({ items }: { items: { question: string; answer: string }[] }) {
+export function FAQAccordion({ items }: { items: { question: string; answer: ReactNode }[] }) {
   return (
     <div className="space-y-3">
       {items.map((item) => (
@@ -71,9 +72,9 @@ export function FAQAccordion({ items }: { items: { question: string; answer: str
             {item.question}
             <span className="text-amber-400 group-open:rotate-45 transition-transform text-xl shrink-0">+</span>
           </summary>
-          <p className="mt-4 text-[var(--text-secondary)] text-sm leading-relaxed border-t border-[var(--border-subtle)] pt-4">
+          <div className="mt-4 text-[var(--text-secondary)] text-sm leading-relaxed border-t border-[var(--border-subtle)] pt-4">
             {item.answer}
-          </p>
+          </div>
         </details>
       ))}
     </div>
