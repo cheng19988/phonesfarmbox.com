@@ -3,7 +3,7 @@ import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/commerce";
 import { CONTACT, SITE } from "@/lib/config";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, IMPORTED } from "@/lib/images";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CTABand, Surface } from "@/components/ui/surface";
@@ -112,7 +112,7 @@ export default async function HomePage() {
       <Section variant="muted">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[var(--border-subtle)]">
-            <Image src={IMAGES.factory} alt="Assembly and test workflow" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
+            <Image src={IMPORTED.factoryHero} alt="Assembly and test workflow" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#060a12]/80 via-transparent to-transparent" />
             <p className="absolute bottom-4 left-4 right-4 text-xs text-[var(--text-muted)]">
               Real product reference from our hardware library — slot count and BOM confirmed on your written quote.
@@ -149,7 +149,7 @@ export default async function HomePage() {
         <SectionHeader eyebrow="Browse by type" title="Hardware categories" />
         <div className="grid md:grid-cols-3 gap-6">
           {PRODUCT_CATEGORIES.slice(0, 3).map((c, i) => {
-            const imgs = [IMAGES.phoneFarmBox.hero, IMAGES.motherboardBox.hero, IMAGES.iphoneFarm.hero];
+            const imgs = [IMAGES.phoneFarmBox.hero, IMAGES.motherboardBox.hero, IMAGES.androidFarm.hero];
             return (
               <Link key={c.href} href={c.href} className="group block rounded-2xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:border-[var(--border-accent)] transition-colors">
                 <div className="relative aspect-[16/10] overflow-hidden">

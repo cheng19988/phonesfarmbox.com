@@ -1,5 +1,10 @@
 import type { ImageType, ProductDataProfile } from "@/lib/product-profile";
 import { DEPENDS_CONFIG, PENDING_QUOTE } from "@/lib/product-profile";
+import {
+  getAllModelMainImages,
+  getPrimaryModelImage,
+  MOTHERBOARD_GALLERY,
+} from "./product-model-catalog";
 
 function baseProfile(
   imageType: ImageType,
@@ -27,7 +32,10 @@ function baseProfile(
 
 /** Default B2B hardware profile framework per SKU — no fabricated dimensions or weights. */
 export const PRODUCT_PROFILE_SEEDS: Record<string, ProductDataProfile> = {
-  "phone-farm-box": baseProfile("product_illustration", {
+  "phone-farm-box": baseProfile("official_photo", {
+    primaryImageUrl: getPrimaryModelImage(),
+    galleryImages: getAllModelMainImages(),
+    imageVerificationNote: "Product detail photos from supplier asset library — slot count and BOM confirmed at quote.",
     fanCooling: DEPENDS_CONFIG,
     portLayout: "USB hub tree + mains input — port map on wiring diagram at quote",
     compatiblePhones: "Android phone models confirmed before quote",
@@ -35,14 +43,20 @@ export const PRODUCT_PROFILE_SEEDS: Record<string, ProductDataProfile> = {
     moqNote: "1 unit sample",
     internalAdminNote: "Request chassis CAD + fan tray BOM from factory.",
   }),
-  "motherboard-box": baseProfile("assembly_reference", {
+  "motherboard-box": baseProfile("official_photo", {
+    primaryImageUrl: MOTHERBOARD_GALLERY[0],
+    galleryImages: MOTHERBOARD_GALLERY,
+    imageVerificationNote: "White-background chassis photos from supplier library.",
     fanCooling: DEPENDS_CONFIG,
     compatiblePhones: "Screenless Android board list confirmed before quote",
     packingList: "Chassis, fan tray, node harness — boards optional per quote",
     moqNote: "1 unit",
     internalAdminNote: "Confirm board footprint template before marking dimensions verified.",
   }),
-  "android-phone-farm": baseProfile("product_illustration", {
+  "android-phone-farm": baseProfile("official_photo", {
+    primaryImageUrl: getPrimaryModelImage(),
+    galleryImages: getAllModelMainImages().slice(0, 8),
+    imageVerificationNote: "Cluster reference photos — device list locked at quote.",
     supportedModels: "Android device list locked at quote",
     packingList: "Cluster BOM — boxes, hubs, cables; phones if quoted",
     moqNote: "1 cluster",

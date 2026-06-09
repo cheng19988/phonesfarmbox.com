@@ -25,7 +25,7 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
           src={imageCard}
           alt={name}
           fill
-          className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+          className="object-contain p-3 group-hover:scale-[1.02] transition-transform duration-500"
           sizes="(max-width:768px) 100vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#060a12]/90 via-transparent to-transparent opacity-80" />

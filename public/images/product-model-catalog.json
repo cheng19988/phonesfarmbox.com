@@ -1,0 +1,350 @@
+{
+  "importedAt": "2026-06-09T18:18:33.043Z",
+  "models": [
+    {
+      "id": "pixel-4xl-super-change",
+      "modelName": "Google Pixel 4 XL (Super Change)",
+      "connection": "USB · LAN · OTG",
+      "variant": "Super Change ROM",
+      "images": {
+        "gallery": [
+          "/images/products/models/pixel-4xl-super-change-gallery-product-box-phone-farm-pixel-4xl-super-change-co.png"
+        ]
+      }
+    },
+    {
+      "id": "nubia-z17",
+      "modelName": "Nubia Z17",
+      "connection": "USB · LAN · OTG",
+      "variant": "Super Change ROM",
+      "images": {
+        "main": "/images/products/models/nubia-z17-main-product-box-phone-farm-nubia-z17-super-change-us.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "oneplus-5-super-change",
+      "modelName": "Oneplus 5 Super Change",
+      "connection": "USB · LAN · OTG",
+      "variant": "Super Change ROM",
+      "images": {
+        "main": "/images/products/models/oneplus-5-super-change-main-product-box-phone-farm-oneplus-5-super-change-us.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "oneplus-8-pro",
+      "modelName": "OnePlus 8 Pro",
+      "ram": "8GB",
+      "storage": "128GB",
+      "connection": "USB · LAN · OTG",
+      "images": {
+        "main": "/images/products/models/oneplus-8-pro-main-product-box-phone-farm-oneplus-8-pro-8-128gb-usb.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "a908n",
+      "modelName": "Samsung A908N",
+      "ram": "6GB",
+      "storage": "128GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/a908n-main-product-box-phone-farm-a908n-6-128gb-usb-lan-otg.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "note-10-lite-change",
+      "modelName": "Samsung Galaxy Note 10 Lite (Change)",
+      "connection": "USB · LAN · OTG",
+      "variant": "Change ROM",
+      "board": "Black circuit board",
+      "images": {
+        "gallery": [
+          "/images/products/models/note-10-lite-change-other-product-box-phone-farm-note-10-lite-change-usb-l.png"
+        ]
+      }
+    },
+    {
+      "id": "note-20",
+      "modelName": "Samsung Galaxy Note 20",
+      "ram": "8GB",
+      "storage": "256GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/note-20-main-product-box-phone-farm-note-20-8-256gb-usb-lan-o.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "note-8",
+      "modelName": "Samsung Galaxy Note 8",
+      "ram": "6GB",
+      "storage": "64GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/note-8-main-product-box-phone-farm-note-8-6-64gb-usb-lan-otg.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "note-8-super-change",
+      "modelName": "Samsung Galaxy Note 8 (Super Change)",
+      "connection": "USB · LAN · OTG",
+      "variant": "Super Change ROM",
+      "images": {
+        "main": "/images/products/models/note-8-super-change-main-product-box-phone-farm-note-8-super-change-usb-p.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "note-9",
+      "modelName": "Samsung Galaxy Note 9",
+      "ram": "6GB",
+      "storage": "128GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/note-9-main-product-box-phone-farm-note-9-6-128gb-usb-lan-ot.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "s10",
+      "modelName": "Samsung Galaxy S10",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/s10-main-product-box-phone-farm-s10-usb-lan-otg-port-with.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "s10-change",
+      "modelName": "Samsung Galaxy S10 (Change)",
+      "connection": "USB · LAN · OTG",
+      "variant": "Change ROM",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/s10-change-main-product-box-phone-farm-s10-change-usb-lan-otg-po.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "s20",
+      "modelName": "Samsung Galaxy S20",
+      "ram": "8GB",
+      "storage": "128GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/s20-main-product-box-phone-farm-s20-8-128gb-usb-lan-otg-b.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "s21-fe",
+      "modelName": "Samsung Galaxy S21 FE",
+      "ram": "6GB",
+      "storage": "128GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.png",
+        "gallery": [
+          "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.png"
+        ]
+      }
+    },
+    {
+      "id": "s8",
+      "modelName": "Samsung Galaxy S8",
+      "connection": "USB · LAN",
+      "variant": "Latest generation chassis",
+      "images": {
+        "main": "/images/products/models/s8-main-product-box-phone-farm-s8-s8-latest-generation-2.png",
+        "gallery": [
+          "/images/products/models/s8-main-product-perangkat-s8-s8-dijual-terpisah-dipasang.jpg",
+          "/images/products/models/s8-gallery-product-perangkat-s8-s8-dijual-terpisah-dipasang.jpg",
+          "/images/products/models/s8-gallery-product-perangkat-s8-s8-dijual-terpisah-dipasang.jpg",
+          "/images/products/models/s8-gallery-product-perangkat-s8-s8-dijual-terpisah-dipasang.jpg"
+        ]
+      }
+    },
+    {
+      "id": "s8-change",
+      "modelName": "Samsung Galaxy S8 (Change)",
+      "connection": "USB · LAN",
+      "variant": "Change ROM",
+      "images": {
+        "main": "/images/products/models/s8-change-main-product-box-phone-farm-s8-change-latest-generati.png",
+        "gallery": [
+          "/images/products/models/s8-change-gallery-product-box-phone-farm-change-generasi-terbaru-2.png"
+        ]
+      }
+    },
+    {
+      "id": "s8-super-change",
+      "modelName": "Samsung Galaxy S8 (Super Change)",
+      "connection": "USB · LAN · OTG",
+      "variant": "Super Change ROM",
+      "images": {
+        "main": "/images/products/models/s8-super-change-main-product-box-phone-farm-s8-super-change-usb-port-.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "s9",
+      "modelName": "Samsung Galaxy S9",
+      "connection": "USB · LAN · OTG",
+      "variant": "Latest generation chassis",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/s9-main-product-box-phone-farm-s9-s9-latest-generation-2.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "z-flip3",
+      "modelName": "Samsung Galaxy Z Flip3",
+      "ram": "8GB",
+      "storage": "128GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/z-flip3-main-product-box-phone-farm-z-flip3-8-128gb-usb-lan-o.png",
+        "gallery": []
+      }
+    },
+    {
+      "id": "z-flip4",
+      "modelName": "Samsung Galaxy Z Flip4",
+      "ram": "8GB",
+      "storage": "128GB",
+      "connection": "USB · LAN · OTG",
+      "board": "Black circuit board",
+      "images": {
+        "main": "/images/products/models/z-flip4-main-product-box-phone-farm-z-flip4-8-128gb-usb-lan-o.png",
+        "gallery": []
+      }
+    }
+  ],
+  "specSlides": [
+    {
+      "src": "/images/products/specs/slide-01.png",
+      "label": "Specification slide 1"
+    },
+    {
+      "src": "/images/products/specs/slide-02.png",
+      "label": "Specification slide 2"
+    },
+    {
+      "src": "/images/products/specs/slide-03.png",
+      "label": "Specification slide 3"
+    },
+    {
+      "src": "/images/products/specs/slide-04.png",
+      "label": "Specification slide 4"
+    },
+    {
+      "src": "/images/products/specs/slide-05.png",
+      "label": "Specification slide 5"
+    },
+    {
+      "src": "/images/products/specs/slide-06.png",
+      "label": "Specification slide 6"
+    },
+    {
+      "src": "/images/products/specs/slide-07.png",
+      "label": "Specification slide 7"
+    },
+    {
+      "src": "/images/products/specs/slide-08.png",
+      "label": "Specification slide 8"
+    },
+    {
+      "src": "/images/products/specs/slide-09.png",
+      "label": "Specification slide 9"
+    },
+    {
+      "src": "/images/products/specs/slide-10.png",
+      "label": "Specification slide 10"
+    },
+    {
+      "src": "/images/products/specs/slide-11.png",
+      "label": "Specification slide 11"
+    },
+    {
+      "src": "/images/products/specs/slide-12.png",
+      "label": "Specification slide 12"
+    },
+    {
+      "src": "/images/products/specs/slide-13.png",
+      "label": "Specification slide 13"
+    },
+    {
+      "src": "/images/products/specs/slide-14.png",
+      "label": "Specification slide 14"
+    },
+    {
+      "src": "/images/products/specs/slide-15.png",
+      "label": "Specification slide 15"
+    },
+    {
+      "src": "/images/products/specs/slide-16.png",
+      "label": "Specification slide 16"
+    },
+    {
+      "src": "/images/products/specs/slide-17.png",
+      "label": "Specification slide 17"
+    },
+    {
+      "src": "/images/products/specs/slide-18.png",
+      "label": "Specification slide 18"
+    },
+    {
+      "src": "/images/products/specs/slide-19.png",
+      "label": "Specification slide 19"
+    },
+    {
+      "src": "/images/products/specs/slide-20.png",
+      "label": "Specification slide 20"
+    }
+  ],
+  "motherboardImages": [
+    "/images/products/motherboard/mb-01.png",
+    "/images/products/motherboard/mb-02.png",
+    "/images/products/motherboard/mb-03.png",
+    "/images/products/motherboard/mb-04.png",
+    "/images/products/motherboard/mb-05.png",
+    "/images/products/motherboard/mb-06.png",
+    "/images/products/motherboard/mb-07.png",
+    "/images/products/motherboard/mb-08.png"
+  ],
+  "heroes": [
+    {
+      "key": "home",
+      "url": "/images/hero-import/hero-clean-01.png"
+    },
+    {
+      "key": "hero-2",
+      "url": "/images/hero-import/hero-clean-02.png"
+    },
+    {
+      "key": "hero-3",
+      "url": "/images/hero-import/hero-clean-03.png"
+    }
+  ],
+  "factoryDeploy": [
+    "/images/factory/deploy-01.jpg",
+    "/images/factory/deploy-02.jpg",
+    "/images/factory/deploy-03.jpg",
+    "/images/factory/deploy-04.jpg",
+    "/images/factory/deploy-05.jpg",
+    "/images/factory/deploy-06.jpg"
+  ]
+}

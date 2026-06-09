@@ -14,6 +14,15 @@ import {
   ProductFitSection,
   QuotePrepareSection,
 } from "@/components/product-conversion-sections";
+import {
+  MotherboardModelGallery,
+  ProductModelGallery,
+} from "@/components/product-model-gallery";
+import {
+  getModelsForSku,
+  MOTHERBOARD_GALLERY,
+  SPEC_SLIDES,
+} from "@/data/product-model-catalog";
 import { ContactCTA, JsonLd, StockBadge } from "@/components/shared";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } from "@/lib/product-images";
@@ -107,7 +116,7 @@ export default async function ProductDetailPage({ params }: Props) {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
             <div>
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--surface-elevated)]">
-                <Image src={primaryImage} alt={imageAlt} fill className="object-cover" priority sizes="(max-width:1024px) 100vw, 50vw" />
+                <Image src={primaryImage} alt={imageAlt} fill className="object-contain p-3" priority sizes="(max-width:1024px) 100vw, 50vw" />
               </div>
               <ProductImageStatus data={productData} fallbackCaption={b2b?.imageCaption} />
               {galleryImages.length > 0 && (
@@ -143,6 +152,15 @@ export default async function ProductDetailPage({ params }: Props) {
               <ProductFitSection b2b={b2b} />
             </div>
           )}
+
+          {(slug === "phone-farm-box" || slug === "android-phone-farm") && (
+            <ProductModelGallery
+              models={getModelsForSku(slug)}
+              specSlides={slug === "phone-farm-box" ? SPEC_SLIDES : []}
+            />
+          )}
+
+          {slug === "motherboard-box" && <MotherboardModelGallery images={MOTHERBOARD_GALLERY} />}
 
           {b2b && (
             <section className="mb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-4">

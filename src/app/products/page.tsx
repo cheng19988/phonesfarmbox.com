@@ -6,7 +6,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { Surface } from "@/components/ui/surface";
 import { buildMetadata } from "@/lib/seo";
 import { PRODUCT_CATALOG_GROUPS } from "@/data/product-catalog-groups";
-import { IMAGES } from "@/lib/images";
+import { IMPORTED, IMAGES } from "@/lib/images";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Products & Hardware Shop",
@@ -83,7 +83,7 @@ export default async function ProductsPage({
         eyebrow="B2B hardware catalog"
         title="Phone farm hardware shop"
         description="Chassis, racks, hubs, power, cooling, and services — list prices are USD starting points. Slot layout, connection mode, and freight confirmed on written quote."
-        image={IMAGES.phoneFarmBox.hero}
+        image={IMPORTED.pageHero}
         imageAlt="Phone farm hardware catalog"
       />
 

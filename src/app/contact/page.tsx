@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/page-hero";
 import { Section } from "@/components/ui/section";
 import { Surface } from "@/components/ui/surface";
 import { CONTACT, SITE } from "@/lib/config";
-import { IMAGES } from "@/lib/images";
+import { IMPORTED } from "@/lib/images";
 import { buildMetadata } from "@/lib/seo";
 import { ContactForm } from "./contact-form";
 
@@ -41,7 +41,7 @@ export default function ContactPage() {
         eyebrow={`${SITE.name} · Quote-based B2B hardware`}
         title="Request a hardware quote"
         description="Share quantity, platform mix, shipping country, and timeline. We return a written BOM, connection mode, and lead time before assembly — no account required."
-        image={IMAGES.factory}
+        image={IMPORTED.pageHero}
         imageAlt="Phone farm hardware production reference"
       />
 

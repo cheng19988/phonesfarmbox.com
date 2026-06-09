@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && prisma migrate deploy && tsx prisma/seed-if-empty.ts && next build",
+    "build": "prisma generate && prisma migrate deploy && tsx prisma/seed-if-empty.ts && tsx scripts/sync-product-images.ts && next build",
     "start": "next start",
     "lint": "eslint",
     "db:migrate": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
+    "assets:import": "node scripts/import-product-models.mjs",
     "images:check": "tsx scripts/check-product-images.ts",
     "images:import": "tsx scripts/prepare-product-image-import.ts",
     "postinstall": "prisma generate"
