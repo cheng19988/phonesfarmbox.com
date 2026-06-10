@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 type PageHeroProps = {
   eyebrow?: string;
@@ -12,6 +12,16 @@ type PageHeroProps = {
   /** light = visible product photo background (default). dark = legacy cinematic overlay. */
   theme?: "light" | "dark";
 };
+
+/** Hero assets are pre-exported at native resolution — skip Next.js recompression. */
+function HeroImage({ src, ...props }: ComponentProps<typeof Image>) {
+  const path = typeof src === "string" ? src : "";
+  const skipOptimizer =
+    path.includes("/hero-import/") ||
+    path.includes("/factory/deploy-") ||
+    path.endsWith(".png");
+  return <Image src={src} unoptimized={skipOptimizer} quality={95} {...props} />;
+}
 
 function HeroCopy({
   eyebrow,
@@ -87,13 +97,13 @@ export function PageHero({
               </HeroCopy>
             </div>
             <div className="order-1 lg:order-2 relative aspect-[16/10] sm:aspect-[5/3] lg:aspect-[4/3] xl:aspect-[16/11] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-lg shadow-slate-300/40">
-              <Image
+              <HeroImage
                 src={image}
                 alt={imageAlt}
                 fill
                 className="object-cover object-center lg:object-[68%_center]"
                 priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 640px"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent lg:hidden" />
             </div>
@@ -113,7 +123,7 @@ export function PageHero({
     >
       {image && (
         <>
-          <Image
+          <HeroImage
             src={image}
             alt={imageAlt}
             fill

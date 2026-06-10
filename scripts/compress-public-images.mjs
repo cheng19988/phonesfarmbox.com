@@ -16,7 +16,8 @@ const TARGET_DIRS = [
 
 const EXT = /\.(png|jpe?g)$/i;
 const MIN_BYTES = 200_000;
-const MAX_WIDTH = { hero: 1920, default: 1200, thumb: 900 };
+const MAX_WIDTH = { hero: 2560, default: 1200, thumb: 900 };
+const WEBP_QUALITY = { hero: 94, default: 82 };
 
 function kindForPath(p) {
   if (p.includes("hero-import") || p.includes("deploy-")) return "hero";
@@ -32,10 +33,11 @@ async function compressFile(full) {
   }
   const kind = kindForPath(full);
   const maxWidth = MAX_WIDTH[kind];
+  const quality = WEBP_QUALITY[kind] ?? WEBP_QUALITY.default;
   await sharp(full)
     .rotate()
     .resize({ width: maxWidth, height: maxWidth, fit: "inside", withoutEnlargement: true })
-    .webp({ quality: 82, effort: 4 })
+    .webp({ quality, effort: kind === "hero" ? 6 : 4, smartSubsample: false })
     .toFile(webp);
   return { src: full, dest: webp, skipped: false };
 }

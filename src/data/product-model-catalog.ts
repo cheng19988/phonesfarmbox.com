@@ -341,10 +341,10 @@ export const MOTHERBOARD_GALLERY: string[] = [
 ];
 
 export const HERO_IMAGES = {
-  "home": "/images/hero-import/hero-page-01.webp",
-  "home-banner": "/images/hero-import/hero-home-banner.webp",
-  "hero-2": "/images/hero-import/hero-page-02.webp",
-  "hero-3": "/images/hero-import/hero-page-03.webp"
+  "home": "/images/hero-import/hero-page-01.png",
+  "home-banner": "/images/hero-import/hero-home-banner.png",
+  "hero-2": "/images/hero-import/hero-page-02.png",
+  "hero-3": "/images/hero-import/hero-page-03.png"
 } as const;
 
 export const FACTORY_DEPLOY_IMAGES: string[] = [
