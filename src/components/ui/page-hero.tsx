@@ -38,7 +38,7 @@ export function PageHero({
             src={image}
             alt={imageAlt}
             fill
-            className={`object-cover object-center ${isLight ? "opacity-100 scale-100" : "opacity-55 scale-105"}`}
+            className={`object-cover ${isHome && isLight ? "object-[72%_center]" : "object-center"} ${isLight ? "opacity-100 scale-100" : "opacity-55 scale-105"}`}
             priority
             sizes="100vw"
           />

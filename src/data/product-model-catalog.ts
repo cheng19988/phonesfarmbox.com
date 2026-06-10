@@ -342,6 +342,7 @@ export const MOTHERBOARD_GALLERY: string[] = [
 
 export const HERO_IMAGES = {
   "home": "/images/hero-import/hero-clean-01.webp",
+  "home-banner": "/images/hero-import/hero-home-banner.webp",
   "hero-2": "/images/hero-import/hero-clean-02.webp",
   "hero-3": "/images/hero-import/hero-clean-03.webp"
 } as const;
