@@ -25,6 +25,7 @@ export function PageHero({
 }: PageHeroProps) {
   const isHome = size === "home";
   const isLight = theme === "light";
+  const leftTextHero = isLight && image;
 
   return (
     <section
@@ -38,14 +39,22 @@ export function PageHero({
             src={image}
             alt={imageAlt}
             fill
-            className={`object-cover ${isHome && isLight ? "object-[72%_center]" : "object-center"} ${isLight ? "opacity-100 scale-100" : "opacity-55 scale-105"}`}
+            className={`object-cover ${
+              isHome && isLight ? "object-[88%_center]" : isLight ? "object-[75%_center]" : "object-center"
+            } ${isLight ? "opacity-100 scale-100" : "opacity-55 scale-105"}`}
             priority
             sizes="100vw"
           />
           {isLight ? (
             <>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/78 to-white/25 md:to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
+              <div
+                className={`absolute inset-0 bg-gradient-to-r ${
+                  isHome
+                    ? "from-white from-0% via-white/92 via-38% to-transparent to-62%"
+                    : "from-white/97 via-white/82 via-42% to-transparent to-70%"
+                }`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
             </>
           ) : (
             <>
@@ -56,29 +65,47 @@ export function PageHero({
         </>
       )}
 
-      <div className={`container-wide relative ${isHome ? "flex flex-col justify-center min-h-[78vh] md:min-h-[82vh] py-16 md:py-24" : ""}`}>
-        {eyebrow && (
-          <p className="text-[var(--accent-strong)] text-sm font-semibold tracking-wide mb-4">{eyebrow}</p>
-        )}
-        <h1
-          className={`font-bold tracking-tight leading-[1.08] mb-6 ${
-            isLight ? "text-slate-900" : "text-white"
-          } ${
-            isHome ? "text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-5xl" : "text-4xl md:text-5xl max-w-4xl"
-          }`}
+      <div
+        className={`relative ${
+          leftTextHero
+            ? isHome
+              ? "flex flex-col justify-center min-h-[78vh] md:min-h-[82vh] py-16 md:py-24 px-5 sm:px-8 lg:px-12 xl:px-16"
+              : "px-5 sm:px-8 lg:px-12 xl:px-16"
+            : `container-wide ${isHome ? "flex flex-col justify-center min-h-[78vh] md:min-h-[82vh] py-16 md:py-24" : ""}`
+        }`}
+      >
+        <div
+          className={
+            leftTextHero
+              ? isHome
+                ? "max-w-xl lg:max-w-[34rem] xl:max-w-[36rem]"
+                : "max-w-xl md:max-w-2xl mr-auto"
+              : undefined
+          }
         >
-          {title}
-        </h1>
-        {description && (
-          <p
-            className={`leading-relaxed mb-8 ${
-              isLight ? "text-slate-600" : "text-[var(--text-secondary)]"
-            } ${isHome ? "text-lg md:text-xl max-w-2xl" : "text-lg max-w-2xl"}`}
+          {eyebrow && (
+            <p className="text-[var(--accent-strong)] text-sm font-semibold tracking-wide mb-4">{eyebrow}</p>
+          )}
+          <h1
+            className={`font-bold tracking-tight leading-[1.08] mb-6 ${
+              isLight ? "text-slate-900" : "text-white"
+            } ${
+              isHome ? "text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl" : "text-4xl md:text-5xl max-w-4xl"
+            }`}
           >
-            {description}
-          </p>
-        )}
-        {children}
+            {title}
+          </h1>
+          {description && (
+            <p
+              className={`leading-relaxed mb-8 ${
+                isLight ? "text-slate-600" : "text-[var(--text-secondary)]"
+              } ${isHome ? "text-lg md:text-xl max-w-2xl" : "text-lg max-w-2xl"}`}
+            >
+              {description}
+            </p>
+          )}
+          {children}
+        </div>
       </div>
     </section>
   );
