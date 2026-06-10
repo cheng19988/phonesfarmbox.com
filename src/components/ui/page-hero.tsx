@@ -77,34 +77,32 @@ export function PageHero({
   const isHome = size === "home";
   const isLight = theme === "light";
 
-  /* Homepage: split layout — copy left, product photo right (no floating card on full-bleed bg). */
+  /* Homepage: full-bleed banner — image spans the viewport, copy overlaid on the left. */
   if (isHome && isLight && image) {
     return (
-      <section className="border-b border-slate-200 bg-gradient-to-b from-white via-white to-slate-50/80">
-        <div className="container-wide py-10 sm:py-14 md:py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <HeroCopy
-                eyebrow={eyebrow}
-                title={title}
-                description={description}
-                isHome={isHome}
-                isLight={isLight}
-              >
-                {children}
-              </HeroCopy>
-            </div>
-            <div className="order-1 lg:order-2 relative aspect-[16/10] sm:aspect-[5/3] lg:aspect-[4/3] xl:aspect-[16/11] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-lg shadow-slate-300/40">
-              <HeroImage
-                src={image}
-                alt={imageAlt}
-                fill
-                className="object-cover object-center lg:object-[68%_center]"
-                priority
-                sizes="(max-width: 1024px) 100vw, 640px"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent lg:hidden" />
-            </div>
+      <section className="relative overflow-hidden border-b border-slate-200 min-h-[520px] sm:min-h-[600px] md:min-h-[72vh] lg:min-h-[78vh]">
+        <HeroImage
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover object-[62%_center]"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white from-0% via-white/95 via-32% to-white/40 to-50% to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-white/15" />
+
+        <div className="relative container-wide flex flex-col justify-center min-h-[520px] sm:min-h-[600px] md:min-h-[72vh] lg:min-h-[78vh] py-12 md:py-16 lg:py-20">
+          <div className="max-w-xl lg:max-w-[34rem]">
+            <HeroCopy
+              eyebrow={eyebrow}
+              title={title}
+              description={description}
+              isHome={isHome}
+              isLight={isLight}
+            >
+              {children}
+            </HeroCopy>
           </div>
         </div>
       </section>
