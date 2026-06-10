@@ -16,9 +16,9 @@ const modelMains = getAllModelMainImages();
 
 /** Real product / factory photos imported from provided asset libraries (watermarks OK). */
 export const IMPORTED = {
-  homeHero: HERO_IMAGES["home"] ?? "/images/hero-import/hero-clean-01.webp",
+  homeHero: HERO_IMAGES["home"] ?? "/images/hero-import/hero-page-01.webp",
   homePageBanner: HERO_IMAGES["home-banner"] ?? "/images/hero-import/hero-home-banner.webp",
-  pageHero: HERO_IMAGES["hero-2"] ?? "/images/hero-import/hero-clean-02.webp",
+  pageHero: HERO_IMAGES["hero-2"] ?? "/images/hero-import/hero-page-02.webp",
   factoryHero: FACTORY_DEPLOY_IMAGES[0] ?? "/images/factory/deploy-01.webp",
   factoryGallery: FACTORY_DEPLOY_IMAGES.slice(0, 6).map((src, i) => ({
     src,
