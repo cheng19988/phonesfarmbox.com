@@ -1,72 +1,111 @@
 /**
- * Re-import hero/banner images at NATIVE resolution (no upscale) and high-quality WebP.
- * Upscaling 1024px chat uploads to 1920/2560 causes blur; aggressive WebP q82 adds artifacts.
+ * Import hero/banner PNGs from local originals (full resolution, no upscale).
+ * Keeps the same image-to-slot mapping — only replaces compressed chat uploads.
  *
  * Run: node scripts/reencode-hero-images.mjs
+ * Override source folder: LOCAL_HERO_DIR="C:/path/to/folder" node scripts/reencode-hero-images.mjs
  */
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-const ASSETS =
-  "C:/Users/cdl30/.cursor/projects/d-phonesfarmbox-com/assets";
-
-const SRC = {
-  img1: path.join(
-    ASSETS,
-    "c__Users_cdl30_AppData_Roaming_Cursor_User_workspaceStorage_7288b39aa0bcdff12e6477087f6c1a92_images_546b692f-eb6f-4fc4-9f98-b26c37d7ddb6-712ee2fa-2970-420a-b072-65e60a0338d3.png",
-  ),
-  img2: path.join(
-    ASSETS,
-    "c__Users_cdl30_AppData_Roaming_Cursor_User_workspaceStorage_7288b39aa0bcdff12e6477087f6c1a92_images_dd0dcd8b-81fb-48ff-9c67-046da3a7aa11-a800c5d4-9b28-4c1b-9251-f39e83fc8a1d.png",
-  ),
-  img3: path.join(
-    ASSETS,
-    "c__Users_cdl30_AppData_Roaming_Cursor_User_workspaceStorage_7288b39aa0bcdff12e6477087f6c1a92_images_95cd8e04-d67c-4b8d-acf2-8de29a776d48-56956614-e585-435f-9da0-d21b1042ef80.png",
-  ),
-  img4: path.join(
-    ASSETS,
-    "c__Users_cdl30_AppData_Roaming_Cursor_User_workspaceStorage_7288b39aa0bcdff12e6477087f6c1a92_images_1caaec79-c5ac-4bd3-8d20-4c56d511f4c1-d3667c43-f62e-4ff2-8f55-3bd74c3e4c3f.png",
-  ),
-  img5: path.join(
-    ASSETS,
-    "c__Users_cdl30_AppData_Roaming_Cursor_User_workspaceStorage_7288b39aa0bcdff12e6477087f6c1a92_images_60856b25-cddf-405e-bf68-be9555a60092-3950ef4f-5a4b-4206-b26c-38862d3bce2a.png",
-  ),
-};
-
-const JOBS = [
-  { src: "img5", png: "public/images/hero-import/hero-home-banner.png", webp: "public/images/hero-import/hero-home-banner.webp" },
-  { src: "img1", png: "public/images/hero-import/hero-page-01.png", webp: "public/images/hero-import/hero-page-01.webp" },
-  { src: "img4", png: "public/images/hero-import/hero-page-02.png", webp: "public/images/hero-import/hero-page-02.webp" },
-  { src: "img3", png: "public/images/hero-import/hero-page-03.png", webp: "public/images/hero-import/hero-page-03.webp" },
-];
+const LOCAL_DIR =
+  process.env.LOCAL_HERO_DIR ?? "C:/Users/cdl30/Desktop/新建文件夹";
 
 const WEBP_OPTS = { quality: 95, effort: 6, smartSubsample: false };
+const MAX_WIDTH = 2560;
 
-async function exportNative(srcPath, pngOut, webpOut) {
-  if (!fs.existsSync(srcPath)) {
-    console.warn("SKIP missing source:", srcPath);
-    return;
+/** Same slot mapping as site config — do not swap images. */
+const JOBS = [
+  {
+    uuid: "60856b25",
+    label: "home-banner (homepage)",
+    png: "public/images/hero-import/hero-home-banner.png",
+    webp: "public/images/hero-import/hero-home-banner.webp",
+  },
+  {
+    uuid: "546b692f",
+    label: "page-01 (Products/About/Contact)",
+    png: "public/images/hero-import/hero-page-01.png",
+    webp: "public/images/hero-import/hero-page-01.webp",
+  },
+  {
+    uuid: "1caaec79",
+    label: "page-02 (spare banner)",
+    png: "public/images/hero-import/hero-page-02.png",
+    webp: "public/images/hero-import/hero-page-02.webp",
+  },
+  {
+    uuid: "95cd8e04",
+    label: "page-03 (spare banner)",
+    png: "public/images/hero-import/hero-page-03.png",
+    webp: "public/images/hero-import/hero-page-03.webp",
+  },
+  {
+    uuid: "dd0dcd8b",
+    label: "deploy-01 (About factory gallery)",
+    png: "public/images/factory/deploy-01.png",
+    webp: "public/images/factory/deploy-01.webp",
+  },
+  {
+    uuid: "1caaec79",
+    label: "deploy-02",
+    png: "public/images/factory/deploy-02.png",
+    webp: "public/images/factory/deploy-02.webp",
+  },
+  {
+    uuid: "546b692f",
+    label: "deploy-03",
+    png: "public/images/factory/deploy-03.png",
+    webp: "public/images/factory/deploy-03.webp",
+  },
+  {
+    uuid: "95cd8e04",
+    label: "deploy-04",
+    png: "public/images/factory/deploy-04.png",
+    webp: "public/images/factory/deploy-04.webp",
+  },
+];
+
+function findSource(uuid) {
+  if (!fs.existsSync(LOCAL_DIR)) {
+    throw new Error(`Local folder not found: ${LOCAL_DIR}`);
   }
+  const match = fs.readdirSync(LOCAL_DIR).find((f) => f.startsWith(uuid) && /\.png$/i.test(f));
+  if (!match) throw new Error(`Missing source for ${uuid} in ${LOCAL_DIR}`);
+  return path.join(LOCAL_DIR, match);
+}
 
+async function importOne(job) {
+  const srcPath = findSource(job.uuid);
   const input = sharp(srcPath).rotate();
   const meta = await input.metadata();
 
-  await input.clone().png({ compressionLevel: 6 }).toFile(pngOut);
-  await input.clone().webp(WEBP_OPTS).toFile(webpOut);
+  let pipeline = input.clone();
+  if (meta.width > MAX_WIDTH) {
+    pipeline = pipeline.resize({
+      width: MAX_WIDTH,
+      fit: "inside",
+      withoutEnlargement: true,
+      kernel: sharp.kernel.lanczos3,
+    });
+  }
 
-  const pngKb = Math.round(fs.statSync(pngOut).size / 1024);
-  const webpKb = Math.round(fs.statSync(webpOut).size / 1024);
+  await pipeline.clone().png({ compressionLevel: 6 }).toFile(job.png);
+  await pipeline.clone().webp(WEBP_OPTS).toFile(job.webp);
+
+  const outMeta = await sharp(job.png).metadata();
+  const pngKb = Math.round(fs.statSync(job.png).size / 1024);
+  const webpKb = Math.round(fs.statSync(job.webp).size / 1024);
   console.log(
-    path.basename(webpOut),
-    `${meta.width}x${meta.height} (native, no upscale)`,
-    `png ${pngKb}KB`,
-    `webp ${webpKb}KB`,
+    job.label,
+    `${meta.width}x${meta.height} -> ${outMeta.width}x${outMeta.height}`,
+    `png ${pngKb}KB webp ${webpKb}KB`,
   );
 }
 
+console.log("Importing from:", LOCAL_DIR);
 for (const job of JOBS) {
-  await exportNative(SRC[job.src], job.png, job.webp);
+  await importOne(job);
 }
-
-console.log("Done — use .png paths with unoptimized Image for sharpest delivery.");
+console.log("Done — heroes served as PNG (unoptimized, no upscale).");
