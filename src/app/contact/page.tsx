@@ -41,8 +41,9 @@ export default function ContactPage() {
         eyebrow={`${SITE.name} · Quote-based B2B hardware`}
         title="Request a hardware quote"
         description="Share quantity, platform mix, shipping country, and timeline. We return a written BOM, connection mode, and lead time before assembly — no account required."
-        image={IMPORTED.pageHero}
+        image={IMPORTED.homeHero}
         imageAlt="Phone farm hardware production reference"
+        theme="light"
       />
 
       <Section>

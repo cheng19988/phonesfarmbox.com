@@ -39,8 +39,9 @@ export default function AboutPage() {
         eyebrow={`${SITE.location} · Est. ${SITE.since}`}
         title="About Phones Farm Box"
         description="Guangzhou-based phone farm hardware supplier — design, assembly, QC, and export of chassis, motherboard racks, USB hubs, power and cooling modules, and rack-scale cabinet systems."
-        image={IMPORTED.pageHero}
-        imageAlt="Phone farm box hardware — white background reference"
+        image={IMPORTED.homeHero}
+        imageAlt="Phone farm hardware assembly reference"
+        theme="light"
       />
 
       <Section>

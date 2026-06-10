@@ -59,9 +59,9 @@ export const IMAGES = {
     detail: FACTORY_DEPLOY_IMAGES[2] ?? primaryModel,
   },
   emptyBox: {
-    card: MOTHERBOARD_GALLERY[3] ?? card("components-electronicsassembly-detail-f936c"),
-    hero: MOTHERBOARD_GALLERY[4] ?? hero("components-electronicsassembly-detail-f936c"),
-    detail: MOTHERBOARD_GALLERY[5] ?? detail("components-electronicsassembly-detail-f936c"),
+    card: MOTHERBOARD_GALLERY[0] ?? primaryModel,
+    hero: MOTHERBOARD_GALLERY[1] ?? MOTHERBOARD_GALLERY[0] ?? primaryModel,
+    detail: MOTHERBOARD_GALLERY[2] ?? MOTHERBOARD_GALLERY[0] ?? primaryModel,
   },
   usbHub: {
     card: card("components-electronicscomponentsassembly-19059"),
@@ -84,9 +84,9 @@ export const IMAGES = {
     detail: detail("accessories-networkdevice-accessories-36665"),
   },
   customCabinet: {
-    card: FACTORY_DEPLOY_IMAGES[3] ?? card("accessories-computeraccessories-showcase-2b3e3"),
-    hero: FACTORY_DEPLOY_IMAGES[4] ?? hero("accessories-computeraccessories-showcase-2b3e3"),
-    detail: detail("accessories-computeraccessories-showcase-2b3e3"),
+    card: FACTORY_DEPLOY_IMAGES[0] ?? primaryModel,
+    hero: FACTORY_DEPLOY_IMAGES[1] ?? primaryModel,
+    detail: FACTORY_DEPLOY_IMAGES[2] ?? primaryModel,
   },
   remoteControl: {
     card: card("service-scenes-moderndevicemanagementcontrol-ae6b9"),

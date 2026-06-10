@@ -22,12 +22,12 @@ function ModelCard({ model }: { model: ProductModelEntry }) {
   ].filter(Boolean);
 
   return (
-    <div className="h-full flex flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)] transition-colors hover:border-[var(--border-accent)]">
+    <div id={`model-${model.id}`} className="h-full flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-orange-300 hover:shadow-md transition-all scroll-mt-24">
       <div className="relative aspect-[4/3] bg-[var(--surface-elevated)]">
         <Image src={img} alt={model.modelName} fill className="object-contain p-2" sizes="(max-width:768px) 50vw, 25vw" />
       </div>
       <div className="p-4 flex-1 flex flex-col">
-        <h3 className="font-semibold text-white text-sm leading-snug mb-2">{model.modelName}</h3>
+        <h3 className="font-semibold text-slate-900 text-sm leading-snug mb-2">{model.modelName}</h3>
         <ul className="space-y-1 text-xs text-[var(--text-secondary)] flex-1">
           {specs.map((s) => (
             <li key={s} className="flex gap-1.5">

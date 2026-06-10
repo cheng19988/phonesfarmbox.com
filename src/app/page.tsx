@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/commerce";
 import { CONTACT, SITE } from "@/lib/config";
 import { IMAGES, IMPORTED } from "@/lib/images";
+import { resolveProductCardImage } from "@/lib/resolve-product-card-image";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CTABand, Surface } from "@/components/ui/surface";
@@ -39,6 +40,7 @@ export default async function HomePage() {
         description="Chassis, motherboard racks, USB hubs, power, and cooling — assembled, tested, and exported from Guangzhou. Configuration and lead time confirmed on written quote before payment."
         image={IMAGES.homeHero}
         imageAlt="Phone farm box hardware"
+        theme="light"
       >
         <div className="flex flex-wrap gap-4 mb-12">
           <Link href="/contact" className="btn-primary text-base px-8">
@@ -54,7 +56,7 @@ export default async function HomePage() {
         <div className="trust-strip max-w-3xl">
           {TRUST_METRICS.map((m) => (
             <div key={m.label} className="trust-strip-item">
-              <div className="text-xl md:text-2xl font-bold text-white mb-1">{m.value}</div>
+              <div className="text-xl md:text-2xl font-bold text-slate-900 mb-1">{m.value}</div>
               <div className="text-xs text-[var(--text-muted)] uppercase tracking-wide">{m.label}</div>
             </div>
           ))}
@@ -72,7 +74,7 @@ export default async function HomePage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {HARDWARE_TRUST_POINTS.map((t) => (
             <Surface key={t.title} padding="md" hover className="h-full">
-              <h3 className="font-semibold text-white mb-2">{t.title}</h3>
+              <h3 className="font-semibold text-slate-900 mb-2">{t.title}</h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{t.desc}</p>
             </Surface>
           ))}
@@ -94,7 +96,7 @@ export default async function HomePage() {
               shortDesc={p.shortDesc}
               priceUsd={p.priceUsd}
               stock={p.stock}
-              imageCard={p.imageCard}
+              imageCard={resolveProductCardImage(p.slug, p.imageCard)}
               category={p.category}
             />
           ))}
@@ -111,10 +113,9 @@ export default async function HomePage() {
 
       <Section variant="muted">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[var(--border-subtle)]">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md">
             <Image src={IMPORTED.factoryHero} alt="Assembly and test workflow" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#060a12]/80 via-transparent to-transparent" />
-            <p className="absolute bottom-4 left-4 right-4 text-xs text-[var(--text-muted)]">
+            <p className="absolute bottom-4 left-4 right-4 text-xs text-white bg-black/40 backdrop-blur-sm rounded-lg px-3 py-2">
               Real product reference from our hardware library — slot count and BOM confirmed on your written quote.
             </p>
           </div>
@@ -128,11 +129,11 @@ export default async function HomePage() {
             <ol className="space-y-4">
               {FACTORY_STEPS.map((s, i) => (
                 <li key={s.title} className="flex gap-4">
-                  <span className="shrink-0 w-9 h-9 rounded-xl bg-amber-950/50 border border-amber-900/40 text-amber-400 flex items-center justify-center text-sm font-bold">
+                  <span className="shrink-0 w-9 h-9 rounded-xl bg-orange-100 border border-orange-200 text-orange-700 flex items-center justify-center text-sm font-bold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">{s.title}</h3>
+                    <h3 className="font-semibold text-slate-900">{s.title}</h3>
                     <p className="text-sm text-[var(--text-secondary)] mt-0.5">{s.desc}</p>
                   </div>
                 </li>
@@ -151,13 +152,12 @@ export default async function HomePage() {
           {PRODUCT_CATEGORIES.slice(0, 3).map((c, i) => {
             const imgs = [IMAGES.phoneFarmBox.hero, IMAGES.motherboardBox.hero, IMAGES.androidFarm.hero];
             return (
-              <Link key={c.href} href={c.href} className="group block rounded-2xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:border-[var(--border-accent)] transition-colors">
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image src={imgs[i] ?? IMAGES.homeHero} alt="" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060a12] via-[#060a12]/20 to-transparent" />
+              <Link key={c.href} href={c.href} className="group block rounded-2xl overflow-hidden border border-slate-200 bg-white hover:border-orange-300 shadow-sm hover:shadow-md transition-all">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-50">
+                  <Image src={imgs[i] ?? IMAGES.homeHero} alt="" fill className="object-contain p-3 group-hover:scale-[1.02] transition-transform duration-500" sizes="33vw" />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-semibold text-white text-lg mb-2 group-hover:text-amber-400 transition-colors">{c.name}</h3>
+                  <h3 className="font-semibold text-slate-900 text-lg mb-2 group-hover:text-orange-700 transition-colors">{c.name}</h3>
                   <p className="text-sm text-[var(--text-secondary)]">{c.desc}</p>
                 </div>
               </Link>

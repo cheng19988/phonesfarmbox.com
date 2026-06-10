@@ -5,8 +5,10 @@ import { PageHero } from "@/components/ui/page-hero";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Surface } from "@/components/ui/surface";
 import { buildMetadata } from "@/lib/seo";
+import { ProductModelStrip } from "@/components/product-model-strip";
 import { PRODUCT_CATALOG_GROUPS } from "@/data/product-catalog-groups";
-import { IMPORTED, IMAGES } from "@/lib/images";
+import { IMPORTED } from "@/lib/images";
+import { resolveProductCardImage } from "@/lib/resolve-product-card-image";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Products & Hardware Shop",
@@ -35,7 +37,7 @@ function ProductGrid({ products }: { products: ProductRow[] }) {
           shortDesc={p.shortDesc}
           priceUsd={p.priceUsd}
           stock={p.stock}
-          imageCard={p.imageCard}
+          imageCard={resolveProductCardImage(p.slug, p.imageCard)}
           category={p.category}
         />
       ))}
@@ -83,14 +85,16 @@ export default async function ProductsPage({
         eyebrow="B2B hardware catalog"
         title="Phone farm hardware shop"
         description="Chassis, racks, hubs, power, cooling, and services — list prices are USD starting points. Slot layout, connection mode, and freight confirmed on written quote."
-        image={IMPORTED.pageHero}
-        imageAlt="Phone farm hardware catalog"
+        image={IMPORTED.homeHero}
+        imageAlt="Phone farm box product photo background"
+        theme="light"
       />
 
       <Section>
+        <ProductModelStrip />
         <Surface padding="md" className="mb-10 flex flex-wrap items-center justify-between gap-4 border-[var(--border-accent)]">
           <div>
-            <p className="font-semibold text-white">Need a bulk or custom quote?</p>
+            <p className="font-semibold text-slate-900">Need a bulk or custom quote?</p>
             <p className="text-sm text-[var(--text-secondary)] mt-1">
               Send device count, platform, connection mode, voltage region, and delivery country.
             </p>
@@ -105,8 +109,8 @@ export default async function ProductsPage({
             href={buildProductsHref({ category: null })}
             className={`px-4 py-2 rounded-xl text-sm font-medium border transition-colors ${
               !params.category
-                ? "border-amber-600/60 bg-amber-950/30 text-amber-300"
-                : "border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-white"
+                ? "border-orange-400 bg-orange-50 text-orange-800"
+                : "border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-white"
             }`}
           >
             All

@@ -40,7 +40,7 @@ export function SectionHeader({
       {eyebrow && (
         <p className="text-[var(--accent)] text-xs font-semibold uppercase tracking-[0.2em] mb-3">{eyebrow}</p>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white tracking-tight leading-[1.1] mb-4">
+      <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-[var(--foreground)] tracking-tight leading-[1.1] mb-4">
         {title}
       </h2>
       {description && <p className="text-lg text-[var(--text-secondary)] leading-relaxed">{description}</p>}
