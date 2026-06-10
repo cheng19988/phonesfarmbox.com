@@ -13,13 +13,11 @@ type PageHeroProps = {
   theme?: "light" | "dark";
 };
 
-/** Hero assets are pre-exported at native resolution — skip Next.js recompression. */
+/** Hero assets are pre-exported WebP (PNG sources excluded from Vercel deploy). */
 function HeroImage({ src, ...props }: ComponentProps<typeof Image>) {
   const path = typeof src === "string" ? src : "";
   const skipOptimizer =
-    path.includes("/hero-import/") ||
-    path.includes("/factory/deploy-") ||
-    path.endsWith(".png");
+    path.includes("/hero-import/") || path.includes("/factory/deploy-");
   return <Image src={src} unoptimized={skipOptimizer} quality={95} {...props} />;
 }
 
@@ -135,8 +133,8 @@ export function PageHero({
           />
           {isLight ? (
             <>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/97 via-white/85 via-45% to-transparent to-72%" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 via-40% to-transparent to-58%" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
             </>
           ) : (
             <>
