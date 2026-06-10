@@ -40,7 +40,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           <div className="prose-content">{term.definition}</div>
           {term.relatedTerms && term.relatedTerms.length > 0 && (
             <div className="mt-8">
-              <h2 className="text-lg font-bold text-white mb-3">Related Terms</h2>
+              <h2 className="text-lg font-bold text-slate-900 mb-3">Related Terms</h2>
               <div className="flex flex-wrap gap-2">
                 {term.relatedTerms.map((rs) => {
                   const related = getGlossaryTerm(rs);

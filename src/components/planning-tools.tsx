@@ -16,22 +16,22 @@ export function CapacityEstimator() {
 
   return (
     <div className="space-y-4">
-      <label className="block text-sm text-slate-400">
+      <label className="block text-sm text-slate-600">
         Target device count
-        <input type="number" min={1} max={500} value={devices} onChange={(e) => setDevices(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+        <input type="number" min={1} max={500} value={devices} onChange={(e) => setDevices(Number(e.target.value))} className="mt-1 input-field" />
       </label>
-      <label className="block text-sm text-slate-400">
+      <label className="block text-sm text-slate-600">
         Thermal / growth headroom (%)
         <input type="range" min={0} max={40} value={headroom} onChange={(e) => setHeadroom(Number(e.target.value))} className="w-full mt-2" />
-        <span className="text-white">{headroom}%</span>
+        <span className="text-slate-900 font-medium">{headroom}%</span>
       </label>
-      <label className="block text-sm text-slate-400">
+      <label className="block text-sm text-slate-600">
         Assumed slots per chassis (planning — confirm at quote)
-        <input type="number" min={1} max={100} value={slotsPerBox} onChange={(e) => setSlotsPerBox(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+        <input type="number" min={1} max={100} value={slotsPerBox} onChange={(e) => setSlotsPerBox(Number(e.target.value))} className="mt-1 input-field" />
       </label>
-      <div className="card p-4 border-amber-800/40">
-        <p className="text-white font-medium">Estimated chassis units: <span className="text-amber-400">{result.boxes}</span></p>
-        <p className="text-sm text-slate-400 mt-2">Total slots (planning): {result.slots} — targeting {result.adjusted} devices with headroom</p>
+      <div className="card p-4 border-orange-200 bg-orange-50/40">
+        <p className="text-slate-900 font-medium">Estimated chassis units: <span className="text-orange-700">{result.boxes}</span></p>
+        <p className="text-sm text-slate-600 mt-2">Total slots (planning): {result.slots} — targeting {result.adjusted} devices with headroom</p>
         <p className="text-xs text-slate-500 mt-2">Confirm final layout with sales — mixed iPhone/Android may need separate chassis.</p>
       </div>
     </div>
@@ -46,16 +46,16 @@ export function PowerEstimator() {
 
   return (
     <div className="space-y-4">
-      <label className="block text-sm text-slate-400">
+      <label className="block text-sm text-slate-600">
         Number of nodes
-        <input type="number" min={1} max={200} value={nodes} onChange={(e) => setNodes(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+        <input type="number" min={1} max={200} value={nodes} onChange={(e) => setNodes(Number(e.target.value))} className="mt-1 input-field" />
       </label>
-      <label className="block text-sm text-slate-400">
+      <label className="block text-sm text-slate-600">
         Estimated draw per node (W)
-        <input type="number" min={3} max={20} value={wattsPerNode} onChange={(e) => setWattsPerNode(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+        <input type="number" min={3} max={20} value={wattsPerNode} onChange={(e) => setWattsPerNode(Number(e.target.value))} className="mt-1 input-field" />
       </label>
       <div className="card p-4">
-        <p className="text-white">Suggested PSU budget: <span className="text-amber-400">{Math.ceil(total)} W</span> (includes ~20% margin)</p>
+        <p className="text-slate-900">Suggested PSU budget: <span className="text-orange-700">{Math.ceil(total)} W</span> (includes ~20% margin)</p>
         <p className="text-xs text-slate-500 mt-2">Actual draw depends on phone model and charging profile — confirm before quote.</p>
       </div>
     </div>
@@ -70,17 +70,17 @@ export function UsbPortCalculator() {
 
   return (
     <div className="space-y-4">
-      <label className="block text-sm text-slate-400">
+      <label className="block text-sm text-slate-600">
         Devices to connect
-        <input type="number" min={1} max={200} value={nodes} onChange={(e) => setNodes(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+        <input type="number" min={1} max={200} value={nodes} onChange={(e) => setNodes(Number(e.target.value))} className="mt-1 input-field" />
       </label>
-      <label className="block text-sm text-slate-400">
+      <label className="block text-sm text-slate-600">
         Control PCs
-        <input type="number" min={1} max={10} value={pcPorts} onChange={(e) => setPcPorts(Number(e.target.value))} className="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+        <input type="number" min={1} max={10} value={pcPorts} onChange={(e) => setPcPorts(Number(e.target.value))} className="mt-1 input-field" />
       </label>
       <div className="card p-4">
-        <p className="text-white">Plan for ~<span className="text-amber-400">{hubs}</span> industrial hub tier(s) (port count confirmed on datasheet)</p>
-        <p className="text-sm text-slate-400 mt-2">{pcPorts} PC USB uplink(s) — use powered hubs; confirm cable length and EMI with sales.</p>
+        <p className="text-slate-900">Plan for ~<span className="text-orange-700">{hubs}</span> industrial hub tier(s) (port count confirmed on datasheet)</p>
+        <p className="text-sm text-slate-600 mt-2">{pcPorts} PC USB uplink(s) — use powered hubs; confirm cable length and EMI with sales.</p>
       </div>
     </div>
   );

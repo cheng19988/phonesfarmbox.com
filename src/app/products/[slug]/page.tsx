@@ -108,7 +108,7 @@ export default async function ProductDetailPage({ params }: Props) {
       <div className="section pt-8 md:pt-12">
         <div className="container-wide">
           <nav className="text-sm text-[var(--text-muted)] mb-8">
-            <Link href="/products" className="hover:text-amber-400">Products</Link>
+            <Link href="/products" className="hover:text-orange-700">Products</Link>
             <span className="mx-2">/</span>
             <span className="text-[var(--text-secondary)]">{product.name}</span>
           </nav>
@@ -122,7 +122,7 @@ export default async function ProductDetailPage({ params }: Props) {
               {galleryImages.length > 0 && (
                 <div className="grid grid-cols-3 gap-2 mt-3">
                   {galleryImages.map((src) => (
-                    <div key={src} className="relative aspect-square rounded-lg overflow-hidden bg-slate-900">
+                    <div key={src} className="relative aspect-square rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                       <Image src={src} alt="" fill className="object-cover" sizes="120px" />
                     </div>
                   ))}
@@ -131,18 +131,18 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
             <div className="lg:py-4">
               <p className="eyebrow mb-3">{product.category}</p>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight leading-tight">{product.name}</h1>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 tracking-tight leading-tight">{product.name}</h1>
               <p className="text-lg text-[var(--text-secondary)] mb-6 leading-relaxed">{summary}</p>
               <div className="flex items-center gap-4 mb-3">
-                <span className="text-4xl font-bold text-white">${product.priceUsd.toLocaleString()}</span>
+                <span className="text-4xl font-bold text-slate-900">${product.priceUsd.toLocaleString()}</span>
                 <StockBadge stock={product.stock} />
               </div>
               <p className="text-sm text-[var(--text-muted)] mb-8">List price — confirm configuration and freight before payment.</p>
               <BuyButtons slug={product.slug} name={product.name} stock={product.stock} />
               <p className="text-xs text-slate-500 mt-4">
-                Bulk pricing: <Link href="/pricing" className="text-amber-400 hover:underline">pricing overview</Link>
+                Bulk pricing: <Link href="/pricing" className="link-accent">pricing overview</Link>
                 {" · "}
-                <Link href={`/contact?product=${slug}`} className="text-amber-400 hover:underline">request written quote</Link>
+                <Link href={`/contact?product=${slug}`} className="link-accent">request written quote</Link>
               </p>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 { label: "MOQ", value: b2b.moq },
                 { label: "Lead time", value: b2b.leadTime },
               ].map((row) => (
-                <div key={row.label} className="p-4 rounded-lg border border-slate-800 bg-slate-900/30">
+                <div key={row.label} className="p-4 rounded-lg info-panel">
                   <div className="text-xs text-slate-500 uppercase tracking-wide mb-1">{row.label}</div>
                   <div className="text-sm text-slate-200">{row.value}</div>
                 </div>
@@ -183,14 +183,14 @@ export default async function ProductDetailPage({ params }: Props) {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-12">
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Product overview</h2>
-                <p className="text-slate-300 leading-relaxed">{b2b?.overview ?? product.description}</p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">Product overview</h2>
+                <p className="text-slate-600 leading-relaxed">{b2b?.overview ?? product.description}</p>
               </section>
 
               {b2b?.recommendedConfiguration && (
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">Recommended configuration</h2>
-                  <p className="text-slate-300 leading-relaxed">{b2b.recommendedConfiguration}</p>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-4">Recommended configuration</h2>
+                  <p className="text-slate-600 leading-relaxed">{b2b.recommendedConfiguration}</p>
                 </section>
               )}
 
@@ -198,10 +198,10 @@ export default async function ProductDetailPage({ params }: Props) {
 
               {features.length > 0 && !b2b && (
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">Highlights</h2>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-4">Highlights</h2>
                   <ul className="space-y-2">
                     {features.map((f) => (
-                      <li key={f} className="flex gap-2 text-slate-300">
+                      <li key={f} className="flex gap-2 text-slate-600">
                         <span className="text-emerald-500">✓</span>
                         {f}
                       </li>
@@ -212,14 +212,14 @@ export default async function ProductDetailPage({ params }: Props) {
 
               {Object.keys(specs).length > 0 && !b2b && (
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">Technical details</h2>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-4">Technical details</h2>
                   <p className="text-xs text-slate-500 mb-3">Dimensions and exact counts confirmed on written quote when not listed.</p>
                   <table className="w-full text-sm">
                     <tbody>
                       {Object.entries(specs).map(([k, v]) => (
-                        <tr key={k} className="border-b border-slate-800">
+                        <tr key={k} className="border-b border-slate-200">
                           <td className="py-3 text-slate-400 pr-4 w-1/3">{k}</td>
-                          <td className="py-3 text-white">{v}</td>
+                          <td className="py-3 text-slate-900">{v}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -229,10 +229,10 @@ export default async function ProductDetailPage({ params }: Props) {
 
               {b2b?.deploymentNotes && b2b.deploymentNotes.length > 0 && (
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">Deployment notes</h2>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-4">Deployment notes</h2>
                   <ul className="space-y-2">
                     {b2b.deploymentNotes.map((note) => (
-                      <li key={note} className="flex gap-2 text-sm text-slate-300">
+                      <li key={note} className="flex gap-2 text-sm text-slate-600">
                         <span className="text-amber-500 shrink-0">•</span>
                         {note}
                       </li>
@@ -245,7 +245,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
               {faq.length > 0 && (
                 <section>
-                  <h2 className="text-2xl font-bold text-white mb-4">FAQ</h2>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-4">FAQ</h2>
                   <FAQAccordion items={faq.map((f) => ({ question: f.q, answer: f.a }))} />
                 </section>
               )}
@@ -254,8 +254,8 @@ export default async function ProductDetailPage({ params }: Props) {
             <div className="space-y-6">
               {b2b && (
                 <>
-                  <section className="p-5 rounded-xl border border-slate-800">
-                    <h3 className="font-bold text-white mb-3">What&apos;s included</h3>
+                  <section className="info-panel">
+                    <h3 className="font-bold text-slate-900 mb-3">What&apos;s included</h3>
                     <ul className="space-y-1 text-sm text-slate-400">
                       {b2b.included.map((a) => (
                         <li key={a}>• {a}</li>
@@ -263,16 +263,16 @@ export default async function ProductDetailPage({ params }: Props) {
                     </ul>
                   </section>
                   <EnhancedAddonsSection addons={b2b.optionalAddons} relatedSlugs={b2b.relatedSlugs} />
-                  <section className="p-5 rounded-xl border border-slate-800">
-                    <h3 className="font-bold text-white mb-3">Export packing</h3>
+                  <section className="info-panel">
+                    <h3 className="font-bold text-slate-900 mb-3">Export packing</h3>
                     <ul className="space-y-1 text-sm text-slate-400">
                       {b2b.shippingPackage.map((d) => (
                         <li key={d}>• {d}</li>
                       ))}
                     </ul>
                   </section>
-                  <section className="p-5 rounded-xl border border-slate-800">
-                    <h3 className="font-bold text-white mb-3">MOQ · Lead time · Warranty</h3>
+                  <section className="info-panel">
+                    <h3 className="font-bold text-slate-900 mb-3">MOQ · Lead time · Warranty</h3>
                     <dl className="text-sm text-slate-400 space-y-2">
                       <div>
                         <dt className="text-slate-500 text-xs uppercase">MOQ</dt>
@@ -295,13 +295,13 @@ export default async function ProductDetailPage({ params }: Props) {
 
           {related.length > 0 && (
             <section className="mt-16">
-              <h2 className="text-xl font-bold text-white mb-4">Related hardware</h2>
+              <h2 className="text-xl font-bold text-slate-900 mb-4">Related hardware</h2>
               <div className="flex flex-wrap gap-3">
                 {related.map((r) => (
                   <Link
                     key={r.slug}
                     href={`/products/${r.slug}`}
-                    className="px-4 py-2 rounded-lg border border-slate-800 text-sm text-slate-300 hover:border-amber-800/60 hover:text-white"
+                    className="px-4 py-2 rounded-lg border border-slate-200 text-sm text-slate-600 hover:border-orange-300 hover:text-orange-700 bg-white"
                   >
                     {r.name}
                     <span className="text-slate-500 ml-2">from ${r.priceUsd}</span>

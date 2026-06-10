@@ -34,7 +34,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="container-wide max-w-3xl">
           <Link href="/blog" className="text-cyan-400 text-sm">← Back to Guides</Link>
           <span className="block text-xs text-slate-500 mt-4">{post.category} · {post.date}</span>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-8">{post.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-8">{post.title}</h1>
           <div className="prose-content whitespace-pre-line">{post.content}</div>
           <div className="mt-12">
             <ContactCTA />

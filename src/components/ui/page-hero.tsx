@@ -77,18 +77,20 @@ export function PageHero({
         <div
           className={
             leftTextHero
-              ? isHome
-                ? "max-w-xl lg:max-w-[34rem] xl:max-w-[36rem]"
-                : "max-w-xl md:max-w-2xl mr-auto"
+              ? `${
+                  isHome
+                    ? "max-w-xl lg:max-w-[34rem] xl:max-w-[36rem]"
+                    : "max-w-xl md:max-w-2xl mr-auto"
+                } rounded-2xl border border-slate-200/90 bg-white/90 backdrop-blur-md shadow-lg shadow-slate-300/40 p-6 sm:p-8`
               : undefined
           }
         >
           {eyebrow && (
-            <p className="text-[var(--accent-strong)] text-sm font-semibold tracking-wide mb-4">{eyebrow}</p>
+            <p className="text-orange-700 text-sm font-semibold tracking-wide mb-4">{eyebrow}</p>
           )}
           <h1
             className={`font-bold tracking-tight leading-[1.08] mb-6 ${
-              isLight ? "text-slate-900" : "text-white"
+              isLight ? "text-slate-950" : "text-white"
             } ${
               isHome ? "text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl" : "text-4xl md:text-5xl max-w-4xl"
             }`}
@@ -98,7 +100,7 @@ export function PageHero({
           {description && (
             <p
               className={`leading-relaxed mb-8 ${
-                isLight ? "text-slate-600" : "text-[var(--text-secondary)]"
+                isLight ? "text-slate-700" : "text-[var(--text-secondary)]"
               } ${isHome ? "text-lg md:text-xl max-w-2xl" : "text-lg max-w-2xl"}`}
             >
               {description}

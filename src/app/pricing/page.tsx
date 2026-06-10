@@ -72,8 +72,8 @@ export default function PricingPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-14">
           {TIERS.map((t) => (
             <div key={t.name} className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)] flex flex-col">
-              <h2 className="text-lg font-bold text-white mb-2">{t.name}</h2>
-              <p className="text-sm text-slate-300 mb-2">{t.desc}</p>
+              <h2 className="text-lg font-bold text-slate-900 mb-2">{t.name}</h2>
+              <p className="text-sm text-slate-600 mb-2">{t.desc}</p>
               <p className="text-xs text-slate-500 mb-3">{t.detail}</p>
               <p className="text-xs text-slate-400 mb-4 flex-1">{t.differs}</p>
               <p className="text-amber-400 font-semibold mb-4">{t.from}</p>
@@ -89,7 +89,7 @@ export default function PricingPage() {
         <DeliveryProcessSection />
 
         <div className="mb-14">
-          <h2 className="text-xl font-bold text-white mb-4">Packing list, photos, and shipping size</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">Packing list, photos, and shipping size</h2>
           <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-400">
             {PACKING_DOCUMENTATION_POINTS.map((item) => (
               <li key={item} className="flex gap-2 p-3 rounded-lg border border-slate-800">
@@ -102,7 +102,7 @@ export default function PricingPage() {
 
         <div className="mb-14 grid lg:grid-cols-2 gap-6">
           <div>
-            <h2 className="text-xl font-bold text-white mb-4">Warranty and after-sales</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-4">Warranty and after-sales</h2>
             <ul className="space-y-2 text-sm text-slate-400">
               {WARRANTY_AFTER_SALES_POINTS.map((item) => (
                 <li key={item} className="flex gap-2">
@@ -113,17 +113,17 @@ export default function PricingPage() {
             </ul>
             <p className="text-xs text-slate-500 mt-3">
               Details:{" "}
-              <Link href="/terms" className="text-amber-400 hover:underline">
+              <Link href="/terms" className="link-accent">
                 Terms
               </Link>
               {" · "}
-              <Link href="/refund" className="text-amber-400 hover:underline">
+              <Link href="/refund" className="link-accent">
                 Refund policy
               </Link>
             </p>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white mb-4">Remote setup scope</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-4">Remote setup scope</h2>
             <p className="text-xs text-slate-500 mb-2">Includes:</p>
             <ul className="space-y-1.5 text-sm text-slate-400 mb-4">
               {REMOTE_SETUP_INCLUDES.map((item) => (
@@ -146,7 +146,7 @@ export default function PricingPage() {
         </div>
 
         <div className="mb-14">
-          <h2 className="text-xl font-bold text-white mb-4">What is included in a written quote</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">What is included in a written quote</h2>
           <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-400">
             {WRITTEN_QUOTE_INCLUDES.map((item) => (
               <li key={item} className="flex gap-2 p-3 rounded-lg border border-slate-800">
@@ -158,11 +158,11 @@ export default function PricingPage() {
         </div>
 
         <div className="mb-14">
-          <h2 className="text-xl font-bold text-white mb-4">What affects your quote</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">What affects your quote</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {QUOTE_FACTORS.map((p) => (
               <div key={p.factor} className="p-4 rounded-lg border border-slate-800 text-sm">
-                <div className="font-medium text-white">{p.factor}</div>
+                <div className="font-medium text-slate-900">{p.factor}</div>
                 <div className="text-slate-500 mt-1">{p.note}</div>
               </div>
             ))}
@@ -170,14 +170,14 @@ export default function PricingPage() {
         </div>
 
         <div className="mb-14">
-          <h2 className="text-xl font-bold text-white mb-4">Payment options</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">Payment options</h2>
           <p className="text-sm text-slate-500 mb-4">
             Payment method and instructions are confirmed on your written quote or sales message — not on product pages.
           </p>
           <div className="space-y-3">
             {PAYMENT_OPTIONS.map((p) => (
               <div key={p.method} className="p-4 rounded-lg border border-slate-800 text-sm">
-                <div className="font-medium text-white">{p.method}</div>
+                <div className="font-medium text-slate-900">{p.method}</div>
                 <div className="text-slate-500 mt-1">{p.detail}</div>
               </div>
             ))}
@@ -185,13 +185,13 @@ export default function PricingPage() {
         </div>
 
         <div className="mb-14 overflow-x-auto">
-          <h2 className="text-xl font-bold text-white mb-4">Hardware purchase vs cloud subscription — TCO snapshot</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">Hardware purchase vs cloud subscription — TCO snapshot</h2>
           <p className="text-sm text-slate-500 mb-4">Illustrative comparison for procurement discussions — not a financial guarantee.</p>
           <table className="w-full text-sm border border-slate-800">
             <thead>
               <tr className="bg-slate-900/80 text-left">
                 <th className="p-3 text-slate-400">Factor</th>
-                <th className="p-3 text-white">Phone farm hardware (one-time)</th>
+                <th className="p-3 text-slate-900">Phone farm hardware (one-time)</th>
                 <th className="p-3 text-slate-400">Cloud phone SaaS (recurring)</th>
               </tr>
             </thead>
@@ -208,7 +208,7 @@ export default function PricingPage() {
         </div>
 
         <div className="p-6 rounded-xl border border-amber-800/30 bg-amber-950/10 mb-14">
-          <h2 className="font-bold text-white mb-2">Bulk discount inquiry</h2>
+          <h2 className="font-bold text-slate-900 mb-2">Bulk discount inquiry</h2>
           <p className="text-sm text-slate-400 mb-4">
             Multi-box, mixed SKU, or custom cabinet projects — send a device matrix (quantity, Android/iPhone mix, empty vs
             with phones, connection mode, voltage region, country) and we return tiered pricing with lead time confirmed on quote.
@@ -230,26 +230,26 @@ export default function PricingPage() {
           </p>
           <p>
             Catalog:{" "}
-            <Link href="/products" className="text-amber-400 hover:underline">
+            <Link href="/products" className="link-accent">
               all products
             </Link>
             {" · "}
-            <Link href="/faq" className="text-amber-400 hover:underline">
+            <Link href="/faq" className="link-accent">
               ordering FAQ
             </Link>
             {" · "}
-            <Link href="/help/how-to-request-phone-farm-hardware-quote" className="text-amber-400 hover:underline">
+            <Link href="/help/how-to-request-phone-farm-hardware-quote" className="link-accent">
               how to request a quote
             </Link>
             {" · "}
-            <Link href="/help/delivery-process-phone-farm-hardware" className="text-amber-400 hover:underline">
+            <Link href="/help/delivery-process-phone-farm-hardware" className="link-accent">
               delivery process
             </Link>
           </p>
         </div>
 
         <div className="text-center p-10 rounded-2xl border border-[var(--border-accent)] bg-[var(--surface-card)]">
-          <h2 className="text-2xl font-bold text-white mb-3">Request Quote</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">Request Quote</h2>
           <p className="text-[var(--text-secondary)] mb-6">
             Share quantity, models, connection mode, voltage region, and destination — we reply with configuration and lead
             time confirmed on quote.

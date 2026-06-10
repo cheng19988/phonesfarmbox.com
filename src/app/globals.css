@@ -7,14 +7,14 @@
   --surface-elevated: #ffffff;
   --surface-card: #ffffff;
   --surface-card-hover: #f8fafc;
-  --border-subtle: rgba(15, 23, 42, 0.1);
-  --border-accent: rgba(217, 119, 6, 0.45);
+  --border-subtle: #cbd5e1;
+  --border-accent: #f97316;
   --accent: #c2410c;
   --accent-strong: #ea580c;
   --accent-glow: rgba(234, 88, 12, 0.12);
-  --text-secondary: #475569;
+  --text-secondary: #334155;
   --text-muted: #64748b;
-  --hero-overlay: rgba(255, 255, 255, 0.88);
+  --hero-overlay: rgba(255, 255, 255, 0.92);
 }
 
 @theme inline {
@@ -39,55 +39,67 @@ body {
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4 tracking-tight;
+  @apply text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight;
 }
 
 .section-subtitle {
-  @apply text-[var(--text-secondary)] text-lg mb-10 max-w-3xl leading-relaxed;
+  @apply text-slate-600 text-lg mb-10 max-w-3xl leading-relaxed;
 }
 
 .card {
-  @apply rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)] overflow-hidden shadow-sm shadow-slate-200/60;
+  @apply rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm shadow-slate-200/80;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 text-white font-semibold hover:from-orange-500 hover:to-amber-500 transition-all shadow-md shadow-orange-200/50 text-sm md:text-base;
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-xl bg-orange-600 text-white font-semibold border border-orange-700/30 hover:bg-orange-500 active:bg-orange-700 transition-colors shadow-md shadow-orange-600/25 text-sm md:text-base;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-slate-800 font-semibold hover:bg-slate-50 border border-slate-200 transition-all text-sm md:text-base;
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-slate-800 font-semibold border-2 border-slate-300 hover:border-slate-400 hover:bg-slate-50 active:bg-slate-100 transition-colors text-sm md:text-base shadow-sm;
 }
 
 .btn-outline {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-xl border border-orange-300 text-orange-700 font-semibold hover:bg-orange-50 transition-all text-sm md:text-base;
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-xl border-2 border-orange-500 bg-white text-orange-700 font-semibold hover:bg-orange-50 active:bg-orange-100 transition-colors text-sm md:text-base;
+}
+
+.input-field {
+  @apply w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500/25 focus:border-orange-500 transition-colors;
+}
+
+.link-accent {
+  @apply text-orange-700 hover:text-orange-600 font-medium transition-colors;
 }
 
 .badge-green {
-  @apply text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium;
+  @apply text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-medium;
 }
 
 .badge-yellow {
-  @apply text-xs px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-medium;
+  @apply text-xs px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-300 font-medium;
 }
 
 .badge-red {
-  @apply text-xs px-2.5 py-1 rounded-full bg-red-50 text-red-700 border border-red-200 font-medium;
+  @apply text-xs px-2.5 py-1 rounded-full bg-red-50 text-red-800 border border-red-300 font-medium;
+}
+
+.info-panel {
+  @apply rounded-xl border border-slate-200 bg-white p-5 shadow-sm;
 }
 
 .prose-content h2 {
-  @apply text-xl font-bold text-[var(--foreground)] mt-8 mb-3;
+  @apply text-xl font-bold text-slate-900 mt-8 mb-3;
 }
 
 .prose-content p {
-  @apply text-[var(--text-secondary)] leading-relaxed mb-4;
+  @apply text-slate-600 leading-relaxed mb-4;
 }
 
 .prose-content ul {
-  @apply list-disc list-inside text-[var(--text-secondary)] space-y-1 mb-4;
+  @apply list-disc list-inside text-slate-600 space-y-1 mb-4;
 }
 
 .trust-strip {
-  @apply grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--border-subtle)] shadow-sm;
+  @apply grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-slate-200 bg-slate-200 shadow-sm;
 }
 
 .trust-strip-item {
@@ -99,5 +111,5 @@ body {
 }
 
 .eyebrow {
-  @apply text-[var(--accent-strong)] text-xs font-semibold uppercase tracking-[0.18em];
+  @apply text-orange-700 text-xs font-semibold uppercase tracking-[0.18em];
 }

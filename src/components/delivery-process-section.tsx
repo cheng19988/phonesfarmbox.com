@@ -16,16 +16,16 @@ export function DeliveryProcessSection({
 
   if (variant === "compact") {
     return (
-      <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-5">
-        <h3 className="font-semibold text-white text-sm mb-3">{title}</h3>
-        <ol className="grid sm:grid-cols-2 gap-3 text-xs text-slate-400">
+      <div className="info-panel">
+        <h3 className="font-semibold text-slate-900 text-sm mb-3">{title}</h3>
+        <ol className="grid sm:grid-cols-2 gap-3 text-xs text-slate-600">
           {steps.map((s) => (
             <li key={s.step} className="flex gap-2">
-              <span className="shrink-0 w-5 h-5 rounded-full bg-emerald-900/40 text-emerald-400 flex items-center justify-center font-mono text-[10px]">
+              <span className="shrink-0 w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono text-[10px]">
                 {s.step}
               </span>
               <span>
-                <span className="text-slate-300 font-medium">{s.title}</span>
+                <span className="text-slate-800 font-medium">{s.title}</span>
                 {" — "}
                 {s.detail}
               </span>
@@ -35,11 +35,11 @@ export function DeliveryProcessSection({
         {showCta && (
           <p className="text-xs text-slate-500 mt-3">
             Full delivery flow:{" "}
-            <Link href="/pricing#delivery-process" className="text-amber-400 hover:underline">
+            <Link href="/pricing#delivery-process" className="link-accent">
               pricing page
             </Link>
             {" · "}
-            <Link href="/help/delivery-process-phone-farm-hardware" className="text-amber-400 hover:underline">
+            <Link href="/help/delivery-process-phone-farm-hardware" className="link-accent">
               delivery guide
             </Link>
           </p>
@@ -50,19 +50,19 @@ export function DeliveryProcessSection({
 
   return (
     <section id="delivery-process" className="mb-14">
-      <h2 className="text-xl font-bold text-white mb-2">{title}</h2>
-      <p className="text-sm text-slate-500 mb-6">
+      <h2 className="text-xl font-bold text-slate-900 mb-2">{title}</h2>
+      <p className="text-sm text-slate-600 mb-6">
         After quote approval and payment confirmation — assembly, QC, packing, and shipment steps vary by configuration. No platform outcome guarantees.
       </p>
       <ol className="space-y-4">
         {steps.map((s) => (
-          <li key={s.step} className="flex gap-4 items-start p-4 rounded-lg border border-slate-800 bg-slate-900/30">
-            <span className="shrink-0 w-8 h-8 rounded-full bg-emerald-900/50 text-emerald-400 flex items-center justify-center font-bold text-sm">
+          <li key={s.step} className="flex gap-4 items-start p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+            <span className="shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center justify-center font-bold text-sm">
               {s.step}
             </span>
             <div>
-              <h3 className="font-semibold text-white">{s.title}</h3>
-              <p className="text-sm text-slate-400 mt-1">{s.detail}</p>
+              <h3 className="font-semibold text-slate-900">{s.title}</h3>
+              <p className="text-sm text-slate-600 mt-1">{s.detail}</p>
             </div>
           </li>
         ))}

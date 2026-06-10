@@ -19,7 +19,7 @@ export default function ToolsIndexPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PLANNING_TOOLS.map((t) => (
             <Link key={t.slug} href={`/tools/${t.slug}`} className="block p-6 rounded-xl border border-slate-800 hover:border-amber-800/50 transition-colors">
-              <h2 className="font-bold text-white">{t.title}</h2>
+              <h2 className="font-bold text-slate-900">{t.title}</h2>
               <p className="text-sm text-slate-400 mt-2">{t.description}</p>
               <span className="text-xs text-amber-400 mt-4 inline-block">
                 {t.interactive ? "Open estimator →" : "Read guide →"}

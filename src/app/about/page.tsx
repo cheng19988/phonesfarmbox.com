@@ -52,7 +52,7 @@ export default function AboutPage() {
         <div className="trust-strip max-w-4xl mb-16">
           {STATS.map((item) => (
             <div key={item.label} className="trust-strip-item">
-              <div className="text-2xl font-bold text-white mb-1">{item.stat}</div>
+              <div className="text-2xl font-bold text-slate-900 mb-1">{item.stat}</div>
               <div className="text-xs text-[var(--text-muted)] uppercase tracking-wide">{item.label}</div>
             </div>
           ))}
@@ -63,7 +63,7 @@ export default function AboutPage() {
           {WHAT_WE_BUILD.map((item) => (
             <Link key={item.href} href={item.href}>
               <Surface padding="md" hover className="h-full">
-                <h3 className="font-semibold text-white mb-1">{item.title}</h3>
+                <h3 className="font-semibold text-slate-900 mb-1">{item.title}</h3>
                 <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
               </Surface>
             </Link>
@@ -83,11 +83,11 @@ export default function AboutPage() {
             <ol className="space-y-4">
               {FACTORY_STEPS.map((s, i) => (
                 <li key={s.title} className="flex gap-4">
-                  <span className="shrink-0 w-9 h-9 rounded-xl bg-amber-950/50 border border-amber-900/40 text-amber-400 flex items-center justify-center text-sm font-bold">
+                  <span className="shrink-0 w-9 h-9 rounded-xl bg-orange-100 border border-orange-200 text-orange-700 flex items-center justify-center text-sm font-bold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">{s.title}</h3>
+                    <h3 className="font-semibold text-slate-900">{s.title}</h3>
                     <p className="text-sm text-[var(--text-secondary)] mt-0.5">{s.desc}</p>
                   </div>
                 </li>
@@ -96,7 +96,7 @@ export default function AboutPage() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <Surface padding="md">
-              <h2 className="font-bold text-white mb-4">Quality control</h2>
+              <h2 className="font-bold text-slate-900 mb-4">Quality control</h2>
               <ul className="space-y-2">
                 {QC_CHECKLIST.map((item) => (
                   <li key={item} className="flex gap-2 text-sm text-[var(--text-secondary)]">
@@ -107,7 +107,7 @@ export default function AboutPage() {
               </ul>
             </Surface>
             <Surface padding="md">
-              <h2 className="font-bold text-white mb-4">Export packing</h2>
+              <h2 className="font-bold text-slate-900 mb-4">Export packing</h2>
               <ul className="space-y-2">
                 {PACKING_LIST_STANDARD.map((item) => (
                   <li key={item} className="flex gap-2 text-sm text-[var(--text-secondary)]">
@@ -125,17 +125,17 @@ export default function AboutPage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           <Surface padding="md">
-            <h2 className="font-bold text-white mb-2">After-sales support</h2>
+            <h2 className="font-bold text-slate-900 mb-2">After-sales support</h2>
             <p className="text-sm text-[var(--text-secondary)]">
               Remote batch-control onboarding, wiring troubleshooting, and spare-part guidance via WhatsApp or Telegram. Hardware warranty terms on proforma invoice — typically 12 months on chassis and PSU for standard boxes.
             </p>
           </Surface>
           <Surface padding="md">
-            <h2 className="font-bold text-white mb-2">Custom configuration</h2>
+            <h2 className="font-bold text-slate-900 mb-2">Custom configuration</h2>
             <p className="text-sm text-[var(--text-secondary)]">
               Node counts, chassis dimensions, cooling layouts, tray designs, and rack integrations quoted to your device matrix. Share target quantity and models — we return a BOM before payment.
             </p>
-            <Link href="/contact" className="inline-block mt-3 text-sm text-amber-400 hover:underline">Request custom quote →</Link>
+            <Link href="/contact" className="inline-block mt-3 text-sm link-accent">Request custom quote →</Link>
           </Surface>
         </div>
 
@@ -149,15 +149,15 @@ export default function AboutPage() {
           {IMPORTED.factoryGallery.map((img) => (
             <div key={img.src} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[var(--border-subtle)]">
               <Image src={img.src} alt={img.label} fill className="object-cover" sizes="(max-width:768px) 50vw, 25vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060a12]/80 via-transparent to-transparent flex items-end p-3">
-                <span className="text-white text-xs leading-snug">{img.label}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-transparent to-transparent flex items-end p-3">
+                <span className="text-white text-xs leading-snug font-medium">{img.label}</span>
               </div>
             </div>
           ))}
         </div>
 
         <Surface padding="md" className="mb-12">
-          <h2 className="font-bold text-white mb-3">Official contact channels</h2>
+          <h2 className="font-bold text-slate-900 mb-3">Official contact channels</h2>
           <ul className="text-sm text-[var(--text-secondary)] space-y-1">
             <li>Phone: {CONTACT.phone}</li>
             <li>WhatsApp: {CONTACT.whatsapp}</li>

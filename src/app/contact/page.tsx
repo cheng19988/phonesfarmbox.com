@@ -56,7 +56,7 @@ export default function ContactPage() {
 
           <aside className="space-y-6">
             <Surface padding="md">
-              <h2 className="font-bold text-white mb-3">Include in your RFQ</h2>
+              <h2 className="font-bold text-slate-900 mb-3">Include in your RFQ</h2>
               <ul className="space-y-2 text-sm text-[var(--text-secondary)]">
                 {INQUIRY_CHECKLIST.map((item) => (
                   <li key={item} className="flex gap-2">
@@ -68,48 +68,48 @@ export default function ContactPage() {
             </Surface>
 
             <Surface padding="md">
-              <h2 className="font-bold text-white mb-3">Example inquiry</h2>
+              <h2 className="font-bold text-slate-900 mb-3">Example inquiry</h2>
               <p className="text-xs text-[var(--text-secondary)] whitespace-pre-wrap leading-relaxed font-mono">{SAMPLE_INQUIRY}</p>
             </Surface>
 
             <Surface padding="md">
-              <h2 className="font-bold text-white mb-3">Quote &amp; delivery</h2>
+              <h2 className="font-bold text-slate-900 mb-3">Quote &amp; delivery</h2>
               <p className="text-sm text-[var(--text-secondary)] mb-4">
                 Full quote workflow, packing documentation, and post-payment steps are on our pricing page — avoid duplicating process blocks here.
               </p>
               <div className="flex flex-col gap-2">
-                <Link href="/pricing#quote-process" className="text-sm text-amber-400 hover:text-amber-300 font-medium">
+                <Link href="/pricing#quote-process" className="text-sm link-accent font-medium">
                   Quote process →
                 </Link>
-                <Link href="/pricing#delivery" className="text-sm text-amber-400 hover:text-amber-300 font-medium">
+                <Link href="/pricing#delivery" className="text-sm link-accent font-medium">
                   Delivery &amp; packing →
                 </Link>
-                <Link href="/help/usdt-payment-confirmation-hardware-orders" className="text-sm text-amber-400 hover:text-amber-300 font-medium">
+                <Link href="/help/usdt-payment-confirmation-hardware-orders" className="text-sm link-accent font-medium">
                   USDT payment guide →
                 </Link>
               </div>
             </Surface>
 
             <Surface padding="md">
-              <h2 className="font-bold text-white mb-3">Direct lines</h2>
+              <h2 className="font-bold text-slate-900 mb-3">Direct lines</h2>
               <ContactBar />
               <ul className="mt-4 space-y-2 text-sm text-[var(--text-secondary)]">
                 <li>Phone: {CONTACT.phone}</li>
                 <li>
                   WhatsApp:{" "}
-                  <a href={CONTACT.whatsappUrl} className="text-amber-400 hover:underline">
+                  <a href={CONTACT.whatsappUrl} className="link-accent">
                     {CONTACT.whatsapp}
                   </a>
                 </li>
                 <li>
                   Telegram:{" "}
-                  <a href={CONTACT.telegramUrl} className="text-amber-400 hover:underline">
+                  <a href={CONTACT.telegramUrl} className="link-accent">
                     {CONTACT.telegram}
                   </a>
                 </li>
                 <li>
                   Email:{" "}
-                  <a href={`mailto:${CONTACT.email}`} className="text-amber-400 hover:underline">
+                  <a href={`mailto:${CONTACT.email}`} className="link-accent">
                     {CONTACT.email}
                   </a>
                 </li>
@@ -122,11 +122,11 @@ export default function ContactPage() {
 
         <p className="text-center text-sm text-[var(--text-muted)] mt-12">
           Browse first:{" "}
-          <Link href="/products" className="text-amber-400 hover:underline">product catalog</Link>
+          <Link href="/products" className="link-accent">product catalog</Link>
           {" · "}
-          <Link href="/pricing" className="text-amber-400 hover:underline">pricing tiers</Link>
+          <Link href="/pricing" className="link-accent">pricing tiers</Link>
           {" · "}
-          <Link href="/faq" className="text-amber-400 hover:underline">FAQ</Link>
+          <Link href="/faq" className="link-accent">FAQ</Link>
         </p>
       </Section>
     </>

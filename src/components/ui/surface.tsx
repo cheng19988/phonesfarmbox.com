@@ -33,7 +33,7 @@ export function CTABand({
   children: ReactNode;
 }) {
   return (
-    <Surface padding="lg" className="text-center bg-gradient-to-b from-[var(--surface-elevated)] to-[var(--surface-card)] border-[var(--border-accent)]">
+    <Surface padding="lg" className="text-center bg-gradient-to-b from-white to-orange-50/30 border-2 border-orange-200">
       <h2 className="text-2xl md:text-3xl font-bold text-[var(--foreground)] mb-3">{title}</h2>
       {description && <p className="text-[var(--text-secondary)] max-w-2xl mx-auto mb-8">{description}</p>}
       <div className="flex flex-wrap justify-center gap-4">{children}</div>

@@ -27,7 +27,7 @@ export default function SolutionsIndexPage() {
               )}
               <div className="p-6">
                 <span className="text-xs text-amber-400">{s.category}</span>
-                <h2 className="font-bold text-white mt-1 group-hover:text-amber-400 transition-colors">{s.title}</h2>
+                <h2 className="font-bold text-slate-900 mt-1 group-hover:text-orange-700 transition-colors">{s.title}</h2>
                 <p className="text-sm text-slate-400 mt-2 line-clamp-2">{s.subtitle}</p>
               </div>
             </Link>

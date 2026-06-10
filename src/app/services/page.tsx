@@ -27,7 +27,7 @@ export default function ServicesPage() {
             { title: "Enterprise project management", desc: "Dedicated engineering contact for 50+ device racks and custom cabinet builds." },
           ].map((item) => (
             <div key={item.title} className="card p-5">
-              <h2 className="font-semibold text-white mb-2">{item.title}</h2>
+              <h2 className="font-semibold text-slate-900 mb-2">{item.title}</h2>
               <p className="text-sm text-slate-400">{item.desc}</p>
             </div>
           ))}
@@ -40,7 +40,7 @@ export default function ServicesPage() {
                 <Image src={svc.image} alt={svc.title} fill className="object-cover group-hover:scale-105 transition-transform" />
               </div>
               <div className="p-6">
-                <h2 className="text-xl font-bold text-white mb-2">{svc.title}</h2>
+                <h2 className="text-xl font-bold text-slate-900 mb-2">{svc.title}</h2>
                 <p className="text-slate-400 text-sm mb-4">{svc.description}</p>
                 <Link href={`/contact?service=${svc.slug}`} className="text-amber-400 text-sm hover:text-amber-300">
                   Request this service →

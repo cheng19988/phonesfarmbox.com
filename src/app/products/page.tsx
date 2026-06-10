@@ -92,7 +92,7 @@ export default async function ProductsPage({
 
       <Section>
         <ProductModelStrip />
-        <Surface padding="md" className="mb-10 flex flex-wrap items-center justify-between gap-4 border-[var(--border-accent)]">
+        <Surface padding="md" className="mb-10 flex flex-wrap items-center justify-between gap-4 border-orange-200">
           <div>
             <p className="font-semibold text-slate-900">Need a bulk or custom quote?</p>
             <p className="text-sm text-[var(--text-secondary)] mt-1">
@@ -132,10 +132,10 @@ export default async function ProductsPage({
 
         <div className="flex gap-4 mb-12 text-sm text-[var(--text-muted)]">
           <span>Sort:</span>
-          <Link href={buildProductsHref({ sort: "price-asc" })} className="hover:text-amber-400">
+          <Link href={buildProductsHref({ sort: "price-asc" })} className="hover:text-orange-700">
             Price ↑
           </Link>
-          <Link href={buildProductsHref({ sort: "price-desc" })} className="hover:text-amber-400">
+          <Link href={buildProductsHref({ sort: "price-desc" })} className="hover:text-orange-700">
             Price ↓
           </Link>
         </div>
@@ -143,7 +143,7 @@ export default async function ProductsPage({
         {products.length === 0 ? (
           <p className="text-[var(--text-secondary)]">
             No products in this category.{" "}
-            <Link href="/contact" className="text-amber-400 hover:underline">
+            <Link href="/contact" className="link-accent">
               Contact us
             </Link>
           </p>

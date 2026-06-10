@@ -33,7 +33,7 @@ export default function FAQPage() {
             const items = FAQ_ITEMS.filter((f) => f.category === cat);
             return (
               <div key={cat} className="mb-12">
-                <h2 className="text-xl font-bold text-white mb-4">{cat}</h2>
+                <h2 className="text-xl font-bold text-slate-900 mb-4">{cat}</h2>
                 <FAQAccordion
                     items={items.map((item) => ({
                       question: item.question,
@@ -43,7 +43,7 @@ export default function FAQPage() {
                           {item.productLink && (
                             <>
                               {" "}
-                              <Link href={item.productLink} className="text-amber-400 hover:underline">
+                              <Link href={item.productLink} className="link-accent">
                                 Learn more →
                               </Link>
                             </>
@@ -58,9 +58,9 @@ export default function FAQPage() {
 
           <p className="text-sm text-[var(--text-muted)] mb-10">
             Still deciding on configuration?{" "}
-            <Link href="/contact" className="text-amber-400 hover:underline">Request a quote</Link>
+            <Link href="/contact" className="link-accent">Request a quote</Link>
             {" or browse "}
-            <Link href="/products" className="text-amber-400 hover:underline">product catalog</Link>.
+            <Link href="/products" className="link-accent">product catalog</Link>.
           </p>
 
           <ContactCTA title="Project-specific question?" />

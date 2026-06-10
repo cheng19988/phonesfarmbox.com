@@ -49,7 +49,7 @@ export async function Header() {
           {session && (
             <Link
               href={session.role === "admin" ? "/admin" : "/account/orders"}
-              className="hidden lg:inline text-xs text-[var(--text-muted)] hover:text-white px-2"
+              className="hidden lg:inline text-xs text-slate-500 hover:text-slate-900 px-2"
             >
               Account
             </Link>

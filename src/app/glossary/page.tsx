@@ -21,7 +21,7 @@ export default function GlossaryIndexPage() {
         <div className="space-y-4">
           {sorted.map((t) => (
             <Link key={t.slug} href={`/glossary/${t.slug}`} className="card p-5 block hover:border-amber-800 transition-colors group">
-              <h2 className="font-bold text-white group-hover:text-amber-400 transition-colors">{t.term}</h2>
+              <h2 className="font-bold text-slate-900 group-hover:text-orange-700 transition-colors">{t.term}</h2>
               <p className="text-sm text-slate-400 mt-1">{t.shortDef}</p>
             </Link>
           ))}
