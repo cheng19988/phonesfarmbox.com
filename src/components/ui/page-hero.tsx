@@ -69,7 +69,7 @@ export function PageHero({
         className={`relative ${
           leftTextHero
             ? isHome
-              ? "flex flex-col justify-center min-h-[78vh] md:min-h-[82vh] py-16 md:py-24 px-5 sm:px-8 lg:px-12 xl:px-16"
+              ? "container-wide flex flex-col justify-center min-h-[78vh] md:min-h-[82vh] py-16 md:py-24"
               : "px-5 sm:px-8 lg:px-12 xl:px-16"
             : `container-wide ${isHome ? "flex flex-col justify-center min-h-[78vh] md:min-h-[82vh] py-16 md:py-24" : ""}`
         }`}
@@ -79,7 +79,7 @@ export function PageHero({
             leftTextHero
               ? `${
                   isHome
-                    ? "max-w-xl lg:max-w-[34rem] xl:max-w-[36rem]"
+                    ? "max-w-xl lg:max-w-[34rem] xl:max-w-[36rem] lg:ml-6 xl:ml-10"
                     : "max-w-xl md:max-w-2xl mr-auto"
                 } rounded-2xl border border-slate-200/90 bg-white/90 backdrop-blur-md shadow-lg shadow-slate-300/40 p-6 sm:p-8`
               : undefined
