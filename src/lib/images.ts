@@ -16,15 +16,15 @@ const modelMains = getAllModelMainImages();
 
 /** Real product / factory photos imported from provided asset libraries (watermarks OK). */
 export const IMPORTED = {
-  homeHero: HERO_IMAGES.home,
-  pageHero: HERO_IMAGES["hero-2"],
+  homeHero: HERO_IMAGES["home"] ?? "/images/hero-import/hero-clean-01.webp",
+  pageHero: HERO_IMAGES["hero-2"] ?? "/images/hero-import/hero-clean-02.webp",
   factoryHero: FACTORY_DEPLOY_IMAGES[0] ?? "/images/factory/deploy-01.webp",
   factoryGallery: FACTORY_DEPLOY_IMAGES.slice(0, 6).map((src, i) => ({
     src,
     label: ["Room-scale deployment", "Stacked farm units", "Production batch", "Export-ready layout", "Multi-rack reference", "Operations floor"][i] ?? "Deployment reference",
   })),
   whiteBgGallery: [
-    HERO_IMAGES.home,
+    HERO_IMAGES["home"],
     HERO_IMAGES["hero-2"],
     HERO_IMAGES["hero-3"],
     ...MOTHERBOARD_GALLERY.slice(0, 3),

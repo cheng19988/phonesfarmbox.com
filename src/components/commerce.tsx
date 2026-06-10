@@ -16,13 +16,16 @@ type ProductCardProps = {
   category: string;
 };
 
+const CARD_FALLBACK = "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.webp";
+
 export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard, category }: ProductCardProps) {
   const waText = encodeURIComponent(`Hi, I'd like a quote for ${name} (${slug}). Device count: `);
+  const imgSrc = imageCard?.trim() || CARD_FALLBACK;
   return (
     <article className="card group flex flex-col h-full">
       <Link href={`/products/${slug}`} className="block relative aspect-[4/5] overflow-hidden bg-white">
         <Image
-          src={imageCard}
+          src={imgSrc}
           alt={name}
           fill
           className="object-contain p-4 group-hover:scale-[1.02] transition-transform duration-500"

@@ -121,8 +121,8 @@ export default async function ProductsPage({
               href={buildProductsHref({ category: cat })}
               className={`px-4 py-2 rounded-xl text-sm font-medium border transition-colors ${
                 params.category === cat
-                  ? "border-amber-600/60 bg-amber-950/30 text-amber-300"
-                  : "border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-white"
+                  ? "border-orange-400 bg-orange-50 text-orange-800"
+                  : "border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-white"
               }`}
             >
               {cat}
