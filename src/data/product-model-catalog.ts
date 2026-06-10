@@ -20,7 +20,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "variant": "Super Change ROM",
     "images": {
       "gallery": [
-        "/images/products/models/pixel-4xl-super-change-gallery-product-box-phone-farm-pixel-4xl-super-change-co.png"
+        "/images/products/models/pixel-4xl-super-change-gallery-product-box-phone-farm-pixel-4xl-super-change-co.webp"
       ]
     }
   },
@@ -30,7 +30,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "variant": "Super Change ROM",
     "images": {
-      "main": "/images/products/models/nubia-z17-main-product-box-phone-farm-nubia-z17-super-change-us.png",
+      "main": "/images/products/models/nubia-z17-main-product-box-phone-farm-nubia-z17-super-change-us.webp",
       "gallery": []
     }
   },
@@ -40,7 +40,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "variant": "Super Change ROM",
     "images": {
-      "main": "/images/products/models/oneplus-5-super-change-main-product-box-phone-farm-oneplus-5-super-change-us.png",
+      "main": "/images/products/models/oneplus-5-super-change-main-product-box-phone-farm-oneplus-5-super-change-us.webp",
       "gallery": []
     }
   },
@@ -51,7 +51,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "storage": "128GB",
     "connection": "USB · LAN · OTG",
     "images": {
-      "main": "/images/products/models/oneplus-8-pro-main-product-box-phone-farm-oneplus-8-pro-8-128gb-usb.png",
+      "main": "/images/products/models/oneplus-8-pro-main-product-box-phone-farm-oneplus-8-pro-8-128gb-usb.webp",
       "gallery": []
     }
   },
@@ -63,7 +63,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/a908n-main-product-box-phone-farm-a908n-6-128gb-usb-lan-otg.png",
+      "main": "/images/products/models/a908n-main-product-box-phone-farm-a908n-6-128gb-usb-lan-otg.webp",
       "gallery": []
     }
   },
@@ -75,7 +75,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "board": "Black circuit board",
     "images": {
       "gallery": [
-        "/images/products/models/note-10-lite-change-other-product-box-phone-farm-note-10-lite-change-usb-l.png"
+        "/images/products/models/note-10-lite-change-other-product-box-phone-farm-note-10-lite-change-usb-l.webp"
       ]
     }
   },
@@ -87,7 +87,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/note-20-main-product-box-phone-farm-note-20-8-256gb-usb-lan-o.png",
+      "main": "/images/products/models/note-20-main-product-box-phone-farm-note-20-8-256gb-usb-lan-o.webp",
       "gallery": []
     }
   },
@@ -99,7 +99,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/note-8-main-product-box-phone-farm-note-8-6-64gb-usb-lan-otg.png",
+      "main": "/images/products/models/note-8-main-product-box-phone-farm-note-8-6-64gb-usb-lan-otg.webp",
       "gallery": []
     }
   },
@@ -109,7 +109,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "variant": "Super Change ROM",
     "images": {
-      "main": "/images/products/models/note-8-super-change-main-product-box-phone-farm-note-8-super-change-usb-p.png",
+      "main": "/images/products/models/note-8-super-change-main-product-box-phone-farm-note-8-super-change-usb-p.webp",
       "gallery": []
     }
   },
@@ -121,7 +121,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/note-9-main-product-box-phone-farm-note-9-6-128gb-usb-lan-ot.png",
+      "main": "/images/products/models/note-9-main-product-box-phone-farm-note-9-6-128gb-usb-lan-ot.webp",
       "gallery": []
     }
   },
@@ -131,7 +131,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/s10-main-product-box-phone-farm-s10-usb-lan-otg-port-with.png",
+      "main": "/images/products/models/s10-main-product-box-phone-farm-s10-usb-lan-otg-port-with.webp",
       "gallery": []
     }
   },
@@ -142,7 +142,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "variant": "Change ROM",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/s10-change-main-product-box-phone-farm-s10-change-usb-lan-otg-po.png",
+      "main": "/images/products/models/s10-change-main-product-box-phone-farm-s10-change-usb-lan-otg-po.webp",
       "gallery": []
     }
   },
@@ -154,7 +154,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/s20-main-product-box-phone-farm-s20-8-128gb-usb-lan-otg-b.png",
+      "main": "/images/products/models/s20-main-product-box-phone-farm-s20-8-128gb-usb-lan-otg-b.webp",
       "gallery": []
     }
   },
@@ -166,9 +166,9 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.png",
+      "main": "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.webp",
       "gallery": [
-        "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.png"
+        "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.webp"
       ]
     }
   },
@@ -178,7 +178,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN",
     "variant": "Latest generation chassis",
     "images": {
-      "main": "/images/products/models/s8-main-product-box-phone-farm-s8-s8-latest-generation-2.png",
+      "main": "/images/products/models/s8-main-product-box-phone-farm-s8-s8-latest-generation-2.webp",
       "gallery": [
         "/images/products/models/s8-main-product-perangkat-s8-s8-dijual-terpisah-dipasang.jpg",
         "/images/products/models/s8-gallery-product-perangkat-s8-s8-dijual-terpisah-dipasang.jpg",
@@ -193,9 +193,9 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN",
     "variant": "Change ROM",
     "images": {
-      "main": "/images/products/models/s8-change-main-product-box-phone-farm-s8-change-latest-generati.png",
+      "main": "/images/products/models/s8-change-main-product-box-phone-farm-s8-change-latest-generati.webp",
       "gallery": [
-        "/images/products/models/s8-change-gallery-product-box-phone-farm-change-generasi-terbaru-2.png"
+        "/images/products/models/s8-change-gallery-product-box-phone-farm-change-generasi-terbaru-2.webp"
       ]
     }
   },
@@ -205,7 +205,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "variant": "Super Change ROM",
     "images": {
-      "main": "/images/products/models/s8-super-change-main-product-box-phone-farm-s8-super-change-usb-port-.png",
+      "main": "/images/products/models/s8-super-change-main-product-box-phone-farm-s8-super-change-usb-port-.webp",
       "gallery": []
     }
   },
@@ -216,7 +216,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "variant": "Latest generation chassis",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/s9-main-product-box-phone-farm-s9-s9-latest-generation-2.png",
+      "main": "/images/products/models/s9-main-product-box-phone-farm-s9-s9-latest-generation-2.webp",
       "gallery": []
     }
   },
@@ -228,7 +228,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/z-flip3-main-product-box-phone-farm-z-flip3-8-128gb-usb-lan-o.png",
+      "main": "/images/products/models/z-flip3-main-product-box-phone-farm-z-flip3-8-128gb-usb-lan-o.webp",
       "gallery": []
     }
   },
@@ -240,7 +240,7 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
     "connection": "USB · LAN · OTG",
     "board": "Black circuit board",
     "images": {
-      "main": "/images/products/models/z-flip4-main-product-box-phone-farm-z-flip4-8-128gb-usb-lan-o.png",
+      "main": "/images/products/models/z-flip4-main-product-box-phone-farm-z-flip4-8-128gb-usb-lan-o.webp",
       "gallery": []
     }
   }
@@ -248,111 +248,111 @@ export const PRODUCT_MODEL_CATALOG: ProductModelEntry[] = [
 
 export const SPEC_SLIDES: SpecSlide[] = [
   {
-    "src": "/images/products/specs/slide-01.png",
+    "src": "/images/products/specs/slide-01.webp",
     "label": "Specification slide 1"
   },
   {
-    "src": "/images/products/specs/slide-02.png",
+    "src": "/images/products/specs/slide-02.webp",
     "label": "Specification slide 2"
   },
   {
-    "src": "/images/products/specs/slide-03.png",
+    "src": "/images/products/specs/slide-03.webp",
     "label": "Specification slide 3"
   },
   {
-    "src": "/images/products/specs/slide-04.png",
+    "src": "/images/products/specs/slide-04.webp",
     "label": "Specification slide 4"
   },
   {
-    "src": "/images/products/specs/slide-05.png",
+    "src": "/images/products/specs/slide-05.webp",
     "label": "Specification slide 5"
   },
   {
-    "src": "/images/products/specs/slide-06.png",
+    "src": "/images/products/specs/slide-06.webp",
     "label": "Specification slide 6"
   },
   {
-    "src": "/images/products/specs/slide-07.png",
+    "src": "/images/products/specs/slide-07.webp",
     "label": "Specification slide 7"
   },
   {
-    "src": "/images/products/specs/slide-08.png",
+    "src": "/images/products/specs/slide-08.webp",
     "label": "Specification slide 8"
   },
   {
-    "src": "/images/products/specs/slide-09.png",
+    "src": "/images/products/specs/slide-09.webp",
     "label": "Specification slide 9"
   },
   {
-    "src": "/images/products/specs/slide-10.png",
+    "src": "/images/products/specs/slide-10.webp",
     "label": "Specification slide 10"
   },
   {
-    "src": "/images/products/specs/slide-11.png",
+    "src": "/images/products/specs/slide-11.webp",
     "label": "Specification slide 11"
   },
   {
-    "src": "/images/products/specs/slide-12.png",
+    "src": "/images/products/specs/slide-12.webp",
     "label": "Specification slide 12"
   },
   {
-    "src": "/images/products/specs/slide-13.png",
+    "src": "/images/products/specs/slide-13.webp",
     "label": "Specification slide 13"
   },
   {
-    "src": "/images/products/specs/slide-14.png",
+    "src": "/images/products/specs/slide-14.webp",
     "label": "Specification slide 14"
   },
   {
-    "src": "/images/products/specs/slide-15.png",
+    "src": "/images/products/specs/slide-15.webp",
     "label": "Specification slide 15"
   },
   {
-    "src": "/images/products/specs/slide-16.png",
+    "src": "/images/products/specs/slide-16.webp",
     "label": "Specification slide 16"
   },
   {
-    "src": "/images/products/specs/slide-17.png",
+    "src": "/images/products/specs/slide-17.webp",
     "label": "Specification slide 17"
   },
   {
-    "src": "/images/products/specs/slide-18.png",
+    "src": "/images/products/specs/slide-18.webp",
     "label": "Specification slide 18"
   },
   {
-    "src": "/images/products/specs/slide-19.png",
+    "src": "/images/products/specs/slide-19.webp",
     "label": "Specification slide 19"
   },
   {
-    "src": "/images/products/specs/slide-20.png",
+    "src": "/images/products/specs/slide-20.webp",
     "label": "Specification slide 20"
   }
 ];
 
 export const MOTHERBOARD_GALLERY: string[] = [
-  "/images/products/motherboard/mb-01.png",
-  "/images/products/motherboard/mb-02.png",
-  "/images/products/motherboard/mb-03.png",
-  "/images/products/motherboard/mb-04.png",
-  "/images/products/motherboard/mb-05.png",
-  "/images/products/motherboard/mb-06.png",
-  "/images/products/motherboard/mb-07.png",
-  "/images/products/motherboard/mb-08.png"
+  "/images/products/motherboard/mb-01.webp",
+  "/images/products/motherboard/mb-02.webp",
+  "/images/products/motherboard/mb-03.webp",
+  "/images/products/motherboard/mb-04.webp",
+  "/images/products/motherboard/mb-05.webp",
+  "/images/products/motherboard/mb-06.webp",
+  "/images/products/motherboard/mb-07.webp",
+  "/images/products/motherboard/mb-08.webp"
 ];
 
 export const HERO_IMAGES = {
-  "home": "/images/hero-import/hero-clean-01.png",
-  "hero-2": "/images/hero-import/hero-clean-02.png",
-  "hero-3": "/images/hero-import/hero-clean-03.png"
+  "home": "/images/hero-import/hero-clean-01.webp",
+  "hero-2": "/images/hero-import/hero-clean-02.webp",
+  "hero-3": "/images/hero-import/hero-clean-03.webp"
 } as const;
 
 export const FACTORY_DEPLOY_IMAGES: string[] = [
-  "/images/factory/deploy-01.jpg",
-  "/images/factory/deploy-02.jpg",
-  "/images/factory/deploy-03.jpg",
-  "/images/factory/deploy-04.jpg",
-  "/images/factory/deploy-05.jpg",
-  "/images/factory/deploy-06.jpg"
+  "/images/factory/deploy-01.webp",
+  "/images/factory/deploy-02.webp",
+  "/images/factory/deploy-03.webp",
+  "/images/factory/deploy-04.webp",
+  "/images/factory/deploy-05.webp",
+  "/images/factory/deploy-06.webp"
 ];
 
 export function getModelsForSku(sku: "phone-farm-box" | "android-phone-farm") {

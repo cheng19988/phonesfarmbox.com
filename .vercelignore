@@ -1,0 +1,14 @@
+# WebP copies are used in production; skip heavy source PNG/JPG to stay within deploy limits.
+public/images/products/models/*.png
+public/images/products/models/*.jpg
+public/images/products/models/*.jpeg
+public/images/products/specs/*.png
+public/images/products/motherboard/*.png
+public/images/hero-import/*.png
+public/images/hero-import/*.jpg
+public/images/hero-import/*.jpeg
+public/images/factory/*.png
+public/images/factory/*.jpg
+public/images/factory/*.jpeg
+public/images/products/import/*.png
+public/images/products/import/*.jpg

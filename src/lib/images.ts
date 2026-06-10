@@ -11,14 +11,14 @@ const card = (name: string) => `/images/card_800x800/${P}-${name}-card_800x800.w
 const hero = (name: string) => `/images/hero_1600x900/${P}-${name}-hero_1600x900.webp`;
 const detail = (name: string) => `/images/detail_1200x900/${P}-${name}-detail_1200x900.webp`;
 
-const primaryModel = getPrimaryModelImage() ?? "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-en-main-box-phone-farm-s21fe.png";
+const primaryModel = getPrimaryModelImage() ?? "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.webp";
 const modelMains = getAllModelMainImages();
 
 /** Real product / factory photos imported from provided asset libraries (watermarks OK). */
 export const IMPORTED = {
   homeHero: HERO_IMAGES.home,
   pageHero: HERO_IMAGES["hero-2"],
-  factoryHero: FACTORY_DEPLOY_IMAGES[0] ?? "/images/factory/deploy-01.jpg",
+  factoryHero: FACTORY_DEPLOY_IMAGES[0] ?? "/images/factory/deploy-01.webp",
   factoryGallery: FACTORY_DEPLOY_IMAGES.slice(0, 6).map((src, i) => ({
     src,
     label: ["Room-scale deployment", "Stacked farm units", "Production batch", "Export-ready layout", "Multi-rack reference", "Operations floor"][i] ?? "Deployment reference",

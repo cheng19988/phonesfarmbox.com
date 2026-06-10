@@ -11,6 +11,7 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "assets:import": "node scripts/import-product-models.mjs",
+    "assets:compress": "node scripts/compress-public-images.mjs",
     "images:check": "tsx scripts/check-product-images.ts",
     "images:import": "tsx scripts/prepare-product-image-import.ts",
     "postinstall": "prisma generate"
@@ -40,6 +41,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "tsx": "^4.22.4",
     "typescript": "^5"
