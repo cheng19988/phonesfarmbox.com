@@ -39,7 +39,7 @@ export async function Header() {
             href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex btn-secondary text-sm py-2.5 px-4"
+            className="hidden md:inline-flex btn-outline text-sm py-2.5 px-4"
           >
             WhatsApp
           </a>

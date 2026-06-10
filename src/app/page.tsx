@@ -19,9 +19,9 @@ export const metadata = buildMetadata({
 
 const TRUST_METRICS = [
   { value: "2017", label: "Supplier since" },
-  { value: "Guangzhou", label: "Factory & export hub" },
-  { value: "MOQ 1", label: "Sample orders welcome" },
-  { value: "Global", label: "Air & sea B2B export" },
+  { value: "Guangzhou", label: "Export hub" },
+  { value: "MOQ 1", label: "Samples welcome" },
+  { value: "Global", label: "Air & sea export" },
 ];
 
 export default async function HomePage() {
@@ -42,22 +42,30 @@ export default async function HomePage() {
         imageAlt="Phone farm box hardware"
         theme="light"
       >
-        <div className="flex flex-wrap gap-4 mb-12">
-          <Link href="/contact" className="btn-primary text-base px-8">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 mb-8">
+          <Link href="/contact" className="btn-primary text-base px-7 py-3 sm:w-auto text-center">
             Request Hardware Quote
           </Link>
-          <Link href="/products" className="btn-secondary text-base px-8">
+          <Link href="/products" className="btn-secondary text-base px-7 py-3 sm:w-auto text-center">
             Browse Catalog
           </Link>
-          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-outline text-base px-8">
+          <a
+            href={CONTACT.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline text-base px-7 py-3 sm:w-auto text-center"
+          >
             WhatsApp
           </a>
         </div>
-        <div className="trust-strip max-w-3xl">
-          {TRUST_METRICS.map((m) => (
-            <div key={m.label} className="trust-strip-item">
-              <div className="text-xl md:text-2xl font-bold text-slate-900 mb-1">{m.value}</div>
-              <div className="text-xs text-[var(--text-muted)] uppercase tracking-wide">{m.label}</div>
+        <div className="hero-trust-metrics">
+          {TRUST_METRICS.map((m, i) => (
+            <div key={m.label} className="hero-trust-metric">
+              {i > 0 && <span className="hero-trust-divider hidden sm:block" aria-hidden />}
+              <div className="font-bold text-slate-900 text-lg sm:text-xl leading-tight">{m.value}</div>
+              <div className="text-[11px] sm:text-xs text-[var(--text-muted)] uppercase tracking-wide mt-1">
+                {m.label}
+              </div>
             </div>
           ))}
         </div>
