@@ -76,10 +76,16 @@ export default function ServicesPage() {
                 </h2>
                 <p className="text-slate-600 text-sm mb-4 leading-relaxed">{svc.description}</p>
                 <Link
-                  href={`/contact?service=${svc.slug}`}
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-orange-700 group-hover:gap-2 transition-all"
+                  href={`/services/${svc.slug}`}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-orange-700 group-hover:gap-2 transition-all mr-4"
                 >
-                  Request this service <span aria-hidden>→</span>
+                  Service details <span aria-hidden>→</span>
+                </Link>
+                <Link
+                  href={`/contact?service=${svc.slug}`}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600 group-hover:text-orange-700 transition-all"
+                >
+                  Request quote <span aria-hidden>→</span>
                 </Link>
               </div>
             </article>

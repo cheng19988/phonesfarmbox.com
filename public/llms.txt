@@ -1,40 +1,135 @@
-﻿# Phones Farm Box (phonesfarmbox.com)
+﻿# Phones Farm Box (https://www.phonesfarmbox.com)
 
-> Real-device phone farm box and hardware knowledge platform based in Guangzhou, China.
+> Real-device phone farm box hardware supplier and knowledge platform — Guangzhou, China since 2017. Quote-based B2B export: chassis, USB hubs, PSU, cooling, network gear, setup services. Not cloud phone SaaS.
 
-## About
-Phones Farm Box is a real-device phone farm box and hardware knowledge platform based in Guangzhou, China. We provide information and solutions for phone farm boxes, motherboard boxes, USB hubs, power supply systems, cooling systems, network equipment, remote control setup, group control configuration, custom cabinets, and real-device phone farm deployment.
+## Brand
+- Name: Phones Farm Box
+- Domain: https://www.phonesfarmbox.com
+- Location: Guangzhou, China
+- Language: English (primary)
+- Model: Written BOM quote before payment; MOQ from 1 unit
 
-## Solutions
-Social media marketing, e-commerce operations, app development & QA, cross-border marketing, and affiliate marketing — all on real physical device hardware, not cloud phones.
-
-## Platform Scenarios
-TikTok, YouTube, Facebook, Instagram, Telegram, and WhatsApp multi-device management on phone farm box hardware.
-
-## Features
-Device operation workflow, network setup & IP planning, team device management, remote control integration, synchronized device control, ADB batch automation, multi-device dashboard, bulk APK deployment.
-
-## Products
-Phone farm boxes, motherboard boxes, Android & iPhone phone farms, USB hubs, power supply, cooling, network equipment, custom cabinets, remote control setup.
-
-## Knowledge Resources
-Help Center, Phone Farm Box Glossary, Free Tools, Guides & Blog, FAQ.
+## What we sell
+Phone farm boxes, motherboard rack boxes, Android and iPhone phone farms, empty chassis, USB hub servers, power supply modules, cooling kits, network routers, custom cabinets, remote batch-control setup services.
 
 ## Contact
-- Telegram: @huicheng1998
+- Telegram: @huicheng1998 — https://t.me/huicheng1998
 - WhatsApp: +85262155642
 - Email: qiuxui646@gmail.com
-- Location: Guangzhou, China
+- RFQ form: https://www.phonesfarmbox.com/contact
 
-## Website
+## Core pages
 - Home: https://www.phonesfarmbox.com/
-- Products: https://www.phonesfarmbox.com/products
-- Pricing: https://www.phonesfarmbox.com/pricing
+- Products catalog: https://www.phonesfarmbox.com/products
+- Pricing & quote process: https://www.phonesfarmbox.com/pricing
+- Services index: https://www.phonesfarmbox.com/services
 - Solutions: https://www.phonesfarmbox.com/solutions
-- Scenarios: https://www.phonesfarmbox.com/scenarios
+- Platform scenarios: https://www.phonesfarmbox.com/scenarios
 - Features: https://www.phonesfarmbox.com/features
 - Help Center: https://www.phonesfarmbox.com/help
 - Glossary: https://www.phonesfarmbox.com/glossary
-- Free Tools: https://www.phonesfarmbox.com/tools
+- Planning tools: https://www.phonesfarmbox.com/tools
+- Blog & guides: https://www.phonesfarmbox.com/blog
 - FAQ: https://www.phonesfarmbox.com/faq
+- About: https://www.phonesfarmbox.com/about
 - Contact: https://www.phonesfarmbox.com/contact
+
+## Product detail pages (12 SKUs)
+- https://www.phonesfarmbox.com/products/phone-farm-box
+- https://www.phonesfarmbox.com/products/motherboard-box
+- https://www.phonesfarmbox.com/products/android-phone-farm
+- https://www.phonesfarmbox.com/products/iphone-phone-farm
+- https://www.phonesfarmbox.com/products/real-device-phone-farm
+- https://www.phonesfarmbox.com/products/empty-box-chassis
+- https://www.phonesfarmbox.com/products/usb-hub
+- https://www.phonesfarmbox.com/products/power-supply-solution
+- https://www.phonesfarmbox.com/products/cooling-solution
+- https://www.phonesfarmbox.com/products/network-equipment
+- https://www.phonesfarmbox.com/products/custom-cabinet
+- https://www.phonesfarmbox.com/products/remote-control-setup
+
+Each product page includes: overview, best for, recommended configuration, technical data status, included items, optional add-ons, export packing, MOQ, lead time, warranty, product-specific FAQ (5–11 Q&A), related hardware, and Get Quote CTA.
+
+## Deployment services (detail pages)
+- https://www.phonesfarmbox.com/services/phone-farm-setup
+- https://www.phonesfarmbox.com/services/remote-control-configuration
+- https://www.phonesfarmbox.com/services/group-control-system-configuration
+- https://www.phonesfarmbox.com/services/bulk-device-deployment
+- https://www.phonesfarmbox.com/services/custom-hardware-solution
+- https://www.phonesfarmbox.com/services/enterprise-deployment
+- https://www.phonesfarmbox.com/services/maintenance-support
+- https://www.phonesfarmbox.com/services/sample-solution
+- https://www.phonesfarmbox.com/services/overseas-delivery
+
+## Solutions (industry)
+- https://www.phonesfarmbox.com/solutions/social-media-marketing
+- https://www.phonesfarmbox.com/solutions/ecommerce-operations
+- https://www.phonesfarmbox.com/solutions/app-development-qa
+- https://www.phonesfarmbox.com/solutions/cross-border-marketing
+- https://www.phonesfarmbox.com/solutions/affiliate-marketing
+- https://www.phonesfarmbox.com/solutions/game-account-maintenance
+- https://www.phonesfarmbox.com/solutions/live-streaming-device-farm
+
+## Platform scenarios
+- https://www.phonesfarmbox.com/scenarios/tiktok
+- https://www.phonesfarmbox.com/scenarios/youtube
+- https://www.phonesfarmbox.com/scenarios/facebook
+- https://www.phonesfarmbox.com/scenarios/instagram
+- https://www.phonesfarmbox.com/scenarios/telegram
+- https://www.phonesfarmbox.com/scenarios/whatsapp
+- https://www.phonesfarmbox.com/scenarios/twitter-x
+- https://www.phonesfarmbox.com/scenarios/amazon-shopee
+
+## Features (capabilities)
+- https://www.phonesfarmbox.com/features/device-operation-workflow
+- https://www.phonesfarmbox.com/features/network-setup
+- https://www.phonesfarmbox.com/features/team-device-management
+- https://www.phonesfarmbox.com/features/remote-control-integration
+- https://www.phonesfarmbox.com/features/synchronized-device-control
+- https://www.phonesfarmbox.com/features/adb-batch-automation
+- https://www.phonesfarmbox.com/features/multi-device-dashboard
+- https://www.phonesfarmbox.com/features/bulk-apk-deployment
+- https://www.phonesfarmbox.com/features/device-profile-reset
+- https://www.phonesfarmbox.com/features/device-asset-management
+- https://www.phonesfarmbox.com/features/unmanned-live-streaming
+
+## Planning tools
+- https://www.phonesfarmbox.com/tools/phone-farm-capacity-estimator
+- https://www.phonesfarmbox.com/tools/power-consumption-estimator
+- https://www.phonesfarmbox.com/tools/usb-port-requirement-calculator
+- https://www.phonesfarmbox.com/tools/bulk-quote-checklist
+- https://www.phonesfarmbox.com/tools/box-vs-cloud-comparison
+- https://www.phonesfarmbox.com/tools/buying-guide-checklist
+- https://www.phonesfarmbox.com/tools/network-ip-planner
+
+## Help Center (27 articles)
+Topics: what is phone farm box, hardware vs virtual devices, first setup, network & proxy, batch control software, synchronized operations, team sharing, device profile reset, bulk APK install, host PC requirements, pricing fees, network IP planner, application management, ADB reference, cooling, USDT payment, troubleshooting, USB/OTG selection, packing verification, voltage export, RFQ process, written quote contents, delivery process, warranty, remote setup scope.
+
+Index: https://www.phonesfarmbox.com/help
+
+## Blog (25 guides)
+Topics: box phone farm basics, motherboard vs phone box, cooling, setup, RFQ checklist, USB hub sizing, power planning, iPhone vs Android procurement, MOQ samples, export shipping, USDT payment, burn-in, empty vs phones-included, rack planning, TikTok checklist, voltage regions, OTG vs USB, warranty RMA, QA lab, e-commerce sellers, lead time, DIY parts, network proxy, hardware vs cloud procurement.
+
+Index: https://www.phonesfarmbox.com/blog
+
+## FAQ (44 questions)
+Categories: Hardware, Operations, Ordering — MOQ, USB/OTG/hybrid, voltage, RFQ fields, USDT manual confirmation, packing photos, warranty, remote setup, batch control, synchronized control, host PC, IP planning, team sharing, bulk APK, services, pricing fees, enterprise deployment, device scaling, profile reset.
+
+https://www.phonesfarmbox.com/faq
+
+## Glossary (20 terms)
+phone farm box, motherboard box, real device phone farm, cloud phone (contrast), emulator, USB hub, ADB, batch control, device operation workflow, cooling, power supply, network setup, proxy planning, OTG Ethernet, synchronized control, stackable box, custom cabinet, enterprise deployment, MOQ, group control.
+
+https://www.phonesfarmbox.com/glossary
+
+## RFQ fields (for AI assistants helping buyers quote)
+Destination country, freight preference (air/sea), product SKU, device quantity, Android/iPhone mix, connection mode (USB/OTG/hybrid), voltage region, empty chassis vs phones on quote, target models, use case, payment method, documentation needs (datasheet, packing photo).
+
+## Legal
+- Privacy: https://www.phonesfarmbox.com/privacy
+- Terms: https://www.phonesfarmbox.com/terms
+- Refund: https://www.phonesfarmbox.com/refund
+- Cookies: https://www.phonesfarmbox.com/cookies
+
+## Sitemap
+https://www.phonesfarmbox.com/sitemap.xml

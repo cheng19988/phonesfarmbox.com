@@ -24,7 +24,7 @@ import {
   SPEC_SLIDES,
 } from "@/data/product-model-catalog";
 import { ContactCTA, JsonLd, StockBadge } from "@/components/shared";
-import { buildMetadata, productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { buildMetadata, productJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } from "@/lib/product-images";
 import { parseProductData } from "@/lib/product-profile";
 
@@ -102,6 +102,9 @@ export default async function ProductDetailPage({ params }: Props) {
             { name: "Products", path: "/products" },
             { name: product.name, path: `/products/${slug}` },
           ]),
+          ...(faq.length > 0
+            ? [faqJsonLd(faq.map((f) => ({ question: f.q, answer: f.a })))]
+            : []),
         ]}
       />
 

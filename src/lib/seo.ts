@@ -125,3 +125,36 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
     })),
   };
 }
+
+export function articleJsonLd(input: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.title,
+    description: input.description,
+    url: `${SITE.url}${input.path}`,
+    datePublished: input.datePublished,
+    author: { "@type": "Organization", name: SITE.name },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+    },
+  };
+}
+
+export function definedTermJsonLd(term: string, definition: string, path: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: term,
+    description: definition,
+    url: `${SITE.url}${path}`,
+    inDefinedTermSet: `${SITE.url}/glossary`,
+  };
+}

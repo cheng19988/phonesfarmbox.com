@@ -218,6 +218,90 @@ export const FAQ_ITEMS: FAQItem[] = [
       "Yes — MOQ 1 on most catalog SKUs. Sample lets you verify mount compatibility, cooling, and batch software before a bulk PO.",
     productLink: "/products",
   },
+  {
+    category: "Hardware",
+    question: "What is batch control on a phone farm?",
+    answer:
+      "Batch control is host PC software that lists, mirrors, or automates many real devices connected through USB hub trees. Phones Farm Box supplies chassis and hub wiring; you choose compatible control software for Android or iPhone stacks.",
+    productLink: "/help/batch-control-software-overview",
+  },
+  {
+    category: "Hardware",
+    question: "What is synchronized device control?",
+    answer:
+      "Synchronized control runs the same gesture or script across a device group. It requires adequate hub bandwidth, host PC resources, and cooling — group size limits depend on your quoted layout, not a fixed universal cap.",
+    productLink: "/help/synchronized-device-operations-guide",
+  },
+  {
+    category: "Hardware",
+    question: "What host PC do I need?",
+    answer:
+      "Depends on mirror count and software. Plan 8+ cores and 32 GB+ RAM for large Android mirror farms; add USB 3.x controller cards when exceeding onboard ports. Send node count and software name on RFQ for sizing notes on quote.",
+    productLink: "/help/host-pc-requirements-phone-farm",
+  },
+  {
+    category: "Operations",
+    question: "How do I plan IP addresses per device group?",
+    answer:
+      "Assign proxy, mobile data, or VLAN routes per group on your router plan. Use the Network IP Planner tool and network help articles, then include results in your RFQ so hub and router tiers match concurrent connections.",
+    productLink: "/tools/network-ip-planner",
+  },
+  {
+    category: "Operations",
+    question: "Can multiple team members share one phone farm?",
+    answer:
+      "Yes — group devices by client or project in batch-control software and label physical slots to match. Hardware access and software roles remain your operational security scope.",
+    productLink: "/help/team-device-sharing-setup",
+  },
+  {
+    category: "Operations",
+    question: "How does bulk APK install work?",
+    answer:
+      "Push the same APK to a selected device group via batch tools over USB. Large parallel installs need hub tier headroom — avoid mixing with heavy mirroring on the same host session.",
+    productLink: "/help/bulk-apk-install-guide",
+  },
+  {
+    category: "Operations",
+    question: "What deployment services do you offer?",
+    answer:
+      "Setup, remote control configuration, group control configuration, bulk deployment, custom hardware, enterprise racks, maintenance, samples, and overseas delivery — each with detail pages under Services.",
+    productLink: "/services",
+  },
+  {
+    category: "Ordering",
+    question: "Are there subscription fees for phone farm hardware?",
+    answer:
+      "Hardware is a one-time purchase on proforma — no per-device SaaS seat from Phones Farm Box. Third-party control software may have its own licensing.",
+    productLink: "/pricing",
+  },
+  {
+    category: "Ordering",
+    question: "What fees appear on a hardware quote?",
+    answer:
+      "BOM lines for chassis, hub, PSU, fans, cables, optional phones, services, and freight. Import duties are buyer unless DDP is stated. See help article on pricing and fees.",
+    productLink: "/help/phone-farm-pricing-fees-explained",
+  },
+  {
+    category: "Ordering",
+    question: "Do you offer enterprise rack deployment?",
+    answer:
+      "Yes — custom cabinets, redundant PSU options, phased sea freight, and SLA maintenance quoted under enterprise deployment service.",
+    productLink: "/services/enterprise-deployment",
+  },
+  {
+    category: "Hardware",
+    question: "What is unlimited device scaling?",
+    answer:
+      "Stack additional phone farm chassis and hub tiers as your matrix grows — slot count and rack layout confirmed on each quote wave, not a single fixed platform cap.",
+    productLink: "/products/phone-farm-box",
+  },
+  {
+    category: "Operations",
+    question: "What is device profile reset?",
+    answer:
+      "Resetting app data or ROM state on a physical node between campaigns — equivalent to a clean device environment on hardware you own. Network routes should be re-bound after reset.",
+    productLink: "/help/device-profile-reset-workflow",
+  },
 ];
 
 export const FAQ_CATEGORIES = ["Hardware", "Operations", "Ordering"] as const;

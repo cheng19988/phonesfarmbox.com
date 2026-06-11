@@ -14,9 +14,10 @@ type Props = {
   variant?: "default" | "scenario" | "solution" | "feature";
   getRelatedHref: (slug: string) => string;
   getRelatedTitle?: (slug: string) => string;
+  contactQueryKey?: "interest" | "service";
 };
 
-export function ContentPageLayout({ page, basePath, baseLabel, variant = "default", getRelatedHref, getRelatedTitle }: Props) {
+export function ContentPageLayout({ page, basePath, baseLabel, variant = "default", getRelatedHref, getRelatedTitle, contactQueryKey = "interest" }: Props) {
   return (
     <>
       <JsonLd
@@ -163,7 +164,7 @@ export function ContentPageLayout({ page, basePath, baseLabel, variant = "defaul
           <h2 className="text-xl font-bold text-slate-900 mb-3">Need hardware for this use case?</h2>
           <p className="text-slate-600 text-sm mb-6">Tell us device count and platform — we suggest a box BOM.</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link href={`/contact?interest=${page.slug}`} className="btn-primary">Get Quote</Link>
+            <Link href={`/contact?${contactQueryKey}=${page.slug}`} className="btn-primary">Get Quote</Link>
             <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp</a>
           </div>
         </div>

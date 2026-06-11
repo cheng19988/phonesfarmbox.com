@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { GLOSSARY_TERMS, getGlossaryTerm } from "@/data/glossary";
 import { ContactCTA } from "@/components/shared";
-import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
+import { buildMetadata, breadcrumbJsonLd, definedTermJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/shared";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -26,18 +26,23 @@ export default async function GlossaryTermPage({ params }: Props) {
   return (
     <>
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Glossary", path: "/glossary" },
-          { name: term.term, path: `/glossary/${slug}` },
-        ])}
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Glossary", path: "/glossary" },
+            { name: term.term, path: `/glossary/${slug}` },
+          ]),
+          definedTermJsonLd(term.term, term.shortDef, `/glossary/${slug}`),
+        ]}
       />
       <div className="section">
         <div className="container-wide max-w-3xl">
-          <Link href="/glossary" className="text-sm text-amber-400 hover:text-amber-300 mb-4 inline-block">← Glossary</Link>
+          <Link href="/glossary" className="text-sm text-orange-700 font-medium hover:underline mb-4 inline-block">
+            ← Glossary
+          </Link>
           <h1 className="section-title">{term.term}</h1>
-          <p className="text-lg text-slate-300 mb-6">{term.shortDef}</p>
-          <div className="prose-content">{term.definition}</div>
+          <p className="text-lg text-slate-600 mb-6">{term.shortDef}</p>
+          <div className="prose-content text-slate-700">{term.definition}</div>
           {term.relatedTerms && term.relatedTerms.length > 0 && (
             <div className="mt-8">
               <h2 className="text-lg font-bold text-slate-900 mb-3">Related Terms</h2>
@@ -55,7 +60,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           )}
         </div>
       </div>
-      <section className="section bg-slate-900/50">
+      <section className="section bg-slate-50 border-t border-slate-200">
         <div className="container-wide">
           <ContactCTA title="Questions About Phone Farm Hardware?" />
         </div>

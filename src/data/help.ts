@@ -79,7 +79,7 @@ Connect router and configure IP per device group if required.
 **Step 6: First batch test**
 Control one device, then sync device groups. Monitor temperature for 24 hours.
 
-Contact support: WhatsApp +852 6215 5642 | Telegram @huicheng1998`,
+Contact support via WhatsApp or Telegram — see our Contact page.`,
   },
   {
     slug: "network-proxy-configuration",
@@ -483,6 +483,244 @@ We do not guarantee TikTok, social media, or app platform outcomes — hardware 
 - 24/7 ongoing NOC unless extended support is on invoice
 
 Scope is tied to device count and session length on your quote. Request remote setup on your RFQ if needed before shipment scheduling.`,
+  },
+  {
+    slug: "batch-control-software-overview",
+    title: "Batch Control Software Overview for Phone Farms",
+    category: "Remote Control & Software",
+    summary: "How host PC software connects to real devices through USB hubs — selection criteria for Android and iPhone farms.",
+    content: `Batch control software is the layer between your host PC and physical devices in a phone farm box. Hardware supplies USB paths; software supplies mirroring, group sync, and APK deployment.
+
+**Core functions:**
+- Device dashboard listing all nodes on a hub tree
+- Screen mirror or headless control per slot
+- Group creation for synchronized actions
+- Bulk APK install and file push
+- Optional script or ADB automation hooks
+
+**Android farms:**
+USB debugging authorization must remain stable. Motherboard boxes may need temporary display for re-auth if debugging is revoked.
+
+**iPhone farms:**
+Control stack depends on quoted model mix and host OS — confirm on datasheet before purchase.
+
+**Selection criteria:**
+- Supported node count vs your hub tier
+- Concurrent mirror load on host CPU/RAM
+- Group sync latency under your workflow
+- Export/logging for QA teams
+
+Phones Farm Box configures hardware for your chosen stack during setup or remote configuration services — we do not resell third-party software licenses unless on proforma.`,
+  },
+  {
+    slug: "synchronized-device-operations-guide",
+    title: "Synchronized Multi-Device Operations",
+    category: "Device Operation Workflow",
+    summary: "Operation sync across device groups — hardware and host requirements for reliable batch gestures.",
+    content: `Synchronized control runs the same action across a selected device group — common in content ops and QA smoke tests.
+
+**Hardware requirements:**
+- Hub tier sized for concurrent USB traffic, not idle monitoring only
+- Stable PSU without voltage sag during simultaneous wake
+- Adequate cooling — thermal throttle breaks sync timing
+
+**Host PC requirements:**
+- CPU and RAM headroom for N mirrors or N headless sessions
+- Wired Ethernet for host; avoid Wi‑Fi for large sync jobs
+- Label groups matching physical slot IDs on chassis
+
+**Best practices:**
+- Start with small groups (3–5 nodes) before full-box sync
+- Separate heavy APK pushes from live sync sessions
+- Monitor USB disconnect counters in dashboard logs
+
+**Limits:**
+Sync speed and max group size depend on quoted layout — not a fixed universal number. Request capacity review when scaling past first chassis.`,
+  },
+  {
+    slug: "team-device-sharing-setup",
+    title: "Team Device Sharing on Phone Farm Hardware",
+    category: "Device Operation Workflow",
+    summary: "Share device clusters among operators — roles, groups, and hardware labeling for agencies.",
+    content: `Team sharing maps physical device groups to operators or client projects on your batch-control platform.
+
+**Hardware foundation:**
+- One rack may serve multiple clients with separate hub groups or chassis stacks
+- Label slots and uplink ports to match software groups
+- Network routes per client group when isolation is required
+
+**Workflow setup:**
+1. Define group per client or campaign on host PC
+2. Assign operator accounts in software (buyer-managed)
+3. Document which chassis stack maps to which group
+4. Restrict USB maintenance windows to avoid cross-group downtime
+
+**Security:**
+Physical access to the rack remains buyer responsibility. Use OS login and software roles; do not share admin credentials broadly.
+
+Enterprise deployments can quote dedicated cabinet segmentation and documentation for multi-team rooms.`,
+  },
+  {
+    slug: "device-profile-reset-workflow",
+    title: "Device Profile Reset Workflow",
+    category: "Device Operation Workflow",
+    summary: "Reset device environment on physical hardware — when to use factory reset vs new nodes.",
+    content: `Device profile reset clears app data, accounts, or ROM state on a physical node — the hardware equivalent of switching to a clean device identity.
+
+**When teams reset:**
+- Between client campaigns on shared agency hardware
+- After app QA cycles requiring clean install
+- When platform policy requires fresh device fingerprint
+
+**Android paths:**
+Factory reset via batch tool, custom ROM reflash where quoted, or swap physical node in slot.
+
+**iPhone paths:**
+Reset procedures depend on quoted control stack and model — confirm on datasheet.
+
+**Hardware note:**
+Reset is software-side on real devices you own. It does not replace network planning — IP and proxy groups should be re-bound after reset.
+
+**Caution:**
+We document hardware workflows only — platform terms of service are buyer compliance scope.`,
+  },
+  {
+    slug: "bulk-apk-install-guide",
+    title: "Bulk APK Installation Guide",
+    category: "Device Operation Workflow",
+    summary: "Push apps to many real devices — USB bandwidth, hub tier, and QA validation tips.",
+    content: `Bulk APK deployment installs the same application package across a device group — standard for QA labs and ops teams prepping farms.
+
+**Prerequisites:**
+- USB debugging enabled on Android nodes (or equivalent path on quoted iPhone stack)
+- Hub tier with enough bandwidth for parallel transfers
+- Host storage space for APK cache
+
+**Process outline:**
+1. Load APK into batch-control tool
+2. Select target group matching labeled slots
+3. Deploy sequentially or parallel per tool capability
+4. Verify version code on sample slots before full rollout
+
+**Performance tips:**
+- Avoid simultaneous bulk APK and heavy screen mirror
+- Use OTG Ethernet offload on large farms to reduce USB congestion
+- Schedule large pushes during maintenance windows
+
+See also Bulk APK Deployment feature page and USB hub sizing blog article.`,
+  },
+  {
+    slug: "host-pc-requirements-phone-farm",
+    title: "Host PC Requirements for Phone Farm Control",
+    category: "Hardware Setup",
+    summary: "CPU, RAM, USB controllers, and OS notes for managing dozens of real devices from one workstation.",
+    content: `The host PC is the control brain of a phone farm — underspec hosts cause mirror lag, sync failures, and USB timeouts.
+
+**Baseline planning (adjust on quote):**
+- 8–16+ physical CPU cores for 20–40 mirrored Android nodes
+- 32–64 GB RAM for large mirror farms
+- SSD for OS and APK cache
+- Dedicated USB 3.x controller cards when exceeding onboard port count
+
+**USB topology:**
+- One uplink per hub tree; avoid daisy-chaining consumer hubs
+- Powered industrial hubs on quoted BOM
+- Separate controllers for iPhone and Android stacks when mixed
+
+**Network:**
+- Wired LAN for host; stable upload if remote support sessions run
+- Router sized for concurrent device groups
+
+**OS:**
+Windows common for batch-control tools; Linux paths for ADB-heavy QA — confirm compatibility with your software before hardware PO.
+
+Send target node count and software name on RFQ for host sizing notes on proforma.`,
+  },
+  {
+    slug: "phone-farm-pricing-fees-explained",
+    title: "Phone Farm Hardware Pricing and Fees Explained",
+    category: "Orders & Payment",
+    summary: "List prices, quote tiers, freight, services, and payment methods — no hidden subscription on hardware SKUs.",
+    content: `Phones Farm Box uses **quote-based hardware pricing** — not per-device SaaS seats.
+
+**Catalog list price:**
+USD reference on product pages for standard SKUs. Final amount confirmed on written proforma with BOM lines.
+
+**What affects quoted total:**
+- Chassis generation and slot count
+- Hub tier, PSU, fan kit, cables
+- Phones or boards on quote vs empty chassis
+- Services: setup, remote config, burn-in, maintenance
+- Freight: air vs sea, crated vs carton
+- Voltage region and plug type
+
+**Payment methods:**
+- USDT TRC20 for qualifying online orders (manual confirmation)
+- Bank T/T, Wise, PayPal on bulk invoice
+
+**No recurring platform fee:**
+You own hardware after purchase. Software subscriptions are third-party unless listed on your invoice.
+
+**Volume tiers:**
+See pricing page for MOQ 1 / 3+ / 10+ / enterprise overview — exact discounts on quote.
+
+**Import duties:**
+Buyer responsibility unless DDP stated on proforma.`,
+  },
+  {
+    slug: "network-ip-planner-guide",
+    title: "Network IP Planner for Multi-Account Phone Farms",
+    category: "Network Configuration",
+    summary: "Plan IP ranges, proxy binding, and router sizing — checklist before locking hub and network BOM.",
+    content: `Multi-account operations often require one IP or mobile route per device group. Plan network before final hub quote.
+
+**Step 1 — Grouping model**
+List how many accounts share an IP vs strict one-to-one. Social ops often want isolation; QA labs may share lab LAN.
+
+**Step 2 — IP source**
+- Residential or mobile proxy per group
+- Dedicated mobile data modem per group
+- Corporate VLAN segmentation for enterprise rooms
+
+**Step 3 — Router sizing**
+Concurrent connections = active device groups + headroom. Industrial router SKU confirmed on quote.
+
+**Step 4 — OTG offload**
+On Android motherboard farms, OTG Ethernet reduces USB load — note on RFQ if using hybrid topology.
+
+**Step 5 — Failover**
+Document backup route for long campaigns — hardware stays up; route swap is software/proxy layer.
+
+**Step 6 — Compliance**
+Buyer owns platform policy risk — we supply routers and cabling on BOM only.
+
+Use the Network IP Planner tool under Planning Tools for a printable checklist, then attach results to Contact RFQ.`,
+  },
+  {
+    slug: "application-management-phone-farm",
+    title: "Application Management on Phone Farms",
+    category: "Device Operation Workflow",
+    summary: "Bulk install, launch, uninstall, and update apps across real device groups.",
+    content: `Application management covers lifecycle of apps on physical nodes — install, open, close, uninstall, and version updates at scale.
+
+**Capabilities (via batch-control stack):**
+- Bulk install APK or enterprise builds
+- Launch app on group for warmup or testing
+- Uninstall to reclaim storage on headless nodes
+- Version audit per slot for QA compliance
+
+**Hardware dependencies:**
+Stable USB during large APK push; adequate storage per node; cooling during parallel installs.
+
+**iPhone note:**
+App deployment paths depend on quoted control tooling — not identical to Android APK flow.
+
+**Use cases:**
+- QA regression on multiple OS versions
+- Pre-loading client apps on agency devices
+- Removing deprecated apps between campaigns
+
+Combine with Bulk APK Deployment feature page and bulk APK install help guide.`,
   },
 ];
 

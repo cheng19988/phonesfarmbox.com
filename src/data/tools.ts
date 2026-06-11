@@ -60,6 +60,38 @@ export const PLANNING_TOOLS: PlanningTool[] = [
 
 Send answers via the contact form for a written quote.`,
   },
+  {
+    slug: "network-ip-planner",
+    title: "Network IP Planner",
+    description: "Checklist to plan IP allocation, proxy groups, and router sizing before RFQ.",
+    content: `**1. Account grouping**
+How many accounts per IP? Strict 1:1 or shared groups?
+
+**2. IP source per group**
+- HTTP/SOCKS proxy
+- Mobile data modem
+- Office VLAN / dedicated line
+
+**3. Concurrent connections**
+Count active groups + 20% headroom for router SKU discussion.
+
+**4. Platform mix**
+TikTok, e-commerce apps, messengers — note per group if policies differ.
+
+**5. OTG topology**
+Will Android nodes use OTG Ethernet offload? (Reduces USB load on large farms.)
+
+**6. Failover**
+Backup proxy or SIM for long-running groups?
+
+**7. Geography**
+Target regions per group — affects mobile data or proxy vendor choice.
+
+**8. Document for RFQ**
+Copy this checklist into Contact with hub tier estimate from USB Port Calculator.
+
+Phones Farm Box quotes industrial routers and cabling on BOM — we do not sell proxy subscriptions.`,
+  },
 ];
 
 /** @deprecated use PLANNING_TOOLS */

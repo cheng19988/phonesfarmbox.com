@@ -8,6 +8,7 @@ import { SOLUTION_PAGES } from "@/data/solutions-pages";
 import { HELP_ARTICLES } from "@/data/help";
 import { GLOSSARY_TERMS } from "@/data/glossary";
 import { PLANNING_TOOLS } from "@/data/tools";
+import { SERVICE_PAGES } from "@/data/services-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
@@ -29,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...GLOSSARY_TERMS.map((p) => ({ url: `${SITE.url}/glossary/${p.slug}`, priority: 0.7 })),
     ...PLANNING_TOOLS.map((p) => ({ url: `${SITE.url}/tools/${p.slug}`, priority: 0.7 })),
     ...BLOG_POSTS.map((p) => ({ url: `${SITE.url}/blog/${p.slug}`, priority: 0.7 })),
+    ...SERVICE_PAGES.map((p) => ({ url: `${SITE.url}/services/${p.slug}`, priority: 0.8 })),
   ].map((p) => ({
     ...p,
     lastModified: new Date(),
