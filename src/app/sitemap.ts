@@ -13,7 +13,8 @@ import { SERVICE_PAGES } from "@/data/services-pages";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "", "/products", "/pricing", "/services", "/solutions", "/scenarios", "/features",
-    "/help", "/glossary", "/tools", "/about", "/faq", "/contact", "/blog", "/privacy", "/cookies", "/refund", "/terms",
+    "/help", "/glossary", "/tools", "/about", "/faq", "/contact", "/blog", "/alternatives", "/ai",
+    "/privacy", "/cookies", "/refund", "/terms",
   ].map((path) => ({
     url: `${SITE.url}${path}`,
     lastModified: new Date(),

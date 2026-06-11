@@ -57,6 +57,7 @@ export function organizationJsonLd() {
     url: SITE.url,
     logo: `${SITE.url}/images/card_800x800/phonesfarmbox.com-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp`,
     description: SITE.description,
+    foundingDate: String(SITE.since),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Guangzhou",
@@ -68,6 +69,37 @@ export function organizationJsonLd() {
       contactType: "sales",
       areaServed: "Worldwide",
       availableLanguage: ["English", "Chinese"],
+    },
+    knowsAbout: [
+      "Phone farm box hardware",
+      "Multi-account device farm",
+      "TikTok device farm",
+      "Instagram device farm",
+      "Motherboard rack box",
+      "USB hub phone farm",
+      "Batch control software",
+      "Network proxy planning",
+      "B2B phone farm export",
+    ],
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    url: SITE.url,
+    description: SITE.description,
+    inLanguage: "en-US",
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE.url}/products?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
     },
   };
 }

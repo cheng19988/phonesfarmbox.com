@@ -9,7 +9,10 @@ import { PageHero } from "@/components/ui/page-hero";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CTABand, Surface } from "@/components/ui/surface";
 import { FACTORY_STEPS, HARDWARE_TRUST_POINTS, PRODUCT_CATEGORIES, DEPLOYMENT_STORIES } from "@/data/homepage-trust";
-import { buildMetadata } from "@/lib/seo";
+import { FAQ_ITEMS } from "@/data/faq";
+import { FAQAccordion } from "@/components/commerce";
+import { JsonLd } from "@/components/shared";
+import { buildMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Box Hardware Supplier — Guangzhou",
@@ -24,6 +27,8 @@ const TRUST_METRICS = [
   { value: "Global", label: "Air & sea export" },
 ];
 
+const HOME_FAQ = FAQ_ITEMS.slice(0, 6);
+
 export default async function HomePage() {
   const products = await prisma.product.findMany({
     where: { published: true },
@@ -33,6 +38,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd data={faqJsonLd(HOME_FAQ.map(({ question, answer }) => ({ question, answer })))} />
       <PageHero
         size="home"
         eyebrow={`${SITE.location} · Est. ${SITE.since} · B2B phone farm hardware`}
@@ -210,6 +216,18 @@ export default async function HomePage() {
           <Link href="/products" className="btn-outline">
             View all categories
           </Link>
+        </div>
+      </Section>
+
+      <Section variant="muted">
+        <SectionHeader eyebrow="Buyer FAQ" title="Common questions" />
+        <div className="max-w-3xl mx-auto">
+          <FAQAccordion items={HOME_FAQ.map(({ question, answer }) => ({ question, answer }))} />
+          <div className="mt-6 text-center">
+            <Link href="/faq" className="btn-outline">
+              View all FAQ
+            </Link>
+          </div>
         </div>
       </Section>
 
