@@ -41,7 +41,12 @@ export default function TermsPage() {
         <h2>Contact</h2>
         <p>
           Questions about these terms:{" "}
-          <a href={`mailto:${CONTACT.email}`} className="text-amber-400 hover:underline">
+          <a
+            href={CONTACT.emailUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-400 hover:underline"
+          >
             {CONTACT.email}
           </a>
           . See also our{" "}

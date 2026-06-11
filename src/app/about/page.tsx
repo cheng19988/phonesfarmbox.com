@@ -173,7 +173,12 @@ export default function AboutPage() {
             </li>
             <li>
               Email:{" "}
-              <a href={`mailto:${CONTACT.email}`} className="link-accent">
+              <a
+                href={CONTACT.emailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-accent"
+              >
                 {CONTACT.email}
               </a>
             </li>

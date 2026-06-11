@@ -75,8 +75,8 @@ export default function PricingPage() {
               <h2 className="text-lg font-bold text-slate-900 mb-2">{t.name}</h2>
               <p className="text-sm text-slate-600 mb-2">{t.desc}</p>
               <p className="text-xs text-slate-500 mb-3">{t.detail}</p>
-              <p className="text-xs text-slate-400 mb-4 flex-1">{t.differs}</p>
-              <p className="text-amber-400 font-semibold mb-4">{t.from}</p>
+              <p className="text-xs text-slate-500 mb-4 flex-1">{t.differs}</p>
+              <p className="text-orange-700 font-semibold mb-4">{t.from}</p>
               <Link href="/contact" className="btn-primary text-center text-sm py-2">
                 Request Quote
               </Link>
@@ -90,9 +90,9 @@ export default function PricingPage() {
 
         <div className="mb-14">
           <h2 className="text-xl font-bold text-slate-900 mb-4">Packing list, photos, and shipping size</h2>
-          <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-400">
+          <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-600">
             {PACKING_DOCUMENTATION_POINTS.map((item) => (
-              <li key={item} className="flex gap-2 p-3 rounded-lg border border-slate-800">
+              <li key={item} className="flex gap-2 p-3 rounded-lg border border-slate-200">
                 <span className="text-emerald-500 shrink-0">•</span>
                 {item}
               </li>
@@ -103,7 +103,7 @@ export default function PricingPage() {
         <div className="mb-14 grid lg:grid-cols-2 gap-6">
           <div>
             <h2 className="text-xl font-bold text-slate-900 mb-4">Warranty and after-sales</h2>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-sm text-slate-600">
               {WARRANTY_AFTER_SALES_POINTS.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="text-amber-500 shrink-0">•</span>
@@ -125,7 +125,7 @@ export default function PricingPage() {
           <div>
             <h2 className="text-xl font-bold text-slate-900 mb-4">Remote setup scope</h2>
             <p className="text-xs text-slate-500 mb-2">Includes:</p>
-            <ul className="space-y-1.5 text-sm text-slate-400 mb-4">
+            <ul className="space-y-1.5 text-sm text-slate-600 mb-4">
               {REMOTE_SETUP_INCLUDES.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="text-emerald-500 shrink-0">✓</span>
@@ -147,9 +147,9 @@ export default function PricingPage() {
 
         <div className="mb-14">
           <h2 className="text-xl font-bold text-slate-900 mb-4">What is included in a written quote</h2>
-          <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-400">
+          <ul className="grid sm:grid-cols-2 gap-2 text-sm text-slate-600">
             {WRITTEN_QUOTE_INCLUDES.map((item) => (
-              <li key={item} className="flex gap-2 p-3 rounded-lg border border-slate-800">
+              <li key={item} className="flex gap-2 p-3 rounded-lg border border-slate-200">
                 <span className="text-emerald-500 shrink-0">✓</span>
                 {item}
               </li>
@@ -161,7 +161,7 @@ export default function PricingPage() {
           <h2 className="text-xl font-bold text-slate-900 mb-4">What affects your quote</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {QUOTE_FACTORS.map((p) => (
-              <div key={p.factor} className="p-4 rounded-lg border border-slate-800 text-sm">
+              <div key={p.factor} className="p-4 rounded-lg border border-slate-200 text-sm">
                 <div className="font-medium text-slate-900">{p.factor}</div>
                 <div className="text-slate-500 mt-1">{p.note}</div>
               </div>
@@ -176,7 +176,7 @@ export default function PricingPage() {
           </p>
           <div className="space-y-3">
             {PAYMENT_OPTIONS.map((p) => (
-              <div key={p.method} className="p-4 rounded-lg border border-slate-800 text-sm">
+              <div key={p.method} className="p-4 rounded-lg border border-slate-200 text-sm">
                 <div className="font-medium text-slate-900">{p.method}</div>
                 <div className="text-slate-500 mt-1">{p.detail}</div>
               </div>
@@ -187,29 +187,29 @@ export default function PricingPage() {
         <div className="mb-14 overflow-x-auto">
           <h2 className="text-xl font-bold text-slate-900 mb-4">Hardware purchase vs cloud subscription — TCO snapshot</h2>
           <p className="text-sm text-slate-500 mb-4">Illustrative comparison for procurement discussions — not a financial guarantee.</p>
-          <table className="w-full text-sm border border-slate-800">
+          <table className="w-full text-sm border border-slate-200 rounded-xl overflow-hidden">
             <thead>
-              <tr className="bg-slate-900/80 text-left">
-                <th className="p-3 text-slate-400">Factor</th>
-                <th className="p-3 text-slate-900">Phone farm hardware (one-time)</th>
-                <th className="p-3 text-slate-400">Cloud phone SaaS (recurring)</th>
+              <tr className="bg-slate-100 text-left">
+                <th className="p-3 text-slate-600 font-semibold">Factor</th>
+                <th className="p-3 text-slate-900 font-semibold">Phone farm hardware (one-time)</th>
+                <th className="p-3 text-slate-600 font-semibold">Cloud phone SaaS (recurring)</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="bg-white">
               {TCO_ROWS.map((r) => (
-                <tr key={r.factor} className="border-t border-slate-800">
-                  <td className="p-3 text-slate-400">{r.factor}</td>
-                  <td className="p-3 text-slate-200">{r.hardware}</td>
-                  <td className="p-3 text-slate-500">{r.cloud}</td>
+                <tr key={r.factor} className="border-t border-slate-200">
+                  <td className="p-3 text-slate-600">{r.factor}</td>
+                  <td className="p-3 text-slate-800">{r.hardware}</td>
+                  <td className="p-3 text-slate-600">{r.cloud}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="p-6 rounded-xl border border-amber-800/30 bg-amber-950/10 mb-14">
+        <div className="p-6 rounded-xl border border-orange-200 bg-orange-50/50 mb-14">
           <h2 className="font-bold text-slate-900 mb-2">Bulk discount inquiry</h2>
-          <p className="text-sm text-slate-400 mb-4">
+          <p className="text-sm text-slate-600 mb-4">
             Multi-box, mixed SKU, or custom cabinet projects — send a device matrix (quantity, Android/iPhone mix, empty vs
             with phones, connection mode, voltage region, country) and we return tiered pricing with lead time confirmed on quote.
           </p>
@@ -225,7 +225,7 @@ export default function PricingPage() {
 
         <div className="text-sm text-slate-500 space-y-2 mb-10">
           <p>
-            <strong className="text-slate-400">Lead time:</strong> Confirmed on quote — longer for phone-included orders,
+            <strong className="text-slate-700">Lead time:</strong> Confirmed on quote — longer for phone-included orders,
             iPhone farm layouts, and custom cabinets after model and power plan review.
           </p>
           <p>

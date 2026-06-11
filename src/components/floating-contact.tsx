@@ -25,8 +25,8 @@ const CHANNELS = [
   },
   {
     label: "Email",
-    href: `mailto:${CONTACT.email}`,
-    external: false,
+    href: CONTACT.emailUrl,
+    external: true,
     className: "bg-orange-500 hover:bg-orange-600 text-white",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
@@ -44,8 +44,8 @@ export function FloatingContact() {
           <a
             key={ch.label}
             href={ch.href}
-            target={ch.external ? "_blank" : undefined}
-            rel={ch.external ? "noopener noreferrer" : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={ch.label}
             title={ch.label}
             className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-slate-900/20 transition-transform hover:scale-105 active:scale-95 ${ch.className}`}

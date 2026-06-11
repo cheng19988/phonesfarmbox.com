@@ -19,7 +19,12 @@ export function ContactBar({ compact = false }: { compact?: boolean }) {
       <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">
         WhatsApp {CONTACT.whatsapp}
       </a>
-      <a href={`mailto:${CONTACT.email}`} className="hover:text-orange-700 transition-colors">
+      <a
+        href={CONTACT.emailUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-orange-700 transition-colors"
+      >
         {CONTACT.email}
       </a>
     </div>

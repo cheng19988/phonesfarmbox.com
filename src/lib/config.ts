@@ -17,6 +17,9 @@ export const CONTACT = {
   whatsapp: "+85262155642",
   whatsappUrl: "https://wa.me/85262155642",
   email: "qiuxui646@gmail.com",
+  /** Gmail web compose — works in browser without a desktop mail client */
+  emailUrl: "https://mail.google.com/mail/?view=cm&fs=1&to=qiuxui646@gmail.com",
+  emailMailto: "mailto:qiuxui646@gmail.com",
 } as const;
 
 export const PAYMENT = {
@@ -31,6 +34,7 @@ export const PAYMENT = {
 export const NAV = [
   { href: "/products", label: "Products" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/services", label: "Services" },
   { href: "/solutions", label: "Solutions" },
   { href: "/scenarios", label: "Scenarios" },
   { href: "/features", label: "Features" },

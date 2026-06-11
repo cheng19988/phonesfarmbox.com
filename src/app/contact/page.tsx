@@ -150,7 +150,12 @@ export default function ContactPage() {
                 </li>
                 <li>
                   <span className="text-[var(--text-muted)]">Email </span>
-                  <a href={`mailto:${CONTACT.email}`} className="link-accent font-medium break-all">
+                  <a
+                    href={CONTACT.emailUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-accent font-medium break-all"
+                  >
                     {CONTACT.email}
                   </a>
                 </li>
