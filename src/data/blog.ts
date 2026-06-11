@@ -115,7 +115,469 @@ Enable USB debugging (Android) or verify kernel connection (iPhone). Install req
 **Step 5: First batch test**
 Control one device individually, then sync device groups. Monitor temperature and connection stability for 24 hours.
 
-Need help? WhatsApp +852 6215 5642 or Telegram @huicheng1998 for remote setup support.`,
+Need help? Message us on WhatsApp or Telegram — contact details on our Contact page.`,
+  },
+  {
+    slug: "how-to-request-phone-farm-quote",
+    title: "How to Request a Phone Farm Hardware Quote (RFQ Checklist)",
+    category: "Procurement & Shipping",
+    date: "2026-06-07",
+    excerpt:
+      "What to include in your RFQ so Guangzhou suppliers can return a written BOM, lead time, and freight options without back-and-forth delays.",
+    content: `A complete RFQ shortens quote cycles. Phones Farm Box replies on business days when these fields are clear.
+
+**Include in every hardware inquiry:**
+- Destination country and preferred freight (air express vs sea LCL)
+- Target product or SKU (chassis only, motherboard box, phone box, hub, PSU)
+- Expected device quantity and Android / iPhone mix
+- Connection mode: USB, OTG, or hybrid — affects hub tier and cable kit
+- Voltage region: 110 V, 220 V, or 220–240 V — PSU and plug type on invoice
+- Empty chassis vs phones or boards supplied on quote
+- Target phone or board models (if known)
+- Use case: social ops, QA lab, e-commerce, live streaming, etc.
+- Payment preference: USDT, bank T/T, Wise, PayPal
+- WhatsApp or Telegram for follow-up
+
+**What you receive on quote:**
+Written BOM line items, slot layout note, lead time window, packing weight estimate, and payment instructions. Specs marked "confirmed before quote" stay open until you sign off.
+
+**Common delays:**
+Missing destination country, vague device count, or no connection mode — we can still reply, but configuration may stay provisional until clarified.
+
+Use our Contact form — RFQ fields map directly to what sales needs for a proforma.`,
+  },
+  {
+    slug: "usb-hub-sizing-phone-farm",
+    title: "USB Hub Sizing for Phone Farm Boxes",
+    category: "Hardware & Selection",
+    date: "2026-06-06",
+    excerpt:
+      "How hub tier, uplink bandwidth, and OTG paths affect stable multi-device control — planning notes before you lock a BOM.",
+    content: `USB is the backbone of most Android phone farm deployments. Undersized hubs cause disconnect loops, slow APK pushes, and flaky batch control.
+
+**Key sizing factors:**
+- Node count per chassis (slots confirmed on quote)
+- USB 2.0 vs 3.x uplink from hub to control PC
+- Whether OTG Ethernet offloads traffic from the USB tree
+- Simultaneous operations: idle monitoring vs bulk APK install vs screen mirror
+
+**Typical architecture:**
+Control PC → hub uplink → internal distribution board → per-node data cables. One weak link affects the whole group.
+
+**When to step up hub tier:**
+- 16+ active nodes with frequent file transfer
+- Mixed OTG + USB paths in one rack
+- Long cable runs without powered hubs
+
+**What we confirm on quote:**
+Hub model, uplink count, spare port policy, and cable length class. We do not publish a single hub SKU for all chassis generations — layout varies by slot count.
+
+Cross-check node count with our USB port requirement calculator under Planning Tools, then send results with your RFQ.`,
+  },
+  {
+    slug: "phone-farm-power-planning-rack",
+    title: "Power Planning for Rack-Scale Phone Farms",
+    category: "Hardware & Selection",
+    date: "2026-06-05",
+    excerpt:
+      "PSU sizing, circuit loading, and thermal headroom for multi-box racks — what facilities teams should ask before install week.",
+    content: `Power mistakes show up as breaker trips, voltage sag, or fans running at max 24/7. Plan before racks arrive.
+
+**Start with quoted load:**
+Each proforma can include a load note per chassis — actual watts depend on node type, charge state, and workload. Treat catalog examples as planning ranges until your BOM is signed.
+
+**Facility checklist:**
+- Dedicated circuit vs shared office power
+- 110 V vs 220–240 V region match on PSU SKU
+- UPS scope: control PC only vs whole rack (buyer decision)
+- Room HVAC vs chassis fan kit — both matter in summer
+
+**Multi-box racks:**
+Stagger inrush if several PSUs switch on together. Label circuits per stack so maintenance does not drop an entire row.
+
+**Cooling linkage:**
+Higher sustained load needs matched fan kit and exhaust path — see our cooling guide for airflow basics.
+
+Send target box count and region voltage with your RFQ; we align PSU and fan lines on the written quote.`,
+  },
+  {
+    slug: "iphone-farm-vs-android-farm-procurement",
+    title: "iPhone Farm vs Android Farm: Procurement Differences",
+    category: "Box Knowledge",
+    date: "2026-06-04",
+    excerpt:
+      "Lightning/USB-C mix, control software, density, and quote fields that differ when you buy iPhone clusters vs Android chassis.",
+    content: `Android and iPhone farms share chassis concepts but differ in cable plant, control stack, and per-node cost.
+
+**Android-heavy farms:**
+- USB debugging and batch APK workflows are standard
+- Motherboard boxes maximize density for headless tasks
+- Hub tier and OTG options drive stability at scale
+
+**iPhone clusters:**
+- Cable mix (Lightning / USB-C) locked at quote
+- Control software and host OS requirements stated on datasheet
+- Often higher per-node cost; SIM/camera paths depend on quoted models
+
+**Mixed rooms:**
+Possible with clear BOM separation — Android stacks and iPhone stacks on distinct hubs and PSUs reduces cross-interference.
+
+**Quote fields that change:**
+Target models, OS/control stack, cable kit, and burn-in scope. Do not assume one chassis SKU covers both platforms interchangeably.
+
+Tell us your platform mix early; we route you to the closest catalog SKU and note gaps as "confirmed before quote."`,
+  },
+  {
+    slug: "sample-order-moq-phone-farm-hardware",
+    title: "Sample Orders and MOQ for Phone Farm Hardware",
+    category: "Procurement & Shipping",
+    date: "2026-06-03",
+    excerpt:
+      "MOQ from one unit, what sample orders include, and how pilots roll into bulk rack quotes without changing supplier.",
+    content: `Phones Farm Box lists MOQ from 1 unit for standard catalog chassis — samples are normal for overseas B2B buyers.
+
+**What a sample order validates:**
+- Build quality, fan noise, cable routing
+- Hub stability with your target phone models
+- Packing quality for your freight forwarder
+- Remote onboarding flow with your ops team
+
+**Sample vs bulk quote:**
+Sample uses current catalog price; bulk lines may include quantity tiers, sea freight crating, and phased shipment — all on separate proforma.
+
+**Lead time:**
+Samples often ship faster than custom slot counts or phone-included builds. Exact window confirmed on quote, not fixed site-wide.
+
+**After sample approval:**
+Reference your sample order number in bulk RFQ so sales reuses verified models and connection mode.
+
+Start from Products or Contact — specify "sample evaluation" in the message field.`,
+  },
+  {
+    slug: "export-shipping-air-vs-sea-phone-farm",
+    title: "Export Shipping: Air vs Sea for Phone Farm Hardware",
+    category: "Procurement & Shipping",
+    date: "2026-06-02",
+    excerpt:
+      "When DHL air makes sense vs sea LCL for chassis, hubs, and rack projects — packing and documentation notes from Guangzhou export.",
+    content: `Freight choice affects landed cost and install timeline. We export from Guangzhou with commercial invoice and packing list on every shipment.
+
+**Air express (courier):**
+- Best for: samples, urgent replacements, 1–3 chassis
+- Faster customs clearance for small cartons
+- Higher $/kg — weigh against delay cost
+
+**Sea LCL / freight:**
+- Best for: multi-box racks, cabinet projects, heavy PSU/hub spares
+- Crating and shock padding spec on quote
+- Plan extra days for port handling and last-mile
+
+**What we need from you:**
+Consignee details, destination port or door address, and whether you have a forwarder. Battery-in-device shipments may need extra documentation — declare phone-included vs empty chassis on RFQ.
+
+**Insurance:**
+Buyer-arranged cargo insurance is recommended on sea freight above project threshold.
+
+State freight preference in Contact — we return air and sea options when both are viable.`,
+  },
+  {
+    slug: "usdt-payment-phone-farm-orders",
+    title: "USDT (TRC20) Payment for Phone Farm Orders",
+    category: "Procurement & Shipping",
+    date: "2026-05-30",
+    excerpt:
+      "How small hardware orders pay by USDT, what to send after transfer, and why confirmation is manual — not automated on-chain.",
+    content: `USDT on Tron TRC20 is available for qualifying orders. Amount, network, and address appear on your order page after checkout.
+
+**Process:**
+1. Place order or receive proforma with USDT option
+2. Send exact USDT amount to the TRC20 address shown
+3. Email or message order number + transaction hash (txid)
+4. Sales confirms payment manually and updates order status
+
+**Important:**
+- Use TRC20 only — wrong network may lose funds
+- We do not auto-verify on-chain without manual review in current workflow
+- Large bulk orders may use bank T/T, Wise, or PayPal per invoice
+
+**Expiry:**
+Payment window is shown on order page (typically 30 minutes for online checkout). Request extension via WhatsApp/Telegram if needed before resending.
+
+**Refunds:**
+See Refund Policy — crypto refunds follow same inspection rules as other methods.
+
+For invoice-only bulk deals, ask sales for bank details instead of checkout USDT.`,
+  },
+  {
+    slug: "factory-burn-in-what-to-expect",
+    title: "Factory Burn-In Testing: What Buyers Should Expect",
+    category: "Hardware & Selection",
+    date: "2026-05-29",
+    excerpt:
+      "Loaded burn-in before export, what is checked, and what documentation you can request for QA or enterprise procurement.",
+    content: `Burn-in catches early fan, PSU, and USB path failures before cartons leave Guangzhou.
+
+**Standard scope (when ordered):**
+- Power-on every slot
+- USB/data path check control PC → hub → node
+- Loaded run duration depends on product class — stated on packing checklist
+- Fan noise and temperature spot-check
+
+**What burn-in is not:**
+It does not replace your app-level soak test with production accounts. It validates hardware assembly, not your campaign logic.
+
+**Documentation:**
+Buyers can request checklist sign-off or summary note for audit — specify on RFQ for enterprise deals.
+
+**Skip burn-in:**
+Possible on rush samples by agreement; trade-off is higher DOA risk in your first week.
+
+Include "burn-in required" in Contact if procurement mandates pre-ship load testing.`,
+  },
+  {
+    slug: "empty-chassis-vs-phones-included-quote",
+    title: "Empty Chassis vs Phones-Included Orders",
+    category: "Procurement & Shipping",
+    date: "2026-05-25",
+    excerpt:
+      "When to buy empty box only, when to quote devices on chassis, and how BOM lines change for customs and lead time.",
+    content: `Empty chassis keeps you flexible with BYO devices; phones-included speeds up turn-key pilots.
+
+**Empty chassis / motherboard-only:**
+- You supply phones or boards matching quoted slot layout
+- Often faster customs description (hardware accessory)
+- Lower unit price; you manage device procurement locally
+
+**Phones or boards on quote:**
+- Models and counts locked on proforma
+- Longer lead time for device sourcing and burn-in
+- Packing list shows device + chassis lines for invoice
+
+**Customs note:**
+Mixed shipments affect declared value and HS codes — provide forwarder guidance when you know it.
+
+**Hybrid phased:**
+Common for large projects: chassis sea freight first, devices air later. State phased plan on RFQ.
+
+Tell us which model on Contact — connection mode and slot count still required either way.`,
+  },
+  {
+    slug: "rack-cabinet-phone-farm-planning",
+    title: "Rack and Cabinet Planning for Phone Farm Projects",
+    category: "Setup & Tutorials",
+    date: "2026-05-22",
+    excerpt:
+      "Stacking boxes, custom cabinets, cable management, and facility layout for 50+ device rooms.",
+    content: `Room-scale projects fail in planning when power, heat, and cable length are treated as afterthoughts.
+
+**Layout steps:**
+1. Count boxes from capacity estimator (Planning Tools)
+2. Assign one control PC per hub group or per row — scope on quote
+3. Plan hot aisle / exhaust direction for fan kits
+4. Label USB and power per stack before go-live
+
+**Custom cabinets:**
+Available for enterprise RFQs — dimensions, door access, and fan plenum confirmed on drawing, not from a fixed catalog page.
+
+**Cable management:**
+Service loops at hub tier; avoid tension on node ports during stack maintenance.
+
+**Access:**
+Leave front/service clearance for slot swap without moving entire rack.
+
+Send room photo or rack sketch with device target count — engineering uses it for cabinet and PSU recommendations.`,
+  },
+  {
+    slug: "tiktok-device-farm-hardware-checklist",
+    title: "TikTok Multi-Device Farm: Hardware Checklist",
+    category: "Applications & Use Cases",
+    date: "2026-05-18",
+    excerpt:
+      "Chassis, network, and ops planning for teams running many TikTok accounts on real devices — hardware-only perspective.",
+    content: `This checklist covers **hardware and network** for TikTok-style multi-account ops — not platform policy advice.
+
+**Hardware baseline:**
+- Real devices per account or strict small groups (buyer policy)
+- Phone box when SIM/camera paths matter; motherboard box for headless density
+- Stable USB tree sized for simultaneous mirror/APK tasks
+
+**Network:**
+- Dedicated IP or mobile route per group where ops requires isolation
+- Router sized for concurrent connections — see network setup guide
+
+**Environment:**
+- Cooling plan for 24/7 sessions; throttling hurts upload consistency
+- Control PC spec adequate for batch dashboard load
+
+**Scaling:**
+Add chassis in stacks; re-quote hub and PSU tiers instead of overloading one box.
+
+**Compliance:**
+You own account and content policy risk — we supply rackable hardware and integration docs only.
+
+Link to our TikTok scenario page for workflow context; use Contact for chassis count quotes.`,
+  },
+  {
+    slug: "voltage-region-110v-220v-phone-farm",
+    title: "110 V vs 220 V: PSU Selection for Phone Farm Hardware",
+    category: "Hardware & Selection",
+    date: "2026-05-12",
+    excerpt:
+      "How voltage region affects PSU SKU, plug type, and facility planning for US, EU, and Southeast Asia deployments.",
+    content: `Wrong PSU region causes rework at install. Declare destination voltage on RFQ.
+
+**Common regions:**
+- North America: 110–120 V circuits — PSU and plug matched on invoice
+- EU / UK / most of Asia: 220–240 V — different PSU SKU and cord set
+- Mixed facilities: quote per rack if you deploy globally from one purchase
+
+**What we do not guess:**
+We do not infer voltage from shipping country alone if you have a forwarder warehouse — state **install site** voltage.
+
+**Converters:**
+Buyer-supplied step-up/down for ad-hoc tests is not a substitute for correct PSU on production racks.
+
+**Labeling:**
+Cartons include PSU rating label photo on request for facility approval.
+
+Add "Voltage region" in Contact RFQ — it maps to the same field sales uses on proforma.`,
+  },
+  {
+    slug: "otg-vs-usb-phone-farm-connection",
+    title: "OTG vs USB: Connection Modes for Phone Farms",
+    category: "Hardware & Selection",
+    date: "2026-05-10",
+    excerpt:
+      "When OTG Ethernet helps, when pure USB suffices, and how connection mode changes hub and cable BOM lines.",
+    content: `Connection mode is a core RFQ field — it drives hub tier, cable kit, and stability profile.
+
+**USB-only:**
+- Control and data on USB tree to control PC
+- Simplest for small farms and lab benches
+- Bandwidth shared across nodes on same hub
+
+**OTG / Ethernet offload:**
+- Reduces USB congestion for large farms
+- Adds router/switch lines to BOM
+- Useful when many nodes push heavy traffic concurrently
+
+**Hybrid:**
+Some stacks USB for control, OTG for network path — layout documented on wiring diagram at quote.
+
+**Change mid-project:**
+Possible with spare hub and cable lines; may require re-burn-in after rewire.
+
+State current and target connection mode on RFQ so sales does not assume USB-only by default.`,
+  },
+  {
+    slug: "warranty-rma-export-phone-farm",
+    title: "Warranty and RMA for Export Phone Farm Hardware",
+    category: "Procurement & Shipping",
+    date: "2026-05-08",
+    excerpt:
+      "Defect reporting, photo evidence, repair vs replacement, and what warranty terms typically cover on chassis exports.",
+    content: `Export hardware warranty is invoice-based — terms confirmed on proforma, not generic web boilerplate alone.
+
+**Report defects within:**
+Contact within stated window after delivery (see Refund Policy) with photos, order number, and slot ID if applicable.
+
+**Manufacturing defects:**
+Chassis, PSU, fan tray, hub board — inspection then repair, replacement part, or credit per case.
+
+**Not covered:**
+Device end-of-life, improper voltage, physical damage after delivery, or unauthorized modification of wiring.
+
+**RMA logistics:**
+Return shipping for warranty claims coordinated case-by-case for overseas buyers — declare forwarder preference early.
+
+**Spares strategy:**
+Bulk buyers often add spare fan/PSU/cable lines on first order to avoid air freight on single-part RMA.
+
+Ask for warranty paragraph on bulk proforma before payment — we align with Refund Policy page baseline.`,
+  },
+  {
+    slug: "qa-lab-phone-farm-configuration",
+    title: "QA Lab Phone Farm Configuration Guide",
+    category: "Applications & Use Cases",
+    date: "2026-05-05",
+    excerpt:
+      "Motherboard density, APK batch install, and audit-friendly burn-in records for app testing teams buying hardware.",
+    content: `QA labs prioritize repeatable installs, stable USB, and traceable pre-ship checks over social-style account isolation.
+
+**Hardware fit:**
+- Motherboard boxes for headless APK and regression loops
+- Phone boxes when camera, SIM, or sensor paths are in test scope
+- Hub tier sized for parallel APK push, not idle monitoring only
+
+**Workflow:**
+1. Flash or install build via batch tool
+2. Run automated test suite per node group
+3. Log failures with slot ID — chassis labeling helps
+
+**Burn-in paper trail:**
+Request checklist sign-off for audit — note on RFQ for enterprise QA procurement.
+
+**Scaling:**
+Add identical chassis stacks for parallel CI lanes; keep hub/PSU SKU consistent for spare pooling.
+
+See App Development & QA solution page; send test matrix (OS versions, node count) on Contact for BOM.`,
+  },
+  {
+    slug: "ecommerce-seller-phone-farm-hardware",
+    title: "E-Commerce Seller Device Farms: Hardware Planning",
+    category: "Applications & Use Cases",
+    date: "2026-05-02",
+    excerpt:
+      "Multi-store ops on real devices — chassis count, network kit, and quote fields for Amazon, Shopee, and cross-border seller teams.",
+    content: `Seller teams use device farms for store ops, messaging, and listing workflows on **real hardware** they control — not shared virtual phones.
+
+**Typical hardware pattern:**
+- Phone boxes when mobile apps and SMS paths matter
+- Per-store or per-region device groups on network plan
+- Secondary chassis for seasonal scale-up
+
+**Network:**
+Stable IP plan per store group — coordinate with your proxy/mobile data vendor before hub quote.
+
+**Ops:**
+Batch control for app updates across store devices; plan maintenance windows for USB-heavy updates.
+
+**Quote inputs:**
+Store count, regions, Android/iPhone mix, and peak concurrent devices — not just "need 20 phones."
+
+**Platform risk:**
+Marketplace policies are your compliance scope — we deliver export-ready chassis and docs.
+
+See Amazon & Shopee scenario and E-commerce solution pages; RFQ via Contact with store count and regions.`,
+  },
+  {
+    slug: "lead-time-phone-farm-production-scheduling",
+    title: "Lead Time and Production Scheduling for Phone Farm Orders",
+    category: "Procurement & Shipping",
+    date: "2026-04-28",
+    excerpt:
+      "Why lead times vary by SKU, what speeds samples, and how phased delivery works for large rack projects.",
+    content: `Lead time is always **confirmed on quote** — catalog pages show planning ranges only.
+
+**Usually faster:**
+- Standard empty chassis from current stock rotation
+- Single-box sample with catalog hub/PSU match
+
+**Usually longer:**
+- Custom slot count or cabinet drawing approval
+- Phones/boards sourced on same proforma
+- Large sea-crated rack with burn-in for every unit
+
+**Phased delivery:**
+Chassis batch one, devices batch two — common for room-scale; each phase gets its own proforma line and ETA.
+
+**Holiday impact:**
+Chinese New Year and Golden Week can shift Guangzhou workshop schedules — plan bulk orders accordingly.
+
+**Expedite:**
+Air freight and simplified BOM may shorten timeline; rush may skip optional burn-in by agreement.
+
+Send target go-live date on RFQ — sales marks feasible or proposes phased plan on written reply.`,
   },
   {
     slug: "diy-android-farm-parts-guide",
@@ -196,6 +658,22 @@ If you need tangible BOM, shipping weight, and factory warranty terms, request a
   },
 ];
 
+export const BLOG_CATEGORIES = [
+  "Box Knowledge",
+  "Hardware & Selection",
+  "Applications & Use Cases",
+  "Setup & Tutorials",
+  "Procurement & Shipping",
+] as const;
+
 export function getBlogPost(slug: string) {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function getBlogPostsByCategory(category: string) {
+  return BLOG_POSTS.filter((p) => p.category === category);
+}
+
+export function getSortedBlogPosts() {
+  return [...BLOG_POSTS].sort((a, b) => b.date.localeCompare(a.date));
 }
