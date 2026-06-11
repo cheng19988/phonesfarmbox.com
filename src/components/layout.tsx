@@ -35,14 +35,6 @@ export async function Header() {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <a
-            href={CONTACT.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex btn-outline text-sm py-2.5 px-4"
-          >
-            WhatsApp
-          </a>
           <Link href="/contact" className="btn-primary text-sm py-2.5 px-5">
             Get Quote
           </Link>
@@ -80,16 +72,13 @@ export function Footer() {
           <div className="font-bold text-slate-900 text-xl mb-3 tracking-tight">{SITE.name}</div>
           <p className="text-[var(--text-secondary)] text-sm mb-6 max-w-md leading-relaxed">{SITE.description}</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--text-secondary)]">
-            <a href={`tel:${CONTACT.phone}`} className="hover:text-amber-400 transition-colors">
-              {CONTACT.phone}
+            <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-orange-700 transition-colors">
+              Telegram {CONTACT.telegram}
             </a>
-            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-amber-400">
-              WhatsApp
+            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-orange-700 transition-colors">
+              WhatsApp {CONTACT.whatsapp}
             </a>
-            <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-amber-400">
-              Telegram
-            </a>
-            <a href={`mailto:${CONTACT.email}`} className="hover:text-amber-400">
+            <a href={`mailto:${CONTACT.email}`} className="hover:text-orange-700 transition-colors">
               {CONTACT.email}
             </a>
           </div>

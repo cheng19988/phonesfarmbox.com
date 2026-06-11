@@ -13,14 +13,11 @@ export function JsonLd({ data }: { data: Record<string, unknown> | Record<string
 export function ContactBar({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`flex flex-wrap items-center gap-3 ${compact ? "text-xs" : "text-sm"} text-slate-600`}>
-      <a href={`tel:${CONTACT.phone}`} className="hover:text-orange-700 transition-colors">
-        📞 {CONTACT.phone}
+      <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-sky-700 transition-colors">
+        Telegram {CONTACT.telegram}
       </a>
       <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">
-        WhatsApp
-      </a>
-      <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-sky-700 transition-colors">
-        Telegram
+        WhatsApp {CONTACT.whatsapp}
       </a>
       <a href={`mailto:${CONTACT.email}`} className="hover:text-orange-700 transition-colors">
         {CONTACT.email}
@@ -43,32 +40,11 @@ export function ContactCTA({ title = "Request a Hardware Quote" }: { title?: str
         <Link href="/pricing" className="btn-secondary px-8">
           Quote &amp; delivery process
         </Link>
-        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-outline px-8">
-          WhatsApp
+        <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="btn-outline px-8">
+          Telegram
         </a>
       </div>
     </section>
-  );
-}
-
-export function MobileContactBar() {
-  return (
-    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/98 border-t-2 border-slate-200 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.06)]">
-      <div className="grid grid-cols-4 divide-x divide-slate-200">
-        <a href={`tel:${CONTACT.phone}`} className="flex flex-col items-center py-3.5 text-[11px] font-medium text-slate-600 hover:text-slate-900">
-          Call
-        </a>
-        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center py-3.5 text-[11px] font-medium text-slate-600 hover:text-emerald-700">
-          WhatsApp
-        </a>
-        <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center py-3.5 text-[11px] font-medium text-slate-600 hover:text-sky-700">
-          Telegram
-        </a>
-        <a href="/contact" className="flex flex-col items-center py-3.5 text-[11px] font-semibold text-orange-700">
-          Quote
-        </a>
-      </div>
-    </div>
   );
 }
 

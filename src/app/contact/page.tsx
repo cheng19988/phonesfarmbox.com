@@ -137,15 +137,15 @@ export default function ContactPage() {
               </a>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                  <span className="text-[var(--text-muted)]">Phone </span>
-                  <a href={`tel:${CONTACT.phone}`} className="link-accent font-medium">
-                    {CONTACT.phone}
+                  <span className="text-[var(--text-muted)]">Telegram </span>
+                  <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="link-accent font-medium">
+                    {CONTACT.telegram}
                   </a>
                 </li>
                 <li>
-                  <span className="text-[var(--text-muted)]">Telegram </span>
-                  <a href={CONTACT.telegramUrl} className="link-accent font-medium">
-                    {CONTACT.telegram}
+                  <span className="text-[var(--text-muted)]">WhatsApp </span>
+                  <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="link-accent font-medium">
+                    {CONTACT.whatsapp}
                   </a>
                 </li>
                 <li>

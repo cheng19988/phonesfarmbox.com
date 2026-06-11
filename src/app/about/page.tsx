@@ -159,10 +159,24 @@ export default function AboutPage() {
         <Surface padding="md" className="mb-12">
           <h2 className="font-bold text-slate-900 mb-3">Official contact channels</h2>
           <ul className="text-sm text-[var(--text-secondary)] space-y-1">
-            <li>Phone: {CONTACT.phone}</li>
-            <li>WhatsApp: {CONTACT.whatsapp}</li>
-            <li>Telegram: {CONTACT.telegram}</li>
-            <li>Email: {CONTACT.email}</li>
+            <li>
+              Telegram:{" "}
+              <a href={CONTACT.telegramUrl} className="link-accent">
+                {CONTACT.telegram}
+              </a>
+            </li>
+            <li>
+              WhatsApp:{" "}
+              <a href={CONTACT.whatsappUrl} className="link-accent">
+                {CONTACT.whatsapp}
+              </a>
+            </li>
+            <li>
+              Email:{" "}
+              <a href={`mailto:${CONTACT.email}`} className="link-accent">
+                {CONTACT.email}
+              </a>
+            </li>
           </ul>
           <p className="text-xs text-[var(--text-muted)] mt-3">Use only contacts listed on this website. We never request payment through unofficial channels.</p>
         </Surface>

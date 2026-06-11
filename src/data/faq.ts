@@ -208,7 +208,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     category: "Ordering",
     question: "How to contact sales?",
     answer:
-      "WhatsApp (+852 6215 5642), Telegram (@huicheng1998), phone (13059502618), or email (qiuxui646@gmail.com). Use only contacts listed on this website.",
+      "Telegram (@huicheng1998), WhatsApp (+85262155642), or email (qiuxui646@gmail.com). Use the floating contact button or contacts listed on this website.",
     productLink: "/contact",
   },
   {
