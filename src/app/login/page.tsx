@@ -36,16 +36,16 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="card p-6 space-y-4">
           {error && <p className="text-red-400 text-sm">{error}</p>}
           <div>
-            <label className="block text-sm text-slate-400 mb-1">Email</label>
-            <input name="email" type="email" required className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+            <label className="block text-sm text-slate-600 mb-1">Email</label>
+            <input name="email" type="email" required className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
           </div>
           <div>
-            <label className="block text-sm text-slate-400 mb-1">Password</label>
-            <input name="password" type="password" required className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+            <label className="block text-sm text-slate-600 mb-1">Password</label>
+            <input name="password" type="password" required className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
           </div>
           <button type="submit" disabled={loading} className="btn-primary w-full">{loading ? "Logging in..." : "Login"}</button>
-          <p className="text-center text-sm text-slate-400">
-            No account? <Link href="/register" className="text-amber-400">Register</Link>
+          <p className="text-center text-sm text-slate-600">
+            No account? <Link href="/register" className="text-orange-700 font-medium">Register</Link>
           </p>
         </form>
       </div>

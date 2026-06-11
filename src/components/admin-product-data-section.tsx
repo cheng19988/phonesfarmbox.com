@@ -20,13 +20,13 @@ type Row = {
 
 function StatusCell({ missing }: { missing: boolean }) {
   return (
-    <span className={missing ? "text-amber-400" : "text-emerald-400"}>{missing ? "pending" : "set"}</span>
+    <span className={missing ? "text-amber-700" : "text-emerald-700"}>{missing ? "pending" : "set"}</span>
   );
 }
 
 const inputClass =
-  "w-full bg-slate-800 border border-slate-700 rounded px-2 py-1.5 text-sm text-white";
-const labelClass = "block text-xs text-slate-400 mb-1";
+  "w-full bg-white border border-slate-200 rounded px-2 py-1.5 text-sm text-slate-900";
+const labelClass = "block text-xs text-slate-600 mb-1";
 
 function ProductDataEditForm({
   slug,
@@ -77,11 +77,11 @@ function ProductDataEditForm({
   return (
     <div className="p-4 border border-slate-700 rounded-lg bg-slate-900/50 space-y-4">
       <div>
-        <h4 className="text-sm font-medium text-white mb-3">Image paths &amp; status</h4>
+        <h4 className="text-sm font-medium text-slate-900 mb-3">Image paths &amp; status</h4>
         <p className="text-xs text-slate-500 mb-3">
-          Local paths only, e.g. <code className="text-slate-400">/images/products/phone-farm-box-primary-01.webp</code>.
-          Batch import: see <code className="text-slate-400">docs/product-image-import-template.csv</code> and{" "}
-          <code className="text-slate-400">npm run images:import</code>.
+          Local paths only, e.g. <code className="text-slate-600">/images/products/phone-farm-box-primary-01.webp</code>.
+          Batch import: see <code className="text-slate-600">docs/product-image-import-template.csv</code> and{" "}
+          <code className="text-slate-600">npm run images:import</code>.
         </p>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="md:col-span-2">
@@ -149,14 +149,14 @@ function ProductDataEditForm({
           </div>
         </div>
         {form.imageType === "official_photo" && (
-          <p className="text-xs text-amber-400/90 mt-2">
+          <p className="text-xs text-orange-700/90 mt-2">
             official_photo requires imageSourceNote or imageVerificationNote — only use for verified real product photos.
           </p>
         )}
       </div>
 
       <div>
-        <h4 className="text-sm font-medium text-white mb-3">Hardware datasheet fields</h4>
+        <h4 className="text-sm font-medium text-slate-900 mb-3">Hardware datasheet fields</h4>
         <div className="grid md:grid-cols-2 gap-4">
         {(
           [
@@ -205,11 +205,11 @@ function ProductDataEditForm({
           type="button"
           onClick={save}
           disabled={saving}
-          className="text-sm px-3 py-1.5 rounded bg-amber-500/20 text-amber-400 hover:text-cyan-300 disabled:opacity-50"
+          className="text-sm px-3 py-1.5 rounded bg-orange-100 text-orange-800 hover:bg-orange-200 disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save product data"}
         </button>
-        <button type="button" onClick={onCancel} className="text-sm text-slate-400 hover:text-white">
+        <button type="button" onClick={onCancel} className="text-sm text-slate-600 hover:text-slate-900">
           Cancel
         </button>
         {success && <span className="text-sm text-emerald-400">Saved</span>}
@@ -231,7 +231,7 @@ export function AdminProductDataSection({ rows }: { rows: Row[] }) {
     <div className="overflow-x-auto">
       <table className="w-full text-xs">
         <thead>
-          <tr className="border-b border-slate-800 text-slate-400">
+          <tr className="border-b border-slate-200 text-slate-600">
             <th className="text-left py-2 pr-2">SKU</th>
             <th className="text-left py-2 pr-2">Datasheet</th>
             <th className="text-left py-2 pr-2">Dims</th>
@@ -249,8 +249,8 @@ export function AdminProductDataSection({ rows }: { rows: Row[] }) {
             const isEditing = editingSlug === slug;
             return (
               <Fragment key={slug}>
-                <tr key={slug} className="border-b border-slate-800 align-top">
-                  <td className="py-2 pr-2 text-white">
+                <tr key={slug} className="border-b border-slate-200 align-top">
+                  <td className="py-2 pr-2 text-slate-900">
                     <div>{slug}</div>
                     <div className="text-slate-500">{name}</div>
                   </td>
@@ -277,14 +277,14 @@ export function AdminProductDataSection({ rows }: { rows: Row[] }) {
                     <button
                       type="button"
                       onClick={() => setEditingSlug(isEditing ? null : slug)}
-                      className="text-amber-400 hover:text-cyan-300"
+                      className="text-orange-700 hover:text-orange-800 font-medium"
                     >
                       {isEditing ? "Close" : "Edit"}
                     </button>
                   </td>
                 </tr>
                 {isEditing && (
-                  <tr key={`${slug}-edit`} className="border-b border-slate-800">
+                  <tr key={`${slug}-edit`} className="border-b border-slate-200">
                     <td colSpan={9} className="py-3">
                       <ProductDataEditForm
                         slug={slug}
@@ -301,7 +301,7 @@ export function AdminProductDataSection({ rows }: { rows: Row[] }) {
         </tbody>
       </table>
       <p className="text-xs text-slate-500 mt-3">
-        Edit verified hardware and image fields per SKU. Empty fields stay &ldquo;Confirmed before quote&rdquo; on the storefront. Use local paths under <code className="text-slate-400">/images/</code> only — no external URLs.
+        Edit verified hardware and image fields per SKU. Empty fields stay &ldquo;Confirmed before quote&rdquo; on the storefront. Use local paths under <code className="text-slate-600">/images/</code> only — no external URLs.
       </p>
     </div>
   );

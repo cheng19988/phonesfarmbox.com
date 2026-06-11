@@ -13,11 +13,11 @@ type ContactRow = {
 };
 
 const QUALITY_STYLES: Record<string, string> = {
-  "Complete RFQ": "bg-emerald-950/50 text-emerald-400 border-emerald-800/40",
-  "Needs follow-up": "bg-amber-950/50 text-amber-400 border-amber-800/40",
-  "Missing destination": "bg-red-950/50 text-red-400 border-red-800/40",
-  "Missing connection mode": "bg-orange-950/50 text-orange-400 border-orange-800/40",
-  "Missing quantity": "bg-orange-950/50 text-orange-400 border-orange-800/40",
+  "Complete RFQ": "bg-emerald-50 text-emerald-800 border-emerald-200",
+  "Needs follow-up": "bg-amber-50 text-amber-900 border-amber-200",
+  "Missing destination": "bg-red-50 text-red-800 border-red-200",
+  "Missing connection mode": "bg-orange-50 text-orange-900 border-orange-200",
+  "Missing quantity": "bg-orange-50 text-orange-900 border-orange-200",
 };
 
 export function AdminContactRow({ contact }: { contact: ContactRow }) {
@@ -27,21 +27,21 @@ export function AdminContactRow({ contact }: { contact: ContactRow }) {
   return (
     <div className="card p-4 text-sm">
       <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-        <p className="text-white font-medium">
+        <p className="text-slate-900 font-medium">
           {contact.name} · {contact.email}
         </p>
-        <span className={`text-xs px-2 py-0.5 rounded border ${QUALITY_STYLES[quality] ?? "border-slate-700 text-slate-400"}`}>
+        <span className={`text-xs px-2 py-0.5 rounded border ${QUALITY_STYLES[quality] ?? "border-slate-200 text-slate-600 bg-slate-50"}`}>
           {quality}
         </span>
       </div>
-      <p className="text-slate-400">
+      <p className="text-slate-600">
         {contact.country || "—"} · {contact.productInterest || "—"} · Qty: {contact.deviceQuantity || "—"}
       </p>
 
       {hasRfqAppendix && (
-        <div className="mt-2 p-2 rounded border border-slate-800 bg-slate-950/50 text-xs">
-          <p className="text-slate-500 mb-1 font-medium">RFQ summary</p>
-          <ul className="text-slate-400 space-y-0.5">
+        <div className="mt-2 p-2 rounded border border-slate-200 bg-slate-50 text-xs">
+          <p className="text-slate-600 mb-1 font-medium">RFQ summary</p>
+          <ul className="text-slate-600 space-y-0.5">
             {parsed.connectionMode && <li>Connection: {parsed.connectionMode}</li>}
             {parsed.voltageRegion && <li>Voltage: {parsed.voltageRegion}</li>}
             {parsed.chassisConfig && <li>Chassis: {parsed.chassisConfig}</li>}
@@ -62,8 +62,8 @@ export function AdminContactRow({ contact }: { contact: ContactRow }) {
             key={b.key}
             className={`text-[10px] px-1.5 py-0.5 rounded border ${
               b.present
-                ? "border-emerald-800/50 text-emerald-400/90 bg-emerald-950/30"
-                : "border-slate-800 text-slate-600"
+                ? "border-emerald-200 text-emerald-800 bg-emerald-50"
+                : "border-slate-200 text-slate-500 bg-white"
             }`}
           >
             {b.label}

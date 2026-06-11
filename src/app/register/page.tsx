@@ -40,20 +40,20 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit} className="card p-6 space-y-4">
           {error && <p className="text-red-400 text-sm">{error}</p>}
           <div>
-            <label className="block text-sm text-slate-400 mb-1">Name</label>
-            <input name="name" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+            <label className="block text-sm text-slate-600 mb-1">Name</label>
+            <input name="name" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
           </div>
           <div>
-            <label className="block text-sm text-slate-400 mb-1">Email</label>
-            <input name="email" type="email" required className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+            <label className="block text-sm text-slate-600 mb-1">Email</label>
+            <input name="email" type="email" required className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
           </div>
           <div>
-            <label className="block text-sm text-slate-400 mb-1">Password</label>
-            <input name="password" type="password" required minLength={8} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white" />
+            <label className="block text-sm text-slate-600 mb-1">Password</label>
+            <input name="password" type="password" required minLength={8} className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
           </div>
           <button type="submit" disabled={loading} className="btn-primary w-full">{loading ? "Creating..." : "Register"}</button>
-          <p className="text-center text-sm text-slate-400">
-            Have an account? <Link href="/login" className="text-amber-400">Login</Link>
+          <p className="text-center text-sm text-slate-600">
+            Have an account? <Link href="/login" className="text-orange-700 font-medium">Login</Link>
           </p>
         </form>
       </div>

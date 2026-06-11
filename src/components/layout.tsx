@@ -67,8 +67,8 @@ export async function Header() {
 export function Footer() {
   return (
     <footer className="border-t border-[var(--border-subtle)] bg-[var(--surface-muted)] mt-auto">
-      <div className="container-wide py-16 grid md:grid-cols-2 lg:grid-cols-6 gap-10">
-        <div className="lg:col-span-2">
+      <div className="container-wide py-16 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-10">
+        <div className="md:col-span-2 xl:col-span-2">
           <div className="font-bold text-slate-900 text-xl mb-3 tracking-tight">{SITE.name}</div>
           <p className="text-[var(--text-secondary)] text-sm mb-6 max-w-md leading-relaxed">{SITE.description}</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--text-secondary)]">
@@ -91,7 +91,7 @@ export function Footer() {
         <div>
           <h3 className="font-semibold text-slate-900 mb-4 text-sm uppercase tracking-wide">Solutions</h3>
           <ul className="space-y-2.5 text-sm text-[var(--text-secondary)]">
-            {FOOTER_LINKS.solutions.slice(0, 6).map((l) => (
+            {FOOTER_LINKS.solutions.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="hover:text-slate-900 transition-colors">
                   {l.label}
@@ -103,7 +103,19 @@ export function Footer() {
         <div>
           <h3 className="font-semibold text-slate-900 mb-4 text-sm uppercase tracking-wide">Scenarios</h3>
           <ul className="space-y-2.5 text-sm text-[var(--text-secondary)]">
-            {FOOTER_LINKS.scenarios.slice(0, 6).map((l) => (
+            {FOOTER_LINKS.scenarios.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-slate-900 transition-colors">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="font-semibold text-slate-900 mb-4 text-sm uppercase tracking-wide">Features</h3>
+          <ul className="space-y-2.5 text-sm text-[var(--text-secondary)]">
+            {FOOTER_LINKS.features.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="hover:text-slate-900 transition-colors">
                   {l.label}
@@ -130,6 +142,11 @@ export function Footer() {
             <li>
               <Link href="/about" className="hover:text-slate-900 transition-colors">
                 About
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" className="hover:text-slate-900 transition-colors">
+                Services
               </Link>
             </li>
             <li>

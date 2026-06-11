@@ -8,7 +8,7 @@ import { resolveProductCardImage } from "@/lib/resolve-product-card-image";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CTABand, Surface } from "@/components/ui/surface";
-import { FACTORY_STEPS, HARDWARE_TRUST_POINTS, PRODUCT_CATEGORIES } from "@/data/homepage-trust";
+import { FACTORY_STEPS, HARDWARE_TRUST_POINTS, PRODUCT_CATEGORIES, DEPLOYMENT_STORIES } from "@/data/homepage-trust";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -147,10 +147,44 @@ export default async function HomePage() {
                 </li>
               ))}
             </ol>
-            <Link href="/pricing" className="inline-flex mt-8 text-amber-400 hover:text-amber-300 font-medium text-sm">
+            <Link href="/pricing" className="inline-flex mt-8 text-orange-700 hover:text-orange-800 font-medium text-sm">
               Full quote &amp; delivery process →
             </Link>
           </div>
+        </div>
+      </Section>
+
+      <Section variant="muted">
+        <SectionHeader
+          eyebrow="Deployment examples"
+          title="How buyers use our hardware"
+          description="Anonymous project patterns from recent export quotes — regions and sizes are examples; your BOM is confirmed on written quote."
+          align="center"
+          className="max-w-3xl mx-auto"
+        />
+        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+          {DEPLOYMENT_STORIES.map((story) => (
+            <Surface key={story.region} padding="md" className="h-full border-slate-200 shadow-sm">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                  {story.region}
+                </span>
+                <span className="text-xs text-slate-500">{story.size}</span>
+              </div>
+              <p className="text-sm text-slate-600 mb-3">
+                <span className="font-medium text-slate-800">Hardware: </span>
+                {story.hardware}
+              </p>
+              <p className="text-sm text-slate-600 mb-3">
+                <span className="font-medium text-slate-800">Challenge: </span>
+                {story.problem}
+              </p>
+              <p className="text-sm text-slate-700">
+                <span className="font-medium text-slate-900">Outcome: </span>
+                {story.result}
+              </p>
+            </Surface>
+          ))}
         </div>
       </Section>
 
