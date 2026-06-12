@@ -29,6 +29,7 @@ import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } 
 import { getProductProcurement } from "@/lib/product-procurement";
 import { ProductProcurementSection } from "@/components/product-procurement-section";
 import { getProductSeo } from "@/data/product-seo";
+import { parseProductData } from "@/lib/product-profile";
 
 type Props = { params: Promise<{ slug: string }> };
 
