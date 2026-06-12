@@ -10,9 +10,9 @@ import { SITE, CONTACT } from "@/lib/config";
 import { FACTORY_STEPS, QC_CHECKLIST, PACKING_LIST_STANDARD } from "@/data/homepage-trust";
 
 export const metadata = buildMetadata({
-  title: "About Phones Farm Box — Guangzhou Hardware Supplier",
+  title: "Phone Farm Box Manufacturer — Guangzhou Since 2017",
   description:
-    "Guangzhou phone farm hardware supplier — phone farm boxes, motherboard racks, USB hubs, cooling, assembly workflow, QC, export packing, and after-sales support.",
+    "Phone farm box manufacturer in Guangzhou — control multiple Android and iPhone devices from one PC. Chassis, motherboard racks, 20-port USB hub tiers, QC, worldwide delivery. Written BOM before payment.",
   path: "/about",
 });
 
@@ -37,8 +37,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow={`${SITE.location} · Est. ${SITE.since}`}
-        title="About Phones Farm Box"
-        description="Guangzhou-based phone farm hardware supplier — design, assembly, QC, and export of chassis, motherboard racks, USB hubs, power and cooling modules, and rack-scale cabinet systems."
+        title="Phone Farm Box Manufacturer — Guangzhou"
+        description="Factory-assembled phone farm box hardware since 2017 — control multiple Android and iPhone nodes from one host PC. Chassis, motherboard racks, industrial USB hubs, QC burn-in, and worldwide export. Quote-first: written BOM before payment."
         image={IMPORTED.homeHero}
         imageAlt="Phone farm hardware assembly reference"
         theme="light"

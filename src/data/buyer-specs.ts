@@ -90,11 +90,13 @@ export const BUYER_SPECS_ITEMS: BuyerSpecItem[] = [
       "Android and iPhone paths are quoted per model list — board footprint, USB/OTG mode, ROM path, and SIM/camera needs. Catalog gallery shows common mounts; not an exclusive-only list.",
     bullets: [
       "Send target models on RFQ — we confirm slot compatibility and power draw before quote.",
+      "Catalog gallery includes Samsung S8, S9, Note 8/9/10, S10/S20/S21 FE, OnePlus, Pixel — cluster mix on quote.",
       "One phone family per chassis is typical; mixed models may need hybrid wiring on quote.",
       "Motherboard / headless nodes: board model list and footprint required.",
       "iPhone farms use separate chassis and host tooling — confirmed on iPhone SKU proforma.",
     ],
     links: [
+      { label: "Hardware selection 2026 (S8/S9/Note)", href: "/blog/phone-farm-box-hardware-selection-2026" },
       { label: "Phone Farm Box + model gallery", href: "/products/phone-farm-box" },
       { label: "First box setup guide", href: "/help/account-setup-first-box" },
       { label: "iPhone farm SKU", href: "/products/iphone-phone-farm" },

@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Phone Farm Guides & Blog",
   description:
-    "24 practical guides on phone farm boxes, RFQ checklists, hardware selection, shipping, USDT payment, setup tutorials, and B2B procurement.",
+    "Phone farm box manufacturer guides — hardware selection 2026, S8/S9 clusters, mobile device lab setup, USB hub sizing, RFQ, shipping, and B2B procurement from Guangzhou.",
   path: "/blog",
 });
 

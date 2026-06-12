@@ -1,24 +1,24 @@
 /** Per-SKU SEO title and meta description — procurement long-tail without changing visible H1 */
 export const PRODUCT_SEO: Record<string, { title: string; description: string }> = {
   "phone-farm-box": {
-    title: "Android Phone Farm Box — B2B Supplier Quote",
+    title: "Phone Farm Box Manufacturer Quote — Control Multiple Devices",
     description:
-      "Phone farm box supplier quote — Android phone farm chassis with USB hub, PSU, and cooling. Buy phone farm box hardware with MOQ 1 sample; written BOM and lead time before payment.",
+      "Phone farm box manufacturer in Guangzhou — Android phone farm chassis with USB hub, PSU, cooling. Control multiple devices from one PC; MOQ 1 sample. Reference price — final quote confirmed before payment.",
   },
   "motherboard-box": {
-    title: "Motherboard Phone Farm Box — Headless Android Rack",
+    title: "Motherboard Phone Farm Box — Android Board Cluster Hardware",
     description:
-      "Motherboard phone farm box for headless Android device farms — screenless node density, batch control from one PC. Phone farm hardware supplier; configuration confirmed on quote.",
+      "Motherboard phone farm box manufacturer spec — headless Android clusters, screenless node density, batch control multiple devices from one host. Configuration confirmed on written quote.",
   },
   "android-phone-farm": {
-    title: "Turnkey Android Phone Farm Hardware — Cluster BOM",
+    title: "Android Phone Farm Box Cluster — Turnkey Hardware BOM",
     description:
-      "Android phone farm hardware cluster — chassis, hub tier, and cooling matched to your device list. Android device farm hardware for agencies and QA labs; quote-based export from Guangzhou.",
+      "Turnkey Android phone farm box cluster — chassis, USB hub tier, and cooling matched to your device list. Phone farm box manufacturer; control multiple Android devices; worldwide delivery on quote.",
   },
   "iphone-phone-farm": {
-    title: "iPhone Phone Farm Cluster Hardware — Batch Control",
+    title: "iPhone Phone Farm Box — Control Multiple iPhones",
     description:
-      "iPhone phone farm hardware for real-device batch control — model mix, hub topology, and host setup confirmed on written quote. B2B export from Guangzhou.",
+      "iPhone phone farm box hardware — control multiple iPhones from one management interface. Model mix, hub topology, and host setup on written quote. Manufacturer export from Guangzhou with worldwide delivery.",
   },
   "real-device-phone-farm": {
     title: "Real Device Phone Farm — Multi-Box Project BOM",
@@ -31,9 +31,9 @@ export const PRODUCT_SEO: Record<string, { title: string; description: string }>
       "Empty phone farm box chassis for DIY builds — industrial enclosure with fan mounts and hub slots. Expand existing Android phone farm hardware; mount dimensions confirmed on quote.",
   },
   "usb-hub": {
-    title: "Phone Farm USB Hub Server — Industrial Hub Tier",
+    title: "20 Port USB Hub Server — Phone Farm Box Cluster",
     description:
-      "Industrial USB hub for phone farm box clusters — stable multi-device data paths. Phone farm equipment accessory; hub tier and port count sized on BOM.",
+      "Industrial USB hub for phone farm boxes — 10/16/20+ port tiers, stable multi-device control, concealed cabling. Phone farm equipment; hub port count sized on BOM with worldwide delivery from Guangzhou.",
   },
   "power-supply-solution": {
     title: "Phone Farm Power Supply Module — PSU for Chassis",
@@ -46,9 +46,9 @@ export const PRODUCT_SEO: Record<string, { title: string; description: string }>
       "Phone farm cooling kit — fan count and CFM target confirmed per chassis generation. Phone farm equipment for dense Android device farm hardware deployments.",
   },
   "network-equipment": {
-    title: "Phone Farm Network Router & Switch — Multi-Device LAN",
+    title: "Phone Farm Network Gear — OTG Ethernet & Multi-Device LAN",
     description:
-      "Network equipment for phone farm box rooms — routers, switches, and OTG Ethernet for segmented device groups. Hardware-only; proxy services buyer-selected.",
+      "Routers, switches, and OTG Ethernet modules for phone farm box rooms — segmented device groups, stable multi-device networking. Hardware-only; worldwide export from Guangzhou.",
   },
   "custom-cabinet": {
     title: "Rackmount Phone Farm Cabinet — Custom 2U+ Rack",

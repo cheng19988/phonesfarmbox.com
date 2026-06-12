@@ -95,6 +95,8 @@
 - [Ad Creative QA on Physical Android Devices — Hardware Lab Setup](https://www.phonesfarmbox.com/blog/ad-creative-qa-physical-device-lab/): Use a physical device lab to preview ad creatives, in-app placements, and screen formats on real Android phones — hardware planning for marketing QA teams.
 - [Buy Phone Farm Box: RFQ vs USDT Sample Order — Which Path?](https://www.phonesfarmbox.com/blog/buy-phone-farm-box-rfq-vs-usdt-sample/): Should you buy a phone farm box through RFQ or USDT sample checkout? When each B2B path fits — bulk, custom, and phone-included orders vs MOQ-1 catalog SKUs.
 - [Phone Farm Equipment Checklist — Hub, PSU, Cooling & Network BOM](https://www.phonesfarmbox.com/blog/phone-farm-equipment-checklist-bom/): Complete phone farm equipment list beyond the box — USB hub tier, PSU wattage, fan kit, host PC, and network gear sized from your node count.
+- [Best Phone Farm Box Hardware Selection 2026 — S8, S9, Note Clusters](https://www.phonesfarmbox.com/blog/phone-farm-box-hardware-selection-2026/): Compare phone farm box hardware for 2026 — Samsung S8/S9/Note clusters, USB hub tiers up to 20+ ports, OTG Ethernet, and Android vs iPhone farm paths. Reference pricing; final BOM on quote.
+- [Phone Farm Box Manufacturer — Control Multiple Devices from One PC](https://www.phonesfarmbox.com/blog/phone-farm-box-manufacturer-control-multiple-devices/): How a phone farm box manufacturer wires chassis, USB hubs, and batch control so you control multiple Android and iPhone devices from one host PC — factory assembly, QC, worldwide delivery.
 
 ## [Help Center](https://www.phonesfarmbox.com/help/)
 
@@ -130,6 +132,7 @@
 - [Application Management on Phone Farms](https://www.phonesfarmbox.com/help/application-management-phone-farm/): Bulk install, launch, uninstall, and update apps across real device groups.
 - [How Many Phone Farm Boxes Can One PC Control?](https://www.phonesfarmbox.com/help/one-pc-how-many-phone-farm-boxes/): Planning guide: boxes per control PC, hub uplinks, mirrored node limits, and when to add a second host — reference ranges; confirm on quote.
 - [2U Rackmount Phone Farm Buyer Guide](https://www.phonesfarmbox.com/help/rackmount-2u-phone-farm-buyer-guide/): When buyers search for 2U phone farm rack or rackmount phone farm hardware — how it maps to custom cabinets, stacked chassis, and quote fields.
+- [Mobile Device Lab Setup — Real Phone Farm Hardware](https://www.phonesfarmbox.com/help/mobile-device-lab-setup-phone-farm-hardware/): Build a mobile device lab on real phone farm box hardware — device lab management for app compatibility testing, parallel Android/iOS nodes, and QA burn-in.
 
 ## [Glossary](https://www.phonesfarmbox.com/glossary/)
 
@@ -200,7 +203,7 @@
 
 - [Social Media Marketing with Phone Farm Box](https://www.phonesfarmbox.com/solutions/social-media-marketing/): Multi-device management for TikTok, Facebook, YouTube, Instagram and global social platforms
 - [E-commerce Operations Device Farm](https://www.phonesfarmbox.com/solutions/ecommerce-operations/): Multi-store management on real devices for cross-border e-commerce teams
-- [App Development & QA Device Farm](https://www.phonesfarmbox.com/solutions/app-development-qa/): Real-device testing environment for Android and iOS app developers
+- [Mobile Device Lab & App QA — Real Device Testing Hardware](https://www.phonesfarmbox.com/solutions/app-development-qa/): Mobile testing and device lab management on real Android and iPhone phone farm hardware
 - [Cross-Border Marketing Device Farm](https://www.phonesfarmbox.com/solutions/cross-border-marketing/): Global multi-account operations on real devices from Guangzhou
 - [Affiliate Marketing Device Farm](https://www.phonesfarmbox.com/solutions/affiliate-marketing/): Scale affiliate operations with multi-device real hardware infrastructure
 - [Game Account Maintenance Device Farm](https://www.phonesfarmbox.com/solutions/game-account-maintenance/): 24/7 real-device game session maintenance on phone farm box hardware
@@ -328,6 +331,8 @@
 > Common buyer questions about phone farm box hardware, operations, ordering, payment, and support.
 
 - [What is a phone farm box?](https://www.phonesfarmbox.com/faq/#what-is-a-phone-farm-box): A phone farm box is an industrial chassis that houses multiple mobile nodes with centralized PSU, USB hub wiring, and cooling. Slot count varies by phone model and chassis variant — confirmed before q…
+- [Are you a phone farm box manufacturer?](https://www.phonesfarmbox.com/faq/#are-you-a-phone-farm-box-manufacturer): Yes. Phones Farm Box manufactures and exports phone farm box hardware from Guangzhou since 2017 — chassis assembly, USB hub wiring, PSU/cooling integration, burn-in QC, and worldwide air or sea delive…
+- [Can one PC control multiple phone farm boxes and devices?](https://www.phonesfarmbox.com/faq/#can-one-pc-control-multiple-phone-farm-boxes-and-devices): Yes. Each box connects to the host PC through one industrial USB hub uplink. Batch control software drives multiple Android or iPhone nodes in parallel — typical planning is 20–40 mirrored Android nod…
 - [What is the MOQ?](https://www.phonesfarmbox.com/faq/#what-is-the-moq): Standard catalog MOQ is 1 unit for sample evaluation. Volume pricing typically starts at 3+ boxes. Enterprise rack and cabinet projects are quoted separately — see our pricing page for tier overview.
 - [Can I buy empty boxes only?](https://www.phonesfarmbox.com/faq/#can-i-buy-empty-boxes-only): Yes. The empty box / chassis SKU is for DIY builders and expansion. Fans, PSU, and hub are ordered separately or as kits. Share board dimensions so we confirm mount compatibility.
 - [Can you supply phones together with the box?](https://www.phonesfarmbox.com/faq/#can-you-supply-phones-together-with-the-box): Optional on quote. We can ship chassis-only, mount your BYO devices, or source Android/iPhone nodes per agreed model list. Device availability affects lead time — locked on proforma before assembly.

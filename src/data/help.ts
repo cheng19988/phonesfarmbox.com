@@ -792,6 +792,36 @@ We return a **host sizing note on proforma** with recommended PC spec and uplink
 
 **Send on RFQ:** “rackmount” or “2U” target, facility rack standard if known, node count, and whether phones or boards are buyer-supplied. See also Rack and Cabinet Planning blog article and Custom Cabinet product page.`,
   },
+  {
+    slug: "mobile-device-lab-setup-phone-farm-hardware",
+    title: "Mobile Device Lab Setup — Real Phone Farm Hardware",
+    category: "Hardware Setup",
+    summary:
+      "Build a mobile device lab on real phone farm box hardware — device lab management for app compatibility testing, parallel Android/iOS nodes, and QA burn-in.",
+    content: `Teams searching **device lab management**, **mobile testing**, or a **real device testing platform** on owned hardware often outgrow desk clutter. A **mobile device lab** on **phone farm box** infrastructure centralizes power, cooling, and USB hub trees for repeatable QA.
+
+**Why real-device labs (vs emulator-only)**
+- Radios, sensors, GPU, and camera paths on physical nodes
+- Parallel OS/version matrix across labeled slots
+- Audit-friendly burn-in before production campaigns
+
+**Hardware stack**
+- **Motherboard box** — lowest cost per slot for headless APK / ADB loops
+- **Phone farm box** — SIM, camera, and full-handset features when apps require them
+- **Industrial USB hub tier** — plan **10 / 16 / 20+ port** hub modules by node count (exact tier on BOM)
+- **OTG Ethernet** on large Android farms to offload USB bandwidth
+- **Network router/switch** when lab IT requires segmented VLANs per group
+
+**Control multiple devices**
+One host PC per hub uplink tree — batch control or test runners (Appium, UIAutomator, buyer scripts) operate across **multiple devices in parallel**. See Host PC requirements and one-PC-how-many-boxes help articles.
+
+**Lab procurement (quote-first)**
+1. Send node count, model list, and compliance needs (burn-in checklist, packing photos)
+2. Receive wiring diagram + proforma BOM
+3. Assembly, QC, worldwide air or sea export from Guangzhou
+
+Related: [Mobile Device Lab blog](/blog/mobile-device-lab-compatibility-testing-hardware/), [App Development & QA solution](/solutions/app-development-qa/), [Hardware Selection 2026](/blog/phone-farm-box-hardware-selection-2026/).`,
+  },
 ];
 
 export function getHelpArticle(slug: string) {

@@ -49,14 +49,15 @@ export const SOLUTION_PAGES: ContentPage[] = [
   },
   {
     slug: "app-development-qa",
-    title: "App Development & QA Device Farm",
-    subtitle: "Real-device testing environment for Android and iOS app developers",
+    title: "Mobile Device Lab & App QA — Real Device Testing Hardware",
+    subtitle: "Mobile testing and device lab management on real Android and iPhone phone farm hardware",
     category: "Development",
     heroImage: IMAGES.workshop,
     intro:
-      "App developers and QA teams use phone farm boxes as real-device testing farms — for compatibility testing, performance monitoring, and automated test suite execution on physical hardware.",
+      "App developers and QA teams use phone farm boxes as **mobile device labs** and **real device testing** farms — compatibility testing, parallel test runs, and automated suites on physical hardware (not cloud phone SaaS).",
     sections: [
-      { heading: "Real Device Test Farm", body: "Test apps on multiple real Android or iPhone devices in parallel. Hardware sensors, GPS, camera, and network paths on physical nodes support QA beyond software-only simulation." },
+      { heading: "Real Device Test Farm", body: "Mobile testing on multiple real Android or iPhone devices in parallel — hardware sensors, GPS, camera, and network paths on physical nodes. Supports QA workflows beyond software-only simulation." },
+      { heading: "Device Lab Management Hardware", body: "Centralize lab nodes in phone farm chassis with unified PSU, cooling, and USB hub trees. Label slots by OS version or test group; expand with stacked boxes as matrix grows." },
       { heading: "ADB & Automation Integration", body: "Connect Appium, UIAutomator, and custom test scripts via ADB batch automation. Run test suites across device groups in parallel." },
     ],
     benefits: [

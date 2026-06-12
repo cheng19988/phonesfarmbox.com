@@ -14,6 +14,20 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     category: "Hardware",
+    question: "Are you a phone farm box manufacturer?",
+    answer:
+      "Yes. Phones Farm Box manufactures and exports phone farm box hardware from Guangzhou since 2017 — chassis assembly, USB hub wiring, PSU/cooling integration, burn-in QC, and worldwide air or sea delivery. Sales are quote-based with written BOM on proforma before payment; we are not a cloud phone SaaS provider.",
+    productLink: "/about",
+  },
+  {
+    category: "Hardware",
+    question: "Can one PC control multiple phone farm boxes and devices?",
+    answer:
+      "Yes. Each box connects to the host PC through one industrial USB hub uplink. Batch control software drives multiple Android or iPhone nodes in parallel — typical planning is 20–40 mirrored Android nodes per well-specced PC, or 4–6 boxes on ADB-heavy workflows with PCIe USB controllers. Exact host sizing is confirmed on your quote.",
+    productLink: "/help/one-pc-how-many-phone-farm-boxes",
+  },
+  {
+    category: "Hardware",
     question: "What is the MOQ?",
     answer:
       "Standard catalog MOQ is 1 unit for sample evaluation. Volume pricing typically starts at 3+ boxes. Enterprise rack and cabinet projects are quoted separately — see our pricing page for tier overview.",

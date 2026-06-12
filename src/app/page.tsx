@@ -15,9 +15,9 @@ import { JsonLd } from "@/components/shared";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Box Supplier — Guangzhou B2B Hardware",
+  title: "Phone Farm Box Manufacturer — Control Multiple Devices | Guangzhou",
   description:
-    "Phone farm box hardware supplier in Guangzhou — quote-based B2B export of Android phone farm chassis, motherboard racks, USB hubs, and rackmount cabinets. MOQ 1 · written BOM before payment.",
+    "Phone farm box manufacturer — Android & iPhone farm hardware, motherboard racks, 20-port USB hub tiers, mobile device lab setups. Control multiple devices from one PC. MOQ 1 · worldwide delivery · final quote before payment.",
   path: "/",
 });
 
@@ -44,7 +44,7 @@ export default async function HomePage() {
         size="home"
         eyebrow={`${SITE.location} · Est. ${SITE.since} · B2B phone farm hardware`}
         title="Industrial phone farm box hardware, built for scale"
-        description="Phone farm box chassis, motherboard racks, USB hubs, power, and cooling — assembled, tested, and exported from Guangzhou. Configuration and lead time confirmed on written quote before payment."
+        description="Phone farm box manufacturer in Guangzhou — chassis, motherboard racks, USB hubs, power, and cooling. Control multiple devices from one PC; configuration and lead time on written quote before payment."
         image={IMAGES.homeHero}
         imageAlt="Phone farm box hardware"
         theme="light"
