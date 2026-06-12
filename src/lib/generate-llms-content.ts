@@ -13,7 +13,7 @@ import { AI_PAGE } from "@/data/ai-page";
 import { ALTERNATIVES_PAGE } from "@/data/alternatives-page";
 import { BUYER_SPECS_ITEMS, BUYER_SPECS_INTRO } from "@/data/buyer-specs";
 
-const U = SITE.url;
+const U = SITE.productionUrl;
 
 function section(title: string, url: string, intro: string, items: { title: string; url: string; desc: string }[]) {
   const lines = [

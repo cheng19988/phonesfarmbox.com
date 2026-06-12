@@ -26,6 +26,8 @@ import {
 import { ContactCTA, JsonLd, AvailabilityBadge } from "@/components/shared";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } from "@/lib/product-images";
+import { getProductProcurement } from "@/lib/product-procurement";
+import { ProductProcurementSection } from "@/components/product-procurement-section";
 import { parseProductData } from "@/lib/product-profile";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -77,6 +79,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const specs = parseJson<Record<string, string>>(product.specs, {});
   const dbFaq = parseJson<{ q: string; a: string }[]>(product.faq, []);
   const faq = b2b?.faq?.length ? b2b.faq : dbFaq;
+  const procurement = getProductProcurement(slug, b2b);
 
   const related = b2b?.relatedSlugs?.length
     ? await prisma.product.findMany({
@@ -164,6 +167,8 @@ export default async function ProductDetailPage({ params }: Props) {
           )}
 
           {slug === "motherboard-box" && <MotherboardModelGallery images={MOTHERBOARD_GALLERY} />}
+
+          {procurement && <ProductProcurementSection procurement={procurement} />}
 
           {b2b && (
             <section className="mb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-4">

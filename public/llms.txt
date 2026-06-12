@@ -115,7 +115,7 @@
 - [Batch Control Software Overview for Phone Farms](https://www.phonesfarmbox.com/help/batch-control-software-overview/): How host PC software connects to real devices through USB hubs — selection criteria for Android and iPhone farms.
 - [Synchronized Multi-Device Operations](https://www.phonesfarmbox.com/help/synchronized-device-operations-guide/): Operation sync across device groups — hardware and host requirements for reliable batch gestures.
 - [Team Device Sharing on Phone Farm Hardware](https://www.phonesfarmbox.com/help/team-device-sharing-setup/): Share device clusters among operators — roles, groups, and hardware labeling for agencies.
-- [Device Profile Reset Workflow](https://www.phonesfarmbox.com/help/device-profile-reset-workflow/): Reset device environment on physical hardware — when to use factory reset vs new nodes.
+- [Device Environment Refresh Workflow](https://www.phonesfarmbox.com/help/device-profile-reset-workflow/): Refresh app data or ROM state on physical hardware between QA cycles or campaign handoffs.
 - [Bulk APK Installation Guide](https://www.phonesfarmbox.com/help/bulk-apk-install-guide/): Push apps to many real devices — USB bandwidth, hub tier, and QA validation tips.
 - [Host PC Requirements for Phone Farm Control](https://www.phonesfarmbox.com/help/host-pc-requirements-phone-farm/): CPU, RAM, USB controllers, and OS notes for managing dozens of real devices from one workstation.
 - [Phone Farm Hardware Pricing and Fees Explained](https://www.phonesfarmbox.com/help/phone-farm-pricing-fees-explained/): List prices, quote tiers, freight, services, and payment methods — no hidden subscription on hardware SKUs.
@@ -195,7 +195,7 @@
 - [App Development & QA Device Farm](https://www.phonesfarmbox.com/solutions/app-development-qa/): Real-device testing environment for Android and iOS app developers
 - [Cross-Border Marketing Device Farm](https://www.phonesfarmbox.com/solutions/cross-border-marketing/): Global multi-account operations on real devices from Guangzhou
 - [Affiliate Marketing Device Farm](https://www.phonesfarmbox.com/solutions/affiliate-marketing/): Scale affiliate operations with multi-device real hardware infrastructure
-- [Game Account Maintenance Device Farm](https://www.phonesfarmbox.com/solutions/game-account-maintenance/): 24/7 real-device game account farming on phone farm box hardware
+- [Game Account Maintenance Device Farm](https://www.phonesfarmbox.com/solutions/game-account-maintenance/): 24/7 real-device game session maintenance on phone farm box hardware
 - [Live Streaming Device Farm](https://www.phonesfarmbox.com/solutions/live-streaming-device-farm/): Multi-device live streaming infrastructure on real phone farm hardware
 
 ## [Platform Scenarios](https://www.phonesfarmbox.com/scenarios/)
@@ -255,7 +255,7 @@
 - [ADB Batch Automation](https://www.phonesfarmbox.com/features/adb-batch-automation/): Deep Android ADB integration for batch control of real devices in phone farm boxes
 - [Multi-Device Dashboard](https://www.phonesfarmbox.com/features/multi-device-dashboard/): Aggregated view of all devices in your phone farm — focus mode for large-scale operations
 - [Bulk APK Deployment](https://www.phonesfarmbox.com/features/bulk-apk-deployment/): Install and manage applications across all devices in your phone farm box at once
-- [Device Profile Reset](https://www.phonesfarmbox.com/features/device-profile-reset/): Reset device identity and configuration for fresh account environments
+- [Device Environment Refresh](https://www.phonesfarmbox.com/features/device-profile-reset/): Refresh device configuration between QA cycles or campaign handoffs
 - [Device Asset Management](https://www.phonesfarmbox.com/features/device-asset-management/): File push, APK storage, and asset distribution across phone farm devices
 - [Unmanned Live Streaming on Phone Farm Box](https://www.phonesfarmbox.com/features/unmanned-live-streaming/): Multi-account automated streaming on real devices with camera support
 
@@ -291,9 +291,9 @@
 
 > Install and manage applications across all devices in your phone farm box at once
 
-### [Device Profile Reset](https://www.phonesfarmbox.com/features/device-profile-reset/)
+### [Device Environment Refresh](https://www.phonesfarmbox.com/features/device-profile-reset/)
 
-> Reset device identity and configuration for fresh account environments
+> Refresh device configuration between QA cycles or campaign handoffs
 
 ### [Device Asset Management](https://www.phonesfarmbox.com/features/device-asset-management/)
 
@@ -361,7 +361,7 @@
 - [What fees appear on a hardware quote?](https://www.phonesfarmbox.com/faq/#what-fees-appear-on-a-hardware-quote): BOM lines for chassis, hub, PSU, fans, cables, optional phones, services, and freight. Import duties are buyer unless DDP is stated. See help article on pricing and fees.
 - [Do you offer enterprise rack deployment?](https://www.phonesfarmbox.com/faq/#do-you-offer-enterprise-rack-deployment): Yes — custom cabinets, redundant PSU options, phased sea freight, and SLA maintenance quoted under enterprise deployment service.
 - [What is unlimited device scaling?](https://www.phonesfarmbox.com/faq/#what-is-unlimited-device-scaling): Stack additional phone farm chassis and hub tiers as your matrix grows — slot count and rack layout confirmed on each quote wave, not a single fixed platform cap.
-- [What is device profile reset?](https://www.phonesfarmbox.com/faq/#what-is-device-profile-reset): Resetting app data or ROM state on a physical node between campaigns — equivalent to a clean device environment on hardware you own. Network routes should be re-bound after reset.
+- [What is device environment refresh?](https://www.phonesfarmbox.com/faq/#what-is-device-environment-refresh): Clearing app data or ROM state on a physical node between QA cycles or campaign handoffs — equivalent to a clean device baseline on hardware you own. Network routes should be re-bound after refresh.
 
 ## [Buyer Specs](https://www.phonesfarmbox.com/buyer-specs/)
 

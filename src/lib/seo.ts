@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { SITE } from "./config";
+import { absoluteUrl } from "./site-url";
 
 type SEOInput = {
   title: string;
@@ -16,8 +17,8 @@ export function buildMetadata({
   image,
   noIndex,
 }: SEOInput): Metadata {
-  const url = `${SITE.url}${path}`;
-  const ogImage = image || `${SITE.url}/images/hero_1600x900/phonesfarmbox.com-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-hero_1600x900.webp`;
+  const url = absoluteUrl(path, SITE.productionUrl);
+  const ogImage = image || `${SITE.productionUrl}/images/hero_1600x900/phonesfarmbox.com-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-hero_1600x900.webp`;
 
   return {
     title: { absolute: `${title} | ${SITE.name}` },
@@ -54,8 +55,8 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE.name,
-    url: SITE.url,
-    logo: `${SITE.url}/images/card_800x800/phonesfarmbox.com-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp`,
+    url: SITE.productionUrl,
+    logo: `${SITE.productionUrl}/images/card_800x800/phonesfarmbox.com-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp`,
     description: SITE.description,
     foundingDate: String(SITE.since),
     address: {
@@ -89,15 +90,15 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE.name,
-    url: SITE.url,
+    url: SITE.productionUrl,
     description: SITE.description,
     inLanguage: "en-US",
-    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.productionUrl },
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${SITE.url}/products?q={search_term_string}`,
+        urlTemplate: `${SITE.productionUrl}/products?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },
@@ -117,8 +118,8 @@ export function productJsonLd(product: {
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: `${SITE.url}${product.image}`,
-    url: `${SITE.url}/products/${product.slug}`,
+    image: `${SITE.productionUrl}${product.image}`,
+    url: `${SITE.productionUrl}/products/${product.slug}`,
     brand: { "@type": "Brand", name: SITE.name },
     offers: {
       "@type": "Offer",
@@ -153,7 +154,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${SITE.url}${item.path}`,
+      item: `${SITE.productionUrl}${item.path}`,
     })),
   };
 }
@@ -169,7 +170,7 @@ export function articleJsonLd(input: {
     "@type": "Article",
     headline: input.title,
     description: input.description,
-    url: `${SITE.url}${input.path}`,
+    url: `${SITE.productionUrl}${input.path}`,
     datePublished: input.datePublished,
     author: { "@type": "Organization", name: SITE.name },
     publisher: {
@@ -186,7 +187,7 @@ export function definedTermJsonLd(term: string, definition: string, path: string
     "@type": "DefinedTerm",
     name: term,
     description: definition,
-    url: `${SITE.url}${path}`,
-    inDefinedTermSet: `${SITE.url}/glossary`,
+    url: `${SITE.productionUrl}${path}`,
+    inDefinedTermSet: `${SITE.productionUrl}/glossary`,
   };
 }

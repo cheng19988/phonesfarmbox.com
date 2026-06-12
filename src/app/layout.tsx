@@ -23,8 +23,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(SITE.productionUrl),
   alternates: {
+    canonical: SITE.productionUrl,
     types: {
       "text/plain": [{ url: "/llms.txt", title: "LLMs.txt" }],
     },

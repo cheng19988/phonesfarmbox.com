@@ -477,7 +477,7 @@ We do not guarantee TikTok, social media, or app platform outcomes — hardware 
 - Typical use cases: app testing labs, QA environments, social media team hardware rooms, Android or iPhone farm first boot
 
 **Remote setup does not include**
-- Account farming, platform manipulation, or traffic guarantees
+- Operating buyer accounts, platform manipulation, or traffic guarantees
 - Marketing outcome, TikTok performance, or social media account result guarantees
 - Operating buyer-owned accounts, proxies, or third-party bots on your behalf
 - 24/7 ongoing NOC unless extended support is on invoice
@@ -562,24 +562,27 @@ Enterprise deployments can quote dedicated cabinet segmentation and documentatio
   },
   {
     slug: "device-profile-reset-workflow",
-    title: "Device Profile Reset Workflow",
+    title: "Device Environment Refresh Workflow",
     category: "Device Operation Workflow",
-    summary: "Reset device environment on physical hardware — when to use factory reset vs new nodes.",
-    content: `Device profile reset clears app data, accounts, or ROM state on a physical node — the hardware equivalent of switching to a clean device identity.
+    summary: "Refresh app data or ROM state on physical hardware between QA cycles or campaign handoffs.",
+    content: `Device environment refresh clears app data or ROM state on a physical node — the hardware equivalent of returning a slot to a clean baseline.
 
-**When teams reset:**
-- Between client campaigns on shared agency hardware
-- After app QA cycles requiring clean install
-- When platform policy requires fresh device fingerprint
+**When teams use it:**
+- QA labs rotating test matrices on the same hardware pool
+- Agencies handing devices between client projects
+- ROM paths that support factory reset without full re-cabling
 
-**Android paths:**
-Factory reset via batch tool, custom ROM reflash where quoted, or swap physical node in slot.
+**Steps (typical):**
+1. Export any logs or assets you need from the slot
+2. Run factory reset or ROM refresh per your quoted stack
+3. Re-authorize USB debugging or device trust if required
+4. Re-bind network routes or proxy groups for the next workflow
+5. Label the slot in batch-control software
 
-**iPhone paths:**
-Reset procedures depend on quoted control stack and model — confirm on datasheet.
+**Hardware notes:**
+Stable USB during refresh; adequate cooling if running parallel refreshes across groups.
 
-**Hardware note:**
-Reset is software-side on real devices you own. It does not replace network planning — IP and proxy groups should be re-bound after reset.
+Network IP or proxy binding is buyer-managed — refresh the device layer first, then update routes in your proxy or router plan.
 
 **Caution:**
 We document hardware workflows only — platform terms of service are buyer compliance scope.`,

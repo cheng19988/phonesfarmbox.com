@@ -1,6 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
 import { CONTACT } from "@/lib/config";
@@ -15,10 +14,18 @@ function FieldLabel({ htmlFor, required, children }: { htmlFor?: string; require
   );
 }
 
-export function ContactForm() {
-  const searchParams = useSearchParams();
+export function ContactForm({
+  initialProduct = "",
+  initialService = "",
+  initialInterest = "",
+}: {
+  initialProduct?: string;
+  initialService?: string;
+  initialInterest?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [inquiryRef, setInquiryRef] = useState("");
+  const productPrefill = initialProduct || initialService || initialInterest || "phone farm hardware";
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -35,7 +42,7 @@ export function ContactForm() {
   }
 
   const waPrefill = encodeURIComponent(
-    `Hi, RFQ inquiry${inquiryRef ? ` ${inquiryRef}` : ""}. Product: ${searchParams.get("product") || "phone farm hardware"}. `
+    `Hi, RFQ inquiry${inquiryRef ? ` ${inquiryRef}` : ""}. Product: ${productPrefill}. `
   );
 
   return (
@@ -78,7 +85,7 @@ export function ContactForm() {
             <FieldLabel>Product / SKU</FieldLabel>
             <input
               name="productInterest"
-              defaultValue={searchParams.get("product") || searchParams.get("service") || searchParams.get("interest") || ""}
+              defaultValue={initialProduct || initialService || initialInterest}
               placeholder="phone-farm-box, motherboard-box…"
               className="input-field"
             />

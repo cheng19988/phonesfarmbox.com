@@ -96,10 +96,10 @@ export const SOLUTION_PAGES: ContentPage[] = [
     category: "Marketing",
     heroImage: IMAGES.androidFarm.hero,
     intro:
-      "Affiliate marketers use phone farm boxes to operate multiple accounts across reward apps, survey platforms, and promotional programs on real physical devices at scale.",
+      "Affiliate marketers use phone farm boxes to run parallel campaign accounts on real physical devices — with chassis power, cooling, and USB wiring sized on quote for multi-device publishing and tracking workflows.",
     sections: [
       { heading: "Multi-Account Infrastructure", body: "Run affiliate accounts on real devices with independent hardware identities. Phone farm boxes provide chassis, power, cooling, and USB wiring for scaled operations." },
-      { heading: "Automated Task Workflows", body: "Device operation workflows automate repetitive affiliate tasks — app downloads, survey completion, ad viewing — across device groups in batch." },
+      { heading: "Automated Task Workflows", body: "Device operation workflows automate repetitive affiliate tasks — app installs, content checks, and scheduled batch steps — across device groups from one host PC." },
     ],
     benefits: [
       { title: "Physical Hardware", desc: "Operations run on mounted phones and boards you own." },
@@ -112,14 +112,14 @@ export const SOLUTION_PAGES: ContentPage[] = [
   {
     slug: "game-account-maintenance",
     title: "Game Account Maintenance Device Farm",
-    subtitle: "24/7 real-device game account farming on phone farm box hardware",
+    subtitle: "24/7 real-device game session maintenance on phone farm box hardware",
     category: "Gaming",
     heroImage: IMAGES.androidFarm.hero,
     intro:
-      "Game account maintenance teams use phone farm boxes to keep multiple game accounts online continuously on real physical devices — with centralized power and cooling for 24/7 operation.",
+      "Game operations teams use phone farm boxes to keep multiple game client sessions online continuously on real physical devices — with centralized power and cooling for 24/7 operation.",
     sections: [
-      { heading: "Continuous 24/7 Device Operation", body: "Phone farm boxes provide unified power and active cooling for round-the-clock game account maintenance. Real devices run game clients natively on mounted hardware." },
-      { heading: "Multi-Account Game Farming", body: "Run game accounts simultaneously across device slots in stacked phone farm boxes. Batch control software manages login sessions, daily tasks, and account rotation workflows." },
+      { heading: "Continuous 24/7 Device Operation", body: "Phone farm boxes provide unified power and active cooling for round-the-clock game client maintenance. Real devices run game clients natively on mounted hardware." },
+      { heading: "Multi-Account Game Operations", body: "Run game client sessions simultaneously across device slots in stacked phone farm boxes. Batch control software manages login sessions, daily tasks, and account rotation workflows." },
     ],
     benefits: [
       { title: "Native Game Performance", desc: "Games run on physical devices in your chassis." },

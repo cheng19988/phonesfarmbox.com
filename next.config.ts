@@ -2,7 +2,7 @@
 import { legacyRedirects } from "./src/lib/legacy-redirects";
 import { SITE } from "./src/lib/config";
 
-const WWW = new URL(SITE.url).host;
+const WWW = new URL(SITE.productionUrl).host;
 
 const nextConfig: NextConfig = {
   images: {

@@ -10,6 +10,7 @@ export const metadata = buildMetadata({
   description:
     "Optional catalog checkout for MOQ-1 sample orders — pay USDT TRC20, send tx hash to sales, manual confirmation before assembly.",
   path: "/sample-order",
+  noIndex: true,
 });
 
 export default function SampleOrderPage() {

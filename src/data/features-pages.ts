@@ -192,20 +192,20 @@ export const FEATURE_PAGES: ContentPage[] = [
   },
   {
     slug: "device-profile-reset",
-    title: "Device Profile Reset",
-    subtitle: "Reset device identity and configuration for fresh account environments",
+    title: "Device Environment Refresh",
+    subtitle: "Refresh device configuration between QA cycles or campaign handoffs",
     category: "Management",
     heroImage: IMAGES.motherboardBox.hero,
     intro:
-      "Device profile reset refreshes system state on real devices in your farm box — for phone box configurations with customized ROM support and factory reset paths confirmed at quote.",
+      "Device environment refresh restores a clean system state on real nodes in your farm box — for configurations with customized ROM support and factory reset paths confirmed at quote.",
     sections: [
-      { heading: "Factory Reset & Reconnect", body: "Phone box configurations support factory reset and automatic PC reconnection without re-authorization on supported ROM paths. Prepare devices for new account registration." },
+      { heading: "Factory Reset & Reconnect", body: "Phone box configurations support factory reset and automatic PC reconnection without re-authorization on supported ROM paths. Prepare devices for the next test matrix or client handoff." },
       { heading: "System Reconfiguration", body: "Change device model parameters, language settings, and system configuration through batch control software or custom ROM tools where quoted." },
     ],
     benefits: [
-      { title: "Quick Turnaround", desc: "Reset and reconfigure devices in minutes, not hours." },
-      { title: "Batch Reset", desc: "Reset multiple devices simultaneously." },
-      { title: "Custom ROM Support", desc: "Advanced reset options on customized systems when quoted." },
+      { title: "Quick Turnaround", desc: "Refresh and reconfigure devices in minutes, not hours." },
+      { title: "Batch Refresh", desc: "Refresh multiple devices simultaneously." },
+      { title: "Custom ROM Support", desc: "Advanced refresh options on customized systems when quoted." },
     ],
     faq: [],
     relatedSlugs: ["device-operation-workflow"],

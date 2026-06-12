@@ -1,7 +1,10 @@
-﻿export const SITE = {
+﻿import { PRODUCTION_SITE_URL, resolveSiteUrl } from "./site-url";
+
+export const SITE = {
   name: "Phones Farm Box",
   domain: "phonesfarmbox.com",
-  url: "https://www.phonesfarmbox.com",
+  url: resolveSiteUrl(),
+  productionUrl: PRODUCTION_SITE_URL,
   tagline: "Quote-based phone farm hardware, rack assembly, and B2B export from Guangzhou",
   intro:
     "Guangzhou supplier of phone farm boxes, motherboard chassis, USB hubs, power and cooling modules, and rack-scale cabinet systems for overseas B2B buyers.",

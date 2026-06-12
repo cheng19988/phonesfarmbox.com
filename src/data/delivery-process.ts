@@ -66,7 +66,7 @@ export const REMOTE_SETUP_INCLUDES = [
 ] as const;
 
 export const REMOTE_SETUP_EXCLUDES = [
-  "Account farming, platform manipulation, or traffic guarantees",
+  "Operating buyer accounts, platform manipulation, or traffic guarantees",
   "Marketing outcome, TikTok performance, or social media account result guarantees",
   "Operating buyer-owned accounts, proxies, or third-party automation tools on your behalf",
   "Ongoing 24/7 NOC — scope is a quoted setup block unless extended support is on invoice",

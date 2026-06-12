@@ -1,4 +1,5 @@
 import { SITE } from "@/lib/config";
+import { absoluteUrl } from "@/lib/site-url";
 
 const AI_BOTS = [
   "GPTBot",
@@ -22,6 +23,10 @@ Allow: /
 Disallow: /admin
 Disallow: /account/
 Disallow: /api/
+Disallow: /login
+Disallow: /register
+Disallow: /orders/
+Disallow: /sample-order
 `;
 }
 
@@ -29,9 +34,9 @@ export async function GET() {
   const lines = [
     botBlock("*"),
     ...AI_BOTS.map((b) => botBlock(b)),
-    `Sitemap: ${SITE.url}/sitemap.xml`,
+    `Sitemap: ${absoluteUrl("/sitemap.xml", SITE.url)}`,
     "",
-    `llms-txt: ${SITE.url}/llms.txt`,
+    `llms-txt: ${absoluteUrl("/llms.txt", SITE.url)}`,
     "",
   ];
 

@@ -36,7 +36,7 @@ export default function TermsPage() {
         </p>
         <h2>Remote Setup Support</h2>
         <p>
-          Optional remote setup covers host PC connectivity, USB or OTG wiring verification, device authorization checks, and batch-control workflow handoff for your quoted hardware. It does not include account farming, platform manipulation, traffic guarantees, or marketing or social media account performance guarantees.
+          Optional remote setup covers host PC connectivity, USB or OTG wiring verification, device authorization checks, and batch-control workflow handoff for your quoted hardware. It does not include operating buyer accounts, platform manipulation, traffic guarantees, or marketing or social media account performance guarantees.
         </p>
         <h2>Contact</h2>
         <p>

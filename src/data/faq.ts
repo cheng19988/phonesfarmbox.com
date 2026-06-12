@@ -175,7 +175,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     category: "Operations",
     question: "What does remote setup support include?",
     answer:
-      "Remote setup helps verify host PC access, USB or OTG wiring, device authorization, and batch-control workflow for your quoted stack — useful for app testing, QA, or social media team hardware handoff. It does not include account farming, platform manipulation, traffic guarantees, or TikTok or social media performance guarantees.",
+      "Remote setup helps verify host PC access, USB or OTG wiring, device authorization, and batch-control workflow for your quoted stack — useful for app testing, QA, or social media team hardware handoff. It does not include operating buyer accounts, platform manipulation, traffic guarantees, or TikTok or social media performance guarantees.",
     productLink: "/help/remote-setup-support-scope",
   },
   {
@@ -297,9 +297,9 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     category: "Operations",
-    question: "What is device profile reset?",
+    question: "What is device environment refresh?",
     answer:
-      "Resetting app data or ROM state on a physical node between campaigns — equivalent to a clean device environment on hardware you own. Network routes should be re-bound after reset.",
+      "Clearing app data or ROM state on a physical node between QA cycles or campaign handoffs — equivalent to a clean device baseline on hardware you own. Network routes should be re-bound after refresh.",
     productLink: "/help/device-profile-reset-workflow",
   },
 ];

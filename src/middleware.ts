@@ -2,8 +2,15 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { SITE } from "@/lib/config";
 
-const WWW_HOST = new URL(SITE.url).host;
+const WWW_HOST = new URL(SITE.productionUrl).host;
 const APEX_HOST = SITE.domain;
+
+function withRobotsTag(response: NextResponse, host: string): NextResponse {
+  if (host.endsWith(".vercel.app") || host === "localhost" || host === "127.0.0.1") {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+  return response;
+}
 
 /** Force apex → www so canonical URLs, cookies, and SEO stay on www.phonesfarmbox.com */
 export function middleware(request: NextRequest) {
@@ -16,7 +23,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(dest, 301);
   }
 
-  return NextResponse.next();
+  return withRobotsTag(NextResponse.next(), host);
 }
 
 export const config = {

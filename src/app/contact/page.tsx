@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import { Suspense, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section } from "@/components/ui/section";
 import { Surface } from "@/components/ui/surface";
@@ -77,7 +77,13 @@ function SidebarCard({
   );
 }
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ product?: string; service?: string; interest?: string }>;
+}) {
+  const params = await searchParams;
+
   return (
     <>
       <PageHero
@@ -105,15 +111,11 @@ export default function ContactPage() {
       <Section className="!pt-12 md:!pt-16">
         <div className="grid lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] gap-10 lg:gap-12 items-start">
           <div>
-            <Suspense
-              fallback={
-                <Surface padding="lg">
-                  <p className="text-[var(--text-secondary)]">Loading form…</p>
-                </Surface>
-              }
-            >
-              <ContactForm />
-            </Suspense>
+            <ContactForm
+              initialProduct={params.product ?? ""}
+              initialService={params.service ?? ""}
+              initialInterest={params.interest ?? ""}
+            />
           </div>
 
           <aside className="space-y-5 lg:sticky lg:top-24">
