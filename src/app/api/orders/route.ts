@@ -25,20 +25,22 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
 
+  const payableUsdt = action === "buy" ? usdToUsdt(product.priceUsd) : product.priceUsd;
+
   const order = await prisma.order.create({
     data: {
       orderNumber: orderNumber(),
       userId: session.id,
       status: action === "buy" ? "Waiting for Payment" : "Pending",
-      totalUsd: product.priceUsd,
+      totalUsd: payableUsdt,
       items: {
-        create: [{ productId: product.id, quantity: 1, unitPrice: product.priceUsd }],
+        create: [{ productId: product.id, quantity: 1, unitPrice: payableUsdt }],
       },
     },
   });
 
   if (action === "buy") {
-    const amount = usdToUsdt(product.priceUsd);
+    const amount = payableUsdt;
     await prisma.payment.create({
       data: {
         orderId: order.id,

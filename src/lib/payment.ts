@@ -56,12 +56,29 @@ export async function checkAndUpdatePayment(paymentId: string) {
     payment.createdAt
   );
 
-  if (tx && tx.amount >= payment.expectedAmount) {
+  if (tx) {
+    const tolerance = 0.01;
     const now = new Date();
+    if (tx.amount + tolerance < payment.expectedAmount) {
+      await prisma.payment.update({
+        where: { id: paymentId },
+        data: {
+          paymentStatus: "underpaid",
+          verificationStatus: "verified",
+          receivedAmount: tx.amount,
+          txHash: tx.txHash,
+        },
+      });
+      return { status: "underpaid" as const, payment };
+    }
+
+    const orderStatus = tx.amount > payment.expectedAmount + tolerance ? "Paid" : "Paid";
+    const paymentStatus = tx.amount > payment.expectedAmount + tolerance ? "overpaid" : "paid";
+
     await prisma.payment.update({
       where: { id: paymentId },
       data: {
-        paymentStatus: "paid",
+        paymentStatus,
         verificationStatus: "verified",
         receivedAmount: tx.amount,
         txHash: tx.txHash,
@@ -70,9 +87,9 @@ export async function checkAndUpdatePayment(paymentId: string) {
     });
     await prisma.order.update({
       where: { id: payment.orderId },
-      data: { status: "Paid" },
+      data: { status: orderStatus },
     });
-    return { status: "paid" as const, payment };
+    return { status: paymentStatus, payment };
   }
 
   return { status: "pending" as const, payment };
@@ -84,4 +101,8 @@ export function createPaymentExpiry() {
 
 export function usdToUsdt(usd: number) {
   return Math.max(PAYMENT.minAmount, Math.round(usd * 100) / 100);
+}
+
+export function formatUsdtAmount(amount: number) {
+  return usdToUsdt(amount).toFixed(2);
 }

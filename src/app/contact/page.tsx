@@ -7,6 +7,7 @@ import { CONTACT, SITE } from "@/lib/config";
 import { IMPORTED } from "@/lib/images";
 import { buildMetadata, contactPageJsonLd } from "@/lib/seo";
 import { ContactForm } from "./contact-form";
+import { QuoteFirstNotice } from "@/components/quote-first-notice";
 import { JsonLd } from "@/components/shared";
 
 export const metadata = buildMetadata({
@@ -20,6 +21,7 @@ const INQUIRY_CHECKLIST = [
   "Target product / SKU",
   "Destination country & freight (air / sea)",
   "Expected device quantity",
+  "Platform (Android / iPhone / mix)",
   "Connection mode: USB / OTG / hybrid",
   "Voltage region: 110V / 220V / 220–240V",
   "Empty chassis vs phones on quote",
@@ -81,7 +83,7 @@ function SidebarCard({
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams: Promise<{ product?: string; service?: string; interest?: string }>;
+  searchParams: Promise<{ product?: string; service?: string; interest?: string; submitted?: string; error?: string }>;
 }) {
   const params = await searchParams;
 
@@ -115,12 +117,17 @@ export default async function ContactPage({
       </div>
 
       <Section className="!pt-12 md:!pt-16">
+        <div className="mb-8 max-w-3xl">
+          <QuoteFirstNotice />
+        </div>
         <div className="grid lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] gap-10 lg:gap-12 items-start">
           <div>
             <ContactForm
               initialProduct={params.product ?? ""}
               initialService={params.service ?? ""}
               initialInterest={params.interest ?? ""}
+              submittedRef={params.submitted ?? ""}
+              submitError={params.error === "1"}
             />
           </div>
 

@@ -3,6 +3,7 @@
 const RFQ_MARKER = "--- RFQ details ---";
 
 export type RfqParsedFields = {
+  platform?: string;
   connectionMode?: string;
   voltageRegion?: string;
   chassisConfig?: string;
@@ -22,6 +23,7 @@ export type LeadQualityHint =
   | "Needs follow-up"
   | "Missing destination"
   | "Missing connection mode"
+  | "Missing platform"
   | "Missing quantity";
 
 export type RfqLeadAnalysis = {
@@ -38,7 +40,8 @@ function parseRfqAppendix(message: string | null | undefined): RfqParsedFields {
   const lines = appendix.split("\n").map((l) => l.trim()).filter(Boolean);
 
   for (const line of lines) {
-    if (line.startsWith("Connection mode:")) result.connectionMode = line.slice("Connection mode:".length).trim();
+    if (line.startsWith("Platform:")) result.platform = line.slice("Platform:".length).trim();
+    else if (line.startsWith("Connection mode:")) result.connectionMode = line.slice("Connection mode:".length).trim();
     else if (line.startsWith("Voltage region:")) result.voltageRegion = line.slice("Voltage region:".length).trim();
     else if (line.startsWith("Chassis config:")) result.chassisConfig = line.slice("Chassis config:".length).trim();
     else if (line.startsWith("Target models:")) result.targetModels = line.slice("Target models:".length).trim();
@@ -69,6 +72,7 @@ export function analyzeContactSubmission(input: {
       { key: "qty", label: "Quantity", present: hasText(input.deviceQuantity) },
       { key: "dest", label: "Destination", present: hasText(input.country) },
       { key: "product", label: "Product", present: hasText(input.productInterest) },
+      { key: "platform", label: "Platform", present: hasText(parsed.platform) },
       { key: "conn", label: "Connection", present: hasText(parsed.connectionMode) },
       { key: "volt", label: "Voltage", present: hasText(parsed.voltageRegion) },
       { key: "pay", label: "Payment pref.", present: hasText(parsed.paymentPreference) },
@@ -80,6 +84,7 @@ export function analyzeContactSubmission(input: {
     if (!hasText(input.country)) quality = "Missing destination";
     else if (!hasText(input.deviceQuantity)) quality = "Missing quantity";
     else if (!hasText(parsed.connectionMode)) quality = "Missing connection mode";
+    else if (!hasText(parsed.platform)) quality = "Missing platform";
     else if (
       !hasText(parsed.voltageRegion) ||
       !hasText(parsed.chassisConfig) ||

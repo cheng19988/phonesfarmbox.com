@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminContactRow } from "@/components/admin-contact-row";
+import { AdminPaymentRow } from "@/components/admin-payment-row";
 import { AdminProductRow } from "@/components/admin-product-row";
 import { AdminProductDataSection } from "@/components/admin-product-data-section";
 import { prisma } from "@/lib/prisma";
@@ -30,6 +31,22 @@ export default async function AdminPage() {
     take: 10,
     orderBy: { createdAt: "desc" },
     include: { user: { select: { email: true } }, payment: true, items: { include: { product: { select: { name: true } } } } },
+  });
+
+  const recentPayments = await prisma.payment.findMany({
+    take: 15,
+    orderBy: { createdAt: "desc" },
+    include: {
+      order: {
+        select: {
+          id: true,
+          orderNumber: true,
+          totalUsd: true,
+          status: true,
+          user: { select: { email: true } },
+        },
+      },
+    },
   });
 
   const recentContacts = await prisma.contactSubmission.findMany({
@@ -62,6 +79,21 @@ export default async function AdminPage() {
           ))}
         </div>
 
+        <section className="mb-12">
+          <h2 className="text-xl font-bold text-slate-900 mb-2">USDT payments</h2>
+          <p className="text-sm text-slate-600 mb-4">
+            Manual confirmation flow — statuses: pending, paid, underpaid, overpaid, expired, manual review.
+            Automatic on-chain verification is not active until TronGrid is configured.
+          </p>
+          <div className="space-y-3">
+            {recentPayments.length === 0 ? (
+              <p className="text-sm text-slate-500">No USDT payments yet.</p>
+            ) : (
+              recentPayments.map((p) => <AdminPaymentRow key={p.id} payment={p} />)
+            )}
+          </div>
+        </section>
+
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-4">Recent Orders</h2>
@@ -77,7 +109,8 @@ export default async function AdminPage() {
                   <p className="text-slate-600 mt-1">{o.user.email} · ${o.totalUsd}</p>
                   {o.payment && (
                     <p className="text-slate-500 mt-1">
-                      Payment: {o.payment.paymentStatus} / {o.payment.verificationStatus}
+                      Payment: {o.payment.paymentStatus} · {o.payment.expectedAmount.toFixed(2)} USDT
+                      {o.payment.txHash ? ` · tx ${o.payment.txHash.slice(0, 8)}…` : ""}
                     </p>
                   )}
                 </div>

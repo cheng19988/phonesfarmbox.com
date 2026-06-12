@@ -7,9 +7,10 @@ alwaysApply: true
 
 After completing any code changes for this project:
 
-1. **Always commit and push** without waiting for the user to ask.
+1. **Always commit and push** without waiting for the user to ask — never end a task with unpushed commits or ask the user to repeat "push".
 2. Use author env vars if git identity is unset: `cheng19988` / `qiuxui646@gmail.com`.
 3. Push to `https://github.com/cheng19988/phonesfarmbox.com.git` on `main` only.
 4. Bypass local proxy on push: `git -c http.proxy= -c https.proxy= push origin main`
 5. **On network timeout or failure**, retry push up to 3 times with a short delay before reporting failure.
 6. Do not force-push. Do not commit `.env` or secrets.
+7. Exclude temp/debug files (`.tmp-*`, local verify scripts) unless the user explicitly requested them in the commit.

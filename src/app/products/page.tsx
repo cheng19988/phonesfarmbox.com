@@ -10,6 +10,7 @@ import { PRODUCT_SEEDS } from "@/data/products";
 import { ProductModelStrip } from "@/components/product-model-strip";
 import { PRODUCT_CATALOG_GROUPS } from "@/data/product-catalog-groups";
 import { IMPORTED } from "@/lib/images";
+import { QuoteFirstNotice } from "@/components/quote-first-notice";
 import { resolveProductCardImage } from "@/lib/resolve-product-card-image";
 
 export const metadata = buildMetadata({
@@ -97,13 +98,16 @@ export default async function ProductsPage({
       <PageHero
         eyebrow="B2B hardware catalog"
         title="Phone farm box hardware catalog"
-        description="Phone farm box chassis, racks, hubs, power, cooling, and services — list prices are USD starting points. Slot layout, connection mode, and freight confirmed on written quote."
+        description="Phone farm box chassis, racks, hubs, power, cooling, and services — reference prices in USD. Slot layout, connection mode, and freight confirmed on written quote before payment."
         image={IMPORTED.homeHero}
         imageAlt="Phone farm box product photo background"
         theme="light"
       />
 
       <Section>
+        <div className="mb-8">
+          <QuoteFirstNotice />
+        </div>
         <ProductModelStrip />
         <Surface padding="md" className="mb-10 flex flex-wrap items-center justify-between gap-4 border-orange-200">
           <div>

@@ -12,6 +12,7 @@ import {
   WARRANTY_AFTER_SALES_POINTS,
 } from "@/data/delivery-process";
 import { IMAGES } from "@/lib/images";
+import { REFERENCE_PRICE_DISCLAIMER } from "@/lib/pricing-copy";
 import {
   PAYMENT_OPTIONS,
   QUOTE_FACTORS,
@@ -62,7 +63,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="B2B pricing"
         title="Hardware pricing & bulk inquiry"
-        description="List prices are USD starting points. Final price depends on configuration, connection mode, voltage region, destination, and documentation requests — request a written quote before payment."
+        description="List prices are USD reference points. Final price depends on configuration, connection mode, voltage region, destination, and documentation requests — request a written quote before payment."
         image={IMAGES.serviceScene}
         imageAlt="Phone farm hardware deployment"
       />
@@ -83,6 +84,7 @@ export default function PricingPage() {
             </div>
           ))}
         </div>
+        <p className="text-xs text-center text-slate-500 mb-14">{REFERENCE_PRICE_DISCLAIMER}</p>
 
         <QuoteProcessSection />
 

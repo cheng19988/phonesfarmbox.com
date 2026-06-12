@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { LogoutButton } from "@/components/logout-button";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
+import { PAYMENT_STATUS_LABELS, paymentStatusBadgeClass } from "@/lib/payment-status";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -53,8 +54,16 @@ export default async function AccountOrdersPage() {
                     </p>
                   </div>
                   <div className="text-right shrink-0">
-                    <p className="text-slate-900 font-bold">${order.totalUsd}</p>
+                    <p className="text-slate-900 font-bold">${order.totalUsd.toFixed(2)}</p>
                     <p className="text-sm text-orange-700 font-medium">{order.status}</p>
+                    {order.payment && (
+                      <span
+                        className={`inline-block mt-1 text-[10px] font-semibold px-1.5 py-0.5 rounded ${paymentStatusBadgeClass(order.payment.paymentStatus)}`}
+                      >
+                        {PAYMENT_STATUS_LABELS[order.payment.paymentStatus as keyof typeof PAYMENT_STATUS_LABELS] ??
+                          order.payment.paymentStatus}
+                      </span>
+                    )}
                   </div>
                 </div>
               </Link>

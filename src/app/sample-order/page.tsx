@@ -27,8 +27,19 @@ export default function SampleOrderPage() {
         <div className="max-w-3xl space-y-8">
           <Surface padding="md" className="border-amber-200 bg-amber-50/40">
             <p className="text-sm text-slate-800">
-              <strong>Not sure about configuration?</strong>{" "}
-              <Link href="/contact" className="link-accent font-medium">Send an RFQ</Link> first — we return a written BOM before you pay.
+              <strong>RFQ-first:</strong> catalog list prices are reference only — configuration, connection mode, and freight
+              are confirmed on written proforma before payment.{" "}
+              <Link href="/contact" className="link-accent font-medium">
+                Send an RFQ
+              </Link>{" "}
+              if this is your first order or the BOM is not yet approved.
+            </p>
+          </Surface>
+
+          <Surface padding="md" className="border-violet-200 bg-violet-50/30">
+            <p className="text-sm text-slate-800">
+              <strong>Manual confirmation</strong> — we verify your USDT transfer on TRC20 after you submit the tx hash.
+              Automatic on-chain verification is not active.
             </p>
           </Surface>
 
@@ -40,7 +51,7 @@ export default function SampleOrderPage() {
                 "Submit order — you receive an order number and payment screen.",
                 `Send exactly the shown amount in USDT on ${PAYMENT.network} within 30 minutes.`,
                 "Message sales on WhatsApp or Telegram with order number + transaction hash.",
-                "Sales confirms manually → assembly and export per your prior quote or catalog SKU.",
+                "Sales manual confirmation → assembly and export per your prior quote or catalog SKU.",
               ].map((step, i) => (
                 <li key={step} className="flex gap-3 text-sm text-[var(--text-secondary)]">
                   <span className="shrink-0 w-7 h-7 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs">{i + 1}</span>

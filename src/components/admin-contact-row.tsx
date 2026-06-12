@@ -17,6 +17,7 @@ const QUALITY_STYLES: Record<string, string> = {
   "Needs follow-up": "bg-amber-50 text-amber-900 border-amber-200",
   "Missing destination": "bg-red-50 text-red-800 border-red-200",
   "Missing connection mode": "bg-orange-50 text-orange-900 border-orange-200",
+  "Missing platform": "bg-orange-50 text-orange-900 border-orange-200",
   "Missing quantity": "bg-orange-50 text-orange-900 border-orange-200",
 };
 
@@ -42,6 +43,7 @@ export function AdminContactRow({ contact }: { contact: ContactRow }) {
         <div className="mt-2 p-2 rounded border border-slate-200 bg-slate-50 text-xs">
           <p className="text-slate-600 mb-1 font-medium">RFQ summary</p>
           <ul className="text-slate-600 space-y-0.5">
+            {parsed.platform && <li>Platform: {parsed.platform}</li>}
             {parsed.connectionMode && <li>Connection: {parsed.connectionMode}</li>}
             {parsed.voltageRegion && <li>Voltage: {parsed.voltageRegion}</li>}
             {parsed.chassisConfig && <li>Chassis: {parsed.chassisConfig}</li>}

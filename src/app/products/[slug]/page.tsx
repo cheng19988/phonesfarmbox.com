@@ -5,6 +5,8 @@ import { prisma } from "@/lib/prisma";
 import { getProductB2B, getProductSummary } from "@/data/product-b2b";
 import { getProductProfileSeed } from "@/data/product-profiles";
 import { BuyButtons, FAQAccordion } from "@/components/commerce";
+import { ReferencePrice } from "@/components/reference-price";
+import { QuoteFirstNotice } from "@/components/quote-first-notice";
 import { ProductImageStatus } from "@/components/product-image-status";
 import { ProductTechnicalDataStatus } from "@/components/product-technical-data";
 import {
@@ -132,11 +134,13 @@ export default async function ProductDetailPage({ params }: Props) {
               <p className="eyebrow mb-3">{product.category}</p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 tracking-tight leading-tight">{product.name}</h1>
               <p className="text-lg text-[var(--text-secondary)] mb-6 leading-relaxed">{summary}</p>
-              <div className="flex flex-wrap items-center gap-4 mb-3">
-                <span className="text-4xl font-bold text-slate-900">From ${product.priceUsd.toLocaleString()}</span>
+              <div className="flex flex-wrap items-end gap-4 mb-3">
+                <ReferencePrice amountUsd={product.priceUsd} size="lg" />
                 <AvailabilityBadge stock={product.stock} />
               </div>
-              <p className="text-sm text-[var(--text-muted)] mb-8">List price in USD — final BOM, freight, and configuration confirmed on written quote before payment.</p>
+              <div className="mb-6">
+                <QuoteFirstNotice compact />
+              </div>
               <BuyButtons slug={product.slug} name={product.name} stock={product.stock} />
               <p className="text-xs text-slate-500 mt-4">
                 Bulk pricing: <Link href="/pricing" className="link-accent">pricing overview</Link>
@@ -305,7 +309,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     className="px-4 py-2 rounded-lg border border-slate-200 text-sm text-slate-600 hover:border-orange-300 hover:text-orange-700 bg-white"
                   >
                     {r.name}
-                    <span className="text-slate-500 ml-2">from ${r.priceUsd}</span>
+                    <span className="text-slate-500 ml-2">ref. ${r.priceUsd}</span>
                   </Link>
                 ))}
               </div>

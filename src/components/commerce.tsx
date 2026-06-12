@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/config";
 import { AvailabilityBadge } from "./shared";
+import { ReferencePrice } from "./reference-price";
+import { REFERENCE_PRICE_FULL } from "@/lib/pricing-copy";
 
 type ProductCardProps = {
   slug: string;
@@ -36,10 +38,9 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
         </span>
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white/95 to-transparent">
           <h3 className="font-semibold text-slate-900 text-lg group-hover:text-orange-700 transition-colors">{name}</h3>
-          <p className="text-lg font-bold text-slate-900 mt-0.5">
-            From ${priceUsd.toLocaleString()}
-            <span className="text-xs font-normal text-slate-500 ml-1">· confirm on quote</span>
-          </p>
+          <div className="mt-0.5">
+            <ReferencePrice amountUsd={priceUsd} size="sm" />
+          </div>
         </div>
       </Link>
       <div className="p-5 flex flex-col flex-1 border-t border-slate-100">
@@ -102,22 +103,26 @@ export function BuyButtons({ slug, name, stock }: { slug: string; name: string; 
           Bulk / Project RFQ
         </Link>
       </div>
-      <details className="rounded-lg border border-slate-200 bg-slate-50/80 text-sm">
+      <details className="rounded-lg border border-amber-200 bg-amber-50/40 text-sm">
         <summary className="cursor-pointer px-4 py-3 font-medium text-slate-700 select-none">
-          Sample order (USDT) — optional catalog checkout
+          Optional: USDT sample checkout (configuration must already be agreed)
         </summary>
-        <div className="px-4 pb-4 pt-1 space-y-3 border-t border-slate-200">
+        <div className="px-4 pb-4 pt-1 space-y-3 border-t border-amber-200/80">
           <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
-            For MOQ-1 when you already know the SKU. Payment manually confirmed after you send tx hash.{" "}
-            <Link href="/sample-order" className="link-accent">Full steps →</Link>
+            <strong>Not a substitute for a written quote.</strong> Use only when SKU, connection mode, and price were
+            confirmed on proforma. Payment requires <strong>manual confirmation</strong>.{" "}
+            <Link href="/sample-order" className="link-accent">
+              Full steps →
+            </Link>
           </p>
           <form action="/api/orders" method="POST" className="inline">
             <input type="hidden" name="productSlug" value={slug} />
             <input type="hidden" name="action" value="buy" />
             <button type="submit" disabled={disabled} className="btn-outline text-sm py-2 disabled:opacity-40">
-              Checkout with USDT
+              USDT checkout (MOQ-1 repeat orders)
             </button>
           </form>
+          <p className="text-[10px] text-slate-500">{REFERENCE_PRICE_FULL}</p>
         </div>
       </details>
     </div>

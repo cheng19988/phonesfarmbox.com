@@ -155,8 +155,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/sample-order" className="hover:text-slate-900 transition-colors">
-                USDT sample checkout
+              <Link href="/sample-order" className="hover:text-[var(--text-muted)] text-slate-500">
+                Optional USDT sample checkout
               </Link>
             </li>
             <li>
