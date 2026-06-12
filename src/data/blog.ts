@@ -973,6 +973,150 @@ Quote device count, Android/iPhone mix, voltage region, and destination country.
 
 See /scenarios/amazon-shopee and /solutions/ecommerce-operations.`,
   },
+  {
+    slug: "phone-farm-box-bulk-order-wholesale-pricing",
+    title: "Phone Farm Box Bulk Order & Wholesale Pricing Tiers Explained",
+    category: "Procurement & Shipping",
+    date: "2026-06-10",
+    excerpt:
+      "How phone farm box bulk orders, wholesale volume tiers, and phased delivery work — MOQ 1 samples vs 3+ box quotes from a Guangzhou hardware supplier.",
+    content: `Buyers searching **phone farm wholesale** or **phone farm box bulk order** usually need clarity on MOQ, discount tiers, and how phased delivery fits rack projects.
+
+**MOQ and samples**
+- Standard catalog chassis: **MOQ 1** for sample evaluation
+- List prices on the website are USD reference points — final amount on written proforma
+
+**Volume tiers (typical)**
+- **3+ boxes:** volume discount on chassis and accessory lines — exact percent on quote
+- **10+ nodes / multi-box rooms:** project BOM with hub/PSU matched to device list
+- **Enterprise rack / custom cabinet:** separate engineering contact and sea-freight planning
+
+**Bulk order workflow**
+1. RFQ with device count, models, voltage region, destination, and timeline
+2. Written BOM + lead time on proforma
+3. Payment via USDT (qualifying samples), bank T/T, Wise, or PayPal per invoice
+4. Assembly, burn-in, export packing — packing list before shipment
+
+**Phased delivery**
+Large orders may ship chassis sea freight first and devices air later — each phase on its own proforma line and ETA.
+
+**What wholesale pricing includes**
+Chassis, hub tier, PSU, fans, cables, optional phones, remote setup, and freight — not cloud phone subscriptions or buyer proxy services.
+
+Request a bulk quote via Contact or see /pricing for tier overview.`,
+  },
+  {
+    slug: "mobile-device-lab-compatibility-testing-hardware",
+    title: "Mobile Device Lab Hardware for App Compatibility Testing",
+    category: "Applications & Use Cases",
+    date: "2026-06-09",
+    excerpt:
+      "Build a mobile device lab on real Android hardware — motherboard density, APK batch install, and audit-friendly burn-in for app compatibility testing teams.",
+    content: `**Mobile device lab** and **app compatibility testing** teams often outgrow ad-hoc phone piles. Phone farm box hardware packages real nodes with centralized power, cooling, and USB hub trees for repeatable QA.
+
+**Why real hardware for compatibility testing**
+- Test on physical radios, sensors, and GPU paths emulators miss
+- Run parallel OS versions across labeled slots
+- Audit-friendly burn-in records before production campaigns
+
+**Hardware paths**
+- **Motherboard box:** lowest cost per slot for headless APK and ADB workflows
+- **Phone farm box:** SIM/camera paths when apps require full handset features
+- **Android phone farm cluster:** turnkey BOM when you want one invoice
+
+**Lab planning checklist**
+- Target node count and OS version matrix
+- Host PC spec (cores, RAM, USB controllers)
+- Hub tier for parallel APK pushes
+- Network: shared lab LAN vs isolated groups
+
+**Procurement**
+Send model list, node target, and compliance needs (burn-in checklist, packing photos) on RFQ. See QA Lab Phone Farm Configuration blog and /products/motherboard-box.`,
+  },
+  {
+    slug: "ad-creative-qa-physical-device-lab",
+    title: "Ad Creative QA on Physical Android Devices — Hardware Lab Setup",
+    category: "Applications & Use Cases",
+    date: "2026-06-08",
+    excerpt:
+      "Use a physical device lab to preview ad creatives, in-app placements, and screen formats on real Android phones — hardware planning for marketing QA teams.",
+    content: `Marketing and growth teams sometimes search for **ad verification phone farm** when they need to **preview ad creatives on real devices** before spend goes live. Phones Farm Box supplies the **hardware layer** — not ad network accounts or placement guarantees.
+
+**What a physical ad creative QA lab does**
+- Mount real Android phones with consistent screen sizes and OS versions
+- Batch-open apps or browsers to screenshot or record creative render paths
+- Separate device groups when teams test multiple locales or app builds
+
+**Recommended hardware**
+- Phone farm box when camera/display fidelity matters
+- Motherboard box when headless render capture via ADB is enough
+- Network router bundle when each test group needs isolated LAN
+
+**What we do not provide**
+- Operating ad accounts, buying traffic, or platform outcome guarantees
+- Bypassing ad platform policies — buyer compliance scope
+
+**Quote fields**
+Device count, target models, host software name, voltage region, and export destination. Useful for agencies running **multi-device workflow** QA before client handoff.`,
+  },
+  {
+    slug: "buy-phone-farm-box-rfq-vs-usdt-sample",
+    title: "Buy Phone Farm Box: RFQ vs USDT Sample Order — Which Path?",
+    category: "Procurement & Shipping",
+    date: "2026-06-07",
+    excerpt:
+      "Should you buy a phone farm box through RFQ or USDT sample checkout? When each B2B path fits — bulk, custom, and phone-included orders vs MOQ-1 catalog SKUs.",
+    content: `**Buy phone farm box** can mean two different procurement paths on phonesfarmbox.com — both are B2B hardware, not instant retail checkout.
+
+**Path 1 — Written quote (RFQ) — recommended for most buyers**
+- Send quantity, models, voltage, connection mode, freight preference
+- Receive BOM, lead time, and payment terms on proforma before assembly
+- Required for bulk orders, phone-included builds, custom cabinets, and export packing photos pre-ship
+
+**Path 2 — USDT sample checkout (optional)**
+- MOQ-1 catalog SKUs when list price matches your need
+- Pay TRC20, send tx hash + order number to sales — manual confirmation
+- Best for repeat buyers or simple accessory orders (hub, fan kit, empty chassis)
+
+**When to skip sample checkout**
+- First-time rack project needing host PC sizing notes
+- iPhone farms with model mix confirmation
+- Any order where freight or voltage was not yet declared
+
+See /how-to-order and /contact for RFQ form fields.`,
+  },
+  {
+    slug: "phone-farm-equipment-checklist-bom",
+    title: "Phone Farm Equipment Checklist — Hub, PSU, Cooling & Network BOM",
+    category: "Hardware & Selection",
+    date: "2026-06-06",
+    excerpt:
+      "Complete phone farm equipment list beyond the box — USB hub tier, PSU wattage, fan kit, host PC, and network gear sized from your node count.",
+    content: `**Phone farm equipment** is more than the chassis. Use this checklist when building a BOM for RFQ or internal procurement.
+
+**Core hardware**
+- [ ] Phone farm box or motherboard box chassis (slot count on quote)
+- [ ] Industrial USB hub tier — one uplink per box to host PC
+- [ ] PSU module — wattage from node list + 110V/220V region
+- [ ] Cooling fan kit — CFM target for ambient and node load
+- [ ] Data cables and regional mains lead
+
+**Host & software**
+- [ ] Control PC — 8+ cores, 32GB+ RAM for large mirror farms
+- [ ] PCIe USB 3.x cards when exceeding onboard ports
+- [ ] Batch-control or ADB stack (buyer-owned unless on proforma)
+
+**Optional network layer**
+- [ ] Industrial router/switch for segmented device groups
+- [ ] OTG Ethernet offload on large Android farms
+
+**Documentation to request**
+- [ ] Wiring diagram PC → hub → node
+- [ ] Burn-in checklist (standard box orders)
+- [ ] Packing list + invoice weights before export
+
+Copy fields into /tools/bulk-quote-checklist or Contact RFQ. Accessory SKUs: /products/usb-hub, /products/power-supply-solution, /products/cooling-solution, /products/network-equipment.`,
+  },
 ];
 
 export const BLOG_CATEGORIES = [

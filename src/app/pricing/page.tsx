@@ -19,9 +19,9 @@ import {
 } from "@/data/quote-process";
 
 export const metadata = buildMetadata({
-  title: "Hardware Pricing & Bulk Quote",
+  title: "Phone Farm Wholesale Pricing & Bulk Quote",
   description:
-    "B2B phone farm hardware pricing — sample, standard deployment, and bulk project tiers. Price factors, TCO comparison, and request quote.",
+    "Phone farm box wholesale and volume pricing — MOQ 1 samples, 3+ box tiers, bulk project quotes. Phone farm hardware supplier pricing factors, export freight, and RFQ process from Guangzhou.",
   path: "/pricing",
 });
 

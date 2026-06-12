@@ -323,6 +323,20 @@ export const FAQ_ITEMS: FAQItem[] = [
       "Most B2B buyers start with a written quote (RFQ) so slot count, voltage, connection mode, freight, and lead time are on proforma before payment. Optional USDT sample checkout exists for simple MOQ-1 catalog SKUs when configuration matches list price — see sample order page. Bulk, custom, or phone-included builds should use RFQ.",
     productLink: "/contact",
   },
+  {
+    category: "Hardware",
+    question: "What phone farm equipment do I need besides the chassis?",
+    answer:
+      "A complete phone farm setup usually includes chassis, industrial USB hub tier, PSU matched to node count and voltage region, cooling fan kit, host PC with batch-control software, and optional network router for segmented groups. Empty chassis buyers add hub, PSU, and fans as separate BOM lines. See our phone farm equipment checklist blog and planning tools.",
+    productLink: "/blog/phone-farm-equipment-checklist-bom",
+  },
+  {
+    category: "Ordering",
+    question: "Do you offer phone farm wholesale or volume pricing?",
+    answer:
+      "Yes — volume tiers typically start at 3+ boxes with discounts confirmed on written quote, not fixed on the website. Bulk rack and custom cabinet projects are quoted separately with phased delivery options. MOQ remains 1 unit for standard catalog samples.",
+    productLink: "/blog/phone-farm-box-bulk-order-wholesale-pricing",
+  },
 ];
 
 export const FAQ_CATEGORIES = ["Hardware", "Operations", "Ordering"] as const;

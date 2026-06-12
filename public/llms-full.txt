@@ -343,6 +343,14 @@ Export carton L×W×H and gross weight are confirmed on your packing list after 
 
 Most B2B buyers start with a written quote (RFQ) so slot count, voltage, connection mode, freight, and lead time are on proforma before payment. Optional USDT sample checkout exists for simple MOQ-1 catalog SKUs when configuration matches list price — see sample order page. Bulk, custom, or phone-included builds should use RFQ.
 
+### What phone farm equipment do I need besides the chassis?
+
+A complete phone farm setup usually includes chassis, industrial USB hub tier, PSU matched to node count and voltage region, cooling fan kit, host PC with batch-control software, and optional network router for segmented groups. Empty chassis buyers add hub, PSU, and fans as separate BOM lines. See our phone farm equipment checklist blog and planning tools.
+
+### Do you offer phone farm wholesale or volume pricing?
+
+Yes — volume tiers typically start at 3+ boxes with discounts confirmed on written quote, not fixed on the website. Bulk rack and custom cabinet projects are quoted separately with phased delivery options. MOQ remains 1 unit for standard catalog samples.
+
 
 ## Product catalog URLs
 
@@ -367,6 +375,10 @@ Most B2B buyers start with a written quote (RFQ) so slot count, voltage, connect
 - [Phone Farm Hardware Pricing and Fees Explained](https://www.phonesfarmbox.com/help/phone-farm-pricing-fees-explained/): List prices, quote tiers, freight, services, and payment methods — no hidden subscription on hardware SKUs.
 - [How Many Phone Farm Boxes Can One PC Control?](https://www.phonesfarmbox.com/help/one-pc-how-many-phone-farm-boxes/): Planning guide: boxes per control PC, hub uplinks, mirrored node limits, and when to add a second host — reference ranges; confirm on quote.
 - [2U Rackmount Phone Farm Buyer Guide](https://www.phonesfarmbox.com/help/rackmount-2u-phone-farm-buyer-guide/): When buyers search for 2U phone farm rack or rackmount phone farm hardware — how it maps to custom cabinets, stacked chassis, and quote fields.
+- [Phone farm equipment checklist (blog)](https://www.phonesfarmbox.com/blog/phone-farm-equipment-checklist-bom/)
+- [Bulk order & wholesale pricing (blog)](https://www.phonesfarmbox.com/blog/phone-farm-box-bulk-order-wholesale-pricing/)
+- [Mobile device lab / app compatibility testing (blog)](https://www.phonesfarmbox.com/blog/mobile-device-lab-compatibility-testing-hardware/)
+- [Buy phone farm box: RFQ vs USDT (blog)](https://www.phonesfarmbox.com/blog/buy-phone-farm-box-rfq-vs-usdt-sample/)
 - [How to order](https://www.phonesfarmbox.com/how-to-order/)
 - [Alternatives — hardware vs cloud](https://www.phonesfarmbox.com/alternatives/)
 - [For AI assistants](https://www.phonesfarmbox.com/ai/)

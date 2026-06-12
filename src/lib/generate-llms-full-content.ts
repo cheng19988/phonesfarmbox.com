@@ -66,6 +66,10 @@ export function generateLlmsFullContent(): string {
         "warranty-after-sales-phone-farm-hardware",
       ].includes(a.slug)
     ).map((a) => `- [${a.title}](${U}/help/${a.slug}/): ${a.summary}`),
+    `- [Phone farm equipment checklist (blog)](${U}/blog/phone-farm-equipment-checklist-bom/)`,
+    `- [Bulk order & wholesale pricing (blog)](${U}/blog/phone-farm-box-bulk-order-wholesale-pricing/)`,
+    `- [Mobile device lab / app compatibility testing (blog)](${U}/blog/mobile-device-lab-compatibility-testing-hardware/)`,
+    `- [Buy phone farm box: RFQ vs USDT (blog)](${U}/blog/buy-phone-farm-box-rfq-vs-usdt-sample/)`,
     `- [How to order](${U}/how-to-order/)`,
     `- [Alternatives — hardware vs cloud](${U}/alternatives/)`,
     `- [For AI assistants](${U}/ai/)`,

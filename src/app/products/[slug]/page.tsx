@@ -28,7 +28,7 @@ import { buildMetadata, productJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib
 import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } from "@/lib/product-images";
 import { getProductProcurement } from "@/lib/product-procurement";
 import { ProductProcurementSection } from "@/components/product-procurement-section";
-import { parseProductData } from "@/lib/product-profile";
+import { getProductSeo } from "@/data/product-seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -38,18 +38,10 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const product = await prisma.product.findUnique({ where: { slug } });
   if (!product) return {};
-  const seoTitles: Record<string, string> = {
-    "phone-farm-box": "Android Phone Farm Box — Modular Chassis",
-    "motherboard-box": "Android Motherboard Rack Box",
-    "android-phone-farm": "Turnkey Android Phone Farm Cluster",
-    "iphone-phone-farm": "iPhone Phone Farm Cluster",
-    "empty-box-chassis": "Empty Phone Farm Box Chassis",
-    "remote-control-setup": "Remote Batch Control Setup Service",
-  };
-  const summary = getProductSummary(slug, product.shortDesc);
+  const seo = getProductSeo(slug, product.name, getProductSummary(slug, product.shortDesc));
   return buildMetadata({
-    title: seoTitles[slug] ?? product.name,
-    description: summary,
+    title: seo.title,
+    description: seo.description,
     path: `/products/${slug}`,
     image: product.imageHero,
   });
