@@ -15,8 +15,9 @@ import { JsonLd } from "@/components/shared";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Box Hardware Supplier — Guangzhou",
-  description: SITE.description,
+  title: "Phone Farm Box Supplier — Guangzhou B2B Hardware",
+  description:
+    "Phone farm box hardware supplier in Guangzhou — quote-based B2B export of Android phone farm chassis, motherboard racks, USB hubs, and rackmount cabinets. MOQ 1 · written BOM before payment.",
   path: "/",
 });
 
@@ -42,8 +43,8 @@ export default async function HomePage() {
       <PageHero
         size="home"
         eyebrow={`${SITE.location} · Est. ${SITE.since} · B2B phone farm hardware`}
-        title="Industrial phone farm hardware, built for scale"
-        description="Chassis, motherboard racks, USB hubs, power, and cooling — assembled, tested, and exported from Guangzhou. Configuration and lead time confirmed on written quote before payment."
+        title="Industrial phone farm box hardware, built for scale"
+        description="Phone farm box chassis, motherboard racks, USB hubs, power, and cooling — assembled, tested, and exported from Guangzhou. Configuration and lead time confirmed on written quote before payment."
         image={IMAGES.homeHero}
         imageAlt="Phone farm box hardware"
         theme="light"

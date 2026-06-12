@@ -302,6 +302,27 @@ export const FAQ_ITEMS: FAQItem[] = [
       "Clearing app data or ROM state on a physical node between QA cycles or campaign handoffs — equivalent to a clean device baseline on hardware you own. Network routes should be re-bound after refresh.",
     productLink: "/help/device-profile-reset-workflow",
   },
+  {
+    category: "Ordering",
+    question: "Can I place a phone farm box bulk order with phased delivery?",
+    answer:
+      "Yes — bulk and rack projects often ship in phases (chassis sea freight first, devices air later, or region-split waves). Each phase gets its own proforma line and ETA. Send target box count, node mix, and destination on RFQ; we return a written BOM with phased ship options when needed.",
+    productLink: "/how-to-order",
+  },
+  {
+    category: "Ordering",
+    question: "What are the carton dimensions and gross weight for a phone farm box shipment?",
+    answer:
+      "Export carton L×W×H and gross weight are confirmed on your packing list after configuration is locked — not fixed on catalog pages. Typical single standard chassis parcels often fall in a 12–25 kg planning range; phone-included and rack/crate sea freight weigh more. Request datasheet and shipping dimensions on RFQ.",
+    productLink: "/buyer-specs#weight",
+  },
+  {
+    category: "Ordering",
+    question: "Should I buy a phone farm box online or request a written quote first?",
+    answer:
+      "Most B2B buyers start with a written quote (RFQ) so slot count, voltage, connection mode, freight, and lead time are on proforma before payment. Optional USDT sample checkout exists for simple MOQ-1 catalog SKUs when configuration matches list price — see sample order page. Bulk, custom, or phone-included builds should use RFQ.",
+    productLink: "/contact",
+  },
 ];
 
 export const FAQ_CATEGORIES = ["Hardware", "Operations", "Ordering"] as const;

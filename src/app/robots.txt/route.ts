@@ -4,8 +4,10 @@ import { absoluteUrl } from "@/lib/site-url";
 const AI_BOTS = [
   "GPTBot",
   "ChatGPT-User",
+  "OAI-SearchBot",
   "Google-Extended",
   "Googlebot",
+  "Bingbot",
   "anthropic-ai",
   "ClaudeBot",
   "Claude-Web",
@@ -37,6 +39,7 @@ export async function GET() {
     `Sitemap: ${absoluteUrl("/sitemap.xml", SITE.url)}`,
     "",
     `llms-txt: ${absoluteUrl("/llms.txt", SITE.url)}`,
+    `llms-full-txt: ${absoluteUrl("/llms-full.txt", SITE.url)}`,
     "",
   ];
 

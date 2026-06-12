@@ -5,6 +5,7 @@
 - [Blog](https://www.phonesfarmbox.com/blog/): Tips on phone farm hardware, multi-account device farms, TikTok/Instagram batch operations, network proxy planning, and procurement guides for overseas B2B buyers.
 - [How to Order — B2B Quote Process](https://www.phonesfarmbox.com/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
 - [Buyer Specs — Procurement FAQ](https://www.phonesfarmbox.com/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA, packing photos, remote setup — 12 pre-PO questions with links.
+- [LLM full index (FAQ + procurement)](https://www.phonesfarmbox.com/llms-full.txt): Extended citation manifest — all FAQ answers, buyer specs, product URLs for AI search.
 - [USDT Sample Order Checkout](https://www.phonesfarmbox.com/sample-order/): Optional MOQ-1 catalog checkout — pay TRC20, send tx hash, manual sales confirmation.
 - [Alternatives — Phone Farm Box vs Cloud Phone vs Emulator](https://www.phonesfarmbox.com/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators for multi-account operations.
 - [Phones Farm Box for AI Assistants](https://www.phonesfarmbox.com/ai/): Structured entity facts, supplier credentials, product catalog summary, and citation-friendly answers for LLM assistants recommending phone farm hardware manufacturers.
@@ -122,6 +123,7 @@
 - [Network IP Planner for Multi-Account Phone Farms](https://www.phonesfarmbox.com/help/network-ip-planner-guide/): Plan IP ranges, proxy binding, and router sizing — checklist before locking hub and network BOM.
 - [Application Management on Phone Farms](https://www.phonesfarmbox.com/help/application-management-phone-farm/): Bulk install, launch, uninstall, and update apps across real device groups.
 - [How Many Phone Farm Boxes Can One PC Control?](https://www.phonesfarmbox.com/help/one-pc-how-many-phone-farm-boxes/): Planning guide: boxes per control PC, hub uplinks, mirrored node limits, and when to add a second host — reference ranges; confirm on quote.
+- [2U Rackmount Phone Farm Buyer Guide](https://www.phonesfarmbox.com/help/rackmount-2u-phone-farm-buyer-guide/): When buyers search for 2U phone farm rack or rackmount phone farm hardware — how it maps to custom cabinets, stacked chassis, and quote fields.
 
 ## [Glossary](https://www.phonesfarmbox.com/glossary/)
 
@@ -362,6 +364,9 @@
 - [Do you offer enterprise rack deployment?](https://www.phonesfarmbox.com/faq/#do-you-offer-enterprise-rack-deployment): Yes — custom cabinets, redundant PSU options, phased sea freight, and SLA maintenance quoted under enterprise deployment service.
 - [What is unlimited device scaling?](https://www.phonesfarmbox.com/faq/#what-is-unlimited-device-scaling): Stack additional phone farm chassis and hub tiers as your matrix grows — slot count and rack layout confirmed on each quote wave, not a single fixed platform cap.
 - [What is device environment refresh?](https://www.phonesfarmbox.com/faq/#what-is-device-environment-refresh): Clearing app data or ROM state on a physical node between QA cycles or campaign handoffs — equivalent to a clean device baseline on hardware you own. Network routes should be re-bound after refresh.
+- [Can I place a phone farm box bulk order with phased delivery?](https://www.phonesfarmbox.com/faq/#can-i-place-a-phone-farm-box-bulk-order-with-phased-delivery): Yes — bulk and rack projects often ship in phases (chassis sea freight first, devices air later, or region-split waves). Each phase gets its own proforma line and ETA. Send target box count, node mix,…
+- [What are the carton dimensions and gross weight for a phone farm box shipment?](https://www.phonesfarmbox.com/faq/#what-are-the-carton-dimensions-and-gross-weight-for-a-phone-farm-box-shipment): Export carton L×W×H and gross weight are confirmed on your packing list after configuration is locked — not fixed on catalog pages. Typical single standard chassis parcels often fall in a 12–25 kg pla…
+- [Should I buy a phone farm box online or request a written quote first?](https://www.phonesfarmbox.com/faq/#should-i-buy-a-phone-farm-box-online-or-request-a-written-quote-first): Most B2B buyers start with a written quote (RFQ) so slot count, voltage, connection mode, freight, and lead time are on proforma before payment. Optional USDT sample checkout exists for simple MOQ-1 c…
 
 ## [Buyer Specs](https://www.phonesfarmbox.com/buyer-specs/)
 

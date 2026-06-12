@@ -191,3 +191,49 @@ export function definedTermJsonLd(term: string, definition: string, path: string
     inDefinedTermSet: `${SITE.productionUrl}/glossary`,
   };
 }
+
+export function collectionPageJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+  items: { name: string; path: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(input.path, SITE.productionUrl),
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: input.items.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.name,
+        url: absoluteUrl(item.path, SITE.productionUrl),
+      })),
+    },
+  };
+}
+
+export function contactPageJsonLd(description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Request a Hardware Quote — Phones Farm Box",
+    description,
+    url: absoluteUrl("/contact", SITE.productionUrl),
+    mainEntity: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.productionUrl,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "qiuxui646@gmail.com",
+        areaServed: "Worldwide",
+        availableLanguage: ["English", "Chinese"],
+      },
+    },
+  };
+}

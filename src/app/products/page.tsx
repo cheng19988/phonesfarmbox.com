@@ -4,18 +4,23 @@ import { ProductCard } from "@/components/commerce";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Surface } from "@/components/ui/surface";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, collectionPageJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/shared";
+import { PRODUCT_SEEDS } from "@/data/products";
 import { ProductModelStrip } from "@/components/product-model-strip";
 import { PRODUCT_CATALOG_GROUPS } from "@/data/product-catalog-groups";
 import { IMPORTED } from "@/lib/images";
 import { resolveProductCardImage } from "@/lib/resolve-product-card-image";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Products & Hardware Shop",
+  title: "Phone Farm Box Catalog — B2B Hardware Supplier",
   description:
-    "Shop phone farm boxes, motherboard racks, USB hubs, power, cooling, and custom cabinets. Phones Farm Box — quote-based B2B hardware; configuration confirmed before invoice.",
+    "Phone farm box catalog — Android phone farm chassis, motherboard racks, USB hubs, power, cooling, and rackmount cabinets. Quote-based B2B hardware from Guangzhou; configuration confirmed before invoice.",
   path: "/products",
 });
+
+const COLLECTION_DESCRIPTION =
+  "B2B catalog of phone farm box hardware — chassis, turnkey Android/iPhone farms, motherboard racks, parts, and remote setup services.";
 
 type ProductRow = Awaited<ReturnType<typeof prisma.product.findMany>>[number];
 
@@ -81,10 +86,18 @@ export default async function ProductsPage({
 
   return (
     <>
+      <JsonLd
+        data={collectionPageJsonLd({
+          name: "Phone Farm Box Hardware Catalog",
+          description: COLLECTION_DESCRIPTION,
+          path: "/products",
+          items: PRODUCT_SEEDS.map((p) => ({ name: p.name, path: `/products/${p.slug}` })),
+        })}
+      />
       <PageHero
         eyebrow="B2B hardware catalog"
-        title="Phone farm hardware shop"
-        description="Chassis, racks, hubs, power, cooling, and services — list prices are USD starting points. Slot layout, connection mode, and freight confirmed on written quote."
+        title="Phone farm box hardware catalog"
+        description="Phone farm box chassis, racks, hubs, power, cooling, and services — list prices are USD starting points. Slot layout, connection mode, and freight confirmed on written quote."
         image={IMPORTED.homeHero}
         imageAlt="Phone farm box product photo background"
         theme="light"

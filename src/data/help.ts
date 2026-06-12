@@ -759,6 +759,39 @@ We return a **host sizing note on proforma** with recommended PC spec and uplink
 
 **Related buyer question:** 一台电脑控制多少盒 — same answer; box count follows node and mirror load.`,
   },
+  {
+    slug: "rackmount-2u-phone-farm-buyer-guide",
+    title: "2U Rackmount Phone Farm Buyer Guide",
+    category: "Beginner's Guide",
+    summary:
+      "When buyers search for 2U phone farm rack or rackmount phone farm hardware — how it maps to custom cabinets, stacked chassis, and quote fields.",
+    content: `Buyers often ask for a **2U phone farm rack** or **rackmount phone farm** when planning a data-center-style or office rack room. Phones Farm Box supplies **stackable phone farm chassis** and **custom rackmount / floor-standing cabinets** — exact U height and tray layout are confirmed on engineering drawing, not one universal 2U SKU.
+
+**What “2U rackmount phone farm” usually means**
+- Rack-form factor with defined height (e.g. 2U, 4U, or full cabinet) and front/rear cable management
+- Unified PDU or PSU planning for the rack
+- Multiple device trays or stacked standard boxes inside a cabinet frame
+- Facilities sign-off on weight, airflow, and circuit load
+
+**How we quote rackmount projects**
+1. Send rack room photo or target **node count** and **phone/board model list**
+2. Choose **stacked standard Phone Farm Boxes** vs **custom cabinet** line item
+3. Confirm **110V / 220V / 220–240V** region and sea vs air freight
+4. Receive **BOM + layout diagram + load note** on proforma before payment
+
+**2U vs standard chassis**
+- A single catalog Phone Farm Box is a **stackable chassis**, not always marketed as “2U” — U height depends on slot count and phone height on your quote
+- **Custom Cabinet** SKU covers enterprise rackmount and floor-standing enclosures with structured cable management — typical for 50+ node rooms
+- **Motherboard Box** paths optimize density for headless Android QA labs where rack height per node is lower
+
+**Included in rack quotes (typical)**
+- Tray or stack layout drawing
+- PDU / PSU planning range
+- Fan CFM class and hub tier
+- Export crated sea freight option for heavy racks
+
+**Send on RFQ:** “rackmount” or “2U” target, facility rack standard if known, node count, and whether phones or boards are buyer-supplied. See also Rack and Cabinet Planning blog article and Custom Cabinet product page.`,
+  },
 ];
 
 export function getHelpArticle(slug: string) {

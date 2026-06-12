@@ -24,10 +24,13 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   metadataBase: new URL(SITE.productionUrl),
-  alternates: {
+    alternates: {
     canonical: SITE.productionUrl,
     types: {
-      "text/plain": [{ url: "/llms.txt", title: "LLMs.txt" }],
+      "text/plain": [
+        { url: "/llms.txt", title: "LLMs.txt" },
+        { url: "/llms-full.txt", title: "LLMs-full.txt" },
+      ],
     },
   },
 };

@@ -5,8 +5,9 @@ import { Section } from "@/components/ui/section";
 import { Surface } from "@/components/ui/surface";
 import { CONTACT, SITE } from "@/lib/config";
 import { IMPORTED } from "@/lib/images";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, contactPageJsonLd } from "@/lib/seo";
 import { ContactForm } from "./contact-form";
+import { JsonLd } from "@/components/shared";
 
 export const metadata = buildMetadata({
   title: "Request a Hardware Quote — Phones Farm Box",
@@ -86,6 +87,11 @@ export default async function ContactPage({
 
   return (
     <>
+      <JsonLd
+        data={contactPageJsonLd(
+          "Send RFQ details for phone farm boxes, motherboard racks, and accessories. Written BOM and lead time before payment."
+        )}
+      />
       <PageHero
         eyebrow={`${SITE.name} · Quote-based B2B hardware`}
         title="Request a hardware quote"
