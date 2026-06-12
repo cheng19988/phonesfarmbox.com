@@ -36,24 +36,28 @@ export default function RegisterPage() {
   return (
     <div className="section">
       <div className="container-wide max-w-md">
-        <h1 className="section-title text-center">Create Account</h1>
+        <h1 className="section-title text-center">Create account</h1>
+        <p className="text-sm text-[var(--text-secondary)] text-center mb-6 max-w-sm mx-auto">
+          Track USDT sample orders. For first-time buyers we recommend{" "}
+          <Link href="/contact" className="link-accent">RFQ via contact form</Link> — no signup needed.
+        </p>
         <form onSubmit={handleSubmit} className="card p-6 space-y-4">
-          {error && <p className="text-red-400 text-sm">{error}</p>}
+          {error && <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-3 py-2">{error}</p>}
           <div>
             <label className="block text-sm text-slate-600 mb-1">Name</label>
-            <input name="name" className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
+            <input name="name" className="input-field" />
           </div>
           <div>
             <label className="block text-sm text-slate-600 mb-1">Email</label>
-            <input name="email" type="email" required className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
+            <input name="email" type="email" required className="input-field" />
           </div>
           <div>
             <label className="block text-sm text-slate-600 mb-1">Password</label>
-            <input name="password" type="password" required minLength={8} className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
+            <input name="password" type="password" required minLength={8} className="input-field" />
           </div>
-          <button type="submit" disabled={loading} className="btn-primary w-full">{loading ? "Creating..." : "Register"}</button>
+          <button type="submit" disabled={loading} className="btn-primary w-full">{loading ? "Creating…" : "Register"}</button>
           <p className="text-center text-sm text-slate-600">
-            Have an account? <Link href="/login" className="text-orange-700 font-medium">Login</Link>
+            Have an account? <Link href="/login" className="text-orange-700 font-medium">Log in</Link>
           </p>
         </form>
       </div>

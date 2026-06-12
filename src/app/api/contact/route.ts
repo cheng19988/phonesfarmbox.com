@@ -1,6 +1,7 @@
 ﻿import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { notifyInquiry } from "@/lib/notify";
+import { generateInquiryRef } from "@/lib/inquiry-ref";
 
 function str(form: FormData, key: string) {
   return String(form.get(key) || "").trim();
@@ -47,11 +48,13 @@ export async function POST(req: NextRequest) {
   if (!data.name || !data.email) {
     return NextResponse.json({ error: "Name and email required" }, { status: 400 });
   }
-  await prisma.contactSubmission.create({ data });
+  const ref = generateInquiryRef();
+  const messageWithRef = `[${ref}]\n${data.message}`;
+  await prisma.contactSubmission.create({ data: { ...data, message: messageWithRef } });
   try {
-    await notifyInquiry(data);
+    await notifyInquiry({ ...data, message: messageWithRef });
   } catch (e) {
     console.error("[contact] notify failed:", e);
   }
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, ref });
 }

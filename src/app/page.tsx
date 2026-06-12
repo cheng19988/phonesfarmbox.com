@@ -8,7 +8,7 @@ import { resolveProductCardImage } from "@/lib/resolve-product-card-image";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { CTABand, Surface } from "@/components/ui/surface";
-import { FACTORY_STEPS, HARDWARE_TRUST_POINTS, PRODUCT_CATEGORIES, DEPLOYMENT_STORIES } from "@/data/homepage-trust";
+import { FACTORY_STEPS, HARDWARE_TRUST_POINTS, PRODUCT_CATEGORIES, DEPLOYMENT_STORIES, WHAT_YOU_RECEIVE } from "@/data/homepage-trust";
 import { FAQ_ITEMS } from "@/data/faq";
 import { FAQAccordion } from "@/components/commerce";
 import { JsonLd } from "@/components/shared";
@@ -153,18 +153,39 @@ export default async function HomePage() {
                 </li>
               ))}
             </ol>
-            <Link href="/pricing" className="inline-flex mt-8 text-orange-700 hover:text-orange-800 font-medium text-sm">
-              Full quote &amp; delivery process →
+            <Link href="/how-to-order" className="inline-flex mt-8 text-orange-700 hover:text-orange-800 font-medium text-sm">
+              How to order (step-by-step) →
             </Link>
           </div>
         </div>
       </Section>
 
+      <Section>
+        <SectionHeader
+          eyebrow="What you receive"
+          title="Every export order includes"
+          description="Scope confirmed on your written proforma — not generic template bundles."
+          align="center"
+          className="max-w-3xl mx-auto"
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+          {WHAT_YOU_RECEIVE.map((item) => (
+            <Surface key={item.title} padding="md" className="h-full">
+              <h3 className="font-semibold text-slate-900 mb-2">{item.title}</h3>
+              <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
+            </Surface>
+          ))}
+        </div>
+        <div className="text-center">
+          <Link href="/how-to-order" className="btn-outline">Full buying process</Link>
+        </div>
+      </Section>
+
       <Section variant="muted">
         <SectionHeader
-          eyebrow="Deployment examples"
-          title="How buyers use our hardware"
-          description="Anonymous project patterns from recent export quotes — regions and sizes are examples; your BOM is confirmed on written quote."
+          eyebrow="Recent export patterns"
+          title="How buyers deploy our hardware"
+          description="Anonymized project patterns from recent Guangzhou export quotes — your BOM is confirmed on written proforma."
           align="center"
           className="max-w-3xl mx-auto"
         />

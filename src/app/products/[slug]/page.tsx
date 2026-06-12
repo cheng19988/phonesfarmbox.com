@@ -23,7 +23,7 @@ import {
   MOTHERBOARD_GALLERY,
   SPEC_SLIDES,
 } from "@/data/product-model-catalog";
-import { ContactCTA, JsonLd, StockBadge } from "@/components/shared";
+import { ContactCTA, JsonLd, AvailabilityBadge } from "@/components/shared";
 import { buildMetadata, productJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { resolveGalleryImages, resolvePrimaryImageUrl, resolveProductImageAlt } from "@/lib/product-images";
 import { parseProductData } from "@/lib/product-profile";
@@ -136,11 +136,11 @@ export default async function ProductDetailPage({ params }: Props) {
               <p className="eyebrow mb-3">{product.category}</p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 tracking-tight leading-tight">{product.name}</h1>
               <p className="text-lg text-[var(--text-secondary)] mb-6 leading-relaxed">{summary}</p>
-              <div className="flex items-center gap-4 mb-3">
-                <span className="text-4xl font-bold text-slate-900">${product.priceUsd.toLocaleString()}</span>
-                <StockBadge stock={product.stock} />
+              <div className="flex flex-wrap items-center gap-4 mb-3">
+                <span className="text-4xl font-bold text-slate-900">From ${product.priceUsd.toLocaleString()}</span>
+                <AvailabilityBadge stock={product.stock} />
               </div>
-              <p className="text-sm text-[var(--text-muted)] mb-8">List price — confirm configuration and freight before payment.</p>
+              <p className="text-sm text-[var(--text-muted)] mb-8">List price in USD — final BOM, freight, and configuration confirmed on written quote before payment.</p>
               <BuyButtons slug={product.slug} name={product.name} stock={product.stock} />
               <p className="text-xs text-slate-500 mt-4">
                 Bulk pricing: <Link href="/pricing" className="link-accent">pricing overview</Link>
@@ -177,7 +177,7 @@ export default async function ProductDetailPage({ params }: Props) {
               ].map((row) => (
                 <div key={row.label} className="p-4 rounded-lg info-panel">
                   <div className="text-xs text-slate-500 uppercase tracking-wide mb-1">{row.label}</div>
-                  <div className="text-sm text-slate-200">{row.value}</div>
+                  <div className="text-sm text-slate-700">{row.value}</div>
                 </div>
               ))}
             </section>

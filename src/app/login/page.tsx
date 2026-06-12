@@ -32,20 +32,26 @@ export default function LoginPage() {
   return (
     <div className="section">
       <div className="container-wide max-w-md">
-        <h1 className="section-title text-center">Login</h1>
+        <h1 className="section-title text-center">Existing orders</h1>
+        <p className="text-sm text-[var(--text-secondary)] text-center mb-6 max-w-sm mx-auto">
+          Optional login for USDT sample checkout tracking. RFQ inquiries do not require an account —{" "}
+          <Link href="/contact" className="link-accent">send a quote request</Link>.
+        </p>
         <form onSubmit={handleSubmit} className="card p-6 space-y-4">
-          {error && <p className="text-red-400 text-sm">{error}</p>}
+          {error && <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-3 py-2">{error}</p>}
           <div>
             <label className="block text-sm text-slate-600 mb-1">Email</label>
-            <input name="email" type="email" required className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
+            <input name="email" type="email" required className="input-field" />
           </div>
           <div>
             <label className="block text-sm text-slate-600 mb-1">Password</label>
-            <input name="password" type="password" required className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-900" />
+            <input name="password" type="password" required className="input-field" />
           </div>
-          <button type="submit" disabled={loading} className="btn-primary w-full">{loading ? "Logging in..." : "Login"}</button>
+          <button type="submit" disabled={loading} className="btn-primary w-full">{loading ? "Logging in…" : "Log in"}</button>
           <p className="text-center text-sm text-slate-600">
-            No account? <Link href="/register" className="text-orange-700 font-medium">Register</Link>
+            New account? <Link href="/register" className="text-orange-700 font-medium">Register</Link>
+            {" · "}
+            <Link href="/how-to-order" className="text-orange-700 font-medium">How to order</Link>
           </p>
         </form>
       </div>

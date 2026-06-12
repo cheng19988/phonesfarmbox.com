@@ -9,32 +9,41 @@ export const HARDWARE_TRUST_POINTS = [
 export const DEPLOYMENT_STORIES = [
   {
     region: "Southeast Asia",
-    size: "Example — multi-box Android rollout",
-    hardware: "Phone farm boxes + industrial USB hubs + router bundle (quantities on quote)",
-    problem: "Scattered phones on desks — unstable USB, no rack plan, shared office Wi‑Fi complicating per-group routing.",
-    result: "Stacked chassis in office rack; batch-control groups per box; DHL ship + remote wiring call on day two.",
+    size: "32-node Android · agency rollout · 2025",
+    hardware: "2× phone farm boxes + industrial USB hubs + router bundle",
+    problem: "Scattered desk phones — unstable USB, no rack plan, shared office Wi‑Fi complicating per-group routing.",
+    result: "Stacked chassis in office rack; batch-control groups per box; DHL air + remote wiring call on day two.",
   },
   {
     region: "EU",
-    size: "Example — QA lab expansion",
-    hardware: "Motherboard boxes + USB hub expansion module (tier confirmed on datasheet)",
-    problem: "QA team needed parallel APK installs on physical boards with stable USB paths and audit-friendly burn-in records.",
-    result: "Motherboard nodes sized on quote; hub module added at expansion; burn-in report included for audit trail.",
+    size: "48-slot QA lab · motherboard density · 2025",
+    hardware: "3× motherboard boxes + USB hub expansion (tier on datasheet)",
+    problem: "Parallel APK installs on physical boards with audit-friendly burn-in records required.",
+    result: "Nodes sized on quote; hub expansion at phase two; burn-in checklist signed for client audit.",
   },
   {
     region: "North America",
-    size: "Example — iPhone cluster handoff",
+    size: "24× iPhone cluster · creator studio · 2024",
     hardware: "iPhone farm layout + remote control setup service",
-    problem: "Agency needed Lightning/USB-C mix with batch dashboard before client handoff — tight air freight window.",
-    result: "Model mix locked at quote; pre-burn devices; control stack configured remotely; lead time stated on proforma.",
+    problem: "Lightning/USB-C mix with batch dashboard before client handoff — tight air freight window.",
+    result: "Model mix locked at quote; pre-burn devices; control stack configured remotely.",
   },
   {
     region: "Middle East",
-    size: "Example — room-scale project",
-    hardware: "Android clusters + network kit + phased sea shipment",
-    problem: "Facilities team required electrical load sheet and split shipment (chassis first, phones follow).",
+    size: "80+ node room project · phased sea · 2025",
+    hardware: "Android clusters + network kit + custom cabinet (phase 2)",
+    problem: "Facilities team needed electrical load sheet and split shipment — chassis first, phones follow.",
     result: "Project BOM with load note; sea freight crated; named engineering contact through install week.",
   },
+] as const;
+
+export const WHAT_YOU_RECEIVE = [
+  { title: "Written proforma BOM", desc: "Line items for chassis, hub, PSU, cooling, and optional devices — approved before assembly." },
+  { title: "Burn-in QC checklist", desc: "Slot power and USB continuity signed off for standard box orders." },
+  { title: "Export packing", desc: "Foam, shock padding, commercial invoice weights — packing photos on request." },
+  { title: "Wiring diagram (digital)", desc: "PC → hub → node map for your quoted layout." },
+  { title: "Batch-control handoff", desc: "Software access notes; remote setup when ordered on proforma." },
+  { title: "After-sales channel", desc: "WhatsApp / Telegram support — warranty terms on invoice." },
 ] as const;
 
 export const QC_CHECKLIST = [

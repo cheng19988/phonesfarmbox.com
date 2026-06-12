@@ -126,7 +126,7 @@ export default function ContactPage() {
                 </svg>
               }
             >
-              <p className="text-sm text-slate-600 mb-4">Mon–Sat, 9:00–18:00 (GMT+8). Urgent inquiries via WhatsApp when online.</p>
+              <p className="text-sm text-slate-600 mb-4">Mon–Sat 9:00–18:00 GMT+8 · Sales via WhatsApp {CONTACT.whatsapp}</p>
               <a
                 href={CONTACT.whatsappUrl}
                 target="_blank"
@@ -159,7 +159,7 @@ export default function ContactPage() {
                     {CONTACT.email}
                   </a>
                 </li>
-                <li className="text-[var(--text-secondary)]">📍 {SITE.location}</li>
+                <li className="text-[var(--text-secondary)]">{SITE.location}</li>
               </ul>
             </SidebarCard>
 

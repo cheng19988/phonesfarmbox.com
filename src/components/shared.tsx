@@ -42,19 +42,25 @@ export function ContactCTA({ title = "Request a Hardware Quote" }: { title?: str
         <Link href="/contact" className="btn-primary px-8">
           Contact Sales
         </Link>
-        <Link href="/pricing" className="btn-secondary px-8">
-          Quote &amp; delivery process
+        <Link href="/how-to-order" className="btn-secondary px-8">
+          How to order
         </Link>
-        <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="btn-outline px-8">
-          Telegram
-        </a>
+        <Link href="/pricing" className="btn-outline px-8">
+          Pricing
+        </Link>
       </div>
     </section>
   );
 }
 
 export function StockBadge({ stock }: { stock: number }) {
-  if (stock <= 0) return <span className="badge-red">Out of Stock</span>;
-  if (stock <= 5) return <span className="badge-yellow">Low Stock ({stock})</span>;
-  return <span className="badge-green">In Stock ({stock})</span>;
+  return <AvailabilityBadge stock={stock} />;
+}
+
+/** B2B availability — avoids fake e-commerce inventory counts on cards */
+export function AvailabilityBadge({ stock }: { stock: number }) {
+  if (stock <= 0) {
+    return <span className="badge-yellow">Made to order</span>;
+  }
+  return <span className="badge-green">Available to quote</span>;
 }

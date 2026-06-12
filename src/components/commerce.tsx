@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/config";
-import { StockBadge } from "./shared";
+import { AvailabilityBadge } from "./shared";
 
 type ProductCardProps = {
   slug: string;
@@ -36,15 +36,18 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
         </span>
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white/95 to-transparent">
           <h3 className="font-semibold text-slate-900 text-lg group-hover:text-orange-700 transition-colors">{name}</h3>
-          <p className="text-2xl font-bold text-slate-900 mt-0.5">${priceUsd.toLocaleString()}</p>
+          <p className="text-lg font-bold text-slate-900 mt-0.5">
+            From ${priceUsd.toLocaleString()}
+            <span className="text-xs font-normal text-slate-500 ml-1">· confirm on quote</span>
+          </p>
         </div>
       </Link>
       <div className="p-5 flex flex-col flex-1 border-t border-slate-100">
         <p className="text-sm text-[var(--text-secondary)] mb-4 line-clamp-2 flex-1 leading-relaxed">{shortDesc}</p>
         <div className="flex items-center justify-between mb-4">
-          <StockBadge stock={stock} />
+          <AvailabilityBadge stock={stock} />
           <Link href={`/products/${slug}`} className="text-xs text-orange-700 hover:text-orange-600 font-medium">
-            View details →
+            Specs →
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-2">
@@ -90,34 +93,33 @@ export function BuyButtons({ slug, name, stock }: { slug: string; name: string; 
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
         <Link href={`/contact?product=${slug}`} className="btn-primary">
-          Get Quote
+          Get Written Quote
         </Link>
         <a href={`${CONTACT.whatsappUrl}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="btn-secondary">
-          WhatsApp Inquiry
+          WhatsApp
         </a>
         <Link href={`/contact?product=${slug}&type=bulk`} className="btn-outline">
-          Bulk Price
+          Bulk / Project RFQ
         </Link>
       </div>
-      <div className="flex flex-wrap gap-4 pt-4 border-t border-slate-100 text-sm">
-        <form action="/api/orders" method="POST">
-          <input type="hidden" name="productSlug" value={slug} />
-          <input type="hidden" name="action" value="quote" />
-          <button type="submit" className="text-[var(--text-secondary)] hover:text-slate-900 underline-offset-2 hover:underline">
-            Add to order list
-          </button>
-        </form>
-        <form action="/api/orders" method="POST">
-          <input type="hidden" name="productSlug" value={slug} />
-          <input type="hidden" name="action" value="buy" />
-          <button type="submit" disabled={disabled} className="text-[var(--text-muted)] hover:text-slate-900 disabled:opacity-40">
-            Submit order (pay by USDT)
-          </button>
-        </form>
-      </div>
-      <p className="text-xs text-[var(--text-muted)]">
-        List price in USD. USDT payment is manually confirmed by sales — contact us after transfer with your tx hash.
-      </p>
+      <details className="rounded-lg border border-slate-200 bg-slate-50/80 text-sm">
+        <summary className="cursor-pointer px-4 py-3 font-medium text-slate-700 select-none">
+          Sample order (USDT) — optional catalog checkout
+        </summary>
+        <div className="px-4 pb-4 pt-1 space-y-3 border-t border-slate-200">
+          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
+            For MOQ-1 when you already know the SKU. Payment manually confirmed after you send tx hash.{" "}
+            <Link href="/sample-order" className="link-accent">Full steps →</Link>
+          </p>
+          <form action="/api/orders" method="POST" className="inline">
+            <input type="hidden" name="productSlug" value={slug} />
+            <input type="hidden" name="action" value="buy" />
+            <button type="submit" disabled={disabled} className="btn-outline text-sm py-2 disabled:opacity-40">
+              Checkout with USDT
+            </button>
+          </form>
+        </div>
+      </details>
     </div>
   );
 }

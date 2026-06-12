@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "", "/products", "/pricing", "/services", "/solutions", "/scenarios", "/features",
     "/help", "/glossary", "/tools", "/about", "/faq", "/contact", "/blog", "/alternatives", "/ai",
+    "/how-to-order", "/sample-order",
     "/privacy", "/cookies", "/refund", "/terms",
   ].map((path) => ({
     url: `${SITE.url}${path}`,

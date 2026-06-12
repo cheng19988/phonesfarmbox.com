@@ -150,8 +150,18 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/how-to-order" className="hover:text-slate-900 transition-colors">
+                How to order
+              </Link>
+            </li>
+            <li>
+              <Link href="/sample-order" className="hover:text-slate-900 transition-colors">
+                USDT sample checkout
+              </Link>
+            </li>
+            <li>
               <Link href="/login" className="hover:text-[var(--text-muted)]">
-                Order login
+                Existing orders (login)
               </Link>
             </li>
           </ul>

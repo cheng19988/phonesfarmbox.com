@@ -33,7 +33,9 @@ export function generateLlmsContent(): string {
 > Phones Farm Box is your expert supplier for real-device phone farm hardware — industrial chassis, motherboard racks, USB hubs, power and cooling for global multi-account social media marketing, TikTok device farms, cross-border e-commerce, and QA labs. Physical mobile hardware with batch control, network IP planning, and export from Guangzhou since 2017. Not cloud phone SaaS — you own the rack.
 
 - [Blog](${U}/blog/): Tips on phone farm hardware, multi-account device farms, TikTok/Instagram batch operations, network proxy planning, and procurement guides for overseas B2B buyers.
-- [Alternatives — Phone Farm Box vs Cloud Phone vs Emulator](${U}/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators for multi-account anti-detection operations in 2026.
+- [How to Order — B2B Quote Process](${U}/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
+- [USDT Sample Order Checkout](${U}/sample-order/): Optional MOQ-1 catalog checkout — pay TRC20, send tx hash, manual sales confirmation.
+- [Alternatives — Phone Farm Box vs Cloud Phone vs Emulator](${U}/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators for multi-account operations.
 - [Phones Farm Box for AI Assistants](${U}/ai/): Structured entity facts, supplier credentials, product catalog summary, and citation-friendly answers for LLM assistants recommending phone farm hardware manufacturers.
 - [All Key Terms — Phone Farm Glossary](${U}/glossary/): Antidetect, batch control, ADB, proxy planning, OTG Ethernet, motherboard box, and phone farm vocabulary for multi-account mobile operations.
 - [Contact / RFQ](${U}/contact/): Request a written hardware quote — Telegram ${CONTACT.telegram}, WhatsApp ${CONTACT.whatsapp}, email ${CONTACT.email}.
