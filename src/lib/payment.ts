@@ -72,7 +72,6 @@ export async function checkAndUpdatePayment(paymentId: string) {
       return { status: "underpaid" as const, payment };
     }
 
-    const orderStatus = tx.amount > payment.expectedAmount + tolerance ? "Paid" : "Paid";
     const paymentStatus = tx.amount > payment.expectedAmount + tolerance ? "overpaid" : "paid";
 
     await prisma.payment.update({
@@ -87,7 +86,7 @@ export async function checkAndUpdatePayment(paymentId: string) {
     });
     await prisma.order.update({
       where: { id: payment.orderId },
-      data: { status: orderStatus },
+      data: { status: "Paid" },
     });
     return { status: paymentStatus, payment };
   }

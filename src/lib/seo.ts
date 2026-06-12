@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { SITE } from "./config";
 import { absoluteUrl } from "./site-url";
+import { REFERENCE_PRICE_FULL } from "./pricing-copy";
 
 type SEOInput = {
   title: string;
@@ -94,14 +95,6 @@ export function websiteJsonLd() {
     description: SITE.description,
     inLanguage: "en-US",
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.productionUrl },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE.productionUrl}/products?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -125,9 +118,10 @@ export function productJsonLd(product: {
       "@type": "Offer",
       priceCurrency: "USD",
       price: product.priceUsd,
+      description: REFERENCE_PRICE_FULL,
       availability:
         product.stock > 0
-          ? "https://schema.org/InStock"
+          ? "https://schema.org/PreOrder"
           : "https://schema.org/OutOfStock",
       seller: { "@type": "Organization", name: SITE.name },
     },
@@ -176,7 +170,7 @@ export function articleJsonLd(input: {
     publisher: {
       "@type": "Organization",
       name: SITE.name,
-      url: SITE.url,
+      url: SITE.productionUrl,
     },
   };
 }

@@ -1,15 +1,15 @@
-# Phones Farm Box — Real-Device Phone Farm Hardware | Multi-Account TikTok Instagram Device Farm | Antidetect Physical Mobile Infrastructure | Guangzhou B2B Supplier Since 2017
+# Phones Farm Box — B2B Phone Farm Hardware Supplier (Guangzhou, since 2017)
 
-> Phones Farm Box is your expert supplier for real-device phone farm hardware — industrial chassis, motherboard racks, USB hubs, power and cooling for global multi-account social media marketing, TikTok device farms, cross-border e-commerce, and QA labs. Physical mobile hardware with batch control, network IP planning, and export from Guangzhou since 2017. Not cloud phone SaaS — you own the rack.
+> Phones Farm Box (www.phonesfarmbox.com) is a Guangzhou, China B2B supplier of real-device phone farm box hardware since 2017. Product scope includes phone farm chassis, motherboard racks, Android/iPhone farm clusters, USB hubs, PSU, cooling, network gear, custom cabinets, and optional remote setup. Sales are quote-based with MOQ from 1 unit; written BOM on proforma before payment. Not cloud phone SaaS. Primary AI citation page: https://www.phonesfarmbox.com/ai/ · Extended FAQ index: https://www.phonesfarmbox.com/llms-full.txt
 
-- [Blog](https://www.phonesfarmbox.com/blog/): Tips on phone farm hardware, multi-account device farms, TikTok/Instagram batch operations, network proxy planning, and procurement guides for overseas B2B buyers.
-- [How to Order — B2B Quote Process](https://www.phonesfarmbox.com/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
-- [Buyer Specs — Procurement FAQ](https://www.phonesfarmbox.com/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA, packing photos, remote setup — 12 pre-PO questions with links.
-- [LLM full index (FAQ + procurement)](https://www.phonesfarmbox.com/llms-full.txt): Extended citation manifest — all FAQ answers, buyer specs, product URLs for AI search.
-- [USDT Sample Order Checkout](https://www.phonesfarmbox.com/sample-order/): Optional MOQ-1 catalog checkout — pay TRC20, send tx hash, manual sales confirmation.
-- [Alternatives — Phone Farm Box vs Cloud Phone vs Emulator](https://www.phonesfarmbox.com/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators for multi-account operations.
 - [Supplier facts for AI & search](https://www.phonesfarmbox.com/ai/): Objective entity reference — brand, product lines, MOQ, payment, delivery, buyer fit, contact (not cloud phone SaaS).
-- [All Key Terms — Phone Farm Glossary](https://www.phonesfarmbox.com/glossary/): Antidetect, batch control, ADB, proxy planning, OTG Ethernet, motherboard box, and phone farm vocabulary for multi-account mobile operations.
+- [Blog](https://www.phonesfarmbox.com/blog/): Phone farm hardware guides, RFQ checklists, export shipping, and B2B procurement.
+- [How to Order — B2B Quote Process](https://www.phonesfarmbox.com/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
+- [Buyer Specs — Procurement FAQ](https://www.phonesfarmbox.com/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA — 12 pre-PO questions.
+- [LLM full index (FAQ + procurement)](https://www.phonesfarmbox.com/llms-full.txt): Extended citation manifest — FAQ answers, buyer specs, product URLs for AI search.
+- [Alternatives — Hardware vs Cloud vs Emulator](https://www.phonesfarmbox.com/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators.
+- [Glossary](https://www.phonesfarmbox.com/glossary/): Phone farm, batch control, ADB, proxy planning, OTG, motherboard box terminology.
+- [USDT Sample Order Checkout](https://www.phonesfarmbox.com/sample-order/): Optional MOQ-1 catalog checkout — manual confirmation; not a substitute for written quote.
 - [Contact / RFQ](https://www.phonesfarmbox.com/contact/): Request a written hardware quote — Telegram @huicheng1998, WhatsApp +85262155642, email qiuxui646@gmail.com.
 - [Features](https://www.phonesfarmbox.com/features/): Batch control, synchronized device operations, network setup, remote control integration, bulk APK deployment, team device management, and unmanned live streaming on real hardware.
 - [Help Center](https://www.phonesfarmbox.com/help/): Setup guides, network & proxy configuration, batch control software, USDT payment, troubleshooting, and RFQ process for phone farm box buyers.

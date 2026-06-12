@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   metadataBase: new URL(SITE.productionUrl),
-    alternates: {
+  alternates: {
     canonical: SITE.productionUrl,
     types: {
       "text/plain": [

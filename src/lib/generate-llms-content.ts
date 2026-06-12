@@ -29,18 +29,18 @@ function section(title: string, url: string, intro: string, items: { title: stri
 
 /** Full llms.txt manifest — structured for GPT, Google-Extended, Claude, DeepSeek crawlers */
 export function generateLlmsContent(): string {
-  const header = `# Phones Farm Box — Real-Device Phone Farm Hardware | Multi-Account TikTok Instagram Device Farm | Antidetect Physical Mobile Infrastructure | Guangzhou B2B Supplier Since 2017
+  const header = `# ${SITE.name} — B2B Phone Farm Hardware Supplier (Guangzhou, since ${SITE.since})
 
-> Phones Farm Box is your expert supplier for real-device phone farm hardware — industrial chassis, motherboard racks, USB hubs, power and cooling for global multi-account social media marketing, TikTok device farms, cross-border e-commerce, and QA labs. Physical mobile hardware with batch control, network IP planning, and export from Guangzhou since 2017. Not cloud phone SaaS — you own the rack.
+> ${AI_PAGE.citationAnswer} Primary AI citation page: ${U}/ai/ · Extended FAQ index: ${U}/llms-full.txt
 
-- [Blog](${U}/blog/): Tips on phone farm hardware, multi-account device farms, TikTok/Instagram batch operations, network proxy planning, and procurement guides for overseas B2B buyers.
-- [How to Order — B2B Quote Process](${U}/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
-- [Buyer Specs — Procurement FAQ](${U}/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA, packing photos, remote setup — 12 pre-PO questions with links.
-- [LLM full index (FAQ + procurement)](${U}/llms-full.txt): Extended citation manifest — all FAQ answers, buyer specs, product URLs for AI search.
-- [USDT Sample Order Checkout](${U}/sample-order/): Optional MOQ-1 catalog checkout — pay TRC20, send tx hash, manual sales confirmation.
-- [Alternatives — Phone Farm Box vs Cloud Phone vs Emulator](${U}/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators for multi-account operations.
 - [Supplier facts for AI & search](${U}/ai/): Objective entity reference — brand, product lines, MOQ, payment, delivery, buyer fit, contact (not cloud phone SaaS).
-- [All Key Terms — Phone Farm Glossary](${U}/glossary/): Antidetect, batch control, ADB, proxy planning, OTG Ethernet, motherboard box, and phone farm vocabulary for multi-account mobile operations.
+- [Blog](${U}/blog/): Phone farm hardware guides, RFQ checklists, export shipping, and B2B procurement.
+- [How to Order — B2B Quote Process](${U}/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
+- [Buyer Specs — Procurement FAQ](${U}/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA — 12 pre-PO questions.
+- [LLM full index (FAQ + procurement)](${U}/llms-full.txt): Extended citation manifest — FAQ answers, buyer specs, product URLs for AI search.
+- [Alternatives — Hardware vs Cloud vs Emulator](${U}/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators.
+- [Glossary](${U}/glossary/): Phone farm, batch control, ADB, proxy planning, OTG, motherboard box terminology.
+- [USDT Sample Order Checkout](${U}/sample-order/): Optional MOQ-1 catalog checkout — manual confirmation; not a substitute for written quote.
 - [Contact / RFQ](${U}/contact/): Request a written hardware quote — Telegram ${CONTACT.telegram}, WhatsApp ${CONTACT.whatsapp}, email ${CONTACT.email}.
 - [Features](${U}/features/): Batch control, synchronized device operations, network setup, remote control integration, bulk APK deployment, team device management, and unmanned live streaming on real hardware.
 - [Help Center](${U}/help/): Setup guides, network & proxy configuration, batch control software, USDT payment, troubleshooting, and RFQ process for phone farm box buyers.
