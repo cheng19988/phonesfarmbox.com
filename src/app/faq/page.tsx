@@ -56,6 +56,12 @@ export default function FAQPage() {
             );
           })}
 
+          <p className="text-sm text-[var(--text-muted)] mb-6">
+            <Link href="/buyer-specs" className="link-accent font-medium">
+              Buyer specs — dimensions, power, lead time, warranty &amp; 12 procurement questions →
+            </Link>
+          </p>
+
           <p className="text-sm text-[var(--text-muted)] mb-10">
             Still deciding on configuration?{" "}
             <Link href="/contact" className="link-accent">Request a quote</Link>

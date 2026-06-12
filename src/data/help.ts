@@ -634,7 +634,9 @@ See also Bulk APK Deployment feature page and USB hub sizing blog article.`,
 **OS:**
 Windows common for batch-control tools; Linux paths for ADB-heavy QA — confirm compatibility with your software before hardware PO.
 
-Send target node count and software name on RFQ for host sizing notes on proforma.`,
+Send target node count and software name on RFQ for host sizing notes on proforma.
+
+See also the help article "How Many Phone Farm Boxes Can One PC Control?" and the Buyer Specs page at /buyer-specs for the full procurement index.`,
   },
   {
     slug: "phone-farm-pricing-fees-explained",
@@ -721,6 +723,38 @@ App deployment paths depend on quoted control tooling — not identical to Andro
 - Removing deprecated apps between campaigns
 
 Combine with Bulk APK Deployment feature page and bulk APK install help guide.`,
+  },
+  {
+    slug: "one-pc-how-many-phone-farm-boxes",
+    title: "How Many Phone Farm Boxes Can One PC Control?",
+    category: "Hardware Setup",
+    summary:
+      "Planning guide: boxes per control PC, hub uplinks, mirrored node limits, and when to add a second host — reference ranges; confirm on quote.",
+    content: `Buyers often ask **“one PC, how many boxes?”** before sizing a rack. The honest answer depends on **nodes per box**, **control software** (mirror vs ADB-only), and **USB topology** — not box count alone.
+
+**Quick reference (Android, adjust on quote):**
+- **Screen mirroring / batch-control with live preview:** 1 PC per **1–3** standard Phone Farm Boxes is typical.
+- **ADB-heavy / headless motherboard nodes, light mirroring:** 1 PC may handle **4–6** boxes with **PCIe USB 3.x controller cards** and strict one-uplink-per-box wiring.
+- **Node budget:** plan **~20–40 mirrored Android nodes** per well-specced host (8–16+ cores, 32–64 GB RAM) before adding a second PC — even if that spans multiple boxes.
+
+**Why “one uplink per box” matters**
+Each chassis has an internal industrial hub tree. The host PC should connect **one dedicated USB3 port per box uplink**. Do not daisy-chain consumer hubs on the host side — that is the most common cause of disconnect storms when scaling from one box to three.
+
+**What increases PC count sooner**
+- Live screen mirror on every slot during production hours
+- Heavy video encode, OCR, or RPA on the same host
+- iPhone stacks (separate host tooling and controllers — often **1 PC per iPhone box** to start)
+- Mixed Android + iPhone in one room (separate USB controllers recommended)
+
+**What to send on RFQ**
+- Number of boxes and **nodes per box**
+- Phone or board model list
+- Control software name (batch-control, scrcpy-style mirror, custom ADB scripts)
+- Whether you need synchronized mirror vs headless automation only
+
+We return a **host sizing note on proforma** with recommended PC spec and uplink map. See also Host PC Requirements and the USB Port Requirement Calculator under Planning Tools.
+
+**Related buyer question:** 一台电脑控制多少盒 — same answer; box count follows node and mirror load.`,
   },
 ];
 

@@ -77,6 +77,7 @@ export const FOOTER_LINKS = {
     { href: "/tools", label: "Planning Tools" },
     { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Guides & Blog" },
+    { href: "/buyer-specs", label: "Buyer Specs" },
     { href: "/how-to-order", label: "How to Order" },
     { href: "/alternatives", label: "Hardware vs Cloud" },
     { href: "/ai", label: "For AI Assistants" },

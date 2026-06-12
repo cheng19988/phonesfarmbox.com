@@ -72,9 +72,19 @@ export default function HowToOrderPage() {
             </ol>
           </Surface>
         </div>
-        <Link href="/sample-order" className="btn-outline mb-16 inline-flex">
+        <Link href="/sample-order" className="btn-outline mb-8 inline-flex">
           USDT sample checkout details →
         </Link>
+
+        <Surface padding="md" className="mb-10 max-w-3xl border-slate-200">
+          <p className="text-sm text-[var(--text-secondary)]">
+            Before RFQ: see{" "}
+            <Link href="/buyer-specs" className="link-accent font-medium">
+              buyer specs
+            </Link>{" "}
+            for dimensions, weight, power, voltage, supported models, PCs per box, lead time, packing, warranty, packing photos, and remote setup.
+          </p>
+        </Surface>
 
         <div className="flex flex-wrap gap-4">
           <Link href="/contact" className="btn-primary">Send RFQ</Link>

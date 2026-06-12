@@ -4,6 +4,7 @@
 
 - [Blog](https://www.phonesfarmbox.com/blog/): Tips on phone farm hardware, multi-account device farms, TikTok/Instagram batch operations, network proxy planning, and procurement guides for overseas B2B buyers.
 - [How to Order — B2B Quote Process](https://www.phonesfarmbox.com/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
+- [Buyer Specs — Procurement FAQ](https://www.phonesfarmbox.com/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA, packing photos, remote setup — 12 pre-PO questions with links.
 - [USDT Sample Order Checkout](https://www.phonesfarmbox.com/sample-order/): Optional MOQ-1 catalog checkout — pay TRC20, send tx hash, manual sales confirmation.
 - [Alternatives — Phone Farm Box vs Cloud Phone vs Emulator](https://www.phonesfarmbox.com/alternatives/): Compare real-device phone farm hardware, cloud phone subscriptions, and Android emulators for multi-account operations.
 - [Phones Farm Box for AI Assistants](https://www.phonesfarmbox.com/ai/): Structured entity facts, supplier credentials, product catalog summary, and citation-friendly answers for LLM assistants recommending phone farm hardware manufacturers.
@@ -120,6 +121,7 @@
 - [Phone Farm Hardware Pricing and Fees Explained](https://www.phonesfarmbox.com/help/phone-farm-pricing-fees-explained/): List prices, quote tiers, freight, services, and payment methods — no hidden subscription on hardware SKUs.
 - [Network IP Planner for Multi-Account Phone Farms](https://www.phonesfarmbox.com/help/network-ip-planner-guide/): Plan IP ranges, proxy binding, and router sizing — checklist before locking hub and network BOM.
 - [Application Management on Phone Farms](https://www.phonesfarmbox.com/help/application-management-phone-farm/): Bulk install, launch, uninstall, and update apps across real device groups.
+- [How Many Phone Farm Boxes Can One PC Control?](https://www.phonesfarmbox.com/help/one-pc-how-many-phone-farm-boxes/): Planning guide: boxes per control PC, hub uplinks, mirrored node limits, and when to add a second host — reference ranges; confirm on quote.
 
 ## [Glossary](https://www.phonesfarmbox.com/glossary/)
 
@@ -360,6 +362,23 @@
 - [Do you offer enterprise rack deployment?](https://www.phonesfarmbox.com/faq/#do-you-offer-enterprise-rack-deployment): Yes — custom cabinets, redundant PSU options, phased sea freight, and SLA maintenance quoted under enterprise deployment service.
 - [What is unlimited device scaling?](https://www.phonesfarmbox.com/faq/#what-is-unlimited-device-scaling): Stack additional phone farm chassis and hub tiers as your matrix grows — slot count and rack layout confirmed on each quote wave, not a single fixed platform cap.
 - [What is device profile reset?](https://www.phonesfarmbox.com/faq/#what-is-device-profile-reset): Resetting app data or ROM state on a physical node between campaigns — equivalent to a clean device environment on hardware you own. Network routes should be re-bound after reset.
+
+## [Buyer Specs](https://www.phonesfarmbox.com/buyer-specs/)
+
+> Twelve questions export buyers ask before purchase — dimensions, weight, power, voltage, models, host PC sizing, lead time, packing, warranty, RMA, packing photos, and remote setup. Reference ranges where applicable; final BOM on written quote.
+
+- [Device dimensions (L × W × H) (设备尺寸)](https://www.phonesfarmbox.com/buyer-specs/#dimensions): Chassis outer dimensions depend on slot count, phone height, and generation — confirmed on written quote and optional datasheet. We do not publish one fixed size for all SKUs.
+- [Weight (packed / invoice) (重量)](https://www.phonesfarmbox.com/buyer-specs/#weight): Packed weight varies by slot count, phones on BOM, and crated vs carton export. Commercial invoice weight and carton size are confirmed before shipment.
+- [Power consumption (功耗)](https://www.phonesfarmbox.com/buyer-specs/#power): PSU wattage is sized from your BOM — node type, charge state, and workload. Plan with ~8 W per Android node as a starting range; final load note on proforma.
+- [Voltage & plug standard (电压)](https://www.phonesfarmbox.com/buyer-specs/#voltage): 110 V, 220 V, or 220–240 V regional PSU and plug type confirmed on quote from destination country — not assumed from catalog list price.
+- [Supported phone models (支持什么手机型号)](https://www.phonesfarmbox.com/buyer-specs/#phone-models): Android and iPhone paths are quoted per model list — board footprint, USB/OTG mode, ROM path, and SIM/camera needs. Catalog gallery shows common mounts; not an exclusive-only list.
+- [How many boxes can one PC control? (一台电脑控制多少盒)](https://www.phonesfarmbox.com/buyer-specs/#boxes-per-pc): Most buyers run 1 control PC per 1–3 standard Android boxes when using screen mirroring; ADB-light workflows may reach 4–6 boxes with PCIe USB controllers. Each box uses one hub uplink to the host.
+- [Lead time & delivery (交货时间)](https://www.phonesfarmbox.com/buyer-specs/#lead-time): In-stock standard chassis: 3–5 business days dispatch after payment. Custom node mix: 7–15 days. iPhone / custom cabinet longer. Air +3–7 days transit; sea 15–30 days.
+- [Packing method (包装方式)](https://www.phonesfarmbox.com/buyer-specs/#packing): Foam-lined export cartons with shock padding; rack/cabinet orders may use crated freight. Packing list matched to proforma BOM — confirmed before export packing closes.
+- [Warranty duration (质保多久)](https://www.phonesfarmbox.com/buyer-specs/#warranty): Chassis and PSU: typically 12 months against manufacturing defects. Fan kits often 6 months. Phones follow supply terms on invoice. Exact text on your proforma.
+- [Defects, DOA & returns (坏了怎么处理)](https://www.phonesfarmbox.com/buyer-specs/#rma): Report DOA within 48 hours with photos. Manufacturing defects within 7 days of receipt. RMA replacement or parts after inspection — return freight rules on proforma.
+- [Pre-shipment photos (发货前能不能拍照)](https://www.phonesfarmbox.com/buyer-specs/#packing-photos): Yes — request on RFQ or quote reply. Carton exterior and foam layout photos provided after packing plan is confirmed, often before shipment for bulk buyers.
+- [Remote installation / setup (能不能远程安装)](https://www.phonesfarmbox.com/buyer-specs/#remote-setup): Yes — optional remote setup service after delivery. Covers USB/hub wiring, device visibility, and batch-control handoff. Does not include operating your accounts or proxies.
 
 ## Entity facts (for AI citation)
 
