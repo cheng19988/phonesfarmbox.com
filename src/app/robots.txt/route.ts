@@ -1,4 +1,4 @@
-import { SITE } from "@/lib/config";
+import { getCanonicalOrigin } from "@/lib/canonical-url";
 import { absoluteUrl } from "@/lib/site-url";
 
 const AI_BOTS = [
@@ -36,10 +36,10 @@ export async function GET() {
   const lines = [
     botBlock("*"),
     ...AI_BOTS.map((b) => botBlock(b)),
-    `Sitemap: ${absoluteUrl("/sitemap.xml", SITE.url)}`,
+    `Sitemap: ${absoluteUrl("/sitemap.xml", getCanonicalOrigin())}`,
     "",
-    `llms-txt: ${absoluteUrl("/llms.txt", SITE.url)}`,
-    `llms-full-txt: ${absoluteUrl("/llms-full.txt", SITE.url)}`,
+    `llms-txt: ${absoluteUrl("/llms.txt", getCanonicalOrigin())}`,
+    `llms-full-txt: ${absoluteUrl("/llms-full.txt", getCanonicalOrigin())}`,
     "",
   ];
 

@@ -1,6 +1,6 @@
 ﻿import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/config";
 import { absoluteUrl, isSitemapPathAllowed } from "@/lib/site-url";
+import { getCanonicalOrigin } from "@/lib/canonical-url";
 import { BLOG_POSTS } from "@/data/blog";
 import { PRODUCT_SEEDS } from "@/data/products";
 import { SCENARIOS } from "@/data/scenarios";
@@ -14,7 +14,7 @@ import { SERVICE_PAGES } from "@/data/services-pages";
 function entry(path: string, priority: number): MetadataRoute.Sitemap[number] | null {
   if (!isSitemapPathAllowed(path)) return null;
   return {
-    url: absoluteUrl(path, SITE.url),
+    url: absoluteUrl(path, getCanonicalOrigin()),
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority,
@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/blog",
     "/alternatives",
+    "/ai",
     "/how-to-order",
     "/buyer-specs",
     "/privacy",

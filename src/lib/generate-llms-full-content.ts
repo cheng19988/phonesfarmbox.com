@@ -24,6 +24,7 @@ export function generateLlmsFullContent(): string {
 - **Contact:** ${CONTACT.telegramUrl} · ${CONTACT.whatsappUrl} · ${CONTACT.email}
 - **RFQ:** ${U}/contact/
 - **Buyer specs (12 procurement Qs):** ${U}/buyer-specs/
+- **Supplier facts page:** ${U}/ai/
 - **Short index:** ${U}/llms.txt
 
 `;
