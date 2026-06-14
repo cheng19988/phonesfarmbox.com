@@ -3,6 +3,8 @@ import { absoluteUrl, isSitemapPathAllowed } from "@/lib/site-url";
 import { getCanonicalOrigin } from "@/lib/canonical-url";
 import { BLOG_POSTS } from "@/data/blog";
 import { PRODUCT_SEEDS } from "@/data/products";
+import { ZH_MIRROR_STATIC_PATHS } from "@/i18n/config";
+import { toLocalePath } from "@/i18n/paths";
 import { SCENARIOS } from "@/data/scenarios";
 import { FEATURE_PAGES } from "@/data/features-pages";
 import { SOLUTION_PAGES } from "@/data/solutions-pages";
@@ -62,5 +64,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPaths.map((path) => entry(path, path === "" ? 1 : 0.8)),
     ...dynamicPaths.map(({ path, priority }) => entry(path, priority)),
+    ...[...ZH_MIRROR_STATIC_PATHS]
+      .filter((p) => p !== "/")
+      .map((p) => entry(toLocalePath(p, "zh"), p === "/products" ? 0.85 : 0.8)),
+    entry("/zh", 0.95),
+    ...PRODUCT_SEEDS.map((p) => entry(`/zh/products/${p.slug}`, 0.88)),
   ].filter((e): e is MetadataRoute.Sitemap[number] => e !== null);
 }

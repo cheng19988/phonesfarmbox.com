@@ -1,4 +1,8 @@
 ﻿import type { Metadata } from "next";
+import type { Locale } from "@/i18n/config";
+import { hasZhMirror } from "@/i18n/config";
+import { inferLocaleFromPath, toEnglishPath, toLocalePath } from "@/i18n/paths";
+import { LOCALE_OG } from "@/i18n/config";
 import { SITE } from "./config";
 import { absoluteUrl } from "./site-url";
 import { REFERENCE_PRICE_FULL } from "./pricing-copy";
@@ -9,6 +13,7 @@ type SEOInput = {
   path?: string;
   image?: string;
   noIndex?: boolean;
+  locale?: Locale;
 };
 
 export function buildMetadata({
@@ -17,21 +22,33 @@ export function buildMetadata({
   path = "",
   image,
   noIndex,
+  locale,
 }: SEOInput): Metadata {
-  const url = absoluteUrl(path, SITE.productionUrl);
+  const resolvedLocale = locale ?? inferLocaleFromPath(path);
+  const enPath = toEnglishPath(path);
+  const url = absoluteUrl(toLocalePath(enPath, resolvedLocale), SITE.productionUrl);
   const ogImage = image || `${SITE.productionUrl}/images/hero_1600x900/phonesfarmbox.com-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-hero_1600x900.webp`;
+
+  const alternates: Metadata["alternates"] = { canonical: url };
+  if (!noIndex && hasZhMirror(enPath)) {
+    alternates.languages = {
+      en: absoluteUrl(toLocalePath(enPath, "en"), SITE.productionUrl),
+      "zh-CN": absoluteUrl(toLocalePath(enPath, "zh"), SITE.productionUrl),
+      "x-default": absoluteUrl(toLocalePath(enPath, "en"), SITE.productionUrl),
+    };
+  }
 
   return {
     title: { absolute: `${title} | ${SITE.name}` },
     description,
-    alternates: { canonical: url },
+    alternates,
     openGraph: {
       title: `${title} | ${SITE.name}`,
       description,
       url,
       siteName: SITE.name,
       images: [{ url: ogImage, width: 1600, height: 900, alt: title }],
-      locale: "en_US",
+      locale: LOCALE_OG[resolvedLocale],
       type: "website",
     },
     twitter: {
@@ -86,14 +103,14 @@ export function organizationJsonLd() {
   };
 }
 
-export function websiteJsonLd() {
+export function websiteJsonLd(locale: Locale = "en") {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE.name,
-    url: SITE.productionUrl,
+    url: locale === "zh" ? `${SITE.productionUrl}/zh` : SITE.productionUrl,
     description: SITE.description,
-    inLanguage: "en-US",
+    inLanguage: locale === "zh" ? "zh-CN" : "en-US",
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.productionUrl },
   };
 }

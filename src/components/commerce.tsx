@@ -16,16 +16,28 @@ type ProductCardProps = {
   stock: number;
   imageCard: string;
   category: string;
+  /** e.g. `/products` or `/zh/products` */
+  productBasePath?: string;
 };
 
 const CARD_FALLBACK = "/images/products/models/s21-fe-main-product-box-phone-farm-s21-fe-6-128gb-usb-lan-ot.webp";
 
-export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard, category }: ProductCardProps) {
+export function ProductCard({
+  slug,
+  name,
+  shortDesc,
+  priceUsd,
+  stock,
+  imageCard,
+  category,
+  productBasePath = "/products",
+}: ProductCardProps) {
   const waText = encodeURIComponent(`Hi, I'd like a quote for ${name} (${slug}). Device count: `);
   const imgSrc = imageCard?.trim() || CARD_FALLBACK;
+  const productHref = `${productBasePath}/${slug}`;
   return (
     <article className="card group flex flex-col h-full">
-      <Link href={`/products/${slug}`} className="block relative aspect-[4/5] overflow-hidden bg-white">
+      <Link href={productHref} className="block relative aspect-[4/5] overflow-hidden bg-white">
         <Image
           src={imgSrc}
           alt={name}
@@ -47,7 +59,7 @@ export function ProductCard({ slug, name, shortDesc, priceUsd, stock, imageCard,
         <p className="text-sm text-[var(--text-secondary)] mb-4 line-clamp-2 flex-1 leading-relaxed">{shortDesc}</p>
         <div className="flex items-center justify-between mb-4">
           <AvailabilityBadge stock={stock} />
-          <Link href={`/products/${slug}`} className="text-xs text-orange-700 hover:text-orange-600 font-medium">
+          <Link href={productHref} className="text-xs text-orange-700 hover:text-orange-600 font-medium">
             Specs →
           </Link>
         </div>

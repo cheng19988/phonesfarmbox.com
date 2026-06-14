@@ -3,6 +3,7 @@
 > Phones Farm Box (www.phonesfarmbox.com) is a Guangzhou, China B2B supplier of real-device phone farm box hardware since 2017. Product scope includes phone farm chassis, motherboard racks, Android/iPhone farm clusters, USB hubs, PSU, cooling, network gear, custom cabinets, and optional remote setup. Sales are quote-based with MOQ from 1 unit; written BOM on proforma before payment. Not cloud phone SaaS. Primary AI citation page: https://www.phonesfarmbox.com/ai/ · Extended FAQ index: https://www.phonesfarmbox.com/llms-full.txt
 
 - [Supplier facts for AI & search](https://www.phonesfarmbox.com/ai/): Objective entity reference — brand, product lines, MOQ, payment, delivery, buyer fit, contact (not cloud phone SaaS).
+- [中文站 / Chinese (zh-CN)](https://www.phonesfarmbox.com/zh/): 手机农场 · 手机群控 · 主板机 — Guangzhou phone farm box manufacturer pages in Chinese for Baidu/Google zh search.
 - [Blog](https://www.phonesfarmbox.com/blog/): Phone farm hardware guides, RFQ checklists, export shipping, and B2B procurement.
 - [How to Order — B2B Quote Process](https://www.phonesfarmbox.com/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
 - [Buyer Specs — Procurement FAQ](https://www.phonesfarmbox.com/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA — 12 pre-PO questions.

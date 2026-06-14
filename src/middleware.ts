@@ -32,7 +32,16 @@ export function middleware(request: NextRequest) {
   const redirect = canonicalRedirect(request, host);
   if (redirect) return redirect;
 
-  return withRobotsTag(NextResponse.next(), host);
+  const pathname = request.nextUrl.pathname;
+  const locale = pathname === "/zh" || pathname.startsWith("/zh/") ? "zh" : "en";
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-locale", locale);
+
+  const response = withRobotsTag(
+    NextResponse.next({ request: { headers: requestHeaders } }),
+    host
+  );
+  return response;
 }
 
 export const config = {

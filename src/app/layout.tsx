@@ -1,9 +1,9 @@
 ﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Header, Footer } from "@/components/layout";
 import { FloatingContact } from "@/components/floating-contact";
 import { JsonLd } from "@/components/shared";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { SiteChrome, getRequestLocale, htmlLang } from "@/lib/locale-request";
 import { SITE } from "@/lib/config";
 import "./globals.css";
 
@@ -35,15 +35,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getRequestLocale();
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full`}>
+    <html lang={htmlLang(locale)} className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
         <JsonLd data={organizationJsonLd()} />
-        <JsonLd data={websiteJsonLd()} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <JsonLd data={websiteJsonLd(locale)} />
+        <SiteChrome>{children}</SiteChrome>
         <FloatingContact />
       </body>
     </html>
