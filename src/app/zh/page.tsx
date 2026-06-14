@@ -34,14 +34,17 @@ const TRUST = [
 
 const KEYWORDS_BLOCK = [
   "手机农场",
-  "手机群控",
-  "手机农场盒子",
-  "主板机",
-  "群控盒子",
+  "Phone Farm",
   "Phone Farm Box",
-  "Android 群控",
-  "iPhone 群控",
-  "广州手机农场厂家",
+  "Phone Farming",
+  "Mobile Farm",
+  "Mobile Device Farm",
+  "Android Farm",
+  "TikTok Phone Farm",
+  "Phone Farm Hardware",
+  "Phone Farm Manufacturer",
+  "手机群控",
+  "主板机",
 ];
 
 export default async function ZhHomePage() {
@@ -98,7 +101,7 @@ export default async function ZhHomePage() {
           align="center"
           className="max-w-4xl"
         />
-        <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto mb-8">
           {KEYWORDS_BLOCK.map((kw) => (
             <span
               key={kw}
@@ -107,6 +110,17 @@ export default async function ZhHomePage() {
               {kw}
             </span>
           ))}
+        </div>
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <Link href="/zh/blog" className="text-orange-700 font-medium hover:underline">
+            手机农场采购指南
+          </Link>
+          <Link href="/blog/what-is-phone-farm-phone-farming-guide" hrefLang="en" className="text-orange-700 font-medium hover:underline">
+            What is a phone farm? (EN)
+          </Link>
+          <Link href="/blog/tiktok-phone-farm-android-farm-setup" hrefLang="en" className="text-orange-700 font-medium hover:underline">
+            TikTok phone farm guide (EN)
+          </Link>
         </div>
       </Section>
 

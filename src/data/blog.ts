@@ -1191,6 +1191,109 @@ App developers searching **mobile testing** or **device lab management** on **re
 **Next step**
 [Request a hardware quote](/contact/) with device quantity, platform (Android/iPhone), connection mode, and shipping country — or browse the [product catalog](/products/).`,
   },
+  {
+    slug: "what-is-phone-farm-phone-farming-guide",
+    title: "What Is a Phone Farm? Phone Farming, Mobile Farm & Mobile Device Farm Explained",
+    category: "Box Knowledge",
+    date: "2026-06-14",
+    excerpt:
+      "Phone farm, phone farming, mobile farm, and mobile device farm — how real-device hardware differs from cloud phones, and what B2B buyers should quote.",
+    content: `Buyers search **phone farm**, **phone farming**, **mobile farm**, and **mobile device farm** when planning scaled mobile operations on **real hardware** — not virtual Android rentals.
+
+**Phone farm (definition)**
+A **phone farm** is a collection of physical smartphones or motherboard nodes operated together from one or more host PCs. Industrial deployments use **phone farm box** chassis with unified power, USB hub wiring, active cooling, and batch control software.
+
+**Phone farming (operations)**
+**Phone farming** describes running many devices at scale — app QA matrices, device lab compatibility runs, or multi-account mobile workflows on separate hardware groups. It is an infrastructure pattern, not a single app. Hardware-first phone farming replaces desk clutter with rackable **phone farm hardware**.
+
+**Mobile farm vs mobile device farm**
+**Mobile farm** is shorthand for the same concept — many mobile nodes in a managed stack. A **mobile device farm** often implies room-scale planning: multiple chassis, host PCs, USB topology, network segmentation, and phased shipment. Phones Farm Box quotes single-box SKUs through multi-box project BOMs.
+
+**Phone farm box vs whole farm**
+- **Phone farm box** = one industrial enclosure SKU (slot count on quote)
+- **Phone farm / mobile device farm** = total deployment (boxes + hubs + PSU + network + hosts)
+
+**Not cloud phone SaaS**
+Cloud phones rent virtual instances on shared servers. We export **real device phone farm hardware** you power, wire, and control locally — written BOM on proforma before payment.
+
+**Procurement checklist**
+1. Target node count and phone models
+2. Android farm vs iPhone farm (usually segmented)
+3. USB vs OTG/hybrid connection mode
+4. 110V / 220V region and destination country
+5. Empty chassis vs phones-included (optional on quote)
+
+[Request a quote](/contact/) · [Glossary: Phone Farm](/glossary/phone-farm) · [Buyer specs](/buyer-specs/)`,
+  },
+  {
+    slug: "phone-farm-hardware-manufacturer-guide",
+    title: "Phone Farm Hardware & Phone Farm Manufacturer — B2B Buyer's Guide",
+    category: "Procurement & Shipping",
+    date: "2026-06-14",
+    excerpt:
+      "How to evaluate a phone farm manufacturer, phone farm box SKUs, and full phone farm hardware BOM — chassis, hubs, PSU, cooling, export from Guangzhou.",
+    content: `Procurement teams search **phone farm hardware** and **phone farm manufacturer** when sourcing rackable mobile infrastructure — distinct from batch-control software vendors or cloud phone SaaS.
+
+**What counts as phone farm hardware?**
+- **Phone farm box** chassis (real phone mounts)
+- **Motherboard box** racks (headless Android nodes)
+- **USB hub server** modules (10 / 16 / 20+ port tiers on quote)
+- **PSU** and **cooling** kits sized to node load
+- **Network gear** — routers, switches, OTG Ethernet offload
+- **Custom cabinets** for room-scale **mobile device farm** projects
+- Optional **remote setup** — wiring verification and batch-control handoff
+
+**Choosing a phone farm manufacturer**
+A credible **phone farm manufacturer** should provide:
+1. **Written BOM** before payment (not surprise line items)
+2. Burn-in QC checklist for standard boxes
+3. Export packing weights and commercial invoice
+4. Clear scope — hardware only vs optional setup service
+5. MOQ transparency (we offer MOQ 1 samples on many SKUs)
+
+Phones Farm Box has assembled and exported from **Guangzhou since 2017**. We are a **phone farm box manufacturer** — not an account operator or traffic guarantee service.
+
+**Phone farm box vs accessories**
+Many buyers start with one **phone farm box** plus matched hub/PSU/cooling tier, then stack additional chassis. DIY expanders use **empty chassis** SKUs. Enterprise buyers request **custom cabinet** drawings.
+
+**Quote-first workflow**
+RFQ → configuration review → proforma → payment → assembly → QC → worldwide air/sea shipment. Reference catalog prices are not final until BOM is confirmed.
+
+[Contact for RFQ](/contact/) · [About manufacturer](/about/) · [Product catalog](/products/) · [中文站 /zh/](/zh/)`,
+  },
+  {
+    slug: "tiktok-phone-farm-android-farm-setup",
+    title: "TikTok Phone Farm & Android Farm — Hardware Setup Guide",
+    category: "Applications & Use Cases",
+    date: "2026-06-14",
+    excerpt:
+      "Build a TikTok phone farm or Android farm with real devices — chassis sizing, USB hubs, network IP planning, and phone farm hardware procurement from a manufacturer.",
+    content: `Teams planning a **TikTok phone farm** or **Android farm** need **phone farm hardware** they own — industrial chassis, stable USB trees, and per-group network routes — not scattered desk phones.
+
+**TikTok phone farm (hardware layer)**
+A **TikTok phone farm** uses real Android or iPhone nodes in **phone farm box** enclosures. Each account group can run on separate physical devices when network routes are planned per group. We supply chassis and wiring; platform policy and account operation remain buyer responsibility.
+
+**Android farm building blocks**
+1. **Phone farm box** or **motherboard box** chassis (slot count on quote)
+2. Industrial **USB hub** tier matched to node count
+3. **PSU** sized for 110V/220V destination region
+4. **Cooling** fan kit for 24/7 loaded runs
+5. Host PC with adequate USB controllers for mirrored or ADB-heavy workflows
+6. Optional **network equipment** for OTG Ethernet or segmented LAN
+
+**Mobile farm scaling**
+Start with one box to verify mount compatibility and thermals, then add chassis for **mobile device farm** density. Custom **cabinet** SKUs cover room-scale projects.
+
+**Phone farming workflow (typical)**
+- Batch control software on host PC (buyer-owned or scoped on quote)
+- Bulk APK install, scripted UI, or mirrored operations per device group
+- Proxy/residential IP planning documented on quote worksheet — buyer selects proxy provider
+
+**Manufacturer support**
+Phones Farm Box is a **phone farm manufacturer** exporting from Guangzhou — written BOM, burn-in QC, optional remote setup after delivery. MOQ 1 sample on many catalog SKUs.
+
+[Request quote](/contact/) · [TikTok scenario](/scenarios/tiktok) · [Android phone farm SKU](/products/android-phone-farm) · [Phone farm hardware glossary](/glossary/phone-farm-hardware)`,
+  },
 ];
 
 export const BLOG_CATEGORIES = [

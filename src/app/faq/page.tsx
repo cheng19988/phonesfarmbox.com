@@ -8,9 +8,9 @@ import { IMAGES } from "@/lib/images";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm FAQ — Hardware, Shipping, Payment & Support",
+  title: "Phone Farm FAQ — Phone Farming, Hardware, Shipping & Payment",
   description:
-    "MOQ, empty boxes, iPhone/Android support, packing, warranty, payment confirmation, and how to request a hardware quote.",
+    "Phone farm, phone farming, mobile farm, phone farm box, Android farm, TikTok phone farm hardware — MOQ, manufacturer info, shipping, payment, and quotes.",
   path: "/faq",
 });
 

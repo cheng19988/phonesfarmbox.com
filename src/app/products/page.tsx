@@ -14,9 +14,9 @@ import { QuoteFirstNotice } from "@/components/quote-first-notice";
 import { resolveProductCardImage } from "@/lib/resolve-product-card-image";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Box Catalog — Manufacturer Hardware & Accessories",
+  title: "Phone Farm Box Catalog — Phone Farm Hardware & Accessories",
   description:
-    "Phone farm box manufacturer catalog — Android & iPhone farm chassis, motherboard racks, 20-port USB hub servers, OTG Ethernet network gear. Control multiple devices; worldwide delivery; reference price — final quote before payment.",
+    "Phone farm hardware catalog — phone farm box, Android farm, mobile device farm chassis, motherboard racks, USB hub servers. Phone farm manufacturer from Guangzhou; reference price — final quote before payment.",
   path: "/products",
 });
 

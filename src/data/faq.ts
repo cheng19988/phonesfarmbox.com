@@ -8,9 +8,44 @@
 export const FAQ_ITEMS: FAQItem[] = [
   {
     category: "Hardware",
+    question: "What is a phone farm?",
+    answer:
+      "A phone farm is scaled infrastructure for operating many real mobile devices together — usually in phone farm box or motherboard rack chassis with unified power, USB hub wiring, cooling, and batch control from a host PC. It is hardware you rack locally, not cloud phone SaaS. Slot count and connection mode are confirmed on your written quote.",
+    productLink: "/glossary/phone-farm",
+  },
+  {
+    category: "Hardware",
+    question: "What is phone farming?",
+    answer:
+      "Phone farming means running many physical phones or Android motherboard nodes at scale from one or more control PCs using industrial phone farm hardware — chassis, hubs, PSU, and cooling. Phones Farm Box supplies that hardware layer from Guangzhou; we do not operate buyer accounts or sell virtual device subscriptions.",
+    productLink: "/blog/what-is-phone-farm-phone-farming-guide",
+  },
+  {
+    category: "Hardware",
+    question: "What is the difference between a phone farm, mobile farm, and mobile device farm?",
+    answer:
+      "These terms are often used interchangeably in procurement: a phone farm / mobile farm / mobile device farm is a rack or room of real Android or iPhone nodes under batch control. A phone farm box is one industrial chassis SKU within that farm. Multi-box projects use our real-device phone farm project BOM with layout diagram on quote.",
+    productLink: "/glossary/mobile-device-farm",
+  },
+  {
+    category: "Hardware",
+    question: "Do you sell TikTok phone farm and Android farm hardware?",
+    answer:
+      "Yes — we supply phone farm hardware for TikTok-style multi-device setups and turnkey Android farm clusters (chassis, hub tier, cooling matched to your device list). iPhone farms are a separate product line. We sell hardware only; TikTok account operation and platform outcomes are buyer responsibility.",
+    productLink: "/scenarios/tiktok",
+  },
+  {
+    category: "Hardware",
     question: "What is a phone farm box?",
     answer:
       "A phone farm box is an industrial chassis that houses multiple mobile nodes with centralized PSU, USB hub wiring, and cooling. Slot count varies by phone model and chassis variant — confirmed before quote. It replaces scattered chargers and cable clutter with one rackable unit for batch control from a host PC.",
+  },
+  {
+    category: "Hardware",
+    question: "Are you a phone farm manufacturer?",
+    answer:
+      "Yes. Phones Farm Box is a phone farm hardware manufacturer in Guangzhou (since 2017) — we assemble phone farm boxes, motherboard racks, USB hub wiring, PSU/cooling integration, burn-in QC, and export worldwide. Sales are quote-based with written BOM on proforma; we are not a cloud phone SaaS provider.",
+    productLink: "/about",
   },
   {
     category: "Hardware",

@@ -7,6 +7,18 @@ export type ZhFaqItem = {
 export const FAQ_ZH: ZhFaqItem[] = [
   {
     category: "硬件",
+    question: "Phone Farm、Mobile Farm、Mobile Device Farm 有什么区别？",
+    answer:
+      "采购语境里这些英文词常互换：指多台真机/主板节点组成的手机农场基础设施。Phone Farm Box 是其中一个工业机箱 SKU；多箱机房级项目用 real-device phone farm 项目 BOM 报价。",
+  },
+  {
+    category: "硬件",
+    question: "什么是 Phone Farm / Phone Farming？",
+    answer:
+      "Phone Farm 指规模化运行多台真机的硬件架构（机箱 + Hub + 电源 + 群控 PC）。Phone Farming 指在该硬件上批量运营设备，不是云手机 SaaS。我们供应广州出口的 phone farm hardware。",
+  },
+  {
+    category: "硬件",
     question: "什么是手机农场盒子（Phone Farm Box）？",
     answer:
       "手机农场盒子是工业级群控机箱，将多台手机/主板节点集中供电、USB 集线、主动散热，由一台电脑批量控制。替代桌面散乱充电与线材，适合 TikTok、Instagram、电商多账号与 App 测试。槽位数随机型与机箱代次在报价前确认。",

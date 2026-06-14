@@ -17,6 +17,9 @@ export const metadata = buildMetadata({
 });
 
 const ZH_GUIDES = [
+  { href: "/blog/what-is-phone-farm-phone-farming-guide", zh: "什么是 Phone Farm / Phone Farming？", en: "Phone Farm & Phone Farming Guide" },
+  { href: "/blog/phone-farm-hardware-manufacturer-guide", zh: "Phone Farm Hardware 厂家指南", en: "Phone Farm Manufacturer Guide" },
+  { href: "/blog/tiktok-phone-farm-android-farm-setup", zh: "TikTok Phone Farm · Android Farm", en: "TikTok & Android Farm Setup" },
   { href: "/blog/what-is-box-phone-farm", zh: "什么是盒子手机农场？", en: "What Is a Box Phone Farm?" },
   { href: "/blog/guangzhou-phone-farm-manufacturer-guide", zh: "广州手机农场厂家出口指南", en: "Guangzhou Manufacturer Guide" },
   { href: "/blog/phone-farm-box-manufacturer-control-multiple-devices", zh: "一台电脑控制多设备", en: "Control Multiple Devices" },

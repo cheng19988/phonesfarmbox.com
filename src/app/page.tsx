@@ -15,9 +15,9 @@ import { JsonLd } from "@/components/shared";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Box Manufacturer — Control Multiple Devices | Guangzhou",
+  title: "Phone Farm Manufacturer — Phone Farm Box & Hardware | Guangzhou",
   description:
-    "Phone farm box manufacturer — Android & iPhone farm hardware, motherboard racks, 20-port USB hub tiers, mobile device lab setups. Control multiple devices from one PC. MOQ 1 · worldwide delivery · final quote before payment.",
+    "Phone farm manufacturer & phone farm box hardware — phone farming, mobile farm, Android farm, TikTok phone farm chassis, USB hubs, mobile device lab. Control multiple devices from one PC. MOQ 1 · worldwide delivery · quote before payment.",
   path: "/",
 });
 
@@ -28,7 +28,19 @@ const TRUST_METRICS = [
   { value: "Global", label: "Air & sea export" },
 ];
 
-const HOME_FAQ = FAQ_ITEMS.slice(0, 6);
+const HOME_FAQ = FAQ_ITEMS.slice(0, 8);
+
+const SEO_KEYWORDS = [
+  "Phone Farm",
+  "Phone Farm Box",
+  "Phone Farming",
+  "Mobile Farm",
+  "Mobile Device Farm",
+  "Android Farm",
+  "TikTok Phone Farm",
+  "Phone Farm Hardware",
+  "Phone Farm Manufacturer",
+];
 
 export default async function HomePage() {
   const products = await prisma.product.findMany({
@@ -77,6 +89,40 @@ export default async function HomePage() {
           ))}
         </div>
       </PageHero>
+
+      <Section variant="muted" className="!py-10 md:!py-12">
+        <SectionHeader
+          eyebrow="Phone farm hardware"
+          title="Phone farm · phone farming · mobile device farm"
+          description="Industrial phone farm box hardware for Android farm, TikTok phone farm, and mobile device lab deployments — Guangzhou manufacturer since 2017."
+          align="center"
+          className="max-w-3xl"
+        />
+        <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto mb-8">
+          {SEO_KEYWORDS.map((kw) => (
+            <span
+              key={kw}
+              className="text-sm px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700"
+            >
+              {kw}
+            </span>
+          ))}
+        </div>
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <Link href="/blog/what-is-phone-farm-phone-farming-guide" className="text-orange-700 font-medium hover:underline">
+            What is a phone farm?
+          </Link>
+          <Link href="/blog/phone-farm-hardware-manufacturer-guide" className="text-orange-700 font-medium hover:underline">
+            Phone farm manufacturer guide
+          </Link>
+          <Link href="/blog/tiktok-phone-farm-android-farm-setup" className="text-orange-700 font-medium hover:underline">
+            TikTok phone farm setup
+          </Link>
+          <Link href="/glossary" className="text-orange-700 font-medium hover:underline">
+            Glossary
+          </Link>
+        </div>
+      </Section>
 
       <Section variant="muted">
         <SectionHeader

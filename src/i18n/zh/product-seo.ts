@@ -98,9 +98,9 @@ export function getProductSeoZh(slug: string, fallbackName: string, fallbackDesc
 
 export const PAGE_SEO_ZH = {
   home: {
-    title: "手机农场盒子厂家 — 广州群控硬件 · 一台电脑控制多设备",
+    title: "手机农场盒子厂家 — Phone Farm · Phone Farm Box · 广州群控硬件",
     description:
-      "Phones Farm Box 广州手机农场厂家 — 手机农场盒子、主板机、Android/iPhone 群控、USB Hub、电源散热。手机群控、多账号设备农场 B2B 出口；MOQ 1 · 全球发货 · 报价确认后付款。",
+      "Phones Farm Box 广州 phone farm manufacturer — 手机农场、Phone Farm Box、Phone Farming、Mobile Device Farm、Android Farm、TikTok Phone Farm 真机群控硬件。MOQ 1 · 全球发货 · 报价确认后付款。",
     heroTitle: "工业级手机农场硬件，为规模化群控而生",
     heroDesc:
       "广州手机农场盒子厂家 — 群控机箱、主板机机架、USB Hub、电源与散热。一台电脑控制多台真机；配置与交期在书面 BOM 确认后再生产。",
