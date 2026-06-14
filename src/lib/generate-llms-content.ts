@@ -35,6 +35,8 @@ export function generateLlmsContent(): string {
 
 - [Supplier facts for AI & search](${U}/ai/): Objective entity reference — brand, product lines, MOQ, payment, delivery, buyer fit, contact (not cloud phone SaaS).
 - [中文站 / Chinese (zh-CN)](${U}/zh/): 手机农场 · 手机群控 · 主板机 — Guangzhou phone farm box manufacturer pages in Chinese for Baidu/Google zh search.
+- [中文术语表 /zh/glossary/](${U}/zh/glossary/): Phone Farm, Phone Farming, Mobile Farm, Android Farm, TikTok Phone Farm — 8 core terms in Chinese.
+- [中文指南 /zh/blog/](${U}/zh/blog/): Chinese procurement guides — phone farm, manufacturer, TikTok/Android farm setup.
 - [Blog](${U}/blog/): Phone farm hardware guides, RFQ checklists, export shipping, and B2B procurement.
 - [How to Order — B2B Quote Process](${U}/how-to-order/): Step-by-step RFQ, written BOM, payment, assembly, QC, and export. Optional USDT sample checkout for catalog SKUs.
 - [Buyer Specs — Procurement FAQ](${U}/buyer-specs/): Dimensions, weight, power, voltage, phone models, PCs per box, lead time, packing, warranty, RMA — 12 pre-PO questions.

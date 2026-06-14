@@ -18,6 +18,7 @@ const NAV_ZH: NavItem[] = [
   { href: "/products", label: "产品目录" },
   { href: "/pricing", label: "报价流程" },
   { href: "/buyer-specs", label: "采购规格" },
+  { href: "/glossary", label: "术语表" },
   { href: "/scenarios", label: "应用场景" },
   { href: "/help", label: "帮助中心" },
   { href: "/blog", label: "指南文章" },

@@ -34,17 +34,23 @@ const TRUST = [
 
 const KEYWORDS_BLOCK = [
   "手机农场",
-  "Phone Farm",
-  "Phone Farm Box",
-  "Phone Farming",
-  "Mobile Farm",
-  "Mobile Device Farm",
-  "Android Farm",
-  "TikTok Phone Farm",
-  "Phone Farm Hardware",
-  "Phone Farm Manufacturer",
   "手机群控",
   "主板机",
+  "群控盒子",
+  "Phone Farm Box",
+  "Android 群控",
+  "TikTok 多账号硬件",
+  "移动设备农场",
+  "广州手机农场厂家",
+];
+
+const KEYWORD_GUIDES = [
+  { href: "/zh/blog/what-is-phone-farm-phone-farming-guide", label: "什么是手机农场？" },
+  { href: "/zh/blog/phone-farm-hardware-manufacturer-guide", label: "手机农场厂家怎么选" },
+  { href: "/zh/blog/tiktok-phone-farm-android-farm-setup", label: "TikTok / Android 群控搭建" },
+  { href: "/zh/glossary", label: "术语表（8 个核心词）" },
+  { href: "/zh/products", label: "产品目录" },
+  { href: "/zh/buyer-specs", label: "采购规格" },
 ];
 
 export default async function ZhHomePage() {
@@ -95,9 +101,9 @@ export default async function ZhHomePage() {
 
       <Section variant="muted">
         <SectionHeader
-          eyebrow="搜索关键词"
-          title="手机农场 · 手机群控 · 主板机硬件"
-          description="Phones Farm Box 供应真机群控机箱与配件，面向 TikTok、Instagram、跨境电商、App 测试等 B2B 买家。以下为行业常用检索词 — 本站为广州硬件出口商，非云手机服务。"
+          eyebrow="采购检索"
+          title="手机农场 · 手机群控 · 主板机"
+          description="Phones Farm Box 是广州 B2B 手机农场硬件出口商 — 真机群控机箱、USB Hub、电源散热，非云手机。以下为买家常用检索词与中文指南入口。"
           align="center"
           className="max-w-4xl"
         />
@@ -111,16 +117,12 @@ export default async function ZhHomePage() {
             </span>
           ))}
         </div>
-        <div className="flex flex-wrap justify-center gap-4 text-sm">
-          <Link href="/zh/blog" className="text-orange-700 font-medium hover:underline">
-            手机农场采购指南
-          </Link>
-          <Link href="/blog/what-is-phone-farm-phone-farming-guide" hrefLang="en" className="text-orange-700 font-medium hover:underline">
-            What is a phone farm? (EN)
-          </Link>
-          <Link href="/blog/tiktok-phone-farm-android-farm-setup" hrefLang="en" className="text-orange-700 font-medium hover:underline">
-            TikTok phone farm guide (EN)
-          </Link>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm max-w-2xl mx-auto">
+          {KEYWORD_GUIDES.map((g) => (
+            <Link key={g.href} href={g.href} className="text-orange-700 font-medium hover:underline">
+              {g.label}
+            </Link>
+          ))}
         </div>
       </Section>
 
